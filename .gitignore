@@ -1,0 +1,20 @@
+#ignore list of our git.
+#create by scutLaoYi in 2013-10-31
+
+#Dir
+
+/Config/
+/Lib/
+/Test/
+/Vendor/
+/webroot/
+/Console/
+/Locale/
+/Plugin/
+/tmp/
+
+#File
+
+index.php
+
+
