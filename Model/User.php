@@ -14,38 +14,38 @@ class User extends AppModel
             'username01'=>array
             (
                 'rule'=>array('custom','/^[a-zA-Z][a-zA-Z0-9]{5,19}/'),
-                'message'=>'·Ç·¨ÓÃ»§Ãû'
+                'message'=>'éžæ³•ç”¨æˆ·å'
             ),
             'unique'=>array
             (
                 'rule'=>'isUnique',
                 'on'=>'create',
-                'message'=>'ÓÃ»§ÃûÒÑ´æÔÚ'
+                'message'=>'ç”¨æˆ·åå·²å­˜åœ¨'
             )
         ),
         'password'=>array
         (
             'rule'=>array('between',6,20),
-            'message'=>'ÃÜÂë³¤¶È²»ÕýÈ·'
+            'message'=>'å¯†ç é•¿åº¦ä¸æ­£ç¡®'
         ),
         'email'=>array
         (
             'email'=>array
             (
                 'rule'=>array('email',true),
-                'message'=>'·Ç·¨ÓÊÏä'
+                'message'=>'éžæ³•é‚®ç®±'
             ),
             'unique'=>array
             (
                 'rule'=>'isUnique',
                 'on'=>'create',
-                'message'=>'ÓÊÏäÒÑ´æÔÚ'
+                'message'=>'é‚®ç®±å·²å­˜åœ¨'
             )
         ),
         'type'=>array
         (
             'rule'=>array('custom','/[123]/'),
-            'message'=>'Ã¶¾Ù´íÎó'
+            'message'=>'æžšä¸¾é”™è¯¯'
         )
     );
 }

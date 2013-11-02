@@ -7,7 +7,7 @@ class InviteBid extends AppModel
         'content'=>array
         (
             'rule'=>'notEmpty',
-            'message'=>'内容不能为空'
+            'message'=>'鍐呭涓嶈兘涓虹┖'
         )
     );
 }

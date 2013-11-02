@@ -11,7 +11,7 @@ class AdList extends AppModel
         'pic_url'=>array
         (
             'rule'=>'notEmpty',
-            'message'=>'ͼƬ����Ϊ��'
+            'message'=>'图片不能为空'
         )
     );
 }

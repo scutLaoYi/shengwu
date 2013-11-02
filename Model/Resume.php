@@ -11,104 +11,104 @@ var $validate=array
         'name'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'���ֲ���Ϊ��'
+             'message'=>'名字不能为空'
         ),
         'sex'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'�Ա���Ϊ��'
+             'message'=>'性别不能为空'
         ),
         'age'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'���䲻��Ϊ��'
+             'message'=>'年龄不能为空'
         ),
         'ethnic'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'���岻��Ϊ��'
+             'message'=>'民族不能为空'
         ),
         'hometown'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'���᲻��Ϊ��'
+             'message'=>'籍贯不能为空'
         ),
         'political'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'������ò����Ϊ��'
+             'message'=>'政治面貌不能为空'
         ),
         'address'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'��ַ����Ϊ��'
+             'message'=>'地址不能为空'
         ),
         'cellphone'=>array
         (
             'rule'=>array('custom','/^[0-9][0-9\-]{6-13}[0-9]$/'),
-             'message'=>'�绰����Ϊ��'
+             'message'=>'电话不能为空'
         ),
         'email'=>array
         (
             'rule'=>array('email',true),
-            'message'=>'�����ʽ����ȷ'
+            'message'=>'邮箱格式不正确'
         ),
         'code'=>array
         (
             'rule'=>array('custom','/^[0-9]{6}$/'),
-            'message'=>'�ʱ��ʽ����ȷ',
+            'message'=>'邮编格式不正确',
             'allowEmpty'=>true
         ),      
         'qq'=>array
         (
             'rule'=>array('custom','/^[0-9]{4,12}$/'),
-            'message'=>'QQ��ʽ����ȷ',
+            'message'=>'QQ格式不正确',
             'allowEmpty'=>true
         ),
         'salary'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'н��Ҫ����Ϊ��'
+             'message'=>'薪资要求不能为空'
         ),
         'work_type'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'�������Ͳ���Ϊ��'
+             'message'=>'工作类型不能为空'
         ),
         'post'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'Ѱ��ְλ����Ϊ��'
+             'message'=>'寻求职位不能为空'
         ),
         'work_area'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'�����ص㲻��Ϊ��'
+             'message'=>'工作地点不能为空'
         ),
         'institutions'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'��ҵԺУ����Ϊ��'
+             'message'=>'毕业院校不能为空'
         ),
         'graduation'=>array
         (
             'rule'=>'date',
-             'message'=>'��ҵʱ���ʽ����ȷ'
+             'message'=>'毕业时间格式不正确'
         ),
         'educational'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'ѧ������Ϊ��'
+             'message'=>'学历不能为空'
         ),
         'education_experience'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'������������Ϊ��'
+             'message'=>'教育经历不能为空'
         ),
         'self_evaluate'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'�������Ͳ���Ϊ��'
+             'message'=>'工作类型不能为空'
         )
 
     );

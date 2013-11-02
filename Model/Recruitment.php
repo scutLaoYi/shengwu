@@ -11,67 +11,67 @@ var $validate=array
         'job_title'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'������λΪ��'
+             'message'=>'工作岗位为空'
         ),
         'numnber'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'��Ƹ��������Ϊ��'
+             'message'=>'招聘人数不能为空'
         ),
         'sex'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'�Ա�Ҫ����Ϊ��'
+             'message'=>'性别要求不能为空'
         ),
         'age'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'����Ҫ����Ϊ��'
+             'message'=>'年龄要求不能为空'
         ),
         'educational'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'ѧ��Ҫ����Ϊ��'
+             'message'=>'学历要求不能为空'
         ),
         'work_type'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'��������Ҫ����Ϊ��'
+             'message'=>'工作类型要求不能为空'
         ),
         'work_time'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'��������Ҫ����Ϊ��'
+             'message'=>'工作年限要求不能为空'
         ),
         'work_area'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'�����ص㲻��Ϊ��'
+             'message'=>'工作地点不能为空'
         ),
         'salary'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'���ʲ���Ϊ��'
+             'message'=>'工资不能为空'
         ),
         'deadline'=>array
         (
             'rule'=>'date',
-             'message'=>'ʱ���ʽ����ȷ'
+             'message'=>'时间格式不正确'
         ),
         'detail'=>array
         (
             'rule'=>'notEmpty',
-             'message'=>'��λ���岻��Ϊ��'
+             'message'=>'岗位具体不能为空'
         ),
         'email'=>array
         (
             'rule'=>array('email',true),
-            'message'=>'�����ʽ����ȷ'
+            'message'=>'邮箱格式不正确'
         ),
         'phone'=>array
         (
             'rule'=>array('custom','/^[0-9][0-9\-]{6-13}[0-9]$/'),
-            'message'=>'�����ʽ����ȷ'
+            'message'=>'号码格式不正确'
         )  
     );
 }

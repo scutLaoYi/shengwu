@@ -21,49 +21,49 @@ class CompanyUserInfo extends AppModel
         'company'=>array
         (
             'rule'=>'notEmpty',
-            'message'=>'¹«Ë¾Ãû²»ÄÜÎª¿Õ'
+            'message'=>'å…¬å¸åä¸èƒ½ä¸ºç©º'
         ),
         'contact_person'=>array
         (
             'rule'=>'notEmpty',
-            'message'=>'ÁªÏµÈË²»ÄÜÎª¿Õ'
+            'message'=>'è”ç³»äººä¸èƒ½ä¸ºç©º'
         ),      
         'contact_number'=>array
         (
             'rule'=>array('custom','/^[0-9][0-9\-]{6-13}[0-9]$/'),
-            'message'=>'ÁªÏµÈËºÅÂë¸ñÊ½²»ÕıÈ·'
+            'message'=>'è”ç³»äººå·ç æ ¼å¼ä¸æ­£ç¡®'
         ),      
         'fax'=>array
         (
             'rule'=>array('custom','/^[0-9][0-9\-]{6-15}[0-9]$/'),
-            'message'=>'´«ÕæºÅÂë¸ñÊ½²»ÕıÈ·',
+            'message'=>'ä¼ çœŸå·ç æ ¼å¼ä¸æ­£ç¡®',
             'allowEmpty'=>true
         ),      
         'province'=>array
         (
             'rule'=>'notEmpty',
-            'message'=>'Ê¡·İ²»ÄÜÎª¿Õ'
+            'message'=>'çœä»½ä¸èƒ½ä¸ºç©º'
         ),      
         'address'=>array
         (
             'rule'=>'notEmpty',
-            'message'=>'µØÖ·²»ÄÜÎª¿Õ'
+            'message'=>'åœ°å€ä¸èƒ½ä¸ºç©º'
         ),      
         'code'=>array
         (
             'rule'=>array('custom','/^[0-9]{6}$/'),
-            'message'=>'ÓÊ±à¸ñÊ½²»ÕıÈ·'
+            'message'=>'é‚®ç¼–æ ¼å¼ä¸æ­£ç¡®'
         ),      
         'qq'=>array
         (
             'rule'=>array('custom','/^[0-9]{4,12}$/'),
-            'message'=>'QQ¸ñÊ½²»ÕıÈ·',
+            'message'=>'QQæ ¼å¼ä¸æ­£ç¡®',
             'allowEmpty'=>true
         ),      
         'website'=>array
         (
             'rule'=>array('custom','/[a-zA-Z]+://[^\s]*/'),
-            'message'=>'¹«Ë¾ÍøÕ¾¸ñÊ½²»ÕıÈ·',
+            'message'=>'å…¬å¸ç½‘ç«™æ ¼å¼ä¸æ­£ç¡®',
             'allowEmpty'=>true
         )      
     );

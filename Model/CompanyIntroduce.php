@@ -11,37 +11,37 @@ class CompanyIntroduce extends AppModel
         'economic_nature'=>array
         (
             'rule'=>'notEmpty',
-            'message'=>'公司经济性质不能为空'
+            'message'=>'鍏徃缁忔祹鎬ц川涓嶈兘涓虹┖'
         ),      
         'business_type'=>array
         (
             'rule'=>'notEmpty',
-            'message'=>'公司经营模式不能为空'
+            'message'=>'鍏徃缁忚惀妯″紡涓嶈兘涓虹┖'
         ),      
         'legal_respresentative'=>array
         (
             'rule'=>'notEmpty',
-            'message'=>'法人代表不能为空'
+            'message'=>'娉曚汉浠ｈ〃涓嶈兘涓虹┖'
         ),      
         'business_scope'=>array
         (
             'rule'=>'notEmpty',
-            'message'=>'经营范围不能为空'
+            'message'=>'缁忚惀鑼冨洿涓嶈兘涓虹┖'
         ),      
         'registered_capital'=>array
         (
             'rule'=>'notEmpty',
-            'message'=>'注册地区不能为空'
+            'message'=>'娉ㄥ唽鍦板尯涓嶈兘涓虹┖'
         ),      
         'employees_number'=>array
         (
             'rule'=>'notEmpty',
-            'message'=>'员工人数不能为空'
+            'message'=>'鍛樺伐浜烘暟涓嶈兘涓虹┖'
         ),      
         'introduce'=>array
         (
             'rule'=>'notEmpty',
-            'message'=>'公司介绍不能为空'
+            'message'=>'鍏徃浠嬬粛涓嶈兘涓虹┖'
         )
 
     );
