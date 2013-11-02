@@ -16,5 +16,7 @@
 #File
 
 index.php
+*.php~
+*/php~
 
 
