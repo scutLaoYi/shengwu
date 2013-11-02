@@ -1,0 +1,74 @@
+<?php
+
+class ProxyInfo extends AppModel
+{
+	var $belongsTo=array
+		(
+			'CompanyUserInfo'=>array('className'=>'CompanyUserInfo')
+		);
+	var $validate=array
+		(
+			'product_name'=>array
+			(
+				'rule'=>'notEmpty',
+				'message'=>'不能为空'
+			),
+			'product_code'=>array
+			(
+				'rule'=>'notEmpty',
+				'message'=>'不能为空'
+			),       
+			'product_area'=>array
+			(
+				'rule'=>'notEmpty',
+				'message'=>'不能为空'
+			),       
+			'product_unit'=>array
+			(
+				'rule'=>'notEmpty',
+				'message'=>'不能为空'
+			),       
+			'product_introduce'=>array
+			(
+				'rule'=>'notEmpty',
+				'message'=>'不能为空'
+			),
+			'phone'=>array
+			(
+				'rule'=>array('custom','/^[0-9][0-9\-]{6-13}[0-9]$/'),
+			 'message'=>'电话格式不正确'
+		 ),       
+		 'qq'=>array
+		 (
+			 'rule'=>array('custom','/^[0-9]{5,13}$/'),
+			 'message'=>'QQ格式不正确'
+		 ),       
+		 'product_type'=>array
+		 (
+			 'rule'=>array('custom','/^[123]$/'),
+			 'message'=>'产品类型格式不正确'
+		 ),       
+		 'function'=>array
+		 (
+			 'rule'=>array('custom','/^[0-9]{1,3}$/'),
+			 'message'=>'功能类型格式不正确'
+		 ),       
+		 'deparyment'=>array
+		 (
+			 'rule'=>array('custom','/^[0-9]{1,3}$/'),
+			 'message'=>'科室类型格式不正确'
+		 ),       
+		 'material'=>array
+		 (
+			 'rule'=>array('custom','/^[0-9]{1,3}$/'),
+			 'message'=>'材料类型格式不正确'
+		 ),         
+		 'deadline'=>array
+		 (
+			 'rule'=>'notEmpty',
+			 'message'=>'日期不能为空！'
+		 ),       
+	 );
+}
+
+?>
