@@ -15,7 +15,7 @@ class ProxyInfo extends AppModel
         ),
        'product_code'=>array
         (
-            'rule'=>'notEmpty',
+            'rule'=>'notEmpty'
             'message'=>'产品编号不能为空'
         ),      
         'product_area'=>array

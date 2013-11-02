@@ -7,14 +7,14 @@ class User extends AppModel
          'CompanyUserInfo'=>array('className'=>'CompanyUserInfo',),
          'Resume'=>array('className'=>'Resume',)
      );
-    var $validate=array
+   var $validate=array
     (
         'username'=>array
         (
             'username01'=>array
             (
                 'rule'=>array('custom','/^[a-zA-Z][a-zA-Z0-9]{5,19}/'),
-                'message'=>'fuck szy~!'
+                'message'=>'非法用户名'
             ),
             'unique'=>array
             (
@@ -50,5 +50,5 @@ class User extends AppModel
     );
 }
 
-//测试git
+
 ?>

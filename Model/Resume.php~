@@ -64,7 +64,7 @@ var $validate=array
             'rule'=>array('custom','/^[0-9]{4,12}$/'),
             'message'=>'QQ格式不正确',
             'allowEmpty'=>true
-        ),
+        )
         'salary'=>array
         (
             'rule'=>'notEmpty',

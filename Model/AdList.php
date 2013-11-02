@@ -6,6 +6,14 @@ class AdList extends AppModel
 		(
 			'CompanyUserInfo'=>array('CompanyUserInfo')
 		);
+ var $validate=array
+    (
+        'pic_url'=>array
+        (
+            'rule'=>'notEmpty',
+            'message'=>'Í¼Æ¬²»ÄÜÎª¿Õ'
+        )
+    );
 }
 
 ?>

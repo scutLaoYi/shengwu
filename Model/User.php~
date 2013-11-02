@@ -2,12 +2,12 @@
 
 class User extends AppModel
 {
-    /*var $hasOne=array
+    var $hasOne=array
      (
          'CompanyUserInfo'=>array('className'=>'CompanyUserInfo',),
          'Resume'=>array('className'=>'Resume',)
-     );*/
-    var $validate=array
+     );
+        var $validate=array
     (
         'username'=>array
         (
@@ -49,5 +49,6 @@ class User extends AppModel
         )
     );
 }
+
 
 ?>

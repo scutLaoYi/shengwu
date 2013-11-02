@@ -14,7 +14,7 @@ class FriendlyLink extends AppModel
             'rule'=>'notEmpty',
              'message'=>'链接不能为空'
         )
-    );
+    )；
 }
 
 ?>

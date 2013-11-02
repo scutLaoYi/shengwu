@@ -3,9 +3,9 @@ class CompanyUserInfo extends AppModel
 {
  var $belongsTo=array
         (
-            'CompanyUserInfo'=>array('className'=>'User',)
+            'User'=>array('className'=>'User',)
         );
-   /* var $hasOne=array
+    var $hasOne=array
         (
              'CompanyIntroduce'=>array('className'=>'CompanyIntroduce',)
         );
@@ -15,7 +15,7 @@ class CompanyUserInfo extends AppModel
             'Recruitment'=>array('className'=>'Recruitment',),
             'AdList'=>array('className'=>'AdList',)
         );
-*/
+
     var $validate=array
     (
         'company'=>array
