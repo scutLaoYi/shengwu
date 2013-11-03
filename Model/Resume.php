@@ -7,11 +7,20 @@ class Resume extends AppModel
 		'User'=>array('User')
 	);
 var $validate=array
-    (
+	(
+	'user_id'=>array
+	(
+		'unique'=>array
+		(
+			'rule'=>'isUnique',
+			'on'=>'create',
+			'message'=>'只能关联一个用户'
+		)
+	),
         'name'=>array
         (
-            'rule'=>'notEmpty',
-             'message'=>'名字不能为空'
+            'rule'=>array('between',1,10),
+             'message'=>'名字长度为（1-10）'
         ),
         'sex'=>array
         (
@@ -20,13 +29,13 @@ var $validate=array
         ),
         'age'=>array
         (
-            'rule'=>'notEmpty',
-             'message'=>'年龄不能为空'
+            'rule'=>'/^(?:[1-9][0-9]?|1[01][0-9]|120)$/',
+             'message'=>'年龄输入格式错误，请输入数字年龄'
         ),
         'ethnic'=>array
         (
-            'rule'=>'notEmpty',
-             'message'=>'民族不能为空'
+            'rule'=>array('between',1,10),
+             'message'=>'民族长度为1-10'
         ),
         'hometown'=>array
         (
@@ -40,13 +49,13 @@ var $validate=array
         ),
         'address'=>array
         (
-            'rule'=>'notEmpty',
-             'message'=>'地址不能为空'
+          'rule'=>array('between',1,120),
+             'message'=>'地址长度不正确，长度为1-120'
         ),
         'cellphone'=>array
         (
-            'rule'=>array('custom','/^[0-9][0-9\-]{6-13}[0-9]$/'),
-             'message'=>'电话不能为空'
+            'rule'=>array('custom','/((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)/'),
+             'message'=>'电话格式不正确'
         ),
         'email'=>array
         (
@@ -77,18 +86,23 @@ var $validate=array
         ),
         'post'=>array
         (
-            'rule'=>'notEmpty',
-             'message'=>'寻求职位不能为空'
+            'rule'=>array('between',1,100),
+             'message'=>'寻求职位长度不正确，长度为1-100'
         ),
         'work_area'=>array
         (
-            'rule'=>'notEmpty',
-             'message'=>'工作地点不能为空'
+            'rule'=>array('between',1,100),
+             'message'=>'工作地点长度不正确，长度为1-100'
         ),
+		'work_time'=>array
+		(
+		'rule'=>'notEmpty',
+	      'message'=>'工作年限不能为空'
+		),
         'institutions'=>array
         (
-            'rule'=>'notEmpty',
-             'message'=>'毕业院校不能为空'
+            'rule'=>array('between',1,30),
+             'message'=>'毕业院校长度不正确，长度1-30'
         ),
         'graduation'=>array
         (
@@ -100,15 +114,45 @@ var $validate=array
             'rule'=>'notEmpty',
              'message'=>'学历不能为空'
         ),
+		'profession'=>array
+		(
+	     'rule'=>array('maxLength',20),
+	     'message'=>'长度不能超过20',
+	     'allowEmpty'=>true
+		),
+		'foreign_language'=>array
+		(
+	     'rule'=>array('maxLength',20),
+	     'message'=>'长度不能超过20',
+	     'allowEmpty'=>true
+		),
         'education_experience'=>array
         (
-            'rule'=>'notEmpty',
-             'message'=>'教育经历不能为空'
+            'rule'=>array('between',1,600),
+             'message'=>'教育经历长度不正确，最多不能超过600'
         ),
+		'working_experience'=>array
+		(
+	     'rule'=>array('maxLength',600),
+	     'message'=>'长度不能超过600',
+	     'allowEmpty'=>true
+		),
+		'working_result'=>array
+		(
+	     'rule'=>array('maxLength',600),
+	     'message'=>'长度不能超过600',
+	     'allowEmpty'=>true
+		),
+		'professional_technique'=>array
+		(
+	     'rule'=>array('maxLength',600),
+	     'message'=>'长度不能超过600',
+	     'allowEmpty'=>true
+		),
         'self_evaluate'=>array
         (
-            'rule'=>'notEmpty',
-             'message'=>'工作类型不能为空'
+            'rule'=>array('between',1,600),
+             'message'=>'自我评价长度不正确，最多不能超过600'
         )
 
     );

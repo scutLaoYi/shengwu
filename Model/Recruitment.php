@@ -10,13 +10,13 @@ var $validate=array
     (
         'job_title'=>array
         (
-            'rule'=>'notEmpty',
-             'message'=>'工作岗位为空'
+            'rule'=>array('between',1,50),
+             'message'=>'工作岗位长度为1-50'
         ),
-        'numnber'=>array
+        'number'=>array
         (
-            'rule'=>'notEmpty',
-             'message'=>'招聘人数不能为空'
+            'rule'=>array('custom','/^[0-9]*[1-9][0-9]*$/'),
+             'message'=>'招聘人数为数字类型'
         ),
         'sex'=>array
         (
@@ -25,29 +25,43 @@ var $validate=array
         ),
         'age'=>array
         (
-            'rule'=>'notEmpty',
-             'message'=>'年龄要求不能为空'
+            'rule'=>array('maxLength',20),
+			'message'=>'长度不能超过20',
+			'allowEmpty'=>true
         ),
         'educational'=>array
         (
             'rule'=>'notEmpty',
              'message'=>'学历要求不能为空'
         ),
-        'work_type'=>array
+        'working_type'=>array
         (
             'rule'=>'notEmpty',
              'message'=>'工作类型要求不能为空'
         ),
-        'work_time'=>array
+        'working_time'=>array
         (
-            'rule'=>'notEmpty',
-             'message'=>'工作年限要求不能为空'
+            'rule'=>array('maxLength',20),
+			'message'=>'工作年限长度不能超过20',
+			'allowEmpyu'=>true
         ),
-        'work_area'=>array
+        'working_area'=>array
         (
-            'rule'=>'notEmpty',
-             'message'=>'工作地点不能为空'
-        ),
+            'rule'=>array('between',1,50),
+             'message'=>'工作地点长度不能超过50'
+		 ),
+		 'account_required'=>array
+		 (
+			 'rule'=>array('maxLength',20),
+			 'message'=>'长度不能超过20',
+			 'allowEmpty'=>true
+		 ),
+		 'language_required'=>array
+		 (
+			 'rule'=>array('maxLength',40),
+			 'message'=>'长度不能超过40',
+			 'allowEmpty'=>true
+		 ),
         'salary'=>array
         (
             'rule'=>'notEmpty',
@@ -60,8 +74,8 @@ var $validate=array
         ),
         'detail'=>array
         (
-            'rule'=>'notEmpty',
-             'message'=>'岗位具体不能为空'
+            'rule'=>array('between',1,500),
+             'message'=>'岗位具体不能为空,长度为1-500'
         ),
         'email'=>array
         (
@@ -70,7 +84,7 @@ var $validate=array
         ),
         'phone'=>array
         (
-            'rule'=>array('custom','/^[0-9][0-9\-]{6-13}[0-9]$/'),
+            'rule'=>array('custom','/((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)/'),
             'message'=>'号码格式不正确'
         )  
     );

@@ -3,7 +3,11 @@ class CompanyUserInfo extends AppModel
 {
  var $belongsTo=array
         (
-            'User'=>array('className'=>'User',)
+			'User'=>array
+			(
+				'className'=>'User',
+				'foreignKey'=>'user_id'
+			)
         );
     var $hasOne=array
         (
@@ -18,24 +22,33 @@ class CompanyUserInfo extends AppModel
 
    var $validate=array
     (
+		'user_id'=>array
+		(
+			'unique'=>array
+			(
+				'rule'=>'isUnique',
+				'on'=>'create',
+				'message'=>'只能关联一个用户'
+			)
+		),
         'company'=>array
         (
-            'rule'=>'notEmpty',
-            'message'=>'公司名不能为空'
+            'rule'=>array('between',1,40),
+            'message'=>'公司名格式错误（长度为1-40）'
         ),
         'contact_person'=>array
         (
-            'rule'=>'notEmpty',
-            'message'=>'联系人不能为空'
+            'rule'=>array('between',1,10),
+            'message'=>'联系人格式错误（长度1-10）'
         ),      
         'contact_number'=>array
         (
-            'rule'=>array('custom','/^[0-9][0-9\-]{6-13}[0-9]$/'),
+	     'rule'=>array('custom','/((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)/'),
             'message'=>'联系人号码格式不正确'
         ),      
         'fax'=>array
         (
-            'rule'=>array('custom','/^[0-9][0-9\-]{6-15}[0-9]$/'),
+            'rule'=>array('custom','/((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)/'),
             'message'=>'传真号码格式不正确',
             'allowEmpty'=>true
         ),      
@@ -46,7 +59,7 @@ class CompanyUserInfo extends AppModel
         ),      
         'address'=>array
         (
-            'rule'=>'notEmpty',
+            'rule'=>array('between',1,120),
             'message'=>'地址不能为空'
         ),      
         'code'=>array
@@ -62,7 +75,7 @@ class CompanyUserInfo extends AppModel
         ),      
         'website'=>array
         (
-            'rule'=>array('custom','/[a-zA-Z]+://[^\s]*/'),
+			'rule'=>array('custom','/[a-zA-Z]+:\/\/[^\s]*/'),
             'message'=>'公司网站格式不正确',
             'allowEmpty'=>true
         )      

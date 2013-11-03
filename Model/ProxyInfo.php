@@ -10,32 +10,45 @@ class ProxyInfo extends AppModel
     (
        'product_name'=>array
         (
-            'rule'=>'notEmpty',
-            'message'=>'产品名不能为空'
+            'rule'=>array('between',1,20),
+            'message'=>'产品名称长度不正确，长度1-20'
         ),
        'product_code'=>array
         (
-            'rule'=>'notEmpty',
+            'rule'=>array('between',1,50),
             'message'=>'产品编号不能为空'
         ),      
         'product_area'=>array
         (
-            'rule'=>'notEmpty',
-            'message'=>'代理地区不能为空'
+            'rule'=>array('between',1,200),
+            'message'=>'代理地区最长为200'
         ),      
         'product_unit'=>array
         (
-            'rule'=>'notEmpty',
-            'message'=>'产品单位不能为空'
+            'rule'=>array('between',1,50),
+            'message'=>'产品单位不能超过50'
         ),      
         'product_introduce'=>array
         (
-            'rule'=>'notEmpty',
-            'message'=>'产品介绍不能为空'
+            'rule'=>array('between',1,500),
+            'message'=>'产品介绍不能超过500'
         ),
+	'product_claim'=>array
+	(
+	    'rule'=>array('maxLength',200),
+	    'message'=>'长度不能超过200',
+	     'allowEmpty'=>true
+	),
+	
+	'product_support'=>array
+	(
+	    'rule'=>array('maxLength',300),
+	    'message'=>'长度不能超过300',
+	     'allowEmpty'=>true
+	),
         'phone'=>array
         (
-            'rule'=>array('custom','/^[0-9][0-9\-]{6-13}[0-9]$/'),
+            'rule'=>array('custom','/((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)/'),
              'message'=>'电话格式不正确'
         ),      
         'qq'=>array
@@ -53,7 +66,7 @@ class ProxyInfo extends AppModel
             'rule'=>array('custom','/^[0-9]{1,3}$/'),
              'message'=>'功能类型格式不正确'
         ),      
-        'deparyment'=>array
+        'department'=>array
         (
             'rule'=>array('custom','/^[0-9]{1,3}$/'),
              'message'=>'科室类型格式不正确'

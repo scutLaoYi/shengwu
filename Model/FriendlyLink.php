@@ -6,8 +6,8 @@ class FriendlyLink extends AppModel
     (
         'link_name'=>array
         (
-            'rule'=>'notEmpty',
-             'message'=>'链接名字不能为空'
+            'rule'=>array('between',1,40),
+             'message'=>'链接名字不能超过40'
         ),
         'link_url'=>array
         (

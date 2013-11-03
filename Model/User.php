@@ -4,8 +4,14 @@ class User extends AppModel
 {
     var $hasOne=array
      (
-         'CompanyUserInfo'=>array('className'=>'CompanyUserInfo',),
-         'Resume'=>array('className'=>'Resume',)
+		 'CompanyUserInfo'=>array
+		 (
+			 'className'=>'CompanyUserInfo',
+		 ),
+		 'Resume'=>array
+		 (
+			 'className'=>'Resume',
+		 )
      );
    var $validate=array
     (
@@ -13,8 +19,8 @@ class User extends AppModel
         (
             'username01'=>array
             (
-                'rule'=>array('custom','/^[a-zA-Z][a-zA-Z0-9]{5,19}/'),
-                'message'=>'非法用户名'
+                'rule'=>array('custom','/^[a-zA-Z][a-zA-Z0-9]{5,19}$/'),
+                'message'=>'非法用户名(长度6-20位，由字母和数字组成，字母开头)'
             ),
             'unique'=>array
             (
@@ -26,7 +32,7 @@ class User extends AppModel
         'password'=>array
         (
             'rule'=>array('between',6,20),
-            'message'=>'密码长度不正确'
+            'message'=>'密码长度不正确(6-20)'
         ),
         'email'=>array
         (
