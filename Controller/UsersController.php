@@ -13,6 +13,8 @@ class UsersController extends AppController {
  *
  * @var array
  */
+	public $helpers = array('Html','Form'); //added by GentleH
+
 	public $components = array('Paginator');
 
 /**
@@ -100,4 +102,51 @@ class UsersController extends AppController {
 			$this->Session->setFlash(__('The user could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+
+/*This is edited by GentleH */
+
+/* user login */
+	public function login() {
+		if($this->request->is('post')) {
+			if($this->Auth->user('id')) {
+				$this->Session->setFlash(__('你的帐号已登录，无须重复登录'));
+				return $this->redirect(array('controller'=>'Users','action'=>'index'));
+			}
+			if($this->Auth->login())
+			{
+				$this->Session->write('user',$this->data['User']['username']);
+				return $this->redirect(array('controller'=>'Users','action'=>'index'));
+			}
+			$this->Session->setFlash(__('帐号或密码有误，请重试'));
+		}
+	}
+
+/* user logout */
+	public function logout() {
+		$this->Session->delete('user');
+		$this->Auth->logout();
+		return $this->redirect(array('controller'=>'Users','action'=>'index'));
+	}
+
+/*personal user register*/
+	public function personal_register() {
+		if($this->request->is('post')) {
+			if($this->request->data['User']['password'] == $this->request->data['User']['confirm_password']) {
+				$newUser['username'] = $this->request->data['User']['username'];
+				$newUser['password'] = $this->request->data['User']['password'];
+				$newUser['email'] = $this->request->data['User']['email'];
+				$newUser['type'] = '2';
+				if($this->User->save($newUser)) {
+					$this->Session->setFlash(__('恭喜你，你的帐号注册成功'));
+					return $this->redirect(array('controller'=>'Users','action'=>'index'));
+				} else {
+					$this->Session->setFlash(__('当前注册信息有误，请重试'));
+				}
+			} else {
+				$this->Session->setFlash(__('密码确认不一致'));
+			}
+		}
+	}
+
+}

@@ -1,5 +1,7 @@
 <?php
 
+App::uses('AuthComponent','Controller/Component');
+
 class User extends AppModel
 {
     var $hasOne=array
@@ -53,7 +55,14 @@ class User extends AppModel
             'rule'=>array('custom','/[123]/'),
             'message'=>'枚举错误'
         )
-    );
+	);
+
+	public function beforeSave($options = array()) {
+		if(isset($this->data[$this->alias]['password'])) {
+			$this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
+			return true;
+		}
+	}
 }
 
 
