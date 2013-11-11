@@ -75,7 +75,16 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
-	
+<?php 
+		echo '友情链接：';
+		$links = $this->requestAction('/FriendlyLinks/list_link');
+		foreach($links as $onelink)
+		{
+			$currentName =  $onelink['FriendlyLink']['link_name'];
+			$currentUrl = $onelink['FriendlyLink']['link_url'];
+			echo $this->Html->link($currentName,$currentUrl);
+		}
+?>
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
