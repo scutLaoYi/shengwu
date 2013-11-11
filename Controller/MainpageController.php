@@ -6,9 +6,10 @@ class MainpageController extends AppController
 {
 
 	public $components = array('Paginator');
+	public $uses = array('AdList');
 
 	public function index()
 	{
-		//nothing..
+		$this->set('advertise', $this->AdList->find('all'));
 	}
 }
