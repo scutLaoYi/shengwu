@@ -40,8 +40,34 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
+			<h1>这里放置网站标题和logo</h1>
 		</div>
+
+<!-- start of menubar -->
+
+<div id="menubar">
+ 			<ul id="menu">
+			<li><?php echo $this->Html->link('主页', array('controller'=>'Posts', 'action'=>'index')); ?></li>
+			  <li><a href="">公司</a>
+			  </li>
+			  <li><a href="">代理</a>
+				<ul>
+					<li><a href="">耗材</a></li>
+					<li><a href="">医药</a></li>
+					<li><a href="">器械</a></li>
+				</ul>
+			  </li>
+				<li><a href="">招聘</a></li>
+				<li><a href="">招标</a></li>
+				<li><a href="">论坛</a></li>
+				<li><a href="">关于我们</a></li>
+				<li><a href="">广告招租</a></li>
+			
+			</ul>
+		</div>
+
+<!-- end of menubar -->
+
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
@@ -49,12 +75,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
+	
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>

@@ -7,7 +7,6 @@
 /Lib/
 /Test/
 /Vendor/
-/webroot/
 /Console/
 /Locale/
 /Plugin/
@@ -15,8 +14,7 @@
 
 #File
 
-index.php
 *.php~
-*/php~
-
+*.ctp~
+*.css~
 
