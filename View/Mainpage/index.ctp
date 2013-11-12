@@ -5,7 +5,7 @@
 <?php
 for($id = 1; $id < 41; $id++)
 {
-	echo $this->Html->image('cake.icon.png');
+	echo $this->Html->image('ad.png', array('width' => '150'));
 	if($id % 8 == 0)
 	{
 		echo '<br/>';
@@ -43,7 +43,7 @@ for($id = 1; $id < 41; $id++)
 <?php
 for($id = 41; $id < 81; $id++)
 {
-	echo $this->Html->image('cake.power.gif');
+	echo $this->Html->image('ad.png', array('width'=>'150'));
 	if($id % 8 == 0)
 	{
 		echo '<br/>';

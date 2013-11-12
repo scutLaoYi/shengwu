@@ -28,6 +28,10 @@ body {
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:90%;
 	margin: 0;
+
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
 }
 a {
 	color: #003d4c;
@@ -115,20 +119,25 @@ p {
 
 /** menubar **/
 #menubar{
-	background:#FFFFFF;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	
 }
 #menubar ul {
   font-family: Arial, Verdana;
-  font-size: 14px;
+  font-size: 18px;
   margin: 0;
   padding: 0;
   list-style: none;
+
 }
 
 #menubar ul li {
   display: block;
   position: relative;
   float: left;
+
 }
 #menubar li ul { display: none; }
 #menubar ul li a {
