@@ -40,6 +40,21 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <body>
 	<div id="container">
 		<div id="header">
+			<ul>
+				<li><?php 
+					if($this->Session->check('user')) {
+						echo $this->Session->read('user');
+						echo ' | ';
+						echo $this->Html->link('退出登录',array('controller'=>'Users','action'=>'logout'));
+					}
+					else {
+						echo $this->Html->link('登录',array('controller'=>'Users','action'=>'login'));
+						echo ' | ';
+						echo $this->Html->link('注册',array('controller'=>'Users','action'=>'personal_register'));
+					}
+					?>
+				</li>	
+			</ul>
 			<h1>这里放置网站标题和logo</h1>
 		</div>
 
@@ -87,6 +102,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 ?>
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php echo $this->element('sql_dump'); ?> 
 </body>
 </html>
