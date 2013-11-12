@@ -149,4 +149,11 @@ class UsersController extends AppController {
 		}
 	}
 
+/*beforeFilter function for usersController. scutLaoYi*/
+
+	public function beforeFilter(){
+		$this->Auth->allow('logout','personal_register');
+		parent::beforeFilter();
+	}
+
 }

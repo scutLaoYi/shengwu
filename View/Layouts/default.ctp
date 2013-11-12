@@ -47,7 +47,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
 <div id="menubar">
  			<ul id="menu">
-			<li><?php echo $this->Html->link('主页', array('controller'=>'Posts', 'action'=>'index')); ?></li>
+			<li><?php echo $this->Html->link('主页', array('controller'=>'Mainpage', 'action'=>'index')); ?></li>
 			  <li><a href="">公司</a>
 			  </li>
 			  <li><a href="">代理</a>

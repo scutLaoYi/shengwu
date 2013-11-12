@@ -49,7 +49,7 @@ class AppController extends Controller {
 	}
 
 	public function beforeFilter() {
-		$this->Auth->allow('index','logout','personal_register');
+		$this->Auth->allow('index');
 	}
 }
 

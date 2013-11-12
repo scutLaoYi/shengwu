@@ -114,4 +114,9 @@ class FriendlyLinksController extends AppController {
 		return $linkArray;
 		
 	}
+
+	public function beforeFilter(){
+		$this->Auth->allow('list_link');
+		parent::beforeFilter();
+	}
 }
