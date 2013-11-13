@@ -10,4 +10,4 @@
 	?>
 </fieldset>
 <?php echo $this->Form->end(__('提交')); ?>
-
+</div>

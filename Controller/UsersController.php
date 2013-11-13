@@ -111,12 +111,12 @@ class UsersController extends AppController {
 		if($this->request->is('post')) {
 			if($this->Auth->user('id')) {
 				$this->Session->setFlash(__('你的帐号已登录，无须重复登录'));
-				return $this->redirect(array('controller'=>'Users','action'=>'index'));
+				return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
 			}
 			if($this->Auth->login())
 			{
 				$this->Session->write('user',$this->data['User']['username']);
-				return $this->redirect(array('controller'=>'Users','action'=>'index'));
+				return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
 			}
 			$this->Session->setFlash(__('帐号或密码有误，请重试'));
 		}
@@ -126,7 +126,7 @@ class UsersController extends AppController {
 	public function logout() {
 		$this->Session->delete('user');
 		$this->Auth->logout();
-		return $this->redirect(array('controller'=>'Users','action'=>'index'));
+		return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
 	}
 
 /*personal user register*/
@@ -139,7 +139,7 @@ class UsersController extends AppController {
 				$newUser['type'] = '2';
 				if($this->User->save($newUser)) {
 					$this->Session->setFlash(__('恭喜你，你的帐号注册成功'));
-					return $this->redirect(array('controller'=>'Users','action'=>'index'));
+					return $this->redirect(array('controller'=>'Users','action'=>'login'));
 				} else {
 					$this->Session->setFlash(__('当前注册信息有误，请重试'));
 				}
