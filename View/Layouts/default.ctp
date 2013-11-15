@@ -50,7 +50,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 					else {
 						echo $this->Html->link('登录',array('controller'=>'Users','action'=>'login'));
 						echo ' | ';
-						echo $this->Html->link('注册',array('controller'=>'Users','action'=>'personal_register'));
+						echo $this->Html->link('个人注册',array('controller'=>'Users','action'=>'personal_register'));
+						echo ' | ';
+						echo $this->Html->link('企业注册', array('controller'=>'CompanyUserInfos', 'action'=>'company_register'));
 					}
 					?>
 				</li>	

@@ -117,24 +117,12 @@ class CompanyUserInfosController extends AppController {
 			{
 				
 				$this->request->data['User']['type'] = 1;
-				$this->User->set($this->request->data);
-				if($this->User->validates() )
+				if($this->User->saveAssociated($this->request->data))
 				{
-					$this->CompanyUserInfo->set($this->request->data);
-					if($this->CompanyUserInfo->validates())
-					{
-
-						$user = $this->User->save($this->request->data);
-						if(!empty($user))
-						{
-							$this->request->data['CompanyUserInfo']['user_id'] = $this->User->id;
-							$province_id=$this->request->data['CompanyUserInfo']['province'];
-							$this->request->data['CompanyUserInfo']['province']=$allprovince[$province_id];
-							$this->User->CompanyUserInfo->save($this->request->data);
-							return 	$this->redirect(array('controller'=>'Users','action'=>'login'));
-						}
-					}
+					$this->Session->setFlash(__('企业用户注册成功！'));
+					$this->redirect(array('controller'=>'Users', 'action'=>'login'));
 				}
+
 			}
 			else 
 			{
