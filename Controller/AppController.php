@@ -35,21 +35,20 @@ class AppController extends Controller {
 	public $components = array(
 		'Session',
 		'Auth' => array(
-			'loginRedirect'=>array('controller'=>'Users','action'=>'index'),
-			'logoutRedirect'=>array('controller'=>'Users','action'=>'index'),
+			'loginRedirect'=>array('controller'=>'Mainpage','action'=>'index'),
+			'logoutRedirect'=>array('controller'=>'Mainpage','action'=>'index'),
 			'authorize'=>array('Controller')
 		)
 	);
 
 	public function isAuthorized($user) {
-		if(isset($user['role']) && $user['role'] === 'admin') {
+		if(isset($user['type']) && $user['type'] === '3') {
 			return true;
 		}
 		return false;
 	}
 
 	public function beforeFilter() {
-		$this->Auth->allow('index');
 	}
 }
 
