@@ -23,7 +23,7 @@ class CompanyUserInfosController extends AppController {
 	 * @return void
 	 */
 	public function index() {
-		$this->CompanyUserInfo->recursive = 1;
+		$this->CompanyUserInfo->recursive = 0;
 		$this->set('companyUserInfos', $this->Paginator->paginate());
 	}
 
@@ -145,7 +145,7 @@ class CompanyUserInfosController extends AppController {
 	//beforeFilter function for CompanyUserInfosController by lpp
 	public function beforeFilter()
 	{
-		$this->Auth->allow('company_register','add');
+		$this->Auth->allow('company_register');
 		parent::beforeFilter();
 	}
 }
