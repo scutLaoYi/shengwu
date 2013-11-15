@@ -13,7 +13,7 @@ class CompanyIntroducesController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Paginator','List');
 
 /**
  * index method
@@ -104,4 +104,24 @@ class CompanyIntroducesController extends AppController {
 			$this->Session->setFlash(__('The company introduce could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+	public function company_introduce_submit()
+	{
+		$this->set('nature',$nature=$this->List->companyEconomicNature());
+		$this->set('number',$number=$this->List->companyNumber());
+	}
+	public function isAuthorized()
+	{
+		if($this->Auth->user('type')=='1')
+		{
+			if(in_array($this->action,array('comapny_introduce_submit')))
+				return true;
+		}
+		if($this->Auth->user('type')=='2')
+		{
+			$this->Session->setFlash("您当前不是企业用户，无法发布企业信息，请注册企业用户！");
+			return false;
+		}
+		return parent::isAuthorized($user);
+	}
+}

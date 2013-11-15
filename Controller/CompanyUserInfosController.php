@@ -15,7 +15,7 @@ class CompanyUserInfosController extends AppController {
 	 */
 	public $uses=array('User','CompanyUserInfo');
 	public $helpers = array('Html','Form');
-	public $components = array('Paginator','Province');
+	public $components = array('Paginator','List');
 
 	/**
 	 * index method
@@ -109,7 +109,7 @@ class CompanyUserInfosController extends AppController {
 	}
 	public function company_register()
 	{
-		$this->set('allProvince',$allprovince= $this->Province->allProvince());
+		$this->set('allProvince',$allprovince= $this->List->allProvince());
 		if($this->request->is('post'))
 		{
 
