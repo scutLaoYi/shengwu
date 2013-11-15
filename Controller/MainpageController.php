@@ -12,4 +12,8 @@ class MainpageController extends AppController
 	{
 		$this->set('advertise', $this->AdList->find('all'));
 	}
+
+	public function beforeFilter(){
+		$this->Auth->allow('index');
+	}
 }
