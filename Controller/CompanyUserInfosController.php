@@ -111,6 +111,7 @@ class CompanyUserInfosController extends AppController {
 	}
 	public function company_register()
 	{
+		$this->set('title_for_layout', '企业注册');
 		$this->set('allProvince',$allprovince= $this->Province->allProvince());
 		if($this->request->is('post'))
 		{

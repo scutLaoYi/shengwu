@@ -18,13 +18,14 @@
  */
 
 $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
+$websiteDescription = __d('web_dev', '中国卫生材料');
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php echo $cakeDescription ?>:
+		<?php echo $websiteDescription; ?>:
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
@@ -77,6 +78,13 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				<li><a href="">招聘</a></li>
 				<li><a href="">招标</a></li>
 				<li><a href="">论坛</a></li>
+				<li><a href="">信息发布</a>
+					<ul>
+						<li><a href="">发布公司信息</a></li>
+						<li><a href="">发布代理信息</a></li>
+						<li><a href="">发布招聘信息</a></li>
+					</ul>
+				</li>
 				<li><a href="">关于我们</a></li>
 				<li><a href="">广告招租</a></li>
 			

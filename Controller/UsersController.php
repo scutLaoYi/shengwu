@@ -108,11 +108,12 @@ class UsersController extends AppController {
 
 /* user login */
 	public function login() {
-		if($this->request->is('post')) {
-			if($this->Auth->user('id')) {
+		$this->set('title_for_layout', '登录');
+		if($this->Auth->user('id')) {
 				$this->Session->setFlash(__('你的帐号已登录，无须重复登录'));
 				return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
 			}
+		if($this->request->is('post')) {
 			if($this->Auth->login())
 			{
 				$this->Session->write('user',$this->data['User']['username']);
@@ -131,6 +132,7 @@ class UsersController extends AppController {
 
 /*personal user register*/
 	public function personal_register() {
+		$this->set('title_for_layout', '个人注册');
 		if($this->request->is('post')) {
 			if($this->request->data['User']['password'] == $this->request->data['User']['confirm_password']) {
 				$this->request->data['User']['type'] = 2;
