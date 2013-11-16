@@ -133,11 +133,9 @@ class UsersController extends AppController {
 	public function personal_register() {
 		if($this->request->is('post')) {
 			if($this->request->data['User']['password'] == $this->request->data['User']['confirm_password']) {
-				$newUser['username'] = $this->request->data['User']['username'];
-				$newUser['password'] = $this->request->data['User']['password'];
-				$newUser['email'] = $this->request->data['User']['email'];
-				$newUser['type'] = '2';
-				if($this->User->save($newUser)) {
+				$this->request->data['User']['type'] = 2;
+				if($this->User->save($this->request->data))
+				{
 					$this->Session->setFlash(__('恭喜你，你的帐号注册成功'));
 					return $this->redirect(array('controller'=>'Users','action'=>'login'));
 				} else {

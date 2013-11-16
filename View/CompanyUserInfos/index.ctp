@@ -16,10 +16,15 @@
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($companyUserInfos as $companyUserInfo): ?>
+<?php 
+	//Fix the bug: list some infos without id.
+	if(!$companyUserInfo['CompanyUserInfo']['id'])
+		continue;
+?>
 	<tr>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($companyUserInfo['User']['id'], array('controller' => 'users', 'action' => 'view', $companyUserInfo['User']['id'])); ?>
+			<?php echo $this->Html->link($companyUserInfo['User']['username'], array('controller' => 'users', 'action' => 'view', $companyUserInfo['User']['id'])); ?>
 		</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['company']); ?>&nbsp;</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['contact_person']); ?>&nbsp;</td>
