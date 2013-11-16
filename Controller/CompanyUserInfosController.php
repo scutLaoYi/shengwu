@@ -131,7 +131,7 @@ class CompanyUserInfosController extends AppController {
 							$province_id=$this->request->data['CompanyUserInfo']['province'];
 							$this->request->data['CompanyUserInfo']['province']=$allprovince[$province_id];
 							$this->User->CompanyUserInfo->save($this->request->data);
-							return 	$this->redirect(array('controller'=>'Users','action'=>'login'));
+							return 	$this->redirect(array('controller'=>'Users','aoction'=>'login'));
 						}
 					}
 				}
