@@ -4,7 +4,7 @@
 		<legend><?php echo __('Edit Company Introduce'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('company_user_info_id');
+		echo $this->Form->hidden('company_user_info_id');
 		echo $this->Form->input('economic_nature');
 		echo $this->Form->input('business_type');
 		echo $this->Form->input('legal_representative');

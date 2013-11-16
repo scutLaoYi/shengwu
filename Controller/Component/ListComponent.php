@@ -18,7 +18,7 @@ class ListComponent extends Component {
 	//公司人数
 	public function companyNumber()
 	{
-		return array('50人以下','50-100人','100-500人','500-1000人'.'1000-5000人','5000人以上');
+		return array('50人以下','50-100人','100-500人','500-1000人','1000-5000人','5000人以上');
 	}
 }
 

@@ -11,6 +11,7 @@ class MainpageController extends AppController
 	public function index()
 	{
 		$this->set('advertise', $this->AdList->find('all'));
+		
 	}
 
 	public function beforeFilter(){

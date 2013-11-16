@@ -8,7 +8,7 @@ class CompanyIntroduce extends AppModel
 		);
 	 var $validate=array
 	(
-		'company_user_infos_id'=>array
+		'company_user_info_id'=>array
 		(
 			'unqiue'=>array
 			(
