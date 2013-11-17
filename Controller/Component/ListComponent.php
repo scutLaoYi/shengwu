@@ -19,6 +19,29 @@ class ListComponent extends Component {
 	public function companyNumber()
 	{
 		return array('50人以下','50-100人','100-500人','500-1000人','1000-5000人','5000人以上');
+
+	public function allSex() {
+		return array('男','女');
+	}
+
+	public function allPolitical() {
+		return array('团员','党员','群众','民主党派');
+	}
+
+	public function allSalary() {
+		return array('面议','1000~2000','2000~3000','3000~4000','4000~5000','5000~6000','6000~7000','7000~8000','8000~9000','9000~10000','10000以上');
+	}
+
+	public function allWorkingType() {
+		return array('兼职','全职','实习','临时');
+	}
+
+	public function allWorkingTime() {
+		return array('无','半年','一年','二年','三年','三年以上');
+	}
+
+	public function allEducational() {
+		return array('小学','初中','高中','专科','本科','研究生','博士');
 	}
 }
 

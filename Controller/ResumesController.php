@@ -10,11 +10,11 @@ class ResumesController extends AppController {
 
 /**
  * Components
- *
+
  * @var array
  */
-	public $components = array('Paginator');
-
+	public $helpers = array('Html','Form');
+	public $components = array('Paginator','Province');
 /**
  * index method
  *
@@ -104,4 +104,59 @@ class ResumesController extends AppController {
 			$this->Session->setFlash(__('The resume could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+
+	/*Edited by GentleH*/
+
+	public function edit_resumes() {
+		$this->set('allSex',$this->Province->allSex());
+		$this->set('allPolitical',$this->Province->allPolitical());
+		$this->set('allSalary',$this->Province->allSalary());
+		$this->set('allWorkingType',$this->Province->allWorkingType());
+		$this->set('allWorkingTime',$this->Province->allWorkingTime());
+		$this->set('allEducational',$this->Province->allEducational());
+		$judge = $this->Resume->find('first',array('conditions'=>array('Resume.user_id' => $this->Auth->user('id'))));
+		if(!$judge) {
+			if($this->request->is('post')) {
+				$this->request->data['Resume']['user_id'] = $this->Auth->user('id');
+				if($this->Resume->save($this->request->data)) {
+					$this->Session->setFlash(__('简历保存成功'));
+					return $this->redirect(array('controller'=>'Resumes','action'=>'index'));
+				} else {
+					$this->Session->setFlash(__('保存失败，请重试'));
+				}
+			}
+		} else {
+			$update = $this->Resume->find('first',array('conditions'=>array('Resume.user_id'=>$this->Auth->user('id'))));
+			if($this->request->is(array('post','put'))) {
+				$this->request->data['Resume']['id'] = $update['Resume']['id'];
+				if($this->Resume->save($this->request->data)) {
+					$this->Session->setFlash(__('简历修改已保存'));
+					return $this->redirect(array('controller'=>'Resumes','action'=>'index'));
+				} else {
+					$this->Session->setFlash(__('修改失败，请稍后重试'));
+				}
+			} else {
+				$options = array('conditions' => array('Resume.user_id' => $this->Auth->user('id')));
+				$this->request->data = $this->Resume->find('first',$options);
+				}
+			}
+		}
+
+	public function view_resumes() {
+		$options = array('conditions'=>array('Resume.user_id'=>$this->Auth->user('id')));
+		$this->set('resume',$resume=$this->Resume->find('first',$options));
+		if(!$resume) {
+			$this->Session->setFlash(__('简历尚未填写，请先填写简历'));
+			return $this->redirect(array('controller'=>'Resumes','action'=>'edit_resumes'));
+		}
+	}
+
+	public function isAuthorized($user) {
+		if(in_array($this->action,array('edit_resumes','view_resumes')))
+		{
+			if($this->Auth->user('type') == '2')
+				return true;
+		}
+	}
+}

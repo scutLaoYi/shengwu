@@ -1,7 +1,7 @@
 <div class="user form">
 <?php echo $this->Form->create('User'); ?>
 <fieldset>
-	<legend><?php echo __('注册账户'); ?></legend>
+	<legend><?php echo __('个人注册信息'); ?></legend>
 	<?php 
 		echo $this->Form->input('username',array('label'=>'用户名'));
 		echo $this->Form->input('password',array('label'=>'密码'));
