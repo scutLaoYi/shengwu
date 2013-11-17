@@ -19,7 +19,7 @@ class ListComponent extends Component {
 	public function companyNumber()
 	{
 		return array('50人以下','50-100人','100-500人','500-1000人','1000-5000人','5000人以上');
-
+	}
 	public function allSex() {
 		return array('男','女');
 	}

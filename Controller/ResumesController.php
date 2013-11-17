@@ -14,7 +14,7 @@ class ResumesController extends AppController {
  * @var array
  */
 	public $helpers = array('Html','Form');
-	public $components = array('Paginator','Province');
+	public $components = array('Paginator','List');
 /**
  * index method
  *
@@ -109,12 +109,12 @@ class ResumesController extends AppController {
 	/*Edited by GentleH*/
 
 	public function edit_resumes() {
-		$this->set('allSex',$this->Province->allSex());
-		$this->set('allPolitical',$this->Province->allPolitical());
-		$this->set('allSalary',$this->Province->allSalary());
-		$this->set('allWorkingType',$this->Province->allWorkingType());
-		$this->set('allWorkingTime',$this->Province->allWorkingTime());
-		$this->set('allEducational',$this->Province->allEducational());
+		$this->set('allSex',$this->List->allSex());
+		$this->set('allPolitical',$this->List->allPolitical());
+		$this->set('allSalary',$this->List->allSalary());
+		$this->set('allWorkingType',$this->List->allWorkingType());
+		$this->set('allWorkingTime',$this->List->allWorkingTime());
+		$this->set('allEducational',$this->List->allEducational());
 		$judge = $this->Resume->find('first',array('conditions'=>array('Resume.user_id' => $this->Auth->user('id'))));
 		if(!$judge) {
 			if($this->request->is('post')) {
@@ -158,5 +158,6 @@ class ResumesController extends AppController {
 			if($this->Auth->user('type') == '2')
 				return true;
 		}
+		return parent::isAuthorized($user);
 	}
 }

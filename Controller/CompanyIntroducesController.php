@@ -106,21 +106,31 @@ class CompanyIntroducesController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
-	public function company_introduce_edit($company_id = null) {
+	public function company_introduce_edit() {
+		if($this->Auth->user('type')!=1)
+		{
+			$this->Session->setFlash('您不是企业用户，无法编辑公司介绍');
+			return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
+		}
+		$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id'))));
+		$company_id=$company['CompanyUserInfo']['id'];
+		$company_introduce=$this->CompanyIntroduce->find('first',array('conditions'=>array('company_user_info_id'=>$company_id)));
+		if($company_introduce==null)
+		{
+			$this->Session->setFlash('您还未提交公司介绍,如需发布，请发布');
+			return $this->redirect(array('action'=>'company_introduce_submit'));
+		}
 		$this->set('nature',$nature=$this->List->companyEconomicNature());
 		$this->set('number',$number=$this->List->companyNumber());
 		if ($this->request->is(array('post', 'put'))) {
-			print_r($this->request->data);
 			if ($this->CompanyIntroduce->save($this->request->data)) {
-				print_r($this->request->data['CompanyIntroduce']);
  				$this->Session->setFlash(__('您的公司介绍已修改'));
 			//	return $this->redirect($this->referer());
 			} else {
 				$this->Session->setFlash(__('修改失败，请检查是否完整填写'));
 			}
 		} else {
-			$options = array('conditions' => array('CompanyIntroduce.company_user_info_id'=>$company_id));
-			$this->request->data = $this->CompanyIntroduce->find('first', $options);
+			$this->request->data = $company_introduce;
 			if($this->request->data==null)
 			{
 				$this->Session->setFlash('您还未发布公司介绍！');
@@ -141,7 +151,8 @@ class CompanyIntroducesController extends AppController {
 			$content=$this->CompanyIntroduce->find('first',array('conditions'=>array('CompanyIntroduce.company_user_info_id'=>$company['CompanyUserInfo']['id'])));
 			if($content!=null)
 			{
-				return $this->redirect(array());
+				$this->Session->setFlash('您已经提交过公司介绍，如需修改，请于公司页面修改');
+				return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
 			}
 
 		}
@@ -175,7 +186,6 @@ class CompanyIntroducesController extends AppController {
 		$this->Paginator->settings=array('limit'=>10,'order'=>array('CompanyIntroduce.created'=>'desc'));
 		if($this->request->is('post'))
 		{
-			print_r($this->request->data['CompanySearch']['search']);
 			$this->Paginator->settings=array('conditions'=>array('CompanyUserInfo.company LIKE'=>'%'.$this->request->data['CompanySearch']['search'].'%'));
 			$this->set('companys',$this->Paginator->paginate());
 			$this->set('head',$this->request->data['CompanySearch']['search'].'公司列表');
