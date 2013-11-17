@@ -66,7 +66,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 <div id="menubar">
  			<ul id="menu">
 			<li><?php echo $this->Html->link('主页', array('controller'=>'Mainpage', 'action'=>'index')); ?></li>
-			  <li><a href="">公司</a>
+			<li><?php echo $this->Html->link('公司', array('controller'=>'CompanyIntroduces', 'action'=>'company_introduce_list')); ?></a>
 			  </li>
 			  <li><a href="">代理</a>
 				<ul>
@@ -80,7 +80,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 				<li><a href="">论坛</a></li>
 				<li><a href="">信息发布</a>
 					<ul>
-						<li><a href="">发布公司信息</a></li>
+					<li><?php echo $this->Html->link('发布公司信息', array('controller'=>'companyIntroduces', 'action'=>'company_introduce_submit')); ?></li>
 						<li><a href="">发布代理信息</a></li>
 						<li><a href="">发布招聘信息</a></li>
 					</ul>

@@ -10,7 +10,7 @@
 	<?php foreach($companys as $company):?>
 	<tr>
 		<td>
-			<?php echo $this->Html->link($company['CompanyUserInfo']['company'],array('controller'=>'CompanyIntroduce','action'=>'company_introduce_view',$company['CompanyUserInfo']['id']));?>
+			<?php echo $this->Html->link($company['CompanyUserInfo']['company'],array('controller'=>'CompanyDescriptions','action'=>'view_info',$company['CompanyUserInfo']['id']));?>
 			</br>	
 			<?php echo $company['CompanyIntroduce']['introduce'];?>
 		</td>
