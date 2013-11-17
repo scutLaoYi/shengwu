@@ -16,11 +16,6 @@
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($companyUserInfos as $companyUserInfo): ?>
-<?php 
-	//Fix the bug: list some infos without id.
-	if(!$companyUserInfo['CompanyUserInfo']['id'])
-		continue;
-?>
 	<tr>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['id']); ?>&nbsp;</td>
 		<td>

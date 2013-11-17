@@ -24,6 +24,7 @@ class CompanyUserInfosController extends AppController {
 	 */
 	public function index() {
 		$this->CompanyUserInfo->recursive = 0;
+		$this->Paginator->settings = array('conditions' => array('CompanyUserInfo.id !='=>null ));
 		$infos = $this->Paginator->paginate();
 		$this->set('companyUserInfos', $infos);
 //		print_r($infos);
