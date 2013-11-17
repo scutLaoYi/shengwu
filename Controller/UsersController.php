@@ -149,11 +149,52 @@ class UsersController extends AppController {
 		}
 	}
 
+	public function personal_infos() {
+		$options = array('conditions'=>array('User.id'=>$this->Auth->user('id')));
+		$this->set('user',$this->User->find('first',$options));
+	}
+
+	public function personal_edit () {
+		if($this->request->is(array('post','put'))) {
+			$oldPassword = $this->User->find('first',array('conditions'=>array('User.id'=>$this->Auth->user('id'))));
+			if(AuthComponent::password($this->request->data['User']['old password']) == $oldPassword['User']['password']) {
+				if($this->request->data['User']['new password'] == $this->request->data['User']['confirm new password']) {
+					$newData['id'] = $this->Auth->user('id');
+					$newData['username'] = $this->Auth->user('username');
+					$newData['password'] = $this->request->data['User']['new password'];
+					$newData['email'] = $this->Auth->user('email');
+					$newData['type'] = $this->Auth->user('type');
+					if($this->User->save($newData)) {
+						$this->Session->setFlash(__('密码修改成功'));
+						return $this->redirect(array('controller'=>'Users','action'=>'personal_infos'));
+					} else {
+						$this->Session->setFlash(__('修改失败，请重试'));
+					}
+				} else {
+					$this->Session->setFlash(__('请重新确认新密码'));
+					$options = array('conditions'=>array('User.id' => $this->Auth->user('id')));
+					$this->request->data = $this->User->find('first',$options);
+				}
+			} else {
+				$this->Session->setFlash(__('密码错误，请重试'));
+				$options = array('conditions'=>array('User.id' => $this->Auth->user('id')));
+				$this->request->data = $this->User->find('first',$options);
+			}
+		}
+	}
+
 /*beforeFilter function for usersController. scutLaoYi*/
+
+	public function isAuthorized($user) {
+		if(in_array($this->action,array('personal_infos','personal_edit'))) {
+			if($this->Auth->user('type') == '2')
+				return true;
+		}
+		return parent::isAuthorized($user);
+	}
 
 	public function beforeFilter(){
 		$this->Auth->allow('logout','personal_register');
 		parent::beforeFilter();
 	}
-
 }
