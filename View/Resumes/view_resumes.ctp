@@ -1,5 +1,7 @@
 <div class="resumes view">
-<h2><?php echo __('我的简历'); ?></h2>
+<h2><?php echo __('我的简历'); ?> &nbsp;&nbsp;&nbsp; 
+		<?php echo $this->Html->link('编辑',array('controller'=>'Resumes','action'=>'edit_resumes')) ?>
+ </h2>
 	<dl>
 		<dt><?php echo __('姓名'); ?></dt>
 		<dd>
