@@ -10,7 +10,6 @@
 	<?php foreach($companys as $company):?>
 	<tr>
 		<td>
-			<?php if($company['CompanyIntroduce']['id']==null)continue;?>
 			<?php echo $this->Html->link($company['CompanyUserInfo']['company'],array('controller'=>'CompanyIntroduce','action'=>'company_introduce_view',$company['CompanyUserInfo']['id']));?>
 			</br>	
 			<?php echo $company['CompanyIntroduce']['introduce'];?>

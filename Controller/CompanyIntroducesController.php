@@ -23,6 +23,7 @@ class CompanyIntroducesController extends AppController {
  */
 	public function index() {
 		$this->CompanyIntroduce->recursive = 0;
+		$this->Paginator->settings = array('conditions'=>array('CompanyIntroduce.id !='=>null));
 		$this->set('companyIntroduces', $this->Paginator->paginate());
 	}
 
@@ -183,7 +184,7 @@ class CompanyIntroducesController extends AppController {
 	}
 	public function company_introduce_list()
 	{
-		$this->Paginator->settings=array('limit'=>10,'order'=>array('CompanyIntroduce.created'=>'desc'));
+		$this->Paginator->settings=array('limit'=>10,'order'=>array('CompanyIntroduce.created'=>'desc'),'conditions'=>array('CompanyIntroduce.id !='=>null));
 		if($this->request->is('post'))
 		{
 			$this->Paginator->settings=array('conditions'=>array('CompanyUserInfo.company LIKE'=>'%'.$this->request->data['CompanySearch']['search'].'%'));
