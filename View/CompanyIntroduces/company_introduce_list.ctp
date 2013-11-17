@@ -9,12 +9,19 @@
 	<table cellpadding="0" cellspacing ="0">
 	<?php foreach($companys as $company):?>
 	<tr>
-		<td>
-			<?php echo $this->Html->link($company['CompanyUserInfo']['company'],array('controller'=>'CompanyIntroduce','action'=>'company_introduce_view',$company['CompanyUserInfo']['id']));?>
-			</br>	
-			<?php echo $company['CompanyIntroduce']['introduce'];?>
+		<td>		
+				<?php echo $this->Html->link($company['CompanyUserInfo']['company'],array('controller'=>'CompanyIntroduce','action'=>'company_introduce_view',$company['CompanyUserInfo']['id']));?>
 		</td>
 	</tr>
+	<tr>
+		<td>
+		<?php echo $this->Html->image('./company_image/'.$company['CompanyIntroduce']['picture_url'],array('width'=>'100','height'=>'100'));?>
+		</td>
+		<td>
+		<?php echo $company['CompanyIntroduce']['introduce'];?>
+		</td>
+	</tr>
+
 	<?php endforeach;?>
 </table>
 <p>

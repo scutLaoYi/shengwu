@@ -166,7 +166,15 @@ class CompanyIntroducesController extends AppController {
 			$company_id=$company['CompanyUserInfo']['id'];
 			$this->request->data['CompanyIntroduce']['company_user_info_id']=$company_id;
 			$this->request->data['CompanyIntroduce']['status']='1';
-			//$this->request->data['economic_nature']=$natur
+			$file = $this->data['CompanyIntroduce']['company_image'];
+			$ext = substr(strtolower(strrchr($file['name'], '.')), 1);
+			$arr_ext = array('jpg', 'jpeg', 'gif', 'png');
+			$path=$this->Auth->user('username').'_'.date("YmdHis").'.'.$ext;
+			if(in_array($ext, $arr_ext))
+			{
+				move_uploaded_file($file['tmp_name'],WWW_ROOT.'img/company_image/'.$path);
+				$this->request->data['CompanyIntroduce']['picture_url']=$path;
+			}
 			if($this->CompanyIntroduce->save($this->request->data))
 			{
 				$this->Session->setFlash('公司介绍已提交，等待管理员审核');
