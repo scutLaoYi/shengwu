@@ -9,6 +9,7 @@
 else
 {
 ?>
+		<?php echo $this->Html->image('./company_image/'.$introduce['picture_url'],array('width'=>'200','height'=>'200'));?>
 	<p>企业经济性质：<?php echo $introduce['economic_nature'];?> </p>
 	<p>企业经营模式： <?php echo $introduce['business_type']; ?> </p>
 	<p>法人代表： <?php echo $introduce['legal_representative']; ?> </p>

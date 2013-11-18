@@ -36,7 +36,11 @@ class CompanyDescriptionsController extends AppController
 	{
 		if(!$company_id)
 		{
-			return $this->notFoundPage();
+			if($this->Auth->user('type') != '1')
+				return $this->notFoundPage();
+			$this->CompanyUserInfo->recursive = '0';
+			$currentCompany = $this->CompanyUserInfo->find('first', array('conditions' => array('user_id' => $this->Auth->user('id'))));
+			$company_id = $currentCompany['CompanyUserInfo']['id'];
 		}
 		$this->CompanyUserInfo->recursive = 0;
 		$info = $this->CompanyUserInfo->find('first', array(
