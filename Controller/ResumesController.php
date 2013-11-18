@@ -106,7 +106,12 @@ class ResumesController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 
-	/*Edited by GentleH*/
+	/*Edited by GentleH
+		增加功能：编辑简历。
+		功能说明：只有个人用户登录之后才能进入的页面。
+				 若未填写，则各项为空，若已填写，则把已填内容
+				从数据库读出到相应项。
+    */
 
 	public function edit_resumes() {
 		$this->set('allSex',$this->List->allSex());
@@ -143,6 +148,12 @@ class ResumesController extends AppController {
 			}
 		}
 
+/*
+	edited by GentleH
+	查看简历，只有登录后的个人用户可查看自己的简历。
+	若未填写，则跳转到简历编辑页面，提示填写简历。
+	否则跳转到简历展示页面。
+*/
 	public function view_resumes() {
 		$options = array('conditions'=>array('Resume.user_id'=>$this->Auth->user('id')));
 		$this->set('resume',$resume=$this->Resume->find('first',$options));
@@ -151,6 +162,8 @@ class ResumesController extends AppController {
 			return $this->redirect(array('controller'=>'Resumes','action'=>'edit_resumes'));
 		}
 	}
+
+/* End of edition by GentleH*/
 
 	public function isAuthorized($user) {
 		if(in_array($this->action,array('edit_resumes','view_resumes')))

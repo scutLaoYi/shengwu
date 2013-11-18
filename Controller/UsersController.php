@@ -106,7 +106,7 @@ class UsersController extends AppController {
 
 /*This is edited by GentleH */
 
-/* user login */
+/*  用户登录，任何权限均可进入。 */
 	public function login() {
 		$this->set('title_for_layout', '登录');
 		if($this->Auth->user('id')) {
@@ -123,14 +123,14 @@ class UsersController extends AppController {
 		}
 	}
 
-/* user logout */
+/* 已登录的用户可以通过此方法退出登录 */
 	public function logout() {
 		$this->Session->delete('user');
 		$this->Auth->logout();
 		return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
 	}
 
-/*personal user register*/
+/*用户注册*/
 	public function personal_register() {
 		$this->set('title_for_layout', '个人注册');
 		if($this->request->is('post')) {
@@ -149,11 +149,13 @@ class UsersController extends AppController {
 		}
 	}
 
+/*查看个人信息，包括用户名，邮箱，注册时间，只有已登录用户才能查看自己的信息*/
 	public function personal_infos() {
 		$options = array('conditions'=>array('User.id'=>$this->Auth->user('id')));
 		$this->set('user',$this->User->find('first',$options));
 	}
 
+/*修改用户密码，已登录用户可进入*/
 	public function personal_edit () {
 		if($this->request->is(array('post','put'))) {
 			$oldPassword = $this->User->find('first',array('conditions'=>array('User.id'=>$this->Auth->user('id'))));
@@ -182,6 +184,7 @@ class UsersController extends AppController {
 			}
 		}
 	}
+
 
 /*beforeFilter function for usersController. scutLaoYi*/
 
