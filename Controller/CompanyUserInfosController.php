@@ -110,6 +110,13 @@ class CompanyUserInfosController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+	/*
+	 * 公司注册页面
+	 * by lpp001
+	 * 调用User和CompanyUserInfo两个模型层
+	 * 将数据合并在同一个表单进行填写，并使用cake内置功能同时写入数据
+	 */
 	public function company_register()
 	{
 		$this->set('allProvince',$allprovince= $this->List->allProvince());
@@ -136,7 +143,10 @@ class CompanyUserInfosController extends AppController {
 			}
 		}
 	}
-	//beforeFilter function for CompanyUserInfosController by lpp
+	
+	/*
+	 * beforeFilter function for CompanyUserInfosController by lpp
+	 */
 	public function beforeFilter()
 	{
 		$this->Auth->allow('company_register');

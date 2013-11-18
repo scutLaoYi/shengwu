@@ -2,6 +2,7 @@
 App::uses('AppController', 'Controller');
 /**
  * FriendlyLinks Controller
+ * by scutLaoYi
  *
  * @property FriendlyLink $FriendlyLink
  * @property PaginatorComponent $Paginator
@@ -102,7 +103,10 @@ class FriendlyLinksController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 
-	//此函数读数据库并将友情链接作为数组返回,只供模块调用，无前台界面
+/*
+ * 友情链接数据获取函数
+ * 此函数读数据库并将友情链接作为数组返回,只供模块调用，无前台界面
+ */
 	public function list_link()
 	{
 		if(empty($this->request->params['requested']))
@@ -115,6 +119,11 @@ class FriendlyLinksController extends AppController {
 		
 	}
 
+	/*
+	 * 权限管理
+	 * 所有人均可访问友情链接数据
+	 * (供其他页面调用，不作权限设定)
+	 */
 	public function beforeFilter(){
 		$this->Auth->allow('list_link');
 		parent::beforeFilter();
