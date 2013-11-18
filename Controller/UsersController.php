@@ -186,8 +186,7 @@ class UsersController extends AppController {
 	}
 
 
-/*beforeFilter function for usersController. scutLaoYi*/
-
+	/*登录权限管理，个人用户允许访问个人信息及个人编辑页面*/
 	public function isAuthorized($user) {
 		if(in_array($this->action,array('personal_infos','personal_edit'))) {
 			if($this->Auth->user('type') == '2')
@@ -196,6 +195,8 @@ class UsersController extends AppController {
 		return parent::isAuthorized($user);
 	}
 
+/*beforeFilter function for usersController. scutLaoYi*/
+	/*允许游客登出及个人注册*/
 	public function beforeFilter(){
 		$this->Auth->allow('logout','personal_register');
 		parent::beforeFilter();
