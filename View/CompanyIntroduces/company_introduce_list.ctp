@@ -1,6 +1,7 @@
 <div class="companyIntroduces company_introduce_list">
 <?php echo $this->Form->create('CompanySearch');?>
 	<fieldset>
+	<?php echo $this->Form->input('allCountry',array('options'=>$allCountrys,'label'=>'公司地区'));?>
 	<?php echo $this->Form->input('search',array('label'=>'公司名'));?>
 	</fieldset>
 <?php echo $this->Form->end(__('提交'));?>
@@ -12,13 +13,23 @@
 		<td>		
 			<?php echo $this->Html->link($company['CompanyUserInfo']['company'],array('controller'=>'CompanyDescriptions','action'=>'view_info',$company['CompanyUserInfo']['id']));?>
 		</td>
+		<td>
+			<?php echo $allCountrys[$company['CompanyUserInfo']['province']+1];?>
+		</td>
 	</tr>
 	<tr>
 		<td>
 		<?php echo $this->Html->image('./company_image/'.$company['CompanyIntroduce']['picture_url'],array('width'=>'100','height'=>'100'));?>
 		</td>
 		<td>
-			<?php echo $company['CompanyIntroduce']['introduce'];?>
+			<?php 
+				$str_introduce=$company['CompanyIntroduce']['introduce'];
+				if(strlen($str_introduce)>100)
+				{
+					$str_introduce=substr($str_introduce,0,297).'...';
+				}
+				 echo $str_introduce;
+			?>
 		</td>
 	</tr>
 
