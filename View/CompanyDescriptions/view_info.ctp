@@ -1,4 +1,9 @@
 <div class="CompanyDescriptions_view_info index">
+<?php 
+
+if(isset($isCurrentCompany))
+	echo $this->Html->link('编辑', array('controller'=>'Mainpage', 'action'=>'index'));
+?>
 
 <p>公司名称：<?php echo $company_info['company']; ?> </p>
 <p>联 系 人：<?php echo $company_info['contact_person']; ?> </p>

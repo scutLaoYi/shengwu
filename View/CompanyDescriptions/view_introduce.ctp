@@ -8,6 +8,8 @@
 	}
 else
 {
+	if(isset($isCurrentCompany))
+		echo $this->Html->link('编辑', array('controller'=>'CompanyIntroduces', 'action'=>'company_introduce_edit'));
 ?>
 		<?php echo $this->Html->image('./company_image/'.$introduce['picture_url'],array('width'=>'200','height'=>'200'));?>
 	<p>企业经济性质：<?php echo $introduce['economic_nature'];?> </p>
