@@ -2,7 +2,7 @@
 <?php 
 
 if(isset($isCurrentCompany))
-	echo $this->Html->link('编辑', array('controller'=>'Mainpage', 'action'=>'index'));
+	echo $this->Html->link('编辑', array('controller'=>'CompanyUserInfos', 'action'=>'company_edit'));
 ?>
 
 <p>公司名称：<?php echo $company_info['company']; ?> </p>
