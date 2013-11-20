@@ -19,6 +19,7 @@
 
 $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 $websiteDescription = __d('web_dev', '中国卫生材料');
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,7 +45,21 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 			<ul>
 				<li><?php 
 					if($this->Session->check('user')) {
-						echo $this->Session->read('user');
+						if($this->Session->check('type'))
+						{
+							$currentType = $this->Session->read('type');
+							if($currentType == '1')
+								echo $this->Html->link($this->Session->read('user'), array('controller'=>'CompanyDescriptions', 'action'=>'view_info'));
+							else if($currentType == '2')
+								echo $this->Html->link($this->Session->read('user'), array('controller'=>'Users', 'action'=>'personal_infos'));
+							else 
+							{
+								echo "管理员：".$this->Session->read('user');
+								echo $this->Html->link('进入后台', array('controller'=>'Users', 'action'=>'index'));
+							}
+						}
+						else
+							echo "failed to read type!";
 						echo ' | ';
 						echo $this->Html->link('退出登录',array('controller'=>'Users','action'=>'logout'));
 					}

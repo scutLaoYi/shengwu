@@ -222,10 +222,16 @@ class CompanyIntroducesController extends AppController {
  */ 
 	public function company_introduce_list()
 	{
+		$allCountrys=$this->List->allCountry();
+		$this->set('allCountrys',$allCountrys);
 		$this->Paginator->settings=array('limit'=>10,'order'=>array('CompanyIntroduce.created'=>'desc'),'conditions'=>array('CompanyIntroduce.id !='=>null));
 		if($this->request->is('post'))
 		{
-			$this->Paginator->settings=array('conditions'=>array('CompanyUserInfo.company LIKE'=>'%'.$this->request->data['CompanySearch']['search'].'%'));
+			$allCountry=$this->request->data['CompanySearch']['allCountry'];
+			if($allCountry==0)
+			$this->Paginator->settings=array('limit'=>10,'order'=>array('CompanyIntroduce.created'=>'desc'),'conditions'=>array('CompanyUserInfo.company LIKE'=>'%'.$this->request->data['CompanySearch']['search'].'%','CompanyIntroduce.id !='=>null));
+			else
+			$this->Paginator->settings=array('limit'=>10,'order'=>array('CompanyIntroduce.created'=>'desc'),'conditions'=>array('CompanyUserInfo.company LIKE'=>'%'.$this->request->data['CompanySearch']['search'].'%','CompanyUserInfo.province'=>($allCountry-1),'CompanyIntroduce.id !='=>null));
 			$this->set('companys',$this->Paginator->paginate());
 			$this->set('head',$this->request->data['CompanySearch']['search'].'公司列表');
 		}

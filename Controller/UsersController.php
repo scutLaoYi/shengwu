@@ -117,6 +117,7 @@ class UsersController extends AppController {
 			if($this->Auth->login())
 			{
 				$this->Session->write('user',$this->data['User']['username']);
+				$this->Session->write('type', $this->Auth->user('type'));
 				return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
 			}
 			$this->Session->setFlash(__('帐号或密码有误，请重试'));
@@ -126,6 +127,7 @@ class UsersController extends AppController {
 /* 已登录的用户可以通过此方法退出登录 */
 	public function logout() {
 		$this->Session->delete('user');
+		$this->Session->delete('type');
 		$this->Auth->logout();
 		return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
 	}

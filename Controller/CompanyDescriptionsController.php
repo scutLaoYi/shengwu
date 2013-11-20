@@ -36,14 +36,29 @@ class CompanyDescriptionsController extends AppController
 	{
 		if(!$company_id)
 		{
-			return $this->notFoundPage();
+			//未传入公司id且不是公司用户，直接跳出
+			if($this->Auth->user('type') != '1')
+				return $this->notFoundPage();
+			//否则查找当前用户的公司id并显示对应项
+			$this->CompanyUserInfo->recursive = '0';
+			$currentCompany = $this->CompanyUserInfo->find('first', array('conditions' => array('user_id' => $this->Auth->user('id'))));
+			$this->set('company_info', $currentCompany['CompanyUserInfo']);
+			$this->set('isCurrentCompany', True);
 		}
-		$this->CompanyUserInfo->recursive = 0;
-		$info = $this->CompanyUserInfo->find('first', array(
-			'conditions' => array('CompanyUserInfo.id' => $company_id)));
-		if(!$info)
-			return $this->notFoundPage();
-		$this->set('company_info', $info['CompanyUserInfo']);
+		else//已传入公司id，查找对应项并显示
+		{
+			$this->CompanyUserInfo->recursive = 0;
+			$info = $this->CompanyUserInfo->find('first', array(
+				'conditions' => array('CompanyUserInfo.id' => $company_id)));
+			if(!$info)
+				return $this->notFoundPage();
+			$this->set('company_info', $info['CompanyUserInfo']);
+			if($this->Auth->user('type') == 1)
+			{
+				if($info['CompanyUserInfo']['user_id'] == $this->Auth->user('id'))
+					$this->set('isCurrentCompany', True);
+			}
+		}
 	}
 
 	/*
@@ -60,6 +75,14 @@ class CompanyDescriptionsController extends AppController
 		if(isset($introduce['CompanyIntroduce']))
 			$this->set('introduce', $introduce['CompanyIntroduce']);
 		$this->set('company_id', $company_id);
+		if($this->Auth->user('type') == '1')
+		{
+			$this->CompanyUserInfo->recursive = 0;
+			$currentCompany = $this->CompanyUserInfo->find('first', 
+				array('conditions'=>array('CompanyUserInfo.user_id' => $this->Auth->user('id'))));
+			if($currentCompany['CompanyUserInfo']['id'] == $company_id)
+				$this->set('isCurrentCompany', True);
+		}
 	}
 
 	/*
