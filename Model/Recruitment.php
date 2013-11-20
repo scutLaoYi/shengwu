@@ -4,7 +4,7 @@ class Recruitment extends AppModel
 {
 	var $belongsTo=array
 	(
-		'CompanyUserInfo'=>array('CompanyUserInfo')
+		'CompanyUserInfo'=>array('className' => 'CompanyUserInfo')
 	);
 var $validate=array
     (
