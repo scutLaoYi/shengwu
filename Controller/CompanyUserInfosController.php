@@ -149,12 +149,10 @@ class CompanyUserInfosController extends AppController {
 	 */
 	public function company_edit()
 	{
-
 		$this->set('allProvince',$allprovince= $this->List->allProvince());
 		$this->set('title_for_layout', '企业信息修改');
 		if ($this->request->is(array('post', 'put'))) {
-			$this->request->data['User']['type'] = 1;
-			if($this->User->saveAssociated($this->request->data))
+			if($this->CompanyUserInfo->save($this->request->data))
 			{
 				$this->Session->setFlash(__('企业信息修改成功!'));
 				$this->redirect(array('controller'=>'Mainpage', 'action'=>'index'));
@@ -179,7 +177,43 @@ class CompanyUserInfosController extends AppController {
 	 */
 	public function company_pass_edit()
 	{
-		//未完成
+		if($this->request->is(array('post','put')))
+	   	{
+			$oldPassword = $this->User->find('first',array('conditions'=>array('User.id'=>$this->Auth->user('id'))));
+			if(AuthComponent::password($this->request->data['User']['old password']) == $oldPassword['User']['password']) 
+			{
+				if($this->request->data['User']['new password'] == $this->request->data['User']['confirm new password'])
+				{
+					$this->request->data['User']['id'] = $this->Auth->user('id');
+					$this->request->data['User']['username'] = $this->Auth->user('username');
+					$this->request->data['User']['password'] = $this->request->data['User']['new password'];
+					$this->request->data['User']['email'] = $this->request->data['User']['email'];
+					$this->request->data['User']['type'] = $this->Auth->user('type');
+					if($this->User->save($this->request->data)) {
+						$this->Session->setFlash(__('密码修改成功'));
+						return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
+					} else {
+						$this->Session->setFlash(__('修改失败，请重试'));
+					}
+				} 
+				else
+				{
+					$this->Session->setFlash(__('请重新确认新密码'));
+					$options = array('conditions'=>array('User.id' => $this->Auth->user('id')));
+					$this->request->data = $this->User->find('first',$options);
+				}
+			} 
+			else 
+			{
+				$this->Session->setFlash(__('密码错误，请重试'));
+				$options = array('conditions'=>array('User.id' => $this->Auth->user('id')));
+				$this->request->data = $this->User->find('first',$options);
+			}
+		}
+		else
+		{
+			$this->request->data = array('User'=>array('email'=>$this->Auth->user('email')));
+		}
 	}
 
 	/*
