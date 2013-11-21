@@ -34,6 +34,9 @@ class ListComponent extends Component {
 		return array('男','女');
 	}
 
+	public function allSexs() {
+		return array('男','女','不限');
+	}
 	public function allPolitical() {
 		return array('团员','党员','群众','民主党派');
 	}

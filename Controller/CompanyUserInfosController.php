@@ -27,7 +27,7 @@ class CompanyUserInfosController extends AppController {
 		$this->Paginator->settings = array('conditions' => array('CompanyUserInfo.id !='=>null ));
 		$infos = $this->Paginator->paginate();
 		$this->set('companyUserInfos', $infos);
-//		print_r($infos);
+		//		print_r($infos);
 	}
 
 	/**
@@ -126,14 +126,12 @@ class CompanyUserInfosController extends AppController {
 
 			if($this->request->data['User']['password'] == $this->request->data['User']['confirm_password']) 
 			{
-				
+
 				$this->request->data['User']['type'] = 1;
 				if($this->User->saveAssociated($this->request->data))
 				{
-
 					$this->Session->setFlash(__('企业用户注册成功！'));
 					$this->redirect(array('controller'=>'Users', 'action'=>'login'));
-
 				}
 
 			}
@@ -143,7 +141,58 @@ class CompanyUserInfosController extends AppController {
 			}
 		}
 	}
-	
+
+	/*
+	 * 公司信息修改页
+	 * by scutLaoYi
+	 * 修改公司信息
+	 */
+	public function company_edit()
+	{
+
+		$this->set('allProvince',$allprovince= $this->List->allProvince());
+		$this->set('title_for_layout', '企业信息修改');
+		if ($this->request->is(array('post', 'put'))) {
+			$this->request->data['User']['type'] = 1;
+			if($this->User->saveAssociated($this->request->data))
+			{
+				$this->Session->setFlash(__('企业信息修改成功!'));
+				$this->redirect(array('controller'=>'Mainpage', 'action'=>'index'));
+			}
+			else
+			{
+				$this->Session->setFlash(__('信息修改失败，请重试!'));
+			}
+		} 
+		else {
+			$options = array('conditions' => array('User.id =' => $this->Auth->user('id')));
+			$this->User->recursive = '0';
+			$this->request->data = $this->User->find('first', $options);
+		}
+		//$this->set(compact('users'));
+	}
+
+	/*
+	 * 公司密码专属修改页面
+	 * by scutLaoYi
+	 * 输入原密码及重复新密码进行修改
+	 */
+	public function company_pass_edit()
+	{
+		//未完成
+	}
+
+	/*
+	 * 公司信息访问权限：
+	 * 公司用户可访问
+	 */
+	public function isAuthorized($user)
+	{
+
+		if(isset($user['type'])&&$user['type'] == '1')
+			return True;
+		return parent::isAuthorized($user);
+	}
 	/*
 	 * beforeFilter function for CompanyUserInfosController by lpp
 	 */
