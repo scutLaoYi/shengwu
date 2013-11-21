@@ -58,23 +58,23 @@ class ProxyInfo extends AppModel
         ),      
         'product_type'=>array
         (
-            'rule'=>array('custom','/^[123]$/'),
+            'rule'=>'notEmpty',
              'message'=>'产品类型格式不正确'
         ),      
         'function'=>array
         (
-            'rule'=>array('custom','/^[0-9]{1,3}$/'),
+            'rule'=>'notEmpty',
              'message'=>'功能类型格式不正确'
         ),      
         'department'=>array
         (
-            'rule'=>array('custom','/^[0-9]{1,3}$/'),
+            'rule'=>'notEmpty',
              'message'=>'科室类型格式不正确'
         ),      
         'material'=>array
         (
-            'rule'=>array('custom','/^[0-9]{1,3}$/'),
-             'message'=>'材料类型格式不正确'
+            'rule'=>'notEmpty',
+             'message'=>'请选择列表中一项'
         ),        
         'deadline'=>array
         (
