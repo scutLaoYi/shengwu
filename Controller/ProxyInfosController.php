@@ -178,7 +178,31 @@ class ProxyInfosController extends AppController {
 			
 		}
 	}
-
+	public function proxy_view($proxy_id=null)
+	{
+		if($this->request->is('post'))
+		{
+			return $this->redirect($this->referer());
+		}
+		$proxy=$this->ProxyInfo->find('first',array('conditions'=>array('ProxyInfo.id'=>$proxy_id)));
+		if($proxy!=null)
+		{
+			$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.id'=>$proxy['ProxyInfo']['company_user_info_id'])));
+			$this->set('allCountry',$this->List->allCountry());
+			$this->set('allProduct',$this->List->allProduct());
+			$this->set('allFunction',$this->List->allFunction($proxy['ProxyInfo']['product_type']));
+			$this->set('allDepartment',$this->List->allDepartment($proxy['ProxyInfo']['product_type']));
+			if($proxy['ProxyInfo']['material']!='0')$this->set('allMaterial',$this->List->allMaterial());
+			$this->set('proxyInfo',$proxy);
+			$this->set('company',$company);
+		}
+		else
+		{
+			$this->Session->setFlash('该代理信息不存在');
+			return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
+		}
+		
+	}
 	public function isAuthorized($user)
 	{
 		if($this->Auth->user('type')==1)
@@ -189,5 +213,10 @@ class ProxyInfosController extends AppController {
 			}
 		}
 		return parent::isAuthorized($user);
+	}
+	public function beforeFilter()
+	{
+		$this->Auth->Allow('proxy_view');
+		return parent::beforeFilter();
 	}
 }
