@@ -107,7 +107,14 @@ class CompanyDescriptionsController extends AppController
 	 */
 	public function view_recruitment($company_id = null)
 	{
-		return $this->notFoundPage();
+		if(!$company_id)
+			throw new NotFoundException();
+		$this->Recruitment->recursive = 0;
+		$this->Paginator->settings = array('conditions'=>array('Recruitment.id !='=>null, 
+			'Recruitment.company_user_info_id =' => $company_id, 
+			'Recruitment.status =' => '2'));
+		$this->set('Recruitments', $this->Paginator->paginate('Recruitment'));
+		$this->set('company_id', $company_id);
 	}
 
 	/*

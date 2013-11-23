@@ -225,6 +225,7 @@ class ProxyInfosController extends AppController {
 			if($proxy['ProxyInfo']['material']!='0')$this->set('allMaterial',$this->List->allMaterial());
 			$this->set('proxyInfo',$proxy);
 			$this->set('company',$company);
+			$this->set('referer', $this->referer());
 		}
 		else
 		{

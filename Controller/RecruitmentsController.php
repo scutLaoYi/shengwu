@@ -91,7 +91,7 @@ class RecruitmentsController extends AppController {
  * delete method
  *
  * @throws NotFoundException
- * @param string $id
+ 
  * @return void
  */
 	public function delete($id = null) {
@@ -136,6 +136,8 @@ class RecruitmentsController extends AppController {
 		}
 		$options = array('conditions' => array('Recruitment.' . $this->Recruitment->primaryKey => $id));
 		$this->set('recruitment',$this->Recruitment->find('first', $options));
+		//增加该变量以供返回调用
+		$this->set('referer', $this->referer());
 	}
 
 	/* 招聘信息二级页面，所有用户均可查看 */

@@ -101,7 +101,7 @@
 			<?php echo h($proxyInfo['ProxyInfo']['created']); ?>
 			&nbsp;
 		</dd>
-		<?php echo $this->Html->link('返回公司介绍', array('controller'=>'CompanyDescriptions', 'action'=>'view_proxy', $company['CompanyUserInfo']['id'])); ?>
+		<?php echo $this->Html->link('返回',$referer);?> 
 	
 	</dl>
 </div>

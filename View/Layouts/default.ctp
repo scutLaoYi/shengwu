@@ -97,8 +97,8 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 				<li><a href="">信息发布</a>
 					<ul>
 					<li><?php echo $this->Html->link('发布公司信息', array('controller'=>'companyIntroduces', 'action'=>'company_introduce_submit')); ?></li>
-						<li><a href="">发布代理信息</a></li>
-						<li><a href="">发布招聘信息</a></li>
+					<li><?php echo $this->Html->link('发布代理信息', array('controller'=>'ProxyInfos', 'action'=>'proxy_submit'));?></li>
+					<li><?php echo $this->Html->link('发布招聘信息',array('controller'=>'Recruitments', 'action'=>'recruitment_submit')); ?></li>
 					</ul>
 				</li>
 				<li><a href="">关于我们</a></li>
