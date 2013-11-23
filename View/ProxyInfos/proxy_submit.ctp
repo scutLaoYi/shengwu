@@ -273,6 +273,20 @@ Department['3']=[
 {txt:'配件', val:'9'},
 {txt:'其他', val:'10'}
 ];
+var Material=[];
+Material['3']=[
+{txt:'创面损伤', val:'1'},
+{txt:'功能敷料', val:'2'},
+{txt:'生物材料', val:'3'},
+{txt:'手术用品', val:'4'},
+{txt:'粘贴材料', val:'5'},
+{txt:'护创材料', val:'6'},
+{txt:'医用纺织品', val:'7'},
+{txt:'医用非织造布', val:'8'},
+{txt:'敷料机械', val:'9'},
+{txt:'其他', val:'10'}
+
+]
 
 function show(is)
 {
@@ -294,7 +308,7 @@ function setOption(index)
     if(index==3)
 	{	
 		show(1);
-		
+		setSelectOption('material',Material[index],'-请选择-')
 	}
 	else 
 		show(0);
@@ -308,8 +322,10 @@ function setOption(index)
 	<fieldset>
 		<legend><?php echo __('公司代理产品提交'); ?></legend>
 	<?php
-	
-		echo $this->Form->input('proxy_image',array('type'=>'file','label'=>'代理产品图片'));
+		
+	  if($this->request->data!=null&&$this->request->data['ProxyInfo']['picture_url']!=null)
+			echo $this->Html->image('./proxy_image/'.$this->request->data['ProxyInfo']['picture_url'],array('whidth'=>'300','height'=>'300'));
+		echo $this->Form->input('picture_url',array('type'=>'file','label'=>'代理产品图片'));
 		echo $this->Form->input('product_name',array('label'=>'产品名称'));
 		echo $this->Form->input('product_code',array('label'=>'产品注册号'));
 		echo $this->Form->input('product_area',array('label'=>'代理地区','options'=>$allCountrys));
@@ -318,12 +334,25 @@ function setOption(index)
 		echo $this->Form->input('qq',array('label'=>'qq'));
 		echo $this->Form->input('deadline',array('label'=>'截至时间','type'=>'date'));	
 		echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产品分类','onchange'=>'setOption(this.options[this.selectedIndex].value);','options'=>$allProduct));
+		if($this->request->data!=null)
+		{
+		echo $this->Form->hidden('id');
+		echo $this->Form->input('function',array('id'=>'function','label'=>'功能分类','options'=>$allFunction));
+		echo $this->Form->input('department',array('id'=>'department','label'=>'产品适用分类','options'=>$allDepartment));
+		?>
+		<label id="material_label">卫生材料分类</label>
+		<?php
+		echo $this->Form->input('material',array('id'=>'material','label'=>false,'options'=>$allMaterial));
+		}
+		else
+		{
 		echo $this->Form->input('function',array('id'=>'function','label'=>'功能分类','options'=>array('请选择')));
 		echo $this->Form->input('department',array('id'=>'department','label'=>'产品适用分类','options'=>array('请选择')));
 		?>
 		<label id="material_label">卫生材料分类</label>
 		<?php
-		echo $this->Form->input('material',array('id'=>'material','label'=>false,'options'=>$allMaterial));
+		echo $this->Form->input('material',array('id'=>'material','label'=>false,'options'=>array('请选择')));		
+		}  
 		echo $this->Form->input('product_claim',array('label'=>'对代理商的要求'));
 		echo $this->Form->input('product_support',array('label'=>'对代理商的支持'));
 		echo $this->Form->input('product_introduce',array('label'=>'产品介绍','rows'=>'5'));

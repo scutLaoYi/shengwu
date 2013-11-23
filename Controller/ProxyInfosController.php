@@ -13,6 +13,7 @@ class ProxyInfosController extends AppController {
  *
  * @var array
  */
+	public $helpers = array('Html','Form');
 	public $uses = array('CompanyUserInfo','ProxyInfo');
 	public $components = array('Paginator','List', 'RequestHandler');
 	public $helper = array('Js');
@@ -121,56 +122,54 @@ class ProxyInfosController extends AppController {
 		$this->set('allCountry', $allCountry);	
 	}	
 
+	/*
+	 * fetch 函数用于读取数据库筛选符合条件的代理信息并显示
+	 * by scutLaoYi
+	 */
 	public function fetch($province)
 	{
-/*		
- *		$this->ProxyInfo->recursive = 0;
-		$data = $this->ProxyInfo->find('all', array('conditions'=>array('ProxyInfo.product_area ='=>$province)));
-		$this->set('data', $data);
- */
 		$this->ProxyInfo->recursive = 0;
 		$this->Paginator->settings = array('conditions'=>array('ProxyInfo.id !='=>null, 'ProxyInfo.product_area = '=>$province));
 		$this->set('proxyInfos', $this->Paginator->paginate('ProxyInfo'));
-
 	}
 		
-	public function proxy_submit()
+	/*
+	 * 代理提交页面
+	 * by lpp001
+	 * 传入参数proxy_id则为更改
+	 * 否则为新建
+	 */
+	public function proxy_submit($proxy_id=null)
 	{
 		$allCountrys=$this->List->allCountry();
 		$this->set('allCountrys',$allCountrys);
 		$this->set('allMaterial',$this->List->allMaterial());
 		$this->set('allProduct',$this->List->allProduct());
-		if($this->request->is('post'))
+		if($this->request->is(array('post','put')))
 		{
 			$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id'))));
 			if($company!=null)
 			{
 				$this->request->data['ProxyInfo']['company_user_info_id']=$company['CompanyUserInfo']['id'];
 				$this->request->data['ProxyInfo']['status']='1';
-				$file = $this->data['ProxyInfo']['proxy_image'];
+				$file = $this->request->data['ProxyInfo']['picture_url'];
 				if($this->request->data['ProxyInfo']['product_type']!='3')
 					$this->request->data['ProxyInfo']['material']='0';
-				else if($this->request->data['ProxyInfo']['material']=='0')
-				{
-					$this->Session->setFlash('表单提交失败，请选择该产品所属卫生材料分类！');
-					return ;
-				}
-				print_r($this->data['ProxyInfo']['product_type']);
-				print_r($this->data['ProxyInfo']['function']);
-				print_r($this->data['ProxyInfo']['department']);
-				print_R($this->data['ProxyInfo']['material']);
 				$ext=substr(strtolower(strrchr($file['name'],'.')),1);
 				$arr_ext=array('jpg','jpeg','gif','png');
 				$path=$this->Auth->user('username').'_'.date("YmdHis").'.'.$ext;
 				if(in_array($ext,$arr_ext))
 				{
-					move_uploaded_file($file['tmp_name'],WWW_ROOT.'img/proxy_image/'.$path);
+					move_uploaded_file($file[ 'tmp_name'],WWW_ROOT.'img/proxy_image/'.$path);
 					$this->request->data['ProxyInfo']['picture_url']=$path;
 				}
+				else
+					$this->request->data['ProxyInfo']['picture_url']=null;
 				if($this->ProxyInfo->save($this->request->data))
 				{
+					print_r($this->request->data);
 					$this->Session->setFlash('代理信息已提交，等待管理员审核');
-					
+					return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
 				}
 				else
 				{
@@ -183,20 +182,80 @@ class ProxyInfosController extends AppController {
 				$this->Session->setFlash('您当前不是企业用户，不能发布代理信息');
 			}
 		}
+		else
+		{
+			if($proxy_id!=null)
+			{
+			$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id'))));
+			$proxy=$this->ProxyInfo->find('first',array('conditions'=>array('ProxyInfo.id'=>$proxy_id)));
+			if($company!=null&&$proxy!=null&&$company['CompanyUserInfo']['id']==$proxy['ProxyInfo']['company_user_info_id'])
+			{
+			$this->request->data=$proxy;
+			$this->set('allFunction',$this->List->allFunction($this->request->data['ProxyInfo']['product_type']));
+			$this->set('allDepartment',$this->List->allDepartment($this->request->data['ProxyInfo']['product_type']));
+
+			}
+			else
+			{
+			$this->Session->setFlash('您不是该代理信息拥有者，不能编辑该代理信息');
+			return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
+			}
+				
+
+
+			}
+			
+		}
 	}
 
+	/*
+	 * 代理显示三级页面
+	 * by lpp001
+	 */
+	public function proxy_view($proxy_id=null)
+	{
+		$proxy=$this->ProxyInfo->find('first',array('conditions'=>array('ProxyInfo.id'=>$proxy_id)));
+		if($proxy!=null)
+		{
+			$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.id'=>$proxy['ProxyInfo']['company_user_info_id'])));
+			$this->set('allCountry',$this->List->allCountry());
+			$this->set('allProduct',$this->List->allProduct());
+			$this->set('allFunction',$this->List->allFunction($proxy['ProxyInfo']['product_type']));
+			$this->set('allDepartment',$this->List->allDepartment($proxy['ProxyInfo']['product_type']));
+			if($proxy['ProxyInfo']['material']!='0')$this->set('allMaterial',$this->List->allMaterial());
+			$this->set('proxyInfo',$proxy);
+			$this->set('company',$company);
+		}
+		else
+		{
+			$this->Session->setFlash('该代理信息不存在');
+			return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
+		}
+		
+	}
+
+	/*
+	 * 权限管理函数
+	 * by scutLaoYi
+	 * 未登录可访问代理二级、三级页面及ajax访问页面
+	 */
 	public function beforeFilter()
 	{
-		$this->Auth->allow('proxy_list', 'fetch');
+		$this->Auth->allow('proxy_list', 'proxy_view','fetch');
 		return parent::beforeFilter();
 	}
 
 
+	/*
+	 *isAuthorized函数
+	 * by scutLaoYi
+	 *公司用户可访问代理提交及代理编辑页面
+	 */
 	public function isAuthorized($user)
 	{
 		if($this->Auth->user('type')==1)
 		{
-			if(in_array($this->action,array('proxy_submit')))
+			if(in_array($this->action,array('proxy_submit','proxy_edit')))
 			{
 				return true;
 			}

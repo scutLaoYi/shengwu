@@ -84,14 +84,14 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 			<li><?php echo $this->Html->link('主页', array('controller'=>'Mainpage', 'action'=>'index')); ?></li>
 			<li><?php echo $this->Html->link('公司', array('controller'=>'CompanyIntroduces', 'action'=>'company_introduce_list')); ?></a>
 			  </li>
-			  <li><a href="">代理</a>
+			  <li><?php echo $this->Html->link('代理', array('controller'=>'ProxyInfos', 'action'=>'proxy_list')); ?></a>
 				<ul>
 					<li><a href="">耗材</a></li>
 					<li><a href="">医药</a></li>
 					<li><a href="">器械</a></li>
 				</ul>
 			  </li>
-				<li><a href="">招聘</a></li>
+			  <li><?php echo $this->Html->link('招聘', array('controller'=>'Recruitments', 'action'=>'recruitment_list')); ?></a></li>
 				<li><a href="">招标</a></li>
 				<li><a href="">论坛</a></li>
 				<li><a href="">信息发布</a>

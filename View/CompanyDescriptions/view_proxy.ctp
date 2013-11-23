@@ -8,7 +8,7 @@
 	</tr>
 	<?php foreach($proxyInfos as $proxyInfo): ?>
 	<tr>
-		<td><?php echo $this->Html->link($proxyInfo['ProxyInfo']['product_name']); ?> </td>
+		<td><?php echo $this->Html->link($proxyInfo['ProxyInfo']['product_name'], array('controller'=>'ProxyInfos', 'action'=>'proxy_view', $proxyInfo['ProxyInfo']['id'])); ?> </td>
 		<td><?php echo $proxyInfo['ProxyInfo']['product_area']; ?> </td>
 		<td><?php echo $proxyInfo['ProxyInfo']['product_introduce']; ?> </td>
 	</tr>

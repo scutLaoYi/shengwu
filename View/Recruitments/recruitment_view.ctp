@@ -77,4 +77,5 @@
 			&nbsp;
 		</dd>
 	</dl>
+	<?php echo $this->Html->link('返回列表', array('controller'=>'Recruitments', 'action'=>'recruitment_list')); ?>
 </div>
