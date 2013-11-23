@@ -14,7 +14,8 @@ class ProxyInfosController extends AppController {
  * @var array
  */
 	public $uses = array('CompanyUserInfo','ProxyInfo');
-	public $components = array('Paginator','List');
+	public $components = array('Paginator','List', 'RequestHandler');
+	public $helper = array('Js');
 
 /**
  * index method
@@ -109,6 +110,30 @@ class ProxyInfosController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 
+	/*
+	 * 代理二级页面
+	 * by scutLaoYi
+	 * 挂载树状列表，将所有符合条件的代理信息列表显示
+	 */
+	public function proxy_list()
+	{
+		$allCountry = $this->List->allCountry();
+		$this->set('allCountry', $allCountry);	
+	}	
+
+	public function fetch($province)
+	{
+/*		
+ *		$this->ProxyInfo->recursive = 0;
+		$data = $this->ProxyInfo->find('all', array('conditions'=>array('ProxyInfo.product_area ='=>$province)));
+		$this->set('data', $data);
+ */
+		$this->ProxyInfo->recursive = 0;
+		$this->Paginator->settings = array('conditions'=>array('ProxyInfo.id !='=>null, 'ProxyInfo.product_area = '=>$province));
+		$this->set('proxyInfos', $this->Paginator->paginate('ProxyInfo'));
+
+	}
+		
 	public function proxy_submit()
 	{
 		$allCountrys=$this->List->allCountry();
@@ -159,6 +184,14 @@ class ProxyInfosController extends AppController {
 			}
 		}
 	}
+
+	public function beforeFilter()
+	{
+		$this->Auth->allow('proxy_list', 'fetch');
+		return parent::beforeFilter();
+	}
+
+
 	public function isAuthorized($user)
 	{
 		if($this->Auth->user('type')==1)

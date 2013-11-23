@@ -95,9 +95,9 @@ class CompanyDescriptionsController extends AppController
 		if(!$company_id)
 			return $this->notFoundPage();
 		$this->ProxyInfo->recursive = 0;
-		$proxy = $this->ProxyInfo->find('all', array(
-			'conditions'=>array('ProxyInfo.company_user_info_id'=>$company_id)));
-		$this->set('proxy', $proxy);
+		$this->Paginator->settings = array('conditions'=>array('ProxyInfo.id !='=>null, 'ProxyInfo.company_user_info_id = '=>$company_id));
+		$this->set('proxyInfos', $this->Paginator->paginate('ProxyInfo'));
+		$this->set('company_id', $company_id);
 	}
 
 	/*
