@@ -8,21 +8,21 @@ App::uses('AppController', 'Controller');
  */
 class ProxyInfosController extends AppController {
 
-/**
- * Components
- *
- * @var array
- */
+	/**
+	 * Components
+	 *
+	 * @var array
+	 */
 	public $helpers = array('Html','Form');
 	public $uses = array('CompanyUserInfo','ProxyInfo');
 	public $components = array('Paginator','List', 'RequestHandler');
 	public $helper = array('Js');
 
-/**
- * index method
- *
- * @return void
- */
+	/**
+	 * index method
+	 *
+	 * @return void
+	 */
 	public function index() {
 		$this->ProxyInfo->recursive = 0;
 		$this->Paginator->settings = array('conditions'=>array('ProxyInfo.id !='=>null));
@@ -30,13 +30,13 @@ class ProxyInfosController extends AppController {
 
 	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+	/**
+	 * view method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
 	public function view($id = null) {
 		if (!$this->ProxyInfo->exists($id)) {
 			throw new NotFoundException(__('Invalid proxy info'));
@@ -45,11 +45,11 @@ class ProxyInfosController extends AppController {
 		$this->set('proxyInfo', $this->ProxyInfo->find('first', $options));
 	}
 
-/**
- * add method
- *
- * @return void
- */
+	/**
+	 * add method
+	 *
+	 * @return void
+	 */
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->ProxyInfo->create();
@@ -64,13 +64,13 @@ class ProxyInfosController extends AppController {
 		$this->set(compact('companyUserInfos'));
 	}
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+	/**
+	 * edit method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
 	public function edit($id = null) {
 		if (!$this->ProxyInfo->exists($id)) {
 			throw new NotFoundException(__('Invalid proxy info'));
@@ -90,13 +90,13 @@ class ProxyInfosController extends AppController {
 		$this->set(compact('companyUserInfos'));
 	}
 
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+	/**
+	 * delete method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
 	public function delete($id = null) {
 		$this->ProxyInfo->id = $id;
 		if (!$this->ProxyInfo->exists()) {
@@ -115,24 +115,33 @@ class ProxyInfosController extends AppController {
 	 * 代理二级页面
 	 * by scutLaoYi
 	 * 挂载树状列表，将所有符合条件的代理信息列表显示
+	 * 读取数据库筛选符合条件的代理信息并显示
+	 * 
 	 */
 	public function proxy_list()
 	{
+		if($this->request->is('Post'))
+		{
+			debug($this->request->data);
+		}
 		$allCountry = $this->List->allCountry();
-		$this->set('allCountry', $allCountry);	
-	}	
-
-	/*
-	 * fetch 函数用于读取数据库筛选符合条件的代理信息并显示
-	 * by scutLaoYi
-	 */
-	public function fetch($province)
-	{
+		$this->set('allCountrys', $allCountry);	
 		$this->ProxyInfo->recursive = 0;
-		$this->Paginator->settings = array('conditions'=>array('ProxyInfo.id !='=>null, 'ProxyInfo.product_area = '=>$province));
+		$this->Paginator->settings = array(
+			'conditions'=>array(
+				'ProxyInfo.id !='=>null, 
+				'ProxyInfo.product_area = '=>$province, 
+			)
+		);
 		$this->set('proxyInfos', $this->Paginator->paginate('ProxyInfo'));
+		$allMaterial = $this->List->allMaterial();
+		$allMaterial[0] = '全部';
+		$this->set('allMaterial', $allMaterial);
+		$allProduct = $this->List->allProduct();
+		$allProduct[0] = '全部';
+		$this->set('allProduct', $allProduct);
 	}
-		
+
 	/*
 	 * 代理提交页面
 	 * by lpp001
@@ -176,7 +185,7 @@ class ProxyInfosController extends AppController {
 					$this->set('allFunction',$this->List->allFunction($this->request->data['ProxyInfo']['product_type']));
 					$this->set('allDepartment',$this->List->allDepartment($this->request->data['ProxyInfo']['product_type']));
 				}
-				
+
 			}
 			else
 			{
@@ -188,25 +197,25 @@ class ProxyInfosController extends AppController {
 		{
 			if($proxy_id!=null)
 			{
-			$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id'))));
-			$proxy=$this->ProxyInfo->find('first',array('conditions'=>array('ProxyInfo.id'=>$proxy_id)));
-			if($company!=null&&$proxy!=null&&$company['CompanyUserInfo']['id']==$proxy['ProxyInfo']['company_user_info_id'])
-			{
-			$this->request->data=$proxy;
-			$this->set('allFunction',$this->List->allFunction($this->request->data['ProxyInfo']['product_type']));
-			$this->set('allDepartment',$this->List->allDepartment($this->request->data['ProxyInfo']['product_type']));
+				$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id'))));
+				$proxy=$this->ProxyInfo->find('first',array('conditions'=>array('ProxyInfo.id'=>$proxy_id)));
+				if($company!=null&&$proxy!=null&&$company['CompanyUserInfo']['id']==$proxy['ProxyInfo']['company_user_info_id'])
+				{
+					$this->request->data=$proxy;
+					$this->set('allFunction',$this->List->allFunction($this->request->data['ProxyInfo']['product_type']));
+					$this->set('allDepartment',$this->List->allDepartment($this->request->data['ProxyInfo']['product_type']));
+
+				}
+				else
+				{
+					$this->Session->setFlash('您不是该代理信息拥有者，不能编辑该代理信息');
+					return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
+				}
+
+
 
 			}
-			else
-			{
-			$this->Session->setFlash('您不是该代理信息拥有者，不能编辑该代理信息');
-			return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
-			}
-				
 
-
-			}
-			
 		}
 	}
 
@@ -233,7 +242,7 @@ class ProxyInfosController extends AppController {
 			$this->Session->setFlash('该代理信息不存在');
 			return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
 		}
-		
+
 	}
 
 	/*
