@@ -37,7 +37,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
-		echo $this->Html->script('jquery');
+		//echo $this->Html->script('jquery');
 	?>
 </head>
 <body>
@@ -129,6 +129,6 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?> 
-	<?php echo $this->Js->writeBuffer();?>
+	<?php //echo $this->Js->writeBuffer();?>
 </body>
 </html>
