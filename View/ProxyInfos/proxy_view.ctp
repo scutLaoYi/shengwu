@@ -18,7 +18,7 @@
 		</dd>
 		<dt><?php echo __('公司名称'); ?></dt>
 		<dd>
-			<?php echo h($company['CompanyUserInfo']['company']); ?>
+			<?php echo h($proxyInfo['CompanyUserInfo']['company']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('产品注册号'); ?></dt>

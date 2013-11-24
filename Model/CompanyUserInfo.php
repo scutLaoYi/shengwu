@@ -11,13 +11,13 @@ class CompanyUserInfo extends AppModel
         );
     var $hasOne=array
         (
-             'CompanyIntroduce'=>array('className'=>'CompanyIntroduce',)
+             'CompanyIntroduce'=>array('className'=>'CompanyIntroduce','dependent'=>true)
         );
     var $hasMany=array
         (
-            'ProxyInfo'=>array('className'=>'ProxyInfo',),
-            'Recruitment'=>array('className'=>'Recruitment',),
-            'AdList'=>array('className'=>'AdList',)
+            'ProxyInfo'=>array('className'=>'ProxyInfo','dependent'=>true),
+            'Recruitment'=>array('className'=>'Recruitment','dependent'=>true),
+            'AdList'=>array('className'=>'AdList','dependent'=>true)
         );
 
    var $validate=array

@@ -73,22 +73,13 @@ function setSelectOption(selectObj, optionList, firstOption, selected)
     }
   
 }
-function setOption(selectObj, optionList, firstOption, selected)
-{
-    var len = optionList.length;
-  
-    for (var i=0; i < len; i++)
-    {
-        // 设置 option
-        selectObj.options[i] = new Option(optionList[i].txt, optionList[i].val);
-	
-    }
-}
+
 //-->
 </script>
 <script language="JavaScript" type="text/javascript">
   
 var Functions = [];
+Functions['0']=[];
 Functions['1'] = [
 {txt:'外科器械', val:'1'},
 {txt:'康复护理设备及器具', val:'2'},
@@ -105,8 +96,7 @@ Functions['1'] = [
 {txt:'药液输送保存器械', val:'13'},
 {txt:'进口医疗器械', val:'14'},
 {txt:'一次性医疗用品', val:'15'},
-{txt:'其他器械', val:'16'},
-{txt:'其他', val:'17'}
+{txt:'其他', val:'16'}
     ];
 Functions['2'] = [
 {txt:'癌症', val:'1'},
@@ -215,6 +205,7 @@ Functions['3'] = [
 {txt:'其他', val:'36'}
 ];
 var Department = [];
+Department['0']=[];
 Department['1']=[
 {txt:'内科', val:'1'},
 {txt:'血液科', val:'2'},

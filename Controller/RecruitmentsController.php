@@ -131,13 +131,24 @@ class RecruitmentsController extends AppController {
 
 	/* 招聘信息三级页面，所有用户均可查看 */
 	public function recruitment_view($id = null) {
-		if (!$this->Recruitment->exists($id)) {
-			throw new NotFoundException(__('Invalid recruitment'));
-		}
 		$options = array('conditions' => array('Recruitment.' . $this->Recruitment->primaryKey => $id));
-		$this->set('recruitment',$this->Recruitment->find('first', $options));
+		$recruitment=$this->Recruitment->find('first',$options);
+		if($recruitment!=null)
+		{
+		$this->set('allSexs',$this->List->allSexs());
+		$this->set('allEducational',$this->List->allEducational());
+		$this->set('allWorkingType',$this->List->allWorkingType());
+		$this->set('allProvince',$this->List->allProvince());
+		$this->set('recruitment',$recruitment);
 		//增加该变量以供返回调用
 		$this->set('referer', $this->referer());
+
+		}
+		else
+		{
+			$this->Session->setFlash('您访问的招聘信息不存在！');
+			$this->redirect(array('controller'=>'Mainpage','action'=>'index'));
+		}
 	}
 
 	/* 招聘信息二级页面，所有用户均可查看 */

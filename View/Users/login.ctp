@@ -8,4 +8,5 @@
 </fieldset>
 
 <?php echo $this->Form->end(__('登录')); ?>
+<?php echo $this->Html->link('忘记密码',array('action'=>'forget_password'));?>
 </div>
