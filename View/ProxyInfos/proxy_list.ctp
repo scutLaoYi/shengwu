@@ -9,12 +9,23 @@ echo __('Proxy Infos');
 	<tr>
 			<th><?php echo $this->Paginator->sort('product_name'); ?></th>
 			<th><?php echo $this->Paginator->sort('product_area'); ?></th>
+
+			<th><?php echo $this->Paginator->sort('product_type'); ?></th>
+			<th><?php echo $this->Paginator->sort('function'); ?></th>
+			<th><?php echo $this->Paginator->sort('department'); ?></th>
+			<th><?php echo $this->Paginator->sort('material'); ?></th>
 			<th><?php echo $this->Paginator->sort('product_introduce'); ?></th>
 	</tr>
 	<?php foreach ($proxyInfos as $proxyInfo): ?>
 	<tr>
-		<td><?php echo h($proxyInfo['ProxyInfo']['product_name']); ?>&nbsp;</td>
-		<td><?php echo h($proxyInfo['ProxyInfo']['product_area']); ?>&nbsp;</td>
+		<td><?php echo $this->Html->link($proxyInfo['ProxyInfo']['product_name'], 
+array('controller'=>'ProxyInfos','action'=>'proxy_view', $proxyInfo['ProxyInfo']['id'])); ?>&nbsp;</td>
+		<td><?php echo h($allProvinces[$proxyInfo['ProxyInfo']['product_area']]); ?>&nbsp;</td>
+
+		<td><?php echo h($proxyInfo['ProxyInfo']['product_type']); ?>&nbsp;</td>
+		<td><?php echo h($proxyInfo['ProxyInfo']['function']); ?>&nbsp;</td>
+		<td><?php echo h($proxyInfo['ProxyInfo']['department']); ?>&nbsp;</td>
+		<td><?php echo h($proxyInfo['ProxyInfo']['material']); ?>&nbsp;</td>
 		<td><?php echo h($proxyInfo['ProxyInfo']['product_introduce']); ?>&nbsp;</td>
 	</tr>
 <?php endforeach; ?>

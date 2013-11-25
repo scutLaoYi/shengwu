@@ -24,20 +24,32 @@
 		echo $this->Form->hidden('id');
 		echo $this->Form->input('function',array('id'=>'function','label'=>'功能分类','options'=>$allFunction));
 		echo $this->Form->input('department',array('id'=>'department','label'=>'产品适用分类','options'=>$allDepartment));
-		?>
-		<label id="material_label">卫生材料分类</label>
-		<?php
-		echo $this->Form->input('material',array('id'=>'material','label'=>false,'options'=>$allMaterial));
+			if($this->request->data['ProxyInfo']['product_type'] == '3')
+			{
+?>
+				<label id="material_label">卫生材料分类</label>
+<?php
+				echo $this->Form->input('material', array('id'=>'material', 'label'=>false,'options'=>$allMaterial));
+			}
+			else
+			{
+?>
+				<label for="material" id="material_label" style="display:none">卫生材料分类</label>
+<?php
+				echo $this->Form->input('material', array('id'=>'material','label'=>false, 'style'=>'display:none','options'=>$allMaterial));
+			}
 		}
 		else
 		{
 		echo $this->Form->input('function',array('id'=>'function','label'=>'功能分类','options'=>array('请选择')));
 		echo $this->Form->input('department',array('id'=>'department','label'=>'产品适用分类','options'=>array('请选择')));
-		?>
+?>
 		<label id="material_label">卫生材料分类</label>
-		<?php
-		echo $this->Form->input('material',array('id'=>'material','label'=>false,'options'=>array('请选择')));		
+<?php
+		echo $this->Form->input('material', array('id'=>'material', 'label'=>false,'options'=>array('请选择')));
 		}  
+		?>
+<?php
 		echo $this->Form->input('product_claim',array('label'=>'对代理商的要求'));
 		echo $this->Form->input('product_support',array('label'=>'对代理商的支持'));
 		echo $this->Form->input('product_introduce',array('label'=>'产品介绍','rows'=>'5'));

@@ -132,15 +132,16 @@ class ProxyInfosController extends AppController {
 		//创建sql筛选条件
 		$options = array('ProxyInfo.id != '=>null);
 		if($province)
-			$options['ProxyInfo.product_area'] = $province; 
+			$options['ProxyInfo.product_area ='] = $province; 
 		if($type)
-			$options['ProxyInfo.product_type'] = $type;
+			$options['ProxyInfo.product_type ='] = $type;
 		if($function)
-			$options['ProxyInfo.function'] = $function;
+			$options['ProxyInfo.function ='] = $function;
 		if($department)
 			$options['ProxyInfo.department'] = $department;
 		if($material && $type == '3')
 			$options['ProxyInfo.material'] = $material;
+		debug($options);
 
 		//开始筛选条件并返回结果
 		$this->ProxyInfo->recursive = 0;
@@ -149,6 +150,9 @@ class ProxyInfosController extends AppController {
 			'limit'=>5,
 		);
 		$this->set('proxyInfos', $this->Paginator->paginate('ProxyInfo'));
+		$this->set('allProvinces', $this->List->allCountry());
+		$this->set('allProducts', $this->List->allProduct());
+
 	}
 
 	/*
@@ -176,16 +180,19 @@ class ProxyInfosController extends AppController {
 		$this->set('allCountrys',$allCountrys);
 		$this->set('allMaterial',$this->List->allMaterial());
 		$this->set('allProduct',$this->List->allProduct());
+		//传入数据，保存数据
 		if($this->request->is(array('post','put')))
 		{
 			$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id'))));
+			//当前是公司用户
 			if($company!=null)
 			{
 				$this->request->data['ProxyInfo']['company_user_info_id']=$company['CompanyUserInfo']['id'];
 				$this->request->data['ProxyInfo']['status']='1';
-				$file = $this->request->data['ProxyInfo']['picture_url'];
 				if($this->request->data['ProxyInfo']['product_type']!='3')
 					$this->request->data['ProxyInfo']['material']='0';
+				//图片上传 
+				$file = $this->request->data['ProxyInfo']['picture_url'];
 				$ext=substr(strtolower(strrchr($file['name'],'.')),1);
 				$arr_ext=array('jpg','jpeg','gif','png');
 				$path=$this->Auth->user('username').'_'.date("YmdHis").'.'.$ext;
@@ -196,6 +203,7 @@ class ProxyInfosController extends AppController {
 				}
 				else
 					$this->request->data['ProxyInfo']['picture_url']=null;
+				//存档
 				if($this->ProxyInfo->save($this->request->data))
 				{
 					$this->Session->setFlash('代理信息已提交，等待管理员审核');
@@ -209,6 +217,7 @@ class ProxyInfosController extends AppController {
 				}
 
 			}
+			//当前不是公司用户
 			else
 			{
 				$this->Session->setFlash('您当前不是企业用户，不能发布代理信息');
@@ -217,10 +226,12 @@ class ProxyInfosController extends AppController {
 		}
 		else
 		{
+			//请求页面并附带代理id，传回数据供修改
 			if($proxy_id!=null)
 			{
 				$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id'))));
 				$proxy=$this->ProxyInfo->find('first',array('conditions'=>array('ProxyInfo.id'=>$proxy_id)));
+				//检测到该代理信息拥有者确实为当前用户,允许更改，传回数据
 				if($company!=null&&$proxy!=null&&$company['CompanyUserInfo']['id']==$proxy['ProxyInfo']['company_user_info_id'])
 				{
 					$this->request->data=$proxy;
@@ -228,6 +239,7 @@ class ProxyInfosController extends AppController {
 					$this->set('allDepartment',$this->List->allDepartment($this->request->data['ProxyInfo']['product_type']));
 
 				}
+				//否则拒绝请求
 				else
 				{
 					$this->Session->setFlash('您不是该代理信息拥有者，不能编辑该代理信息');

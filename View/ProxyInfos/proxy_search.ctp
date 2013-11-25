@@ -18,12 +18,11 @@ function search()
 				area.selectedIndex+'/';
 
 	ajaxUrl = ajaxUrl.concat(type.selectedIndex, '/', 
-		type.selectedIndex, '/', 
 		func.selectedIndex,'/', 
 		depart.selectedIndex, '/', 
 		material.selectedIndex);
 
-	//document.getElementById("debugDiv").innerHTML = ajaxUrl;
+	document.getElementById("debugDiv").innerHTML = ajaxUrl;
 	$.ajax({
 		dataType:"HTML",
 			cache:false,
@@ -58,10 +57,12 @@ echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产
 ?>
 		<label id="material_label">卫生材料分类</label>
 <?php
-	echo $this->Form->input('material',array('id'=>'material','label'=>false,'options'=>array('-全部-')));		
+	echo $this->Form->input('material',array('id'=>'material','label'=>false,'onchange'=>'search()','options'=>array('-全部-')));		
 ?>
 </div>
 
 <!-- data of ajax -->
 <div class="index" id="index">
+</div>
+<div id="debugDiv">
 </div>
