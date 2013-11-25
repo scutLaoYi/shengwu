@@ -112,46 +112,54 @@ class ProxyInfosController extends AppController {
 	}
 
 	/*
-	 * 代理二级页面
+	 * 代理ajax数据读取函数
 	 * by scutLaoYi
-	 * 挂载树状列表，将所有符合条件的代理信息列表显示
-	 * 读取数据库筛选符合条件的代理信息并显示
+	 * 读取数据库筛选符合条件的代理信息并显示在ajax布局中
+	 * 仅供ajax调用，直接访问弹出错误
 	 * 
 	 */
-	public function proxy_list($province)
+	public function proxy_list($province = null, 
+								$type = null,
+								$function = null,
+								$department = null,
+								$material = null)
 	{
+		if(!$this->request->is('ajax'))
+			throw new NotFoundException('页面不存在！');
+		//修改默认的布局，换ajax布局页面
 		$this->layout = 'ajax';
+
+		//创建sql筛选条件
+		$options = array('ProxyInfo.id != '=>null);
+		if($province)
+			$options['ProxyInfo.product_area'] = $province; 
+		if($type)
+			$options['ProxyInfo.product_type'] = $type;
+		if($function)
+			$options['ProxyInfo.function'] = $function;
+		if($department)
+			$options['ProxyInfo.department'] = $department;
+		if($material && $type == '3')
+			$options['ProxyInfo.material'] = $material;
+
+		//开始筛选条件并返回结果
 		$this->ProxyInfo->recursive = 0;
 		$this->Paginator->settings = array(
-			'conditions'=>array(
-				'ProxyInfo.id !='=>null,
-				'ProxyInfo.product_area'=>$province,
-			),
+			'conditions'=>$options,
 			'limit'=>5,
 		);
 		$this->set('proxyInfos', $this->Paginator->paginate('ProxyInfo'));
 	}
 
 	/*
-	 * temp page for ajax
+	 * 代理二级页面
+	 * by scutLaoYi
+	 * 挂载选项框，使用javascript捕捉内容变动并用ajax传送筛选条件到proxy_list中，显示返回结果
 	 */
-
-	public function temp()
+	public function proxy_search()
 	{
-		
 		$allCountry = $this->List->allCountry();
 		$this->set('allCountrys', $allCountry);	
-
-/*		$allFunction = $this->List->allFunction($this->request->data['filter']['product_type']);
-		$allDepartment = $this->List->allDepartment($this->request->data['filter']['product_type']);
-		$allFunction['0'] = '-全部-';
-		$allDepartment['0'] = '-全部-';
- */
-//		$this->set('allDepartment', $allDepartment);
-//		$this->set('allFunction', $allFunction);
-		$allMaterial = $this->List->allMaterial();
-		$allMaterial[0] = '全部';
-		$this->set('allMaterial', $allMaterial);
 		$allProduct = $this->List->allProduct();
 		$allProduct[0] = '全部';
 		$this->set('allProduct', $allProduct);
