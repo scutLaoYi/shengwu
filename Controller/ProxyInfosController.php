@@ -274,7 +274,7 @@ class ProxyInfosController extends AppController {
 	 */
 	public function beforeFilter()
 	{
-		$this->Auth->allow('proxy_list', 'proxy_view','temp');
+		$this->Auth->allow('proxy_list', 'proxy_view','proxy_search');
 		return parent::beforeFilter();
 	}
 
