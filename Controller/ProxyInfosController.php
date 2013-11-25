@@ -118,22 +118,37 @@ class ProxyInfosController extends AppController {
 	 * 读取数据库筛选符合条件的代理信息并显示
 	 * 
 	 */
-	public function proxy_list()
+	public function proxy_list($province)
 	{
-		if($this->request->is('Post'))
-		{
-			debug($this->request->data);
-		}
-		$allCountry = $this->List->allCountry();
-		$this->set('allCountrys', $allCountry);	
+		$this->layout = 'ajax';
 		$this->ProxyInfo->recursive = 0;
 		$this->Paginator->settings = array(
 			'conditions'=>array(
-				'ProxyInfo.id !='=>null, 
-				'ProxyInfo.product_area = '=>$province, 
-			)
+				'ProxyInfo.id !='=>null,
+				'ProxyInfo.product_area'=>$province,
+			),
+			'limit'=>5,
 		);
 		$this->set('proxyInfos', $this->Paginator->paginate('ProxyInfo'));
+	}
+
+	/*
+	 * temp page for ajax
+	 */
+
+	public function temp()
+	{
+		
+		$allCountry = $this->List->allCountry();
+		$this->set('allCountrys', $allCountry);	
+
+/*		$allFunction = $this->List->allFunction($this->request->data['filter']['product_type']);
+		$allDepartment = $this->List->allDepartment($this->request->data['filter']['product_type']);
+		$allFunction['0'] = '-全部-';
+		$allDepartment['0'] = '-全部-';
+ */
+//		$this->set('allDepartment', $allDepartment);
+//		$this->set('allFunction', $allFunction);
 		$allMaterial = $this->List->allMaterial();
 		$allMaterial[0] = '全部';
 		$this->set('allMaterial', $allMaterial);
@@ -141,7 +156,6 @@ class ProxyInfosController extends AppController {
 		$allProduct[0] = '全部';
 		$this->set('allProduct', $allProduct);
 	}
-
 	/*
 	 * 代理提交页面
 	 * by lpp001
@@ -251,7 +265,7 @@ class ProxyInfosController extends AppController {
 	 */
 	public function beforeFilter()
 	{
-		$this->Auth->allow('proxy_list', 'proxy_view','fetch');
+		$this->Auth->allow('proxy_list', 'proxy_view','temp');
 		return parent::beforeFilter();
 	}
 
