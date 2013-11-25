@@ -6,6 +6,11 @@
 			<?php echo h($recruitment['Recruitment']['job_title']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('公司名称'); ?></dt>
+		<dd>
+			<?php echo h($recruitment['CompanyUserInfo']['company']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('招聘人数'); ?></dt>
 		<dd>
 			<?php echo h($recruitment['Recruitment']['number']); ?>
@@ -13,7 +18,7 @@
 		</dd>
 		<dt><?php echo __('性别要求'); ?></dt>
 		<dd>
-			<?php echo h($recruitment['Recruitment']['sex']); ?>
+			<?php echo h($allSexs[$recruitment['Recruitment']['sex']]); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('年龄要求'); ?></dt>
@@ -23,12 +28,12 @@
 		</dd>
 		<dt><?php echo __('教育程度'); ?></dt>
 		<dd>
-			<?php echo h($recruitment['Recruitment']['educational']); ?>
+			<?php echo h($allEducational[$recruitment['Recruitment']['educational']]); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('工作类型'); ?></dt>
 		<dd>
-			<?php echo h($recruitment['Recruitment']['working_type']); ?>
+			<?php echo h($allWorkingType[$recruitment['Recruitment']['working_type']]); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('工作时间'); ?></dt>
@@ -38,7 +43,7 @@
 		</dd>
 		<dt><?php echo __('工作地区'); ?></dt>
 		<dd>
-			<?php echo h($recruitment['Recruitment']['working_area']); ?>
+			<?php echo h($allProvince[$recruitment['Recruitment']['working_area']]); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('户口要求'); ?></dt>

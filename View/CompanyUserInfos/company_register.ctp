@@ -1,3 +1,11 @@
+<script language="JavaScript" type="text/javascript">
+function change(obj) {
+            var text = obj.value;   // 获取input的值
+            if (text.match(/^http/gi) == null) {   // 判断是否以http开头
+                obj.value = "http://" + text;  // 不以http开头，则http:// + 文本
+            }
+        }
+</script>
 <div class="companyUserInfos form">
 <?php echo $this->Form->create('CompanyUserInfo_for'); ?>
 	<fieldset>
@@ -18,7 +26,7 @@
 ));
 	echo $this->Form->input('CompanyUserInfo.address',array('label'=>'地址'));
 	echo $this->Form->input('CompanyUserInfo.code',array('label'=>'邮编'));
-	echo $this->Form->input('CompanyUserInfo.website',array('label'=>'网站'));
+	echo $this->Form->input('CompanyUserInfo.website',array('label'=>'网站','value'=>'http://'));
 	echo $this->Form->input('CompanyUserInfo.qq',array('label'=>'QQ'));
 		
 	?>

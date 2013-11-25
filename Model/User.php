@@ -9,10 +9,12 @@ class User extends AppModel
 		 'CompanyUserInfo'=>array
 		 (
 			 'className'=>'CompanyUserInfo',
+			'dependent'=>true
 		 ),
 		 'Resume'=>array
 		 (
 			 'className'=>'Resume',
+			'dependent'=>true
 		 )
      );
    var $validate=array

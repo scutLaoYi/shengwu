@@ -4,7 +4,11 @@ class Resume extends AppModel
 {
 	var $belongsTo=array
 	(
-		'User'=>array('User')
+		'User'=>array
+			(
+				'className'=>'User',
+				'foreignKey'=>'user_id'
+			)
 	);
 var $validate=array
 	(
