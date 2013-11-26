@@ -190,7 +190,7 @@ class CompanyUserInfosController extends AppController {
 					$this->request->data['User']['email'] = $this->request->data['User']['email'];
 					$this->request->data['User']['type'] = $this->Auth->user('type');
 					if($this->User->save($this->request->data)) {
-						$this->Session->setFlash(__('密码修改成功'));
+						$this->Session->setFlash(__('修改成功'));
 						return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
 					} else {
 						$this->Session->setFlash(__('修改失败，请重试'));
@@ -227,6 +227,7 @@ class CompanyUserInfosController extends AppController {
 			return True;
 		return parent::isAuthorized($user);
 	}
+
 	/*
 	 * beforeFilter function for CompanyUserInfosController by lpp
 	 */

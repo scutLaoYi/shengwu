@@ -168,6 +168,7 @@ class ProxyInfosController extends AppController {
 		$allProduct[0] = '全部';
 		$this->set('allProduct', $allProduct);
 	}
+
 	/*
 	 * 代理提交页面
 	 * by lpp001
@@ -237,7 +238,6 @@ class ProxyInfosController extends AppController {
 					$this->request->data=$proxy;
 					$this->set('allFunction',$this->List->allFunction($this->request->data['ProxyInfo']['product_type']));
 					$this->set('allDepartment',$this->List->allDepartment($this->request->data['ProxyInfo']['product_type']));
-
 				}
 				//否则拒绝请求
 				else

@@ -16,7 +16,7 @@ class UsersController extends AppController {
 	 */
 	public $helpers = array('Html','Form'); //added by GentleH
 
-	public $components = array('Paginator');
+	public $components = array('Paginator', 'EmailSender');
 
 	/**
 	 * index method
@@ -262,34 +262,15 @@ class UsersController extends AppController {
 			}
 			else
 			{
-				$website='http://10.0.0.3/';
-				$date=time();
-				$user_email=$user['User']['email'];
-				$Email=new CakeEmail('gmail');
-				$salt=Configure::read('Security.salt');
-				$str=$user['User']['username'].$date.$salt;
-				$mdf=AuthComponent::password($str);
-				$message='亲爱的用户 '.$user['User']['username'].'：您好！
-
-    您收到这封这封电子邮件是因为您 (也可能是某人冒充您的名义) 申请了一个新的密码。假如这不是您本人所申请, 请不用理会这封电子邮件, 但是如果您持续收到这类的信件骚扰, 请您尽快联络管理员。
-
-    要使用新的密码, 请使用以下链接启用密码。
-'.
-
-   $website.'cakephp/users/change_password/'.$user['User']['username'].'/'.$date.'/'.$mdf.
-    
-  
-  '
-(如果无法点击该URL链接地址，请将它复制并粘帖到浏览器的地址输入框，然后单击回车即可。)
-   
-    注意:请您在收到邮件1个小时内使用，否则该链接将会失效。
-    关注中国生物医学材料：'.$website.'cakephp/Mainpage/index';
-			 	$Email->from( array('522623259@qq.com'=>'My Site'));
-				$Email->to($user_email);
-				$Email->subject('中国生物医学材料帮您找回密码');
-				if($Email->send($message))
+				if($this->EmailSender->sendFoundPassword(
+					$user['User']['username'], $user['User']['email']))
 				{
-					$this->Session->setFlash('您的提交已通过审核，请于邮箱查看，如果收信箱找不到，请于垃圾箱查看！');
+					$this->Session->setFlash('密码找回邮件发送成功！');
+					return $this->redirect(array('controller'=>'Mainpage', 'action'=>'index'));
+				}
+				else
+				{
+					$this->Session->setFlash('密码找回邮件发送失败...');
 				}
 			}
 

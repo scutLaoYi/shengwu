@@ -20,15 +20,6 @@ class CompanyDescriptionsController extends AppController
 		'Recruitment');
 
 	/*
-	 * 访问出错时的处理函数，跳转回首页并显示页面不存在
-	 */ 
-	function notFoundPage()
-	{
-		$this->Session->setFlash('您访问的页面不存在...');
-		return $this->redirect(array('controller'=>'Mainpage', 'action'=>'index'));
-	}
-
-	/*
 	 * 三级页面公司基本信息显示
 	 * 读取companyUserInfo表获取数据并展示
 	 */
@@ -38,7 +29,7 @@ class CompanyDescriptionsController extends AppController
 		{
 			//未传入公司id且不是公司用户，直接跳出
 			if($this->Auth->user('type') != '1')
-				return $this->notFoundPage();
+				throw new NotFoundException('页面不存在');
 			//否则查找当前用户的公司id并显示对应项
 			$this->CompanyUserInfo->recursive = '0';
 			$currentCompany = $this->CompanyUserInfo->find('first', array('conditions' => array('user_id' => $this->Auth->user('id'))));
@@ -51,8 +42,9 @@ class CompanyDescriptionsController extends AppController
 			$info = $this->CompanyUserInfo->find('first', array(
 				'conditions' => array('CompanyUserInfo.id' => $company_id)));
 			if(!$info)
-				return $this->notFoundPage();
+				throw new NotFoundException('页面不存在');
 			$this->set('company_info', $info['CompanyUserInfo']);
+			//对当前公司用户自身信息提供编辑接口
 			if($this->Auth->user('type') == 1)
 			{
 				if($info['CompanyUserInfo']['user_id'] == $this->Auth->user('id'))
@@ -68,13 +60,16 @@ class CompanyDescriptionsController extends AppController
 	public function view_introduce($company_id = null)
 	{
 		if(!$company_id)
-			return $this->notFoundPage();
+			throw new NotFoundExcetion('页面不存在');
+
 		$this->CompanyIntroduce->recursive = 0;
 		$introduce = $this->CompanyIntroduce->find('first', array(
 			'conditions'=>array('CompanyIntroduce.company_user_info_id'=>$company_id)));
 		if(isset($introduce['CompanyIntroduce']))
 			$this->set('introduce', $introduce['CompanyIntroduce']);
 		$this->set('company_id', $company_id);
+
+		//对当前公司自己的宣传页面提供编辑接口
 		if($this->Auth->user('type') == '1')
 		{
 			$this->CompanyUserInfo->recursive = 0;
@@ -93,7 +88,8 @@ class CompanyDescriptionsController extends AppController
 	public function view_proxy($company_id = null)
 	{
 		if(!$company_id)
-			return $this->notFoundPage();
+			throw new NotFoundException('页面不存在');
+
 		$this->ProxyInfo->recursive = 0;
 		$this->Paginator->settings = array('conditions'=>array('ProxyInfo.id !='=>null, 'ProxyInfo.company_user_info_id = '=>$company_id));
 		$this->set('proxyInfos', $this->Paginator->paginate('ProxyInfo'));
