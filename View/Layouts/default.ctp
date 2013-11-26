@@ -37,7 +37,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
-		//echo $this->Html->script('jquery');
+		echo $this->Html->script('jquery');
 	?>
 </head>
 <body>
@@ -84,7 +84,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 			<li><?php echo $this->Html->link('主页', array('controller'=>'Mainpage', 'action'=>'index')); ?></li>
 			<li><?php echo $this->Html->link('公司', array('controller'=>'CompanyIntroduces', 'action'=>'company_introduce_list')); ?></a>
 			  </li>
-			  <li><?php echo $this->Html->link('代理', array('controller'=>'ProxyInfos', 'action'=>'proxy_list')); ?></a>
+			  <li><?php echo $this->Html->link('代理', array('controller'=>'ProxyInfos', 'action'=>'proxy_search')); ?></a>
 				<ul>
 					<li><a href="">耗材</a></li>
 					<li><a href="">医药</a></li>
@@ -129,6 +129,6 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?> 
-	<?php //echo $this->Js->writeBuffer();?>
+	<?php echo $this->Js->writeBuffer();?>
 </body>
 </html>

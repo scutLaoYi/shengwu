@@ -16,13 +16,19 @@
  * @since         CakePHP(tm) v 0.10.0.1076
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+
 ?>
 <?php 
 
 echo $this->Html->script('jquery');
-$this->Paginator->options(array(
-	'update'=>'$result',
-	'evalScripts' => true,));
-echo $this->fetch('content');
+?>
+<div id="main">
+	<div id="ajax">
+<?php
+		echo $this->fetch('content');
+?>
+	</div>
+</div>
+<?php
 echo $this->Js->writeBuffer();
 ?>
