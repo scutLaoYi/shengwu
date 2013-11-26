@@ -6,13 +6,13 @@
 //搜索函数，根据条件发送ajax请求并更新结果到div中
 function search()
 {
-	area = document.getElementById("product_area");
-	type = document.getElementById("product_type");
-	func = document.getElementById("function");
-	depart = document.getElementById("department");
-	material = document.getElementById("material");
+	var area = document.getElementById("product_area");
+	var type = document.getElementById("product_type");
+	var func = document.getElementById("function");
+	var depart = document.getElementById("department");
+	var material = document.getElementById("material");
 
-	ajaxUrl ='<?php echo Router::url(array(
+	var ajaxUrl ='<?php echo Router::url(array(
 				'controller'=>'ProxyInfos',
 				'action'=>'proxy_list')); ?>/'+
 				area.selectedIndex+'/';

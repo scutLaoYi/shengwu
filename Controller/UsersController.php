@@ -117,6 +117,7 @@ class UsersController extends AppController {
 		if($this->request->is('post')) {
 			if($this->Auth->login())
 			{
+				//写入用户名和类型
 				$this->Session->write('user',$this->data['User']['username']);
 				$this->Session->write('type', $this->Auth->user('type'));
 				return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
@@ -133,7 +134,7 @@ class UsersController extends AppController {
 		return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
 	}
 
-	/*用户注册*/
+	/*个人用户注册， 类型为2*/
 	public function personal_register() {
 		$this->set('title_for_layout', '个人注册');
 		if($this->request->is('post')) {
@@ -161,6 +162,7 @@ class UsersController extends AppController {
 	/*修改用户密码，已登录用户可进入*/
 	public function personal_edit () {
 		if($this->request->is(array('post','put'))) {
+			$this->User->recursive = 0;
 			$oldPassword = $this->User->find('first',array('conditions'=>array('User.id'=>$this->Auth->user('id'))));
 			if(AuthComponent::password($this->request->data['User']['old password']) == $oldPassword['User']['password']) {
 				if($this->request->data['User']['password'] == $this->request->data['User']['confirm new password']) {
@@ -187,14 +189,25 @@ class UsersController extends AppController {
 			}
 		}
 	}
+
+	/*
+	 * 找回密码的链接页面
+	 * by lpp001
+	 * 标神又不写注释！
+	 * 在链接中获取用户名、日期时间、及md5值，比较md5数值是否相同验证链接有效性
+	 */
 	function change_password($user=null,$date=null,$mdf5=null)
 	{
+		//验证链接有效性
 		if($user!=null&&$date!=null&&$mdf5!=null)
 		{
+			//读取盐，连接用户名、申请找回密码的时间和盐进行md5
+			//将结果存入$mdf
 			$salt=Configure::read('Security.salt');
 			$str=$user.$date.$salt;
 			$mdf=AuthComponent::password($str);
 			$this->set('user',$user);
+			//获取当前时间与传入时间比较，超过一个小时链接无效
 			$nowunix=time();
 			if($mdf5!=$mdf||$nowunix-$date>3600)
 			{
@@ -208,10 +221,12 @@ class UsersController extends AppController {
 			$this->Session->setFlash('链接失效，请重新操作');
 			$this->redirect(array('action'=>'login'));
 		}
+		//链接有效，获取用户输入进行重置密码操作
 		if($this->request->is('post'))
 		{
 					if($this->request->data['User']['password']==$this->request->data['User']['password_confirm'])
 					{
+						$this->User->recursive = 0;
 						$newuser=$this->User->find('first',array('conditions'=>array('User.username'=>$user)));
 						$newuser['User']['password']=$this->request->data['User']['password'];
 						if($this->User->save($newuser))
@@ -232,10 +247,16 @@ class UsersController extends AppController {
 		}
 	}
 
+	/*
+	 * 找回密码的发送页面
+	 * by lpp001
+	 * 艹，标神所有的函数都不写注释！
+	 */
 	function forget_password()
 	{
 		if($this->request->is('post'))
 		{
+			$this->User->recursive = 0;
 			$user=$this->User->find('first',array('conditions'=>array('User.username'=>$this->request->data['Password']['username'])));
 			if($user==null)
 			{
@@ -276,6 +297,8 @@ class UsersController extends AppController {
 
 		}
 	}
+
+
 	/*登录权限管理，个人用户允许访问个人信息及个人编辑页面*/
 	public function isAuthorized($user) {
 		if(in_array($this->action,array('personal_infos','personal_edit'))) {
