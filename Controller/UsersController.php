@@ -187,6 +187,9 @@ class UsersController extends AppController {
 			}
 		}
 	}
+/***
+ *密码修改功能，检测成功允许访问修改密码
+ */
 	function change_password($user=null,$date=null,$mdf5=null)
 	{
 		if($user!=null&&$date!=null&&$mdf5!=null)
@@ -231,7 +234,9 @@ class UsersController extends AppController {
 					}
 		}
 	}
-
+/***
+ * 忘记密码功能，审核通过后发送邮件
+ */
 	function forget_password()
 	{
 		if($this->request->is('post'))
@@ -265,7 +270,7 @@ class UsersController extends AppController {
    
     注意:请您在收到邮件1个小时内使用，否则该链接将会失效。
     关注中国生物医学材料：'.$website.'cakephp/Mainpage/index';
-				$Email->from(array('522623259@qq.com'=>'My Site'));
+			 	$Email->from( array('522623259@qq.com'=>'My Site'));
 				$Email->to($user_email);
 				$Email->subject('中国生物医学材料帮您找回密码');
 				if($Email->send($message))
