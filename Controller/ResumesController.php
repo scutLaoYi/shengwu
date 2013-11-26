@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
 /**
  * Resumes Controller
  *
@@ -8,30 +9,31 @@ App::uses('AppController', 'Controller');
  */
 class ResumesController extends AppController {
 
-/**
- * Components
+	/**
+	 * Components
 
- * @var array
- */
+	 * @var array
+	 */
 	public $helpers = array('Html','Form');
 	public $components = array('Paginator','List');
-/**
- * index method
- *
- * @return void
- */
+	public $uses = array('Recruitment','Resume');
+	/**
+	 * index method
+	 *
+	 * @return void
+	 */
 	public function index() {
 		$this->Resume->recursive = 0;
 		$this->set('resumes', $this->Paginator->paginate());
 	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+	/**
+	 * view method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
 	public function view($id = null) {
 		if (!$this->Resume->exists($id)) {
 			throw new NotFoundException(__('Invalid resume'));
@@ -40,11 +42,11 @@ class ResumesController extends AppController {
 		$this->set('resume', $this->Resume->find('first', $options));
 	}
 
-/**
- * add method
- *
- * @return void
- */
+	/**
+	 * add method
+	 *
+	 * @return void
+	 */
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Resume->create();
@@ -59,13 +61,13 @@ class ResumesController extends AppController {
 		$this->set(compact('users'));
 	}
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+	/**
+	 * edit method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
 	public function edit($id = null) {
 		if (!$this->Resume->exists($id)) {
 			throw new NotFoundException(__('Invalid resume'));
@@ -85,13 +87,13 @@ class ResumesController extends AppController {
 		$this->set(compact('users'));
 	}
 
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+	/**
+	 * delete method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
 	public function delete($id = null) {
 		$this->Resume->id = $id;
 		if (!$this->Resume->exists()) {
@@ -111,7 +113,7 @@ class ResumesController extends AppController {
 		功能说明：只有个人用户登录之后才能进入的页面。
 				 若未填写，则各项为空，若已填写，则把已填内容
 				从数据库读出到相应项。
-    */
+	 */
 
 	public function edit_resumes() {
 		$this->set('allSex',$this->List->allSex());
@@ -144,17 +146,76 @@ class ResumesController extends AppController {
 			} else {
 				$options = array('conditions' => array('Resume.user_id' => $this->Auth->user('id')));
 				$this->request->data = $this->Resume->find('first',$options);
-				}
 			}
 		}
+	}
+	/**
+	 * function post_resume by lpp001
+	 * 个人用户向企业用户发布简历
+	 */
+	public function post_resume($recruitment_id=null)
+	{
+		$recruitment=$this->Recruitment->find('first',array('conditions'=>array('Recruitment.id'=>$recruitment_id)));
+		$resume=$this->Resume->find('first',array('conditions'=>array('Resume.user_id'=>$this->Auth->user('id'))));	
+		$this->request->data['Resume']['user_id']=$this->Auth->user('id');
+		if($this->request->is(array('post','put'))&&$recruitment!=null&&$this->Resume->save($this->request->data))
+		{
+
+			$website='http://10.0.0.3/';
+			$Email=new CakeEmail('gmail');
+			$Email->to($recruitment['Recruitment']['email']);
+			$Email->subject('中国生物医学材料帮您找人才');
+			$Email->from(array('522623259@qq.com'=>'My Site'));
+			$message='您好';
+			if($Email->send($message))
+			{
+				$this->Session->setFlash('投递简历成功，请耐心等待公司回复');
+					$this->redirect(array('controller'=>'Recruitments','action'=>'recruitment_list'));
+			}
+			else
+			{
+				$this->Session->setFlash('投递简历失败，请稍候再试');
+			}
+		}
+		else
+		{
+			if($this->request->data)
+				$resume=$this->request->data;
+		}
+		if($recruitment!=null)
+		{
+
+			if($this->Auth->user('type')=='2')
+			{
+				$this->set('allSex',$this->List->allSex());
+				$this->set('allPolitical',$this->List->allPolitical());
+				$this->set('allSalary',$this->List->allSalary());
+				$this->set('allWorkingType',$this->List->allWorkingType());
+				$this->set('allWorkingTime',$this->List->allWorkingTime());
+				$this->set('allEducational',$this->List->allEducational());
+				$this->request->data=$resume;
+			}
+			else
+			{
+				$this->Session->setFlash('您不是个人用户，无法投递简历');
+				$this->redirect(array('controller'=>'Recruitments','action'=>'recruitment_view',$recruitment_id));
+			}
+		}
+		else
+		{
+			$this->Session->setFlash('招聘信息无效');
+			$this->redirect(array('controller'=>'Recruitments','action'=>'recruitment_list'));
+		}
+	}
 
 /*
 	edited by GentleH
 	查看简历，只有登录后的个人用户可查看自己的简历。
 	若未填写，则跳转到简历编辑页面，提示填写简历。
 	否则跳转到简历展示页面。
-*/
+ */
 	public function view_resumes() {
+
 		$options = array('conditions'=>array('Resume.user_id'=>$this->Auth->user('id')));
 		$this->set('resume',$resume=$this->Resume->find('first',$options));
 		if(!$resume) {
@@ -163,10 +224,10 @@ class ResumesController extends AppController {
 		}
 	}
 
-/* End of edition by GentleH*/
+	/* End of edition by GentleH*/
 
 	public function isAuthorized($user) {
-		if(in_array($this->action,array('edit_resumes','view_resumes')))
+		if(in_array($this->action,array('edit_resumes','view_resumes','post_resume')))
 		{
 			if($this->Auth->user('type') == '2')
 				return true;

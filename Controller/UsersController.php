@@ -193,7 +193,6 @@ class UsersController extends AppController {
 	/*
 	 * 找回密码的链接页面
 	 * by lpp001
-	 * 标神又不写注释！
 	 * 在链接中获取用户名、日期时间、及md5值，比较md5数值是否相同验证链接有效性
 	 */
 	function change_password($user=null,$date=null,$mdf5=null)
@@ -248,9 +247,8 @@ class UsersController extends AppController {
 	}
 
 	/*
-	 * 找回密码的发送页面
+	 * 找回密码的邮件发送页面
 	 * by lpp001
-	 * 艹，标神所有的函数都不写注释！
 	 */
 	function forget_password()
 	{
@@ -286,7 +284,7 @@ class UsersController extends AppController {
    
     注意:请您在收到邮件1个小时内使用，否则该链接将会失效。
     关注中国生物医学材料：'.$website.'cakephp/Mainpage/index';
-				$Email->from(array('522623259@qq.com'=>'My Site'));
+			 	$Email->from( array('522623259@qq.com'=>'My Site'));
 				$Email->to($user_email);
 				$Email->subject('中国生物医学材料帮您找回密码');
 				if($Email->send($message))

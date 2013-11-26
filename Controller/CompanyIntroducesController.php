@@ -201,7 +201,7 @@ class CompanyIntroducesController extends AppController {
 			if($this->CompanyIntroduce->save($this->request->data))
 			{
 				$this->Session->setFlash('公司介绍已提交，等待管理员审核');
-				return $this->redirect(array('controller'=>'CompanyDescriptions','action'=>'view_introduce',$this->request->data['CompanyIntroduce']['picture_url']));
+				return $this->redirect(array('controller'=>'CompanyDescriptions','action'=>'view_introduce',$this->request->data['CompanyIntroduce']['id']));
 			}
 			else 
 			{

@@ -129,6 +129,7 @@ class RecruitmentsController extends AppController {
 		}
 	}
 
+
 	/* 招聘信息三级页面，所有用户均可查看 */
 	public function recruitment_view($id = null) {
 		$options = array('conditions' => array('Recruitment.' . $this->Recruitment->primaryKey => $id));

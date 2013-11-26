@@ -83,4 +83,6 @@
 		</dd>
 	</dl>
 	<?php echo $this->Html->link('返回', $referer);?>
+	&nbsp;&nbsp;&nbsp;
+	<?php echo $this->Html->link('我要发简历', array('controller'=>'Resumes','action'=>'post_resume',$recruitment['Recruitment']['id']));?>
 </div>
