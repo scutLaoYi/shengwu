@@ -15,7 +15,7 @@ class ResumesController extends AppController {
 	 * @var array
 	 */
 	public $helpers = array('Html','Form');
-	public $components = array('Paginator','List');
+	public $components = array('Paginator','List', 'EmailSender');
 	public $uses = array('Recruitment','Resume');
 	/**
 	 * index method
@@ -152,59 +152,61 @@ class ResumesController extends AppController {
 	/**
 	 * function post_resume by lpp001
 	 * 个人用户向企业用户发布简历
+	 * -------------------
+	 * 注意：
+	 *     编写并发送后简历自动保存！
 	 */
 	public function post_resume($recruitment_id=null)
 	{
+		//读取招聘数据和简历数据
+		$this->Recruitment->recursive = 0;
 		$recruitment=$this->Recruitment->find('first',array('conditions'=>array('Recruitment.id'=>$recruitment_id)));
+		$this->Resume->recursive = 0;
 		$resume=$this->Resume->find('first',array('conditions'=>array('Resume.user_id'=>$this->Auth->user('id'))));	
-		$this->request->data['Resume']['user_id']=$this->Auth->user('id');
-		if($this->request->is(array('post','put'))&&$recruitment!=null&&$this->Resume->save($this->request->data))
-		{
 
-			$website='http://10.0.0.3/';
-			$Email=new CakeEmail('gmail');
-			$Email->to($recruitment['Recruitment']['email']);
-			$Email->subject('中国生物医学材料帮您找人才');
-			$Email->from(array('522623259@qq.com'=>'My Site'));
-			$message='您好';
-			if($Email->send($message))
+		//判掉无效的参数
+		if(!$recruitment)
+		{
+			throw new NotFoundException('该招聘页面不存在.');
+		}
+		//判掉没填写建立模板的家伙
+		if(!$resume)
+		{
+			$this->Session->setFlash('您还没有填写简历模板.');
+			return $this->redirect(array('controller'=>'Resumes', 'action'=>'edit_resumes'));
+		}
+		//判掉无效的用户类型
+		if($this->Auth->user('type') != 2)
+		{
+			$this->Session->setFlash('您不是个人用户，无法投递简历.');
+			return $this->redirect(array('controller'=>'Mainpage', 'action'=>'index'));
+		}
+		//设置页面静态数据
+		$this->set('allSex',$this->List->allSex());
+		$this->set('allPolitical',$this->List->allPolitical());
+		$this->set('allSalary',$this->List->allSalary());
+		$this->set('allWorkingType',$this->List->allWorkingType());
+		$this->set('allWorkingTime',$this->List->allWorkingTime());
+		$this->set('allEducational',$this->List->allEducational());
+		$this->request->data=$resume;
+		
+		//若先前填写过内容则自动赋值
+		if($this->request->data)
+			$resume=$this->request->data;
+
+		//写入简历数据并发送
+		$this->request->data['Resume']['user_id']=$this->Auth->user('id');
+		if($this->request->is(array('post','put'))&&$this->Resume->save($this->request->data))
+		{
+			if($this->EmailSender->sendResume($resume['Resume'], $recruitment['Recruitment']['email']))
 			{
 				$this->Session->setFlash('投递简历成功，请耐心等待公司回复');
-					$this->redirect(array('controller'=>'Recruitments','action'=>'recruitment_list'));
+				$this->redirect(array('controller'=>'Recruitments','action'=>'recruitment_list'));
 			}
 			else
 			{
 				$this->Session->setFlash('投递简历失败，请稍候再试');
 			}
-		}
-		else
-		{
-			if($this->request->data)
-				$resume=$this->request->data;
-		}
-		if($recruitment!=null)
-		{
-
-			if($this->Auth->user('type')=='2')
-			{
-				$this->set('allSex',$this->List->allSex());
-				$this->set('allPolitical',$this->List->allPolitical());
-				$this->set('allSalary',$this->List->allSalary());
-				$this->set('allWorkingType',$this->List->allWorkingType());
-				$this->set('allWorkingTime',$this->List->allWorkingTime());
-				$this->set('allEducational',$this->List->allEducational());
-				$this->request->data=$resume;
-			}
-			else
-			{
-				$this->Session->setFlash('您不是个人用户，无法投递简历');
-				$this->redirect(array('controller'=>'Recruitments','action'=>'recruitment_view',$recruitment_id));
-			}
-		}
-		else
-		{
-			$this->Session->setFlash('招聘信息无效');
-			$this->redirect(array('controller'=>'Recruitments','action'=>'recruitment_list'));
 		}
 	}
 

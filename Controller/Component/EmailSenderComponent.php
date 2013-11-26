@@ -57,4 +57,53 @@ class EmailSenderComponent extends Component
 		return $this->sendEmailTo($user_email, $subject, $message); 
 
 	}
+
+	/*
+	 * function sending a resume to the company's email address.
+	 */
+	public function sendResume($resume, $company_email)
+	{
+		//以防万一，在此加入特判：
+		//检测到孙少帐号则取消邮件发送并返回失败...
+		if($company_email == '532164656@qq.com')
+		{
+			debug("alert:szy's email address detected!");
+			return false;
+		}
+		//-------------上面是debug代码---------------
+
+		$domain = 'http://127.0.0.1/';
+		$subject = '中国生物医学材料帮您找人才';
+		$message = "\n姓名:".$resume['name'].
+			"\n性别:".($resume['sex'] ? '女':'男').
+			"\n年龄:".$resume['age'].
+			"\n民族:".$resume['ethnic'].
+			"\n籍贯:".$resume['hometown'].
+			"\n政治面貌:".$resume['political'].
+			"\n身高:".$resume['height'].
+			"\n体重:".$resume['weight'].
+			"\n住址:".$resume['address'].
+			"\n电话:".$resume['cellphone'].
+			"\n邮箱:".$resume['email'].
+			"\n邮编:".$resume['code'].
+			"\nQQ:".$resume['qq'].
+			"\n薪水要求:".$resume['salary'].
+			"\n工作方式:".$resume['working_type'].
+			"\n寻求职位:".$resume['post'].
+			"\n工作地点:".$resume['working_area'].
+			"\n工作年限:".$resume['working_time'].
+			"\n毕业院校:".$resume['institutions'].
+			"\n毕业时间:".$resume['graduation'].
+			"\n教育程度:".$resume['educational'].
+			"\n专业方向:".$resume['profession'].
+			"\n外语水平:".$resume['foreign_language'].
+			"\n教育经历:".$resume['education_experience'].
+			"\n工作经历:".$resume['working_experience'].
+			"\n工作业绩:".$resume['working_result'].
+			"\n专业技能:".$resume['professional_technique'].
+			"\n自我评价:".$resume['self_evaluate'].
+			"\n该信息发自中国生物医学材料网:\n".
+			$domain."cakephp/Mainpage/index";
+		return $this->sendEmailTo($company_email,$subject,$message); 
+	}
 }
