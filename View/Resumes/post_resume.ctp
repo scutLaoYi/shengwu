@@ -5,6 +5,10 @@
 <fieldset>
 	<legend><?php echo __('填写简历'); ?></legend>
 	<?php
+if($this->request->data['Resume']['picture_url']!=null)
+{
+	echo $this->Html->image('./'.$this->request->data['Resume']['picture_url'],array('width'=>'200','height'=>'200'));
+}
 		echo $this->Form->input('name',array('label'=>'姓名'));
 		echo $this->Form->input('sex',array('label'=>'性别','options'=>$allSex));
 		echo $this->Form->input('age',array('label'=>'年龄'));
@@ -13,7 +17,6 @@
 		echo $this->Form->input('political',array('label'=>'政治面貌','options'=>$allPolitical));
 		echo $this->Form->input('height',array('label'=>'身高:cm'));
 		echo $this->Form->input('weight',array('label'=>'体重:kg'));
-		echo $this->Form->input('picture_url');
 		echo $this->Form->input('address',array('label'=>'地址'));
 		echo $this->Form->input('cellphone',array('label'=>'手机号码'));
 		echo $this->Form->input('email',array('label'=>'电子邮箱'));

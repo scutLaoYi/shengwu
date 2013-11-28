@@ -15,7 +15,7 @@ class ResumesController extends AppController {
 	 * @var array
 	 */
 	public $helpers = array('Html','Form');
-	public $components = array('Paginator','List', 'EmailSender');
+	public $components = array('Paginator','List', 'EmailSender','Picture');
 	public $uses = array('Recruitment','Resume');
 	/**
 	 * index method
@@ -116,37 +116,39 @@ class ResumesController extends AppController {
 	 */
 
 	public function edit_resumes() {
-		$this->set('allSex',$this->List->allSex());
-		$this->set('allPolitical',$this->List->allPolitical());
-		$this->set('allSalary',$this->List->allSalary());
-		$this->set('allWorkingType',$this->List->allWorkingType());
-		$this->set('allWorkingTime',$this->List->allWorkingTime());
-		$this->set('allEducational',$this->List->allEducational());
+		if($this->Auth->user('type')!='2')
+		{
+			$this->Session->setFlash('您不是个人用户，无法编辑简历');
+			$this->redirect($this->referer());
+		}
 		$judge = $this->Resume->find('first',array('conditions'=>array('Resume.user_id' => $this->Auth->user('id'))));
-		if(!$judge) {
-			if($this->request->is('post')) {
-				$this->request->data['Resume']['user_id'] = $this->Auth->user('id');
-				if($this->Resume->save($this->request->data)) {
-					$this->Session->setFlash(__('简历保存成功'));
-					return $this->redirect(array('controller'=>'Resumes','action'=>'index'));
-				} else {
-					$this->Session->setFlash(__('保存失败，请重试'));
-				}
+		if($this->request->is(array('post','put'))) {
+			$this->request->data['Resume']['user_id'] = $this->Auth->user('id');
+			// 上传头像
+			$file=$this->request->data['Resume']['picture_url'];
+			$path='resume_image/'.$this->Auth->user('username').'_'.date("YmdHis").'.';
+			if($this->Picture->savePicture($file,$path))
+			{
+
+				$this->request->data['Resume']['picture_url']=$path;
 			}
-		} else {
-			$update = $this->Resume->find('first',array('conditions'=>array('Resume.user_id'=>$this->Auth->user('id'))));
-			if($this->request->is(array('post','put'))) {
-				$this->request->data['Resume']['id'] = $update['Resume']['id'];
-				if($this->Resume->save($this->request->data)) {
-					$this->Session->setFlash(__('简历修改已保存'));
-					return $this->redirect(array('controller'=>'Resumes','action'=>'index'));
-				} else {
-					$this->Session->setFlash(__('修改失败，请稍后重试'));
-				}
+			else
+			{
+				if($judge==null)
+					$this->request->data['Resume']['picture_url']=null;
+				else
+					$this->request->data['Resume']['picture_url']=$judge['Resume']['picture_url'];
+			}
+			if($this->Resume->save($this->request->data)) {
+				$this->Session->setFlash(__('简历保存成功'));
+				return $this->redirect(array('controller'=>'Resumes','action'=>'view_resumes'));
 			} else {
-				$options = array('conditions' => array('Resume.user_id' => $this->Auth->user('id')));
-				$this->request->data = $this->Resume->find('first',$options);
+				$this->Session->setFlash(__('保存失败，请重试'));
 			}
+		}
+		else {
+			if($judge!=null)
+				$this->request->data = $judge;
 		}
 	}
 	/**
@@ -182,21 +184,15 @@ class ResumesController extends AppController {
 			return $this->redirect(array('controller'=>'Mainpage', 'action'=>'index'));
 		}
 		//设置页面静态数据
-		$this->set('allSex',$this->List->allSex());
-		$this->set('allPolitical',$this->List->allPolitical());
-		$this->set('allSalary',$this->List->allSalary());
-		$this->set('allWorkingType',$this->List->allWorkingType());
-		$this->set('allWorkingTime',$this->List->allWorkingTime());
-		$this->set('allEducational',$this->List->allEducational());
 		$this->request->data=$resume;
-		
+
 		//若先前填写过内容则自动赋值
 		if($this->request->data)
 			$resume=$this->request->data;
 
 		//写入简历数据并发送
 		$this->request->data['Resume']['user_id']=$this->Auth->user('id');
-		if($this->request->is(array('post','put'))&&$this->Resume->save($this->request->data))
+		if($this->request->is(array('post','put')))
 		{
 			if($this->EmailSender->sendResume($resume['Resume'], $recruitment['Recruitment']['email']))
 			{
@@ -235,5 +231,16 @@ class ResumesController extends AppController {
 				return true;
 		}
 		return parent::isAuthorized($user);
+	}
+	public function beforeFilter()
+	{
+		$this->set('allSex',$this->List->allSex());
+		$this->set('allPolitical',$this->List->allPolitical());
+		$this->set('allSalary',$this->List->allSalary());
+		$this->set('allWorkingType',$this->List->allWorkingType());
+		$this->set('allWorkingTime',$this->List->allWorkingTime());
+		$this->set('allEducational',$this->List->allEducational());
+		return parent::beforeFilter();
+		
 	}
 }

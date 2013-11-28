@@ -1,5 +1,10 @@
 <div class="proxyInfos view">
 <h2><?php echo __('代理信息'); ?></h2>
+<?php   if(isset($iscurrent))
+{
+	echo $this->Html->link('编辑',array('controller'=>'ProxyInfos','action'=>'proxy_submit',$proxyInfo['ProxyInfo']['id']));
+}
+?>
 	<dl>
 		<?php
 			if($proxyInfo['ProxyInfo']['picture_url']!=null)
@@ -7,7 +12,7 @@
 		?>
 		<dt>	<?php echo __('产品图片'); ?></dt>
 		<dd>
-			<?php echo $this->Html->image('./proxy_image/'.$proxyInfo['ProxyInfo']['picture_url'],array('width'=>'200','height'=>'200')); ?>
+			<?php echo $this->Html->image('./'.$proxyInfo['ProxyInfo']['picture_url'],array('width'=>'200','height'=>'200')); ?>
 			&nbsp;
 		<?php   } ?>
 		</dd>
@@ -28,7 +33,7 @@
 		</dd>
 		<dt><?php echo __('代理区域'); ?></dt>
 		<dd>
-			<?php echo h($allCountry[$proxyInfo['ProxyInfo']['product_area']]); ?>
+			<?php echo h($allCountrys[$proxyInfo['ProxyInfo']['product_area']]); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('产品单位'); ?></dt>

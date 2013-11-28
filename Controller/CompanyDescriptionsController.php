@@ -8,7 +8,7 @@ class CompanyDescriptionsController extends AppController
 {
 
 	public $helpers = array('Html', 'Form');
-	public $components = array('Paginator' );
+	public $components = array('Paginator','List' );
 	/*
 	 * 使用的model列表
 	 */
@@ -119,6 +119,9 @@ class CompanyDescriptionsController extends AppController
 	 */
 	public function beforeFilter()
 	{
+		$this->set('companyEconomicNature',$this->List->companyEconomicNature());
+		$this->set('companyNumber',$this->List->companyNumber());
+		$this->set('allProvince',$this->List->allProvince());
 		$this->Auth->allow(
 			'view_info', 
 			'view_introduce',

@@ -3,6 +3,13 @@
 		<?php echo $this->Html->link('编辑',array('controller'=>'Resumes','action'=>'edit_resumes')) ?>
  </h2>
 	<dl>
+		<dt><?php echo __('头像');?></dt>
+		<?php if($resume['Resume']['picture_url']!=null)
+		{
+			echo $this->Html->image('./'.$resume['Resume']['picture_url'],array('width'=>'200','height'=>'200'));
+		}
+		?>
+		
 		<dt><?php echo __('姓名'); ?></dt>
 		<dd>
 			<?php echo h($resume['Resume']['name']); ?>
@@ -10,7 +17,7 @@
 		</dd>
 		<dt><?php echo __('性别'); ?></dt>
 		<dd>
-			<?php echo h($resume['Resume']['sex']); ?>
+			<?php echo h($allSex[$resume['Resume']['sex']]); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('年龄'); ?></dt>
@@ -30,7 +37,7 @@
 		</dd>
 		<dt><?php echo __('政治面貌'); ?></dt>
 		<dd>
-			<?php echo h($resume['Resume']['political']); ?>
+			<?php echo h($allPolitical[$resume['Resume']['political']]); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('身高'); ?></dt>
@@ -41,11 +48,6 @@
 		<dt><?php echo __('体重'); ?></dt>
 		<dd>
 			<?php echo h($resume['Resume']['weight'] . 'kg'); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Picture Url'); ?></dt>
-		<dd>
-			<?php echo h($resume['Resume']['picture_url']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('地址'); ?></dt>
@@ -75,12 +77,12 @@
 		</dd>
 		<dt><?php echo __('薪水要求'); ?></dt>
 		<dd>
-			<?php echo h($resume['Resume']['salary']); ?>
+			<?php echo h($allSalary[$resume['Resume']['salary']]); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('工作类型'); ?></dt>
 		<dd>
-			<?php echo h($resume['Resume']['working_type']); ?>
+			<?php echo h($allWorkingType[$resume['Resume']['working_type']]); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('寻求职位类型'); ?></dt>
@@ -95,7 +97,7 @@
 		</dd>
 		<dt><?php echo __('工作时间'); ?></dt>
 		<dd>
-			<?php echo h($resume['Resume']['working_time']); ?>
+			<?php echo h($allWorkingTime[$resume['Resume']['working_time']]); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('毕业院校'); ?></dt>
@@ -110,7 +112,7 @@
 		</dd>
 		<dt><?php echo __('学历'); ?></dt>
 		<dd>
-			<?php echo h($resume['Resume']['educational']); ?>
+			<?php echo h($allEducational[$resume['Resume']['educational']]); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('专业名称'); ?></dt>

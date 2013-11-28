@@ -1,7 +1,7 @@
 <div class="companyIntroduces company_introduce_list">
 <?php echo $this->Form->create('CompanySearch');?>
 	<fieldset>
-	<?php echo $this->Form->input('allCountry',array('options'=>$allCountrys,'label'=>'公司地区'));?>
+	<?php echo $this->Form->input('Country',array('options'=>$allCountrys,'label'=>'公司地区'));?>
 	<?php echo $this->Form->input('search',array('label'=>'公司名'));?>
 	</fieldset>
 <?php echo $this->Form->end(__('提交'));?>
@@ -19,7 +19,7 @@
 	</tr>
 	<tr>
 		<td>
-		<?php echo $this->Html->image('./company_image/'.$company['CompanyIntroduce']['picture_url'],array('width'=>'100','height'=>'100'));?>
+		<?php echo $this->Html->image('./'.$company['CompanyIntroduce']['picture_url'],array('width'=>'100','height'=>'100'));?>
 		</td>
 		<td>
 			<?php 
