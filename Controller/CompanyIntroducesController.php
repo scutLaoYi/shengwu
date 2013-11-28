@@ -232,31 +232,31 @@ class CompanyIntroducesController extends AppController {
 	 *支持公司名字搜索，还欠公司地区搜索，和介绍前100字
 	 *点击公司名称跳到该公司三级页面
 	 */ 
-	public function company_introduce_list()
+	public function company_introduce_list($province = null, $str = null)
 	{
+		//静态数组
 		$allCountrys=$this->List->allCountry();
 		$this->CompanyUserInfo->recursive=0;
 		$this->set('allCountrys',$allCountrys);
-		$this->Paginator->settings=array('limit'=>10,'order'=>array('CompanyIntroduce.created'=>'desc'),'conditions'=>array('CompanyIntroduce.id !='=>null));
+
+		//若是post直接将参数回传并重新请求本页面
 		if($this->request->is('post'))
 		{
-			$allCountry=$this->request->data['CompanySearch']['allCountry'];
-			if($allCountry==0)
-			{
-				$this->Paginator->settings=array('limit'=>10,'order'=>array('CompanyIntroduce.created'=>'desc'),'conditions'=>array('CompanyUserInfo.company LIKE'=>'%'.$this->request->data['CompanySearch']['search'].'%','CompanyIntroduce.id !='=>null));
-			}
-			else
-			{
-				$this->Paginator->settings=array('limit'=>10,'order'=>array('CompanyIntroduce.created'=>'desc'),'conditions'=>array('CompanyUserInfo.company LIKE'=>'%'.$this->request->data['CompanySearch']['search'].'%','CompanyUserInfo.province'=>($allCountry-1),'CompanyIntroduce.id !='=>null));
-			}
-			$this->set('companys',$this->Paginator->paginate());
-			$this->set('head',$this->request->data['CompanySearch']['search'].'公司列表');
+			$data = $this->request->data['CompanySearch'];
+			return $this->redirect(array('controller'=>'CompanyIntroduces', 'action'=>'company_introduce_list', $data['allCountry'], $data['search']));
 		}
-		else 
-		{
-			$this->set('companys',$this->Paginator->paginate());
-			$this->set('head','所有公司列表');
-		}
+
+		$options = array('CompanyIntroduce.id != '=>null);
+		if($str)
+			$options['CompanyUserInfo.company LIKE'] = '%'.$str.'%';
+		if($province)
+			$options['CompanyUserInfo.province'] = ($province-1);
+		$this->Paginator->settings=array('limit'=>1, 'conditions'=>$options);
+		$this->set('companys', $this->Paginator->paginate());
+		$this->set('head', '公司列表');
+		//保持搜索框数据
+		$this->request->data['CompanySearch']['allCountry'] = $province;
+		$this->request->data['CompanySearch']['search'] = $str;
 	}
 	/***
 	 *isAuthorized      lpp001负责
