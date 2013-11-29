@@ -8,7 +8,7 @@ class CompanyDescriptionsController extends AppController
 {
 
 	public $helpers = array('Html', 'Form');
-	public $components = array('Paginator','List', 'ProxySearcher' );
+	public $components = array('Paginator','List', 'ProxySearcher', 'RecruitmentSearcher' );
 	/*
 	 * 使用的model列表
 	 */
@@ -103,11 +103,7 @@ class CompanyDescriptionsController extends AppController
 	{
 		if(!$company_id)
 			throw new NotFoundException();
-		$this->Recruitment->recursive = 0;
-		$this->Paginator->settings = array('conditions'=>array('Recruitment.id !='=>null, 
-			'Recruitment.company_user_info_id =' => $company_id, 
-			'Recruitment.status =' => '2'));
-		$this->set('Recruitments', $this->Paginator->paginate('Recruitment'));
+		$this->set('recruitments', $this->RecruitmentSearcher->search($company_id));
 		$this->set('company_id', $company_id);
 	}
 

@@ -4,7 +4,6 @@ App::uses('Component', 'Controller');
 /*
  * proxy search engine.
  * post some args and return the result.
- * call by the proxy_list and proxy_search function.
  * by scutLaoYi.
  */
 class ProxySearcherComponent extends Component
