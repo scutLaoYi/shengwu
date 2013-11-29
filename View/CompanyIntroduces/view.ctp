@@ -21,7 +21,7 @@
 			<?php echo h($companyIntroduce['CompanyIntroduce']['business_type']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Legal Representative'); ?></dt>
+		<dt><?php echo __('Legal representative'); ?></dt>
 		<dd>
 			<?php echo h($companyIntroduce['CompanyIntroduce']['legal_representative']); ?>
 			&nbsp;
@@ -54,6 +54,11 @@
 		<dt><?php echo __('Picture Url'); ?></dt>
 		<dd>
 			<?php echo h($companyIntroduce['CompanyIntroduce']['picture_url']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Status');?></dt>
+		<dd>
+			<?php echo h($companyIntroduce['CompanyIntroduce']['status']); ?>
 			&nbsp;
 		</dd>
 	</dl>

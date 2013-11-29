@@ -13,6 +13,7 @@
 		echo $this->Form->input('employees_number');
 		echo $this->Form->input('introduce');
 		echo $this->Form->input('picture_url');
+		echo $this->Form->input('status');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

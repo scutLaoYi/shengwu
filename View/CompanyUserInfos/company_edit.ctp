@@ -1,5 +1,4 @@
 <div class="companyUserInfos form">
-<?php echo $this->Html->link('修改基本信息', array('action'=>'company_pass_edit')); ?>
 <?php echo $this->Form->create('CompanyUserInfo'); ?>
 	<fieldset>
 		<legend><?php echo __('编辑企业信息'); ?></legend>
