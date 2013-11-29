@@ -20,7 +20,7 @@ class ProxySearcherComponent extends Component
 	{
 		//创建sql筛选条件
 		$options = array('ProxyInfo.id != '=>null);
-		
+		$options ['ProxyInfo.status'] = '2';
 		if($province)
 			$options['ProxyInfo.product_area ='] = $province; 
 		if($type)

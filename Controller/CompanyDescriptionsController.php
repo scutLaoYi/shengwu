@@ -91,7 +91,7 @@ class CompanyDescriptionsController extends AppController
 			throw new NotFoundException('页面不存在');
 
 		$this->ProxyInfo->recursive = 0;
-		$this->Paginator->settings = array('conditions'=>array('ProxyInfo.id !='=>null, 'ProxyInfo.company_user_info_id = '=>$company_id));
+		$this->Paginator->settings = array('limit'=>'10','order'=>array('ProxyInfo.created'=>'desc'),'conditions'=>array('ProxyInfo.id !='=>null, 'ProxyInfo.company_user_info_id = '=>$company_id));
 		$this->set('proxyInfos', $this->Paginator->paginate('ProxyInfo'));
 		$this->set('company_id', $company_id);
 	}
