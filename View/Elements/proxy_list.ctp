@@ -6,26 +6,32 @@ echo __('代理信息');
 ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('product_name'); ?></th>
-			<th><?php echo $this->Paginator->sort('product_area'); ?></th>
+			<th><?php echo $this->Paginator->sort('产品名称'); ?></th>
+			<th><?php echo $this->Paginator->sort('公司名称'); ?></th>	
+			<th><?php echo $this->Paginator->sort('产品图片'); ?></th>	
+			<th><?php echo $this->Paginator->sort('代理区域'); ?></th>
 
-			<th><?php echo $this->Paginator->sort('product_type'); ?></th>
-			<th><?php echo $this->Paginator->sort('function'); ?></th>
-			<th><?php echo $this->Paginator->sort('department'); ?></th>
-			<th><?php echo $this->Paginator->sort('material'); ?></th>
-			<th><?php echo $this->Paginator->sort('product_introduce'); ?></th>
+			<th><?php echo $this->Paginator->sort('产品分类'); ?></th>
+			<th><?php echo $this->Paginator->sort('代理介绍'); ?></th>
 	</tr>
 	<?php foreach ($proxyInfos as $proxyInfo): ?>
 	<tr>
 		<td><?php echo $this->Html->link($proxyInfo['ProxyInfo']['product_name'], 
 array('controller'=>'ProxyInfos','action'=>'proxy_view', $proxyInfo['ProxyInfo']['id'])); ?>&nbsp;</td>
-		<td><?php echo h($allProvinces[$proxyInfo['ProxyInfo']['product_area']]); ?>&nbsp;</td>
+		<td><?php echo $this->Html->link($proxyInfo['CompanyUserInfo']['company'], 
+array('controller'=>'CompanyDescriptions','action'=>'view_proxy', $proxyInfo['CompanyUserInfo']['id'])); ?>&nbsp;</td>
+		<td><?php echo $this->Html->image('./'.$proxyInfo['ProxyInfo']['picture_url'],array('width'=>'100','height'=>'100')); ?>&nbsp;</td>
+		<td><?php echo h($allCountrys[$proxyInfo['ProxyInfo']['product_area']]); ?>&nbsp;</td>
 
-		<td><?php echo h($proxyInfo['ProxyInfo']['product_type']); ?>&nbsp;</td>
-		<td><?php echo h($proxyInfo['ProxyInfo']['function']); ?>&nbsp;</td>
-		<td><?php echo h($proxyInfo['ProxyInfo']['department']); ?>&nbsp;</td>
-		<td><?php echo h($proxyInfo['ProxyInfo']['material']); ?>&nbsp;</td>
-		<td><?php echo h($proxyInfo['ProxyInfo']['product_introduce']); ?>&nbsp;</td>
+		<td><?php echo h($allProduct[$proxyInfo['ProxyInfo']['product_type']]); ?>&nbsp;</td>
+<?php 
+$str_introduce=$proxyInfo['ProxyInfo']['product_introduce'];
+if(strlen($str_introduce)>100)
+{
+	$str_introduce=substr($str_introduce,0,97).'...';
+}
+?>
+		<td><?php echo h($str_introduce); ?>&nbsp;</td>
 	</tr>
 <?php endforeach; ?>
 	</table>

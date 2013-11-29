@@ -200,7 +200,7 @@ class CompanyIntroducesController extends AppController {
 			$options['CompanyUserInfo.company LIKE'] = '%'.$str.'%';
 		if($province)
 			$options['CompanyUserInfo.province'] = ($province-1);
-		$this->Paginator->settings=array('limit'=>10, 'conditions'=>$options);
+		$this->Paginator->settings=array('limit'=>10, 'conditions'=>$options,'order'=>array('CompanyIntroduce.created'=>'desc'));
 		$this->set('companys', $this->Paginator->paginate());
 		$this->set('head', '公司列表');
 		//保持搜索框数据
