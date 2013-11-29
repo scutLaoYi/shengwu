@@ -1,6 +1,5 @@
 
 <!-- begin of index -->
-<div>
 	<h2><?php 
 echo __('代理信息');
 ?></h2>
@@ -50,8 +49,6 @@ echo $this->Paginator->numbers(array('separator' => ''));
 echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 ?>
 	</div>
-</div>
 
 
 
-</div>
