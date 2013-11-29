@@ -4,7 +4,6 @@ App::uses('Component', 'Controller');
 /*
  * proxy search engine.
  * post some args and return the result.
- * call by the proxy_list and proxy_search function.
  * by scutLaoYi.
  */
 class ProxySearcherComponent extends Component
@@ -16,7 +15,8 @@ class ProxySearcherComponent extends Component
 								$type = null,
 								$function = null,
 								$department = null,
-								$material = null)
+								$material = null,
+								$company_id = null)
 	{
 		//创建sql筛选条件
 		$options = array('ProxyInfo.id != '=>null);
@@ -31,6 +31,8 @@ class ProxySearcherComponent extends Component
 			$options['ProxyInfo.department'] = $department;
 		if($material && $type == '3')
 			$options['ProxyInfo.material'] = $material;
+		if($company_id)
+			$options['ProxyInfo.company_user_info_id'] = $company_id;
 
 		//开始筛选条件并返回结果
 		$this->Paginator->settings = array(

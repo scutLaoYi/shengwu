@@ -14,7 +14,7 @@ class RecruitmentsController extends AppController {
  * @var array
  */
 	public $helpers = array('Html','Form');
-	public $components = array('Paginator','List');
+	public $components = array('Paginator','List', 'RecruitmentSearcher');
 	public $uses = array('CompanyUserInfo','Recruitment');
 
 /**
@@ -151,8 +151,7 @@ class RecruitmentsController extends AppController {
 
 	/* 招聘信息二级页面，所有用户均可查看 */
 	public function recruitment_list() {
-		$this->Paginator->settings = array('limit'=>10,'order'=>array('Recruitment.created'=>'desc'),'conditions'=>array('Recruitment.id !='=>null,'Recruitment.status' => '2'));
-		$this->set('recruitments',$this->Paginator->paginate('Recruitment'));
+		$this->set('recruitments',$this->RecruitmentSearcher->search());
 	}
 
 	public function isAuthorized($user) {
