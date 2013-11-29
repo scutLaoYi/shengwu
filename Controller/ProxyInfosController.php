@@ -15,7 +15,7 @@ class ProxyInfosController extends AppController {
 	 */
 	public $helpers = array('Html','Form');
 	public $uses = array('CompanyUserInfo','ProxyInfo');
-	public $components = array('Paginator','List', 'RequestHandler','Picture');
+	public $components = array('Paginator','List', 'RequestHandler','Picture','ProxySearcher');
 	public $helper = array('Js');
 
 	/**
@@ -124,32 +124,16 @@ class ProxyInfosController extends AppController {
 								$department = null,
 								$material = null)
 	{
+		//not a ajax request, reject! 
 		if(!$this->request->is('ajax'))
 			throw new NotFoundException('页面不存在！');
+		
 		//修改默认的布局，换ajax布局页面
 		$this->layout = 'ajax';
 
-		//创建sql筛选条件
-		$options = array('ProxyInfo.id != '=>null);
-		if($province)
-			$options['ProxyInfo.product_area ='] = $province; 
-		if($type)
-			$options['ProxyInfo.product_type ='] = $type;
-		if($function)
-			$options['ProxyInfo.function ='] = $function;
-		if($department)
-			$options['ProxyInfo.department'] = $department;
-		if($material && $type == '3')
-			$options['ProxyInfo.material'] = $material;
-		debug($options);
+		$result = $this->ProxySearcher->proxy_search($province, $type, $function, $department, $material);
 
-		//开始筛选条件并返回结果
-		$this->ProxyInfo->recursive = 0;
-		$this->Paginator->settings = array(
-			'conditions'=>$options,
-			'limit'=>5,
-		);
-		$this->set('proxyInfos', $this->Paginator->paginate('ProxyInfo'));
+		$this->set('proxyInfos', $result);
 		$this->set('allProvinces', $this->List->allCountry());
 		$this->set('allProducts', $this->List->allProduct());
 
@@ -160,13 +144,23 @@ class ProxyInfosController extends AppController {
 	 * by scutLaoYi
 	 * 挂载选项框，使用javascript捕捉内容变动并用ajax传送筛选条件到proxy_list中，显示返回结果
 	 */
-	public function proxy_search()
+	public function proxy_search($type = null)
 	{
+		//调用Component搜索结果
+		$result = $this->ProxySearcher->proxy_search(0, $type);
+		$this->set('result',$result);
+		//页面固定项
 		$allCountry = $this->List->allCountry();
 		$this->set('allCountrys', $allCountry);	
 		$allProduct = $this->List->allProduct();
 		$allProduct[0] = '全部';
 		$this->set('allProduct', $allProduct);
+		$this->set('allProvinces', $this->List->allCountry());
+		$this->set('allProducts', $this->List->allProduct());
+
+		//若搜索特定类型产品（在导航条选择），将选项框默认值更新
+		if($type)
+			$this->request->data['product_type'] = $type;
 	}
 
 	/*
