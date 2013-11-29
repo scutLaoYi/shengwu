@@ -64,7 +64,7 @@ class CompanyDescriptionsController extends AppController
 
 		$this->CompanyIntroduce->recursive = 0;
 		$introduce = $this->CompanyIntroduce->find('first', array(
-			'conditions'=>array('CompanyIntroduce.company_user_info_id'=>$company_id)));
+			'conditions'=>array('CompanyIntroduce.company_user_info_id'=>$company_id,'CompanyIntroduce.status'=>'2')));
 		if(isset($introduce['CompanyIntroduce']))
 			$this->set('introduce', $introduce['CompanyIntroduce']);
 		$this->set('company_id', $company_id);
@@ -91,7 +91,7 @@ class CompanyDescriptionsController extends AppController
 			throw new NotFoundException('页面不存在');
 
 		$this->ProxyInfo->recursive = 0;
-		$this->Paginator->settings = array('limit'=>'10','order'=>array('ProxyInfo.created'=>'desc'),'conditions'=>array('ProxyInfo.id !='=>null, 'ProxyInfo.company_user_info_id = '=>$company_id));
+		$this->Paginator->settings = array('limit'=>'10','order'=>array('ProxyInfo.created'=>'desc'),'conditions'=>array('ProxyInfo.id !='=>null, 'ProxyInfo.company_user_info_id = '=>$company_id,'ProxyInfo.status'=>'2'));
 		$this->set('proxyInfos', $this->Paginator->paginate('ProxyInfo'));
 		$this->set('company_id', $company_id);
 	}
@@ -106,9 +106,9 @@ class CompanyDescriptionsController extends AppController
 		if(!$company_id)
 			throw new NotFoundException();
 		$this->Recruitment->recursive = 0;
-		$this->Paginator->settings = array('conditions'=>array('Recruitment.id !='=>null, 
+		$this->Paginator->settings = array('limit'=>'10','conditions'=>array('Recruitment.id !='=>null, 
 			'Recruitment.company_user_info_id =' => $company_id, 
-			'Recruitment.status =' => '2'));
+			'Recruitment.status =' => '2'),'order'=>array('Recruitment.created'=>'desc'));
 		$this->set('Recruitments', $this->Paginator->paginate('Recruitment'));
 		$this->set('company_id', $company_id);
 	}

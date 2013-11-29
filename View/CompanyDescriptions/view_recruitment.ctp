@@ -10,7 +10,7 @@
 	<tr>
 		<td><?php echo $this->Html->link($Recruitment['Recruitment']['job_title'], array('controller'=>'Recruitments', 'action'=>'recruitment_view', $Recruitment['Recruitment']['id'])); ?> </td>
 		<td><?php echo $Recruitment['Recruitment']['number']; ?> </td>
-		<td><?php echo $Recruitment['Recruitment']['working_area']; ?> </td>
+		<td><?php echo $allProvince[$Recruitment['Recruitment']['working_area']]; ?> </td>
 	</tr>
 	<?php endforeach;?>	
 </table>

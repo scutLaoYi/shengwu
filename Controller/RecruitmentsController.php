@@ -112,6 +112,11 @@ class RecruitmentsController extends AppController {
 
 	/* 提交招聘，仅限公司用户 */
 	public function recruitment_submit() {
+		if($this->Auth->user('type')!='1')
+		{
+			$this->Session->setFlash('您不是企业用户，无法编辑招聘信息');
+			$this->redirect($this->referer());
+		}
 		if($this->request->is('post')) {
 			$company = $this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id'))));
 			$this->request->data['Recruitment']['status'] = '1';

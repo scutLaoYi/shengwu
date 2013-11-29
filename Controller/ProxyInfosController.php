@@ -189,8 +189,10 @@ class ProxyInfosController extends AppController {
 		if($this->request->is(array('post','put')))
 		{
 				$this->request->data['ProxyInfo']['company_user_info_id']=$company['CompanyUserInfo']['id'];
-				if(!isset($this->request->data['ProxyInfo']['status']))
-				$this->request->data['ProxyInfo']['status']='1';
+				if($proxy==null)
+				{
+					$this->request->data['ProxyInfo']['status']='1';
+				}
 				if($this->request->data['ProxyInfo']['product_type']!='3')
 					$this->request->data['ProxyInfo']['material']='0';
 				//图片上传 
@@ -215,8 +217,16 @@ class ProxyInfosController extends AppController {
 				//存档
 				if($this->ProxyInfo->save($this->request->data))
 				{
-					$this->Session->setFlash('代理信息已提交，等待管理员审核');
-					return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
+					if($proxy==null)
+					{
+						$this->Session->setFlash('代理信息已提交，等待管理员审核');
+						return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
+					}
+					else
+					{
+						$this->Session->setFlash('代理信息修改成功！');
+						return $this->redirect(array('controller'=>'ProxyInfos','action'=>'proxy_view',$proxy_id));
+					}
 				}
 				else
 				{

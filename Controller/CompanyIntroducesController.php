@@ -130,8 +130,8 @@ class CompanyIntroducesController extends AppController {
 		{
 			$this->request->data['CompanyIntroduce']['company_user_info_id']=$company['CompanyUserInfo']['id'];
 			//判断状态字
-			if(!isset($this->request->data['CompanyIntroduce']['status']))
-			$this->request->data['CompanyIntroduce']['status']='1';
+			if($companyIntroduce==null)
+				$this->request->data['CompanyIntroduce']['status']='1';
 			//处理图片
 			$file = $this->data['CompanyIntroduce']['company_image'];
 			$path='company_image/'.$this->Auth->user('username').'_'.date("YmdHis").'.';
@@ -156,7 +156,14 @@ class CompanyIntroducesController extends AppController {
 			}
 			if($this->CompanyIntroduce->save($this->request->data))
 			{
- 				$this->Session->setFlash('公司介绍已提交，等待管理员审核');
+				if($companyIntroduce==null)
+				{
+					$this->Session->setFlash('公司介绍已提交，等待管理员审核');
+				}
+				else
+				{
+					$this->Session->setFlash('公司修改成功');
+				}
 				return $this->redirect(array('controller'=>'CompanyDescriptions','action'=>'view_introduce',$company['CompanyUserInfo']['id']));
 			}
 			else
@@ -183,9 +190,7 @@ class CompanyIntroducesController extends AppController {
 	{
 
 		//静态数组
-		$allCountrys=$this->List->allCountry();
 		$this->CompanyUserInfo->recursive=0;
-		$this->set('allCountrys',$allCountrys);
 
 		//若是post直接将参数回传并重新请求本页面
 		if($this->request->is('post'))
@@ -204,7 +209,7 @@ class CompanyIntroducesController extends AppController {
 		$this->set('companys', $this->Paginator->paginate());
 		$this->set('head', '公司列表');
 		//保持搜索框数据
-		$this->request->data['CompanySearch']['allCountry'] = $province;
+		$this->request->data['CompanySearch']['Country'] = $province;
 		$this->request->data['CompanySearch']['search'] = $str;
 	}
 	/***
