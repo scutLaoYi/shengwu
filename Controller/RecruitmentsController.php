@@ -112,10 +112,6 @@ class RecruitmentsController extends AppController {
 
 	/* 提交招聘，仅限公司用户 */
 	public function recruitment_submit() {
-		$this->set('allSex',$this->List->allSexs());
-		$this->set('allEducational',$this->List->allEducational());
-		$this->set('allWorkingType',$this->List->allWorkingType());
-		$this->set('allProvince',$this->List->allProvince());
 		if($this->request->is('post')) {
 			$company = $this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id'))));
 			$this->request->data['Recruitment']['status'] = '1';
@@ -136,10 +132,6 @@ class RecruitmentsController extends AppController {
 		$recruitment=$this->Recruitment->find('first',$options);
 		if($recruitment!=null)
 		{
-		$this->set('allSexs',$this->List->allSexs());
-		$this->set('allEducational',$this->List->allEducational());
-		$this->set('allWorkingType',$this->List->allWorkingType());
-		$this->set('allProvince',$this->List->allProvince());
 		$this->set('recruitment',$recruitment);
 		//增加该变量以供返回调用
 		$this->set('referer', $this->referer());
@@ -171,6 +163,10 @@ class RecruitmentsController extends AppController {
 	}
 
 	public function beforeFilter() {
+		$this->set('allSexs',$this->List->allSexs());
+		$this->set('allEducational',$this->List->allEducational());
+		$this->set('allWorkingType',$this->List->allWorkingType());
+		$this->set('allProvince',$this->List->allProvince());
 		$this->Auth->allow('recruitment_view','recruitment_list');
 		parent::beforeFilter();
 	}

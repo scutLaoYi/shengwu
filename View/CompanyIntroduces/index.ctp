@@ -13,6 +13,7 @@
 			<th><?php echo $this->Paginator->sort('introduce'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('picture_url'); ?></th>
+			<th><?php echo $this->Paginator->sort('status'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($companyIntroduces as $companyIntroduce): ?>
@@ -30,6 +31,7 @@
 		<td><?php echo h($companyIntroduce['CompanyIntroduce']['introduce']); ?>&nbsp;</td>
 		<td><?php echo h($companyIntroduce['CompanyIntroduce']['created']); ?>&nbsp;</td>
 		<td><?php echo h($companyIntroduce['CompanyIntroduce']['picture_url']); ?>&nbsp;</td>
+		<td><?php echo h($companyIntroduce['CompanyIntroduce']['status']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $companyIntroduce['CompanyIntroduce']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $companyIntroduce['CompanyIntroduce']['id'])); ?>

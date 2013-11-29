@@ -24,7 +24,7 @@ class ResumesController extends AppController {
 	 */
 	public function index() {
 		$this->Resume->recursive = 0;
-		$this->set('resumes', $this->Paginator->paginate());
+		$this->set('resumes', $this->Paginator->paginate('Resume'));
 	}
 
 	/**

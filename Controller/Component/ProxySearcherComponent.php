@@ -20,6 +20,7 @@ class ProxySearcherComponent extends Component
 	{
 		//创建sql筛选条件
 		$options = array('ProxyInfo.id != '=>null);
+		$options ['ProxyInfo.status'] = '2';
 		if($province)
 			$options['ProxyInfo.product_area ='] = $province; 
 		if($type)
@@ -35,6 +36,7 @@ class ProxySearcherComponent extends Component
 		$this->Paginator->settings = array(
 			'conditions'=>$options,
 			'limit'=>5,
+			'order'=>array('ProxyInfo.created'=>'desc')
 		);
 		$result = $this->Paginator->paginate('ProxyInfo');
 

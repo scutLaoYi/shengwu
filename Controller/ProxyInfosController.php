@@ -134,8 +134,6 @@ class ProxyInfosController extends AppController {
 		$result = $this->ProxySearcher->proxy_search($province, $type, $function, $department, $material);
 
 		$this->set('proxyInfos', $result);
-		$this->set('allProvinces', $this->List->allCountry());
-		$this->set('allProducts', $this->List->allProduct());
 
 	}
 

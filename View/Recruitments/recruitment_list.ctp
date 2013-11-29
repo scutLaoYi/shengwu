@@ -6,11 +6,17 @@
 <?php foreach($recruitments as $recruitment):?>
 <tr>
 	<td>
-		<?php echo $this->Html->link($recruitment['CompanyUserInfo']['company'],array('controller'=>'Recruitments','action'=>'recruitment_view',$recruitment['Recruitment']['id'])); 
+		<?php echo $this->Html->link($recruitment['Recruitment']['job_title'],array('controller'=>'Recruitments','action'=>'recruitment_view',$recruitment['Recruitment']['id'])); 
 		?>
 	</td>
 	<td>
-		<?php echo '招聘岗位: ' . $recruitment['Recruitment']['job_title'] . ' , 招聘人数: ' . $recruitment['Recruitment']['number']; ?>
+		<?php echo $this->Html->link($recruitment['CompanyUserInfo']['company'],array('controller'=>'CompanyDescriptions','action'=>'view_recruitment',$recruitment['CompanyUserInfo']['id']) );?>
+	</td>
+	<td>
+		<?php echo '工作地点:'.$allProvince[$recruitment['Recruitment']['working_area']];?>
+	</td>
+	<td>
+		<?php echo '招聘人数:'.$recruitment['Recruitment']['number'];?>
 	</td>
 </tr>
 <?php endforeach; ?>

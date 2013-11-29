@@ -2,9 +2,9 @@
 	<h2>该公司的产品信息</h2>
 	<table >
 	<tr>	
-		<th><?php echo $this->Paginator->sort('product_name');?> </th>
-		<th><?php echo $this->Paginator->sort('product_area');?> </th>
-		<th><?php echo $this->Paginator->sort('product_introduce');?> </th>
+		<th><?php echo $this->Paginator->sort('产品名称');?> </th>
+		<th><?php echo $this->Paginator->sort('代理区域');?> </th>
+		<th><?php echo $this->Paginator->sort('产品介绍');?> </th>
 	</tr>
 	<?php foreach($proxyInfos as $proxyInfo): ?>
 	<tr>
