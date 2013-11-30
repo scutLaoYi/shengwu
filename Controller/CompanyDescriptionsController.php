@@ -8,7 +8,7 @@ class CompanyDescriptionsController extends AppController
 {
 
 	public $helpers = array('Html', 'Form');
-	public $components = array('Paginator' );
+	public $components = array('Paginator','List', 'ProxySearcher', 'RecruitmentSearcher' );
 	/*
 	 * 使用的model列表
 	 */
@@ -64,7 +64,7 @@ class CompanyDescriptionsController extends AppController
 
 		$this->CompanyIntroduce->recursive = 0;
 		$introduce = $this->CompanyIntroduce->find('first', array(
-			'conditions'=>array('CompanyIntroduce.company_user_info_id'=>$company_id)));
+			'conditions'=>array('CompanyIntroduce.company_user_info_id'=>$company_id,'CompanyIntroduce.status'=>'2')));
 		if(isset($introduce['CompanyIntroduce']))
 			$this->set('introduce', $introduce['CompanyIntroduce']);
 		$this->set('company_id', $company_id);
@@ -90,9 +90,8 @@ class CompanyDescriptionsController extends AppController
 		if(!$company_id)
 			throw new NotFoundException('页面不存在');
 
-		$this->ProxyInfo->recursive = 0;
-		$this->Paginator->settings = array('conditions'=>array('ProxyInfo.id !='=>null, 'ProxyInfo.company_user_info_id = '=>$company_id));
-		$this->set('proxyInfos', $this->Paginator->paginate('ProxyInfo'));
+		$result = $this->ProxySearcher->proxy_search(0, 0, 0, 0, 0, $company_id);
+		$this->set('proxyInfos', $result);
 		$this->set('company_id', $company_id);
 	}
 
@@ -105,11 +104,8 @@ class CompanyDescriptionsController extends AppController
 	{
 		if(!$company_id)
 			throw new NotFoundException();
-		$this->Recruitment->recursive = 0;
-		$this->Paginator->settings = array('conditions'=>array('Recruitment.id !='=>null, 
-			'Recruitment.company_user_info_id =' => $company_id, 
-			'Recruitment.status =' => '2'));
-		$this->set('Recruitments', $this->Paginator->paginate('Recruitment'));
+
+		$this->set('recruitments', $this->RecruitmentSearcher->search($company_id));
 		$this->set('company_id', $company_id);
 	}
 
@@ -119,6 +115,12 @@ class CompanyDescriptionsController extends AppController
 	 */
 	public function beforeFilter()
 	{
+		$this->set('allCountrys',$this->List->allCountry());
+		$this->set('allProduct',$this->List->allProduct());
+		$this->set('allMaterial',$this->List->allMaterial());
+		$this->set('companyEconomicNature',$this->List->companyEconomicNature());
+		$this->set('companyNumber',$this->List->companyNumber());
+		$this->set('allProvince',$this->List->allProvince());
 		$this->Auth->allow(
 			'view_info', 
 			'view_introduce',

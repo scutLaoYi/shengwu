@@ -3,6 +3,11 @@
 	<fieldset>
 		<legend><?php echo __('公司介绍提交表单'); ?></legend>
 <?php
+echo $this->Form->hidden('id');
+if($this->request->data!=null&&$this->request->data['CompanyIntroduce']['picture_url']!=null)
+{
+	echo	$this->Html->image('./'.$this->request->data['CompanyIntroduce']['picture_url'],array('width'=>'300','height'=>'300'));
+}
 echo $this->Form->input('company_image',array('type'=>'file','label'=>'上传公司主页图片'));
 echo $this->Form->input('economic_nature',array('options'=>$nature,'label'=>'公司经济类型'));
 echo $this->Form->input('business_type',array('label'=>'公司经营模式'));

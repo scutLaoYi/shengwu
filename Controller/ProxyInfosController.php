@@ -15,7 +15,7 @@ class ProxyInfosController extends AppController {
 	 */
 	public $helpers = array('Html','Form');
 	public $uses = array('CompanyUserInfo','ProxyInfo');
-	public $components = array('Paginator','List', 'RequestHandler');
+	public $components = array('Paginator','List', 'RequestHandler','Picture','ProxySearcher');
 	public $helper = array('Js');
 
 	/**
@@ -124,34 +124,16 @@ class ProxyInfosController extends AppController {
 								$department = null,
 								$material = null)
 	{
+		//not a ajax request, reject! 
 		if(!$this->request->is('ajax'))
 			throw new NotFoundException('页面不存在！');
+		
 		//修改默认的布局，换ajax布局页面
 		$this->layout = 'ajax';
 
-		//创建sql筛选条件
-		$options = array('ProxyInfo.id != '=>null);
-		if($province)
-			$options['ProxyInfo.product_area ='] = $province; 
-		if($type)
-			$options['ProxyInfo.product_type ='] = $type;
-		if($function)
-			$options['ProxyInfo.function ='] = $function;
-		if($department)
-			$options['ProxyInfo.department'] = $department;
-		if($material && $type == '3')
-			$options['ProxyInfo.material'] = $material;
-		debug($options);
+		$result = $this->ProxySearcher->proxy_search($province, $type, $function, $department, $material);
 
-		//开始筛选条件并返回结果
-		$this->ProxyInfo->recursive = 0;
-		$this->Paginator->settings = array(
-			'conditions'=>$options,
-			'limit'=>5,
-		);
-		$this->set('proxyInfos', $this->Paginator->paginate('ProxyInfo'));
-		$this->set('allProvinces', $this->List->allCountry());
-		$this->set('allProducts', $this->List->allProduct());
+		$this->set('proxyInfos', $result);
 
 	}
 
@@ -160,13 +142,23 @@ class ProxyInfosController extends AppController {
 	 * by scutLaoYi
 	 * 挂载选项框，使用javascript捕捉内容变动并用ajax传送筛选条件到proxy_list中，显示返回结果
 	 */
-	public function proxy_search()
+	public function proxy_search($type = null)
 	{
+		//调用Component搜索结果
+		$result = $this->ProxySearcher->proxy_search(0, $type);
+		$this->set('result',$result);
+		//页面固定项
 		$allCountry = $this->List->allCountry();
 		$this->set('allCountrys', $allCountry);	
 		$allProduct = $this->List->allProduct();
 		$allProduct[0] = '全部';
 		$this->set('allProduct', $allProduct);
+		$this->set('allProvinces', $this->List->allCountry());
+		$this->set('allProducts', $this->List->allProduct());
+
+		//若搜索特定类型产品（在导航条选择），将选项框默认值更新
+		if($type)
+			$this->request->data['product_type'] = $type;
 	}
 
 	/*
@@ -177,79 +169,83 @@ class ProxyInfosController extends AppController {
 	 */
 	public function proxy_submit($proxy_id=null)
 	{
-		$allCountrys=$this->List->allCountry();
-		$this->set('allCountrys',$allCountrys);
-		$this->set('allMaterial',$this->List->allMaterial());
-		$this->set('allProduct',$this->List->allProduct());
+		if($this->Auth->user('type')!='1')
+		{
+			$this->Session->setFlash('您不是企业用户，无法编辑代理信息');
+			$this->redirect($this->referer());
+		}
+			$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id'))));
+		$proxy=$this->ProxyInfo->find('first',array('conditions'=>array('ProxyInfo.id'=>$proxy_id)));
+		//判断是否该代理的拥有者
+		if($proxy!=null)
+		{
+			if($company['CompanyUserInfo']['id']!=$proxy['ProxyInfo']['company_user_info_id'])
+			{
+				$this->Session->setFlash('您没有权限编辑该代理信息');
+				$this->redirect($this->referer());
+			}	
+		}
 		//传入数据，保存数据
 		if($this->request->is(array('post','put')))
 		{
-			$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id'))));
-			//当前是公司用户
-			if($company!=null)
-			{
 				$this->request->data['ProxyInfo']['company_user_info_id']=$company['CompanyUserInfo']['id'];
-				$this->request->data['ProxyInfo']['status']='1';
+				if($proxy==null)
+				{
+					$this->request->data['ProxyInfo']['status']='1';
+				}
 				if($this->request->data['ProxyInfo']['product_type']!='3')
 					$this->request->data['ProxyInfo']['material']='0';
 				//图片上传 
 				$file = $this->request->data['ProxyInfo']['picture_url'];
-				$ext=substr(strtolower(strrchr($file['name'],'.')),1);
-				$arr_ext=array('jpg','jpeg','gif','png');
-				$path=$this->Auth->user('username').'_'.date("YmdHis").'.'.$ext;
-				if(in_array($ext,$arr_ext))
+				$path='proxy_image/'.$this->Auth->user('username').'_'.date("YmdHis").'.';
+				if($this->Picture->savePicture($file,$path))
 				{
-					move_uploaded_file($file[ 'tmp_name'],WWW_ROOT.'img/proxy_image/'.$path);
 					$this->request->data['ProxyInfo']['picture_url']=$path;
 				}
 				else
-					$this->request->data['ProxyInfo']['picture_url']=null;
+				{
+					if($proxy==null)
+					{
+						$this->request->data['ProxyInfo']['picture_url']=null;
+					}
+					else
+					{
+						$this->request->data['ProxyInfo']['picture_url']=$proxy['ProxyInfo']['picture_url'];
+					}
+
+				}
 				//存档
 				if($this->ProxyInfo->save($this->request->data))
 				{
-					$this->Session->setFlash('代理信息已提交，等待管理员审核');
-					return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
+					if($proxy==null)
+					{
+						$this->Session->setFlash('代理信息已提交，等待管理员审核');
+						return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
+					}
+					else
+					{
+						$this->Session->setFlash('代理信息修改成功！');
+						return $this->redirect(array('controller'=>'ProxyInfos','action'=>'proxy_view',$proxy_id));
+					}
 				}
 				else
 				{
-					$this->Session->setFlash('代理信息提交失败，请检查表项是否已完整填写');
+				 	$this->Session->setFlash('代理信息提交失败，请检查表项是否已完整填写');
 					$this->set('allFunction',$this->List->allFunction($this->request->data['ProxyInfo']['product_type']));
 					$this->set('allDepartment',$this->List->allDepartment($this->request->data['ProxyInfo']['product_type']));
 				}
 
-			}
-			//当前不是公司用户
-			else
-			{
-				$this->Session->setFlash('您当前不是企业用户，不能发布代理信息');
-				$this->redirect($this->referer());
-			}
 		}
 		else
 		{
 			//请求页面并附带代理id，传回数据供修改
-			if($proxy_id!=null)
-			{
-				$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id'))));
-				$proxy=$this->ProxyInfo->find('first',array('conditions'=>array('ProxyInfo.id'=>$proxy_id)));
 				//检测到该代理信息拥有者确实为当前用户,允许更改，传回数据
-				if($company!=null&&$proxy!=null&&$company['CompanyUserInfo']['id']==$proxy['ProxyInfo']['company_user_info_id'])
+				if($proxy!=null)
 				{
 					$this->request->data=$proxy;
-					$this->set('allFunction',$this->List->allFunction($this->request->data['ProxyInfo']['product_type']));
-					$this->set('allDepartment',$this->List->allDepartment($this->request->data['ProxyInfo']['product_type']));
+					$this->set('allFunction',$this->List->allFunction($proxy['ProxyInfo']['product_type']));
+					$this->set('allDepartment',$this->List->allDepartment($proxy['ProxyInfo']['product_type']));
 				}
-				//否则拒绝请求
-				else
-				{
-					$this->Session->setFlash('您不是该代理信息拥有者，不能编辑该代理信息');
-					return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
-				}
-
-
-
-			}
-
 		}
 	}
 
@@ -263,11 +259,17 @@ class ProxyInfosController extends AppController {
 		$proxy=$this->ProxyInfo->find('first',array('conditions'=>array('ProxyInfo.id'=>$proxy_id)));
 		if($proxy!=null)
 		{
-			$this->set('allCountry',$this->List->allCountry());
-			$this->set('allProduct',$this->List->allProduct());
 			$this->set('allFunction',$this->List->allFunction($proxy['ProxyInfo']['product_type']));
 			$this->set('allDepartment',$this->List->allDepartment($proxy['ProxyInfo']['product_type']));
-			if($proxy['ProxyInfo']['material']!='0')$this->set('allMaterial',$this->List->allMaterial());
+			if($this->Auth->user('type')=='1')
+			{
+				$this->CompanyUserInfo->recursive = 0;
+				$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id'))));
+				if($company['CompanyUserInfo']['id']==$proxy['ProxyInfo']['company_user_info_id'])
+				{
+					$this->set('iscurrent',true);
+				}
+			}
 			$this->set('proxyInfo',$proxy);
 			$this->set('referer', $this->referer());
 		}
@@ -286,6 +288,9 @@ class ProxyInfosController extends AppController {
 	 */
 	public function beforeFilter()
 	{
+			$this->set('allCountrys',$this->List->allCountry());
+			$this->set('allProduct',$this->List->allProduct());
+			$this->set('allMaterial',$this->List->allMaterial());
 		$this->Auth->allow('proxy_list', 'proxy_view','proxy_search');
 		return parent::beforeFilter();
 	}

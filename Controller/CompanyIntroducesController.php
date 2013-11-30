@@ -14,7 +14,7 @@ class CompanyIntroducesController extends AppController {
 	 * @var array
 	 */
 	public $helpers = array ('Html','Form');
-	public $components = array('Paginator','List');
+	public $components = array('Paginator','List','Picture');
 	public $uses = array('CompanyUserInfo','CompanyIntroduce');
 	/**
 	 * index method
@@ -107,124 +107,78 @@ class CompanyIntroducesController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
-	/***
-	 *company_introduce_edit    lpp001负责 
-	 *公司介绍页面修改，修改成功转到公司三级页面
-	 *公司用户只能编辑自己得企业介绍，支持修改图片
-	 */
-	public function company_introduce_edit() {
-		//判掉不是公司的用户
-		if($this->Auth->user('type')!=1)
-		{
-			$this->Session->setFlash('您不是企业用户，无法编辑公司介绍');
-			return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
-		}
-
-		//查找数据
-		$this->CompanyUserInfo->recursive = 0;
-		$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id'))));
-		$company_id=$company['CompanyUserInfo']['id'];
-		$this->CompanyIntroduce->recursive = 0;
-		$company_introduce=$this->CompanyIntroduce->find('first',array('conditions'=>array('company_user_info_id'=>$company_id)));
-		//没有记录则跳转提交页面
-		if($company_introduce==null)
-		{
-			$this->Session->setFlash('您还未提交公司介绍,如需发布，请发布');
-			return $this->redirect(array('action'=>'company_introduce_submit'));
-		}
-		//设定页面常量数组
-		$this->set('nature',$nature=$this->List->companyEconomicNature());
-		$this->set('number',$number=$this->List->companyNumber());
-		//用户填写完成传入新数据
-		if ($this->request->is(array('post', 'put'))) {
-
-			//处理图片
-			$file=$this->request->data['CompanyIntroduce']['picture_url'];
-			$this->request->data['CompanyIntroduce']['picture_url']=$company_introduce['CompanyIntroduce']['picture_url'];
-			if($file['name']!=null)
-			{
-				$ext=substr(strtolower(strrchr($file['name'],'.')),1);
-				$arr_ext=array('jpg','jpeg','gif','png');
-				$path=$this->Auth->user('username').'_'.date("YmdHis").'.'.$ext;
-				if(in_array($ext,$arr_ext))
-				{
-					move_uploaded_file($file['tmp_name'],WWW_ROOT.'img/company_image/'.$path);
-					$this->request->data['CompanyIntroduce']['picture_url']=$path;
-				}
-			}
-			//存储数据
-			if ($this->CompanyIntroduce->save($this->request->data)) {
-				$this->Session->setFlash(__('您的公司介绍已修改'));
-				return $this->redirect(array('controller'=>'CompanyDescriptions','action'=>'view_introduce',$this->request->data['CompanyIntroduce']['company_user_info_id']));
-			} else {
-				$this->Session->setFlash(__('修改失败，请检查是否完整填写'));
-			}
-		} 
-		//用户数据写入界面进行编辑
-		else {
-			$this->request->data = $company_introduce;
-			$companyUserInfos = $this->CompanyIntroduce->CompanyUserInfo->find('list');
-			$this->set(compact('companyUserInfos'));
-		}
-	}
 
 	/***
 	 *company_introduce_submit    lpp001负责 
-	 *公司介绍页面提交，提交成功转到公司三级页面
+	 *公司介绍页面提交和修改，提交成功转到公司三级页面
 	 *若已经提交，转到三级页面修改处
 	 *
 	 */
 	public function company_introduce_submit()
 	{
+		//判断用户类型
+		if($this->Auth->user('type')!='1')
+		{
+			$this->Session->setFlash('您不是企业用户，无法编辑企业介绍');
+			$this->redirect($this->referer());
+		}
 		$this->CompanyUserInfo->recursive = 0;
-		$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id')),
-			'fields'=>array('CompanyUserInfo.id')));
-		if($company!=null)
+		$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id'))));
+		$this->CompanyIntroduce->recursive = 0;
+		$companyIntroduce=$this->CompanyIntroduce->find('first',array('conditions'=>array('CompanyIntroduce.company_user_info_id'=>$company['CompanyUserInfo']['id'])));
+		if($this->request->is(array('post','put')))
 		{
-			$this->CompanyIntroduce->recursive = 0;
-			$content=$this->CompanyIntroduce->find('first',array('conditions'=>array('CompanyIntroduce.company_user_info_id'=>$company['CompanyUserInfo']['id'])));
-			//判掉已提交公司介绍的用户
-			if($content!=null)
-			{
-				$this->Session->setFlash('您已经提交过公司介绍，如需修改，请于公司页面修改');
-				return $this->redirect(array('controller'=>'CompanyDescriptions','action'=>'view_introduce',$content['CompanyIntroduce']['company_user_info_id']));
-			}
-		}
-		//判掉不是公司用户
-		else
-		{
-			$this->Session->SetFlash('您当前不是企业用户，不能发布企业介绍!');
-		}
-		//写入界面常量数组
-		$this->set('nature',$nature=$this->List->companyEconomicNature());
-		$this->set('number',$number=$this->List->companyNumber());
-		//用户表单填写完成，传回数据
-		if($this->request->is('post'))
-		{
-			$company_id=$company['CompanyUserInfo']['id'];
-			$this->request->data['CompanyIntroduce']['company_user_info_id']=$company_id;
-			$this->request->data['CompanyIntroduce']['status']='1';
+			$this->request->data['CompanyIntroduce']['company_user_info_id']=$company['CompanyUserInfo']['id'];
+			//判断状态字
+			if($companyIntroduce==null)
+				$this->request->data['CompanyIntroduce']['status']='1';
 			//处理图片
 			$file = $this->data['CompanyIntroduce']['company_image'];
-			$ext = substr(strtolower(strrchr($file['name'], '.')), 1);
-			$arr_ext = array('jpg', 'jpeg', 'gif', 'png');
-			$path=$this->Auth->user('username').'_'.date("YmdHis").'.'.$ext;
-			if(in_array($ext, $arr_ext))
+			$path='company_image/'.$this->Auth->user('username').'_'.date("YmdHis").'.';
+			if($this->Picture->savePicture($file,$path))
 			{
-				move_uploaded_file($file['tmp_name'],WWW_ROOT.'img/company_image/'.$path);
 				$this->request->data['CompanyIntroduce']['picture_url']=$path;
 			}
+			else
+			{
+				
+				if($companyIntroduce==null)
+				{
+					//第一次提交，并且图片为空
+					$this->request->data['CompanyIntroduce']['picture']=null;
+				}
+				else
+				{
+					//修改公司介绍，但没有改变图片，图片设置为原来的图片
+					$this->request->data['CompanyIntroduce']['picture']=$companyIntroduce['CompanyIntroduce']['picture_url'];
 
+				}
+			}
 			if($this->CompanyIntroduce->save($this->request->data))
 			{
-				$this->Session->setFlash('公司介绍已提交，等待管理员审核');
-				return $this->redirect(array('controller'=>'CompanyDescriptions','action'=>'view_introduce',$this->request->data['CompanyIntroduce']['id']));
+				if($companyIntroduce==null)
+				{
+					$this->Session->setFlash('公司介绍已提交，等待管理员审核');
+				}
+				else
+				{
+					$this->Session->setFlash('公司修改成功');
+				}
+				return $this->redirect(array('controller'=>'CompanyDescriptions','action'=>'view_introduce',$company['CompanyUserInfo']['id']));
 			}
-			else 
+			else
 			{
-				$this->Session->setFlash('公司介绍提交失败,请重试');
+				$this->Session->setFlash('公司介绍提交失败，请检查是否已经填写完整');
 			}
 		}
+		else
+		{
+			if($companyIntroduce!=null)
+			{
+				$this->request->data=$companyIntroduce;
+			}
+		}
+	
 	}
 	/**
 	 *company_introduce_list   lpp001负责
@@ -232,31 +186,31 @@ class CompanyIntroducesController extends AppController {
 	 *支持公司名字搜索，还欠公司地区搜索，和介绍前100字
 	 *点击公司名称跳到该公司三级页面
 	 */ 
-	public function company_introduce_list()
+	public function company_introduce_list($province = null, $str = null)
 	{
-		$allCountrys=$this->List->allCountry();
+
+		//静态数组
 		$this->CompanyUserInfo->recursive=0;
-		$this->set('allCountrys',$allCountrys);
-		$this->Paginator->settings=array('limit'=>10,'order'=>array('CompanyIntroduce.created'=>'desc'),'conditions'=>array('CompanyIntroduce.id !='=>null));
+
+		//若是post直接将参数回传并重新请求本页面
 		if($this->request->is('post'))
 		{
-			$allCountry=$this->request->data['CompanySearch']['allCountry'];
-			if($allCountry==0)
-			{
-				$this->Paginator->settings=array('limit'=>10,'order'=>array('CompanyIntroduce.created'=>'desc'),'conditions'=>array('CompanyUserInfo.company LIKE'=>'%'.$this->request->data['CompanySearch']['search'].'%','CompanyIntroduce.id !='=>null));
-			}
-			else
-			{
-				$this->Paginator->settings=array('limit'=>10,'order'=>array('CompanyIntroduce.created'=>'desc'),'conditions'=>array('CompanyUserInfo.company LIKE'=>'%'.$this->request->data['CompanySearch']['search'].'%','CompanyUserInfo.province'=>($allCountry-1),'CompanyIntroduce.id !='=>null));
-			}
-			$this->set('companys',$this->Paginator->paginate());
-			$this->set('head',$this->request->data['CompanySearch']['search'].'公司列表');
+			$data = $this->request->data['CompanySearch'];
+			return $this->redirect(array('controller'=>'CompanyIntroduces', 'action'=>'company_introduce_list', $data['Country'], $data['search']));
 		}
-		else 
-		{
-			$this->set('companys',$this->Paginator->paginate());
-			$this->set('head','所有公司列表');
-		}
+
+		$options = array('CompanyIntroduce.id != '=>null);
+		$options ['CompanyIntroduce.status'] = '2';
+		if($str)
+			$options['CompanyUserInfo.company LIKE'] = '%'.$str.'%';
+		if($province)
+			$options['CompanyUserInfo.province'] = ($province-1);
+		$this->Paginator->settings=array('limit'=>10, 'conditions'=>$options,'order'=>array('CompanyIntroduce.created'=>'desc'));
+		$this->set('companys', $this->Paginator->paginate());
+		$this->set('head', '公司列表');
+		//保持搜索框数据
+		$this->request->data['CompanySearch']['Country'] = $province;
+		$this->request->data['CompanySearch']['search'] = $str;
 	}
 	/***
 	 *isAuthorized      lpp001负责
@@ -284,6 +238,9 @@ class CompanyIntroducesController extends AppController {
 	 */
 	public function beforeFilter()
 	{
+		$this->set('allCountrys',$this->List->allCountry());
+		$this->set('nature',$nature=$this->List->companyEconomicNature());
+		$this->set('number',$number=$this->List->companyNumber());
 		$this->Auth->allow('company_introduce_list');
 		parent::beforeFilter();
 	}

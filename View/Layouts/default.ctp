@@ -86,9 +86,9 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 			  </li>
 			  <li><?php echo $this->Html->link('代理', array('controller'=>'ProxyInfos', 'action'=>'proxy_search')); ?></a>
 				<ul>
-					<li><a href="">耗材</a></li>
-					<li><a href="">医药</a></li>
-					<li><a href="">器械</a></li>
+				<li><?php echo $this->Html->link('器械', array('controller'=>'ProxyInfos', 'action'=>'proxy_search', 1));?></a></li>
+					<li><?php echo $this->Html->link('医药', array('controller'=>'ProxyInfos', 'action'=>'proxy_search', 2));?></a></li>
+					<li><?php echo $this->Html->link('耗材', array('controller'=>'ProxyInfos', 'action'=>'proxy_search', 3));?></a></li>
 				</ul>
 			  </li>
 			  <li><?php echo $this->Html->link('招聘', array('controller'=>'Recruitments', 'action'=>'recruitment_list')); ?></a></li>

@@ -17,7 +17,8 @@ class UsersController extends AppController {
 	public $helpers = array('Html','Form'); //added by GentleH
 
 	public $components = array('Paginator', 'EmailSender');
-
+	
+	public $uses = array('CompanyUserInfo','User');
 	/**
 	 * index method
 	 *
@@ -276,8 +277,36 @@ class UsersController extends AppController {
 
 		}
 	}
+	//判断访问的个人用户是否是登录用户
+	public function is_current_user($user_id)
+	{
+		if(empty($this->request->params['requested']))
+		{
+			//非法url,直接访问该页面，返回异常
+			throw new ForbiddenException();
+		}
 
-
+		if($this->Auth->user('id')==$user_id)
+		     return true;
+		else 
+	             return false;
+		
+	}
+	//判断访问的企业用户是否是登录用户
+	public function is_current_company($company_id)
+	{
+		if(empty($this->request->params['requested']))
+		{
+			//非法url,直接访问该页面，返回异常
+			throw new ForbiddenException();
+		}
+		$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.id'=>$company_id)));
+		if($this->Auth->user('id')==$company['CompanyUserInfo']['user_id'])
+		     return true;
+		else 
+	             return false;
+		
+	}
 	/*登录权限管理，个人用户允许访问个人信息及个人编辑页面*/
 	public function isAuthorized($user) {
 		if(in_array($this->action,array('personal_infos','personal_edit'))) {
@@ -290,7 +319,7 @@ class UsersController extends AppController {
 	/*beforeFilter function for usersController. scutLaoYi*/
 	/*允许游客登出及个人注册*/
 	public function beforeFilter(){
-		$this->Auth->allow('logout','personal_register','forget_password','change_password');
+		$this->Auth->allow('logout','personal_register','forget_password','change_password','is_current_user','is_current_company');
 		parent::beforeFilter();
 	}
 }

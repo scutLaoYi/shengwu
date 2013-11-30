@@ -9,7 +9,7 @@
 	<?php
 		
 	  if($this->request->data!=null&&$this->request->data['ProxyInfo']['picture_url']!=null)
-			echo $this->Html->image('./proxy_image/'.$this->request->data['ProxyInfo']['picture_url'],array('whidth'=>'300','height'=>'300'));
+			echo $this->Html->image('./'.$this->request->data['ProxyInfo']['picture_url'],array('whidth'=>'300','height'=>'300'));
 		echo $this->Form->input('picture_url',array('type'=>'file','label'=>'代理产品图片'));
 		echo $this->Form->input('product_name',array('label'=>'产品名称'));
 		echo $this->Form->input('product_code',array('label'=>'产品注册号'));
@@ -34,9 +34,9 @@
 			else
 			{
 ?>
-				<label for="material" id="material_label" style="display:none">卫生材料分类</label>
+				<label for ="material" id="material_label" style="display:none">卫生材料分类</label>
 <?php
-				echo $this->Form->input('material', array('id'=>'material','label'=>false, 'style'=>'display:none','options'=>$allMaterial));
+				echo $this ->Form->input('material', array('id'=>'material','label'=>false, 'style'=>'display:none','options'=>$allMaterial));
 			}
 		}
 		else
