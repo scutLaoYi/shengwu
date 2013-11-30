@@ -174,7 +174,9 @@ class ProxyInfosController extends AppController {
 			$this->Session->setFlash('您不是企业用户，无法编辑代理信息');
 			$this->redirect($this->referer());
 		}
+			$this->CompanyUserInfo->recursive= 0 ;
 			$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id'))));
+			$this->ProxyInfo->recursive = 0;
 		$proxy=$this->ProxyInfo->find('first',array('conditions'=>array('ProxyInfo.id'=>$proxy_id)));
 		//判断是否该代理的拥有者
 		if($proxy!=null)
@@ -239,7 +241,7 @@ class ProxyInfosController extends AppController {
 		else
 		{
 			//请求页面并附带代理id，传回数据供修改
-				//检测到该代理信息拥有者确实为当前用户,允许更改，传回数据
+				//检测到该代理信息拥有者确实为当前用户,允 许更改，传回数据
 				if($proxy!=null)
 				{
 					$this->request->data=$proxy;

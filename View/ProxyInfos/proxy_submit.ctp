@@ -22,8 +22,8 @@
 		if($this->request->data!=null)
 		{
 		echo $this->Form->hidden('id');
-		echo $this->Form->input('function',array('id'=>'function','label'=>'功能分类','options'=>$allFunction));
 		echo $this->Form->input('department',array('id'=>'department','label'=>'产品适用分类','options'=>$allDepartment));
+		echo $this->Form->input('function',array('id'=>'function','label'=>'功能分类','options'=>$allFunction));
 			if($this->request->data['ProxyInfo']['product_type'] == '3')
 			{
 ?>
@@ -41,8 +41,8 @@
 		}
 		else
 		{
-		echo $this->Form->input('function',array('id'=>'function','label'=>'功能分类','options'=>array('请选择')));
 		echo $this->Form->input('department',array('id'=>'department','label'=>'产品适用分类','options'=>array('请选择')));
+		echo $this->Form->input('function',array('id'=>'function','label'=>'功能分类','options'=>array('请选择')));
 ?>
 		<label id="material_label">卫生材料分类</label>
 <?php

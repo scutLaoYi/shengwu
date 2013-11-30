@@ -52,8 +52,8 @@ setOption(option, "全部")
 <?php
 echo $this->Form->input('product_area', array('id'=>'product_area', 'label'=>'代理地区', 'options'=>$allCountrys,'onchange'=>'search()'));
 echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产品分类','onchange'=>'setAndSearch(this.selectedIndex);','options'=>$allProduct));
-	echo $this->Form->input('function',array('id'=>'function','label'=>'功能分类','onchange'=>'search()','options'=>array('-全部-')));
 	echo $this->Form->input('department',array('id'=>'department','label'=>'产品适用分类','onchange'=>'search()','options'=>array('-全部-')));
+	echo $this->Form->input('function',array('id'=>'function','label'=>'功能分类','onchange'=>'search()','options'=>array('-全部-')));
 ?>
 		<label id="material_label">卫生材料分类</label>
 <?php
