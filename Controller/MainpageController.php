@@ -11,7 +11,7 @@ class MainpageController extends AppController
 
 	public $components = array('Paginator');
 	public $uses = array('AdList');
-
+	public $helpers = array('Html','Form');
 	/*
 	 * index函数返回首页，调用adlist读取所有广告并展示
 	 */

@@ -32,7 +32,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
+		echo $this->Html->css(array('cake.generic','mainPage'));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
