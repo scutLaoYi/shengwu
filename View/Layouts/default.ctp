@@ -81,21 +81,21 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 
 <div id="menubar">
  			<ul id="menu">
-			<li><?php echo $this->Html->link('主页', array('controller'=>'Mainpage', 'action'=>'index')); ?></li>
-			<li><?php echo $this->Html->link('公司', array('controller'=>'CompanyIntroduces', 'action'=>'company_introduce_list')); ?></a>
+			<li><?php echo $this->Html->link('首页', array('controller'=>'Mainpage', 'action'=>'index')); ?></li>
+			<li><?php echo $this->Html->link('企业宣传', array('controller'=>'CompanyIntroduces', 'action'=>'company_introduce_list')); ?></a>
 			  </li>
-			  <li><?php echo $this->Html->link('代理', array('controller'=>'ProxyInfos', 'action'=>'proxy_search')); ?></a>
+			  <li><?php echo $this->Html->link('代理信息', array('controller'=>'ProxyInfos', 'action'=>'proxy_search')); ?></a>
 				<ul>
-				<li><?php echo $this->Html->link('器械', array('controller'=>'ProxyInfos', 'action'=>'proxy_search', 1));?></a></li>
-					<li><?php echo $this->Html->link('医药', array('controller'=>'ProxyInfos', 'action'=>'proxy_search', 2));?></a></li>
-					<li><?php echo $this->Html->link('耗材', array('controller'=>'ProxyInfos', 'action'=>'proxy_search', 3));?></a></li>
+				<li><?php echo $this->Html->link('医疗器械', array('controller'=>'ProxyInfos', 'action'=>'proxy_search', 1));?></a></li>
+					<li><?php echo $this->Html->link('生物医药', array('controller'=>'ProxyInfos', 'action'=>'proxy_search', 2));?></a></li>
+					<li><?php echo $this->Html->link('医疗耗材', array('controller'=>'ProxyInfos', 'action'=>'proxy_search', 3));?></a></li>
 				</ul>
 			  </li>
-			  <li><?php echo $this->Html->link('招聘', array('controller'=>'Recruitments', 'action'=>'recruitment_list')); ?></a></li>
-				<li><a href="">招标</a></li>
-				<li><a href="">论坛</a></li>
+			  <li><?php echo $this->Html->link('招聘求职', array('controller'=>'Recruitments', 'action'=>'recruitment_list')); ?></a></li>
+				<li><a href="">招标中标</a></li> 
+				<li><a href="">论坛交流</a></li>
 				<li><a href="">信息发布</a>
-					<ul>
+					<ul> 
 					<li><?php echo $this->Html->link('发布公司信息', array('controller'=>'companyIntroduces', 'action'=>'company_introduce_submit')); ?></li>
 					<li><?php echo $this->Html->link('发布代理信息', array('controller'=>'ProxyInfos', 'action'=>'proxy_submit'));?></li>
 					<li><?php echo $this->Html->link('发布招聘信息',array('controller'=>'Recruitments', 'action'=>'recruitment_submit')); ?></li>
