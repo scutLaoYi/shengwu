@@ -87,6 +87,12 @@ class ListComponent extends Component {
 		return array('请选择','创面损伤', '功能敷料',  '生物材料',  '手术用品',  '粘贴材料',
 '护创材料',  '医用纺织品',  '医用非织造布', '敷料机械','其他');
 	}
+
+	//用户类型列表 by scutLaoYi
+	public function allUserType()
+	{
+		return array('异常用户', '企业用户', '个人用户', '管理员');
+	}
 }
 
 ?>
