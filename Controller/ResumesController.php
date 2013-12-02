@@ -36,10 +36,13 @@ class ResumesController extends AppController {
 	 */
 	public function view($id = null) {
 		if (!$this->Resume->exists($id)) {
-			throw new NotFoundException(__('Invalid resume'));
+			throw new NotFoundException(__('该简历不存在!'));
 		}
 		$options = array('conditions' => array('Resume.' . $this->Resume->primaryKey => $id));
-		$this->set('resume', $this->Resume->find('first', $options));
+		$resume = $this->Resume->find('first', $options);
+		$this->set('resume', $resume);
+		$this->set('referer', $this->referer());
+		$this->render('view_resumes');
 	}
 
 	/**
@@ -220,6 +223,7 @@ class ResumesController extends AppController {
 			$this->Session->setFlash(__('简历尚未填写，请先填写简历'));
 			return $this->redirect(array('controller'=>'Resumes','action'=>'edit_resumes'));
 		}
+		$this->set('referer', $this->referer());
 	}
 
 	/* End of edition by GentleH*/

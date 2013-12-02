@@ -7,11 +7,11 @@ echo $this->Html->link('管理员帐号', array('action'=>'index', 3));
 	<h2><?php echo __('用户列表'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('用户id'); ?></th>
-			<th><?php echo $this->Paginator->sort('用户名'); ?></th>
-			<th><?php echo $this->Paginator->sort('用户邮箱'); ?></th>
-			<th><?php echo $this->Paginator->sort('用户类型'); ?></th>
-			<th><?php echo $this->Paginator->sort('创建时间'); ?></th>
+			<th><?php echo $this->Paginator->sort('id', '用户id'); ?></th>
+			<th><?php echo $this->Paginator->sort('username','用户名'); ?></th>
+			<th><?php echo $this->Paginator->sort('email', '用户邮箱'); ?></th>
+			<th><?php echo $this->Paginator->sort('type', '用户类型'); ?></th>
+			<th><?php echo $this->Paginator->sort('created','创建时间'); ?></th>
 			<th class="actions"><?php echo __('操作'); ?></th>
 	</tr>
 	<?php foreach ($users as $user): ?>

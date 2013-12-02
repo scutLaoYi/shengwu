@@ -144,9 +144,6 @@ class ProxyInfosController extends AppController {
 	 */
 	public function proxy_search($type = null)
 	{
-		//调用Component搜索结果
-		$result = $this->ProxySearcher->proxy_search(0, $type);
-		$this->set('result',$result);
 		//页面固定项
 		$allCountry = $this->List->allCountry();
 		$this->set('allCountrys', $allCountry);	
