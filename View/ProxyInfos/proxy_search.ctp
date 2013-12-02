@@ -41,8 +41,8 @@ function setAndSearch(option)
 setOption(option, "全部")
 	search();
 }
--->
 
+-->
 </script>
 <!-- end of scripts -->
 
@@ -73,3 +73,7 @@ echo $this->element('proxy_list', array('proxyInfos'=>$result));
 </div>
 <div id="debugDiv">
 </div>
+<script>
+
+window.onload = setOption(document.getElementById("product_type").selectedIndex, "全部");
+</script>
