@@ -86,8 +86,9 @@ class CompanyUserInfosController extends AppController {
 			$options = array('conditions' => array('CompanyUserInfo.' . $this->CompanyUserInfo->primaryKey => $id));
 			$this->request->data = $this->CompanyUserInfo->find('first', $options);
 		}
-		$users = $this->CompanyUserInfo->User->find('list');
-		$this->set(compact('users'));
+		$this->render('company_edit');
+		//$users = $this->CompanyUserInfo->User->find('list');
+		//$this->set(compact('users'));
 	}
 
 	/**
@@ -119,7 +120,6 @@ class CompanyUserInfosController extends AppController {
 	 */
 	public function company_register()
 	{
-		$this->set('allProvince',$allprovince= $this->List->allProvince());
 		$this->set('title_for_layout', '企业注册');
 		if($this->request->is('post'))
 		{
@@ -233,6 +233,7 @@ class CompanyUserInfosController extends AppController {
 	 */
 	public function beforeFilter()
 	{
+		$this->set('allProvince',$allprovince= $this->List->allProvince());
 		$this->Auth->allow('company_register');
 		parent::beforeFilter();
 	}
