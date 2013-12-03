@@ -1,22 +1,20 @@
-<!--
-<div class="mainpage">
-	
-	<div class = "mainpage advertise">
-		<?php
-			for($id = 1; $id < 41; $id++)
-			{
-				echo $this->Html->image('ad.png', array('width' => '150'));
-				if($id % 8 == 0)
-				{
-					echo '<br/>';
-				}
-			}
-		?>
-	</div>
+<div class="ad">
+<?php
+for($id = 0; $id < 40; $id++)
+{
+	if($advertise[$id]['AdList']['pic_url']=='ad_image/ad.png')
+		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '125','height'=>'100','url'=>array('controller'=>'Mainpage','action'=>'index')));
+	else 
+		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '125','height'=>'100','url'=>array('controller'=>'CompanyDescriptions','action'=>'view_info',$advertise[$id]['AdList']['company_user_info_id'])));
+	if(($id+1) % 8 == 0)
+	{
+		echo '<br/>';
+	}
+}
+?>
 </div>
--->
+
 <!-- ------------infomations-------- -->
-<div class="ad">a</div>
 
 <div class="summary_message">
 <ul class="summary" id="left">
@@ -74,19 +72,17 @@
 </ul>
 </div>
 
-<div class="ad">a</div>
-<!-- ------------infomations-------- -->
-<!--
-<div class = "mainpage advertise">
-	<?php
-	for($id = 41; $id < 81; $id++)
-	{
-		echo $this->Html->image('ad.png', array('width'=>'150'));
-		if($id % 8 == 0)
-		{
+<div class="ad">
+<?php
+for($id = 40; $id < 80; $id++)
+{
+	if($advertise[$id]['AdList']['pic_url']=='ad_image/ad.png')
+		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '125','height'=>'100','url'=>array('controller'=>'Mainpage','action'=>'index')));
+	else 
+		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '125','height'=>'100','url'=>array('controller'=>'CompanyDescriptions','action'=>'view_info',$advertise[$id]['AdList']['company_user_info_id'])));
+	if(($id+1) % 8 == 0){
 			echo '<br/>';
-		}
 	}
-	?>
+}
+?>
 </div>
--->

@@ -41,8 +41,8 @@ function setAndSearch(option)
 setOption(option, "全部")
 	search();
 }
--->
 
+-->
 </script>
 <!-- end of scripts -->
 
@@ -63,13 +63,10 @@ echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产
 
 <!-- data of ajax -->
 <div class="index" id="index">
-<?php
-	//这里调用element避免重复编写界面显示内容.
-	//初次调用该页面时控制器proxy_search直接搜索并显示结果，
-	//在页面中通过ajax调用proxy_list搜索并更新结果
-echo $this->element('proxy_list', array('proxyInfos'=>$result));
-
-?>
 </div>
 <div id="debugDiv">
 </div>
+<script>
+
+window.onload = setAndSearch(document.getElementById("product_type").selectedIndex, "全部");
+</script>

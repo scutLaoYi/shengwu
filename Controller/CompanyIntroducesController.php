@@ -24,7 +24,8 @@ class CompanyIntroducesController extends AppController {
 	public function index() {
 		$this->CompanyIntroduce->recursive = 0;
 		$this->Paginator->settings = array('conditions'=>array('CompanyIntroduce.id !='=>null));
-		$this->set('companyIntroduces', $this->Paginator->paginate());
+		$companyIntroduces =  $this->Paginator->paginate();
+		$this->set('companyIntroduces', $companyIntroduces);
 	}
 
 	/**
@@ -238,6 +239,7 @@ class CompanyIntroducesController extends AppController {
 	 */
 	public function beforeFilter()
 	{
+		$this->set('allStatus', $this->List->allStatus());
 		$this->set('allCountrys',$this->List->allCountry());
 		$this->set('nature',$nature=$this->List->companyEconomicNature());
 		$this->set('number',$number=$this->List->companyNumber());

@@ -1,39 +1,30 @@
 <div class="companyUserInfos index">
-	<h2><?php echo __('Company User Infos'); ?></h2>
+	<h2><?php echo __('公司用户信息'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('company'); ?></th>
-			<th><?php echo $this->Paginator->sort('contact_person'); ?></th>
-			<th><?php echo $this->Paginator->sort('contact_number'); ?></th>
-			<th><?php echo $this->Paginator->sort('tax'); ?></th>
-			<th><?php echo $this->Paginator->sort('province'); ?></th>
-			<th><?php echo $this->Paginator->sort('address'); ?></th>
-			<th><?php echo $this->Paginator->sort('code'); ?></th>
-			<th><?php echo $this->Paginator->sort('website'); ?></th>
+			<th><?php echo $this->Paginator->sort('username', '用户名'); ?></th>
+			<th><?php echo $this->Paginator->sort('company', '公司名称'); ?></th>
+			<th><?php echo $this->Paginator->sort('contact_person', '联系人'); ?></th>
+			<th><?php echo $this->Paginator->sort('contact_number', '联系电话'); ?></th>
+			<th><?php echo $this->Paginator->sort('province', '省份'); ?></th>
+			<th><?php echo $this->Paginator->sort('address', '地址'); ?></th>
+			<th><?php echo $this->Paginator->sort('code', '邮编'); ?></th>
 			<th><?php echo $this->Paginator->sort('qq'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th class="actions"><?php echo __('操作'); ?></th>
 	</tr>
 	<?php foreach ($companyUserInfos as $companyUserInfo): ?>
 	<tr>
-		<td><?php echo h($companyUserInfo['CompanyUserInfo']['id']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($companyUserInfo['User']['username'], array('controller' => 'users', 'action' => 'view', $companyUserInfo['User']['id'])); ?>
-		</td>
+		<td><?php echo h($companyUserInfo['User']['username']); ?>&nbsp;</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['company']); ?>&nbsp;</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['contact_person']); ?>&nbsp;</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['contact_number']); ?>&nbsp;</td>
-		<td><?php echo h($companyUserInfo['CompanyUserInfo']['tax']); ?>&nbsp;</td>
-		<td><?php echo h($companyUserInfo['CompanyUserInfo']['province']); ?>&nbsp;</td>
+		<td><?php echo h($allProvince[$companyUserInfo['CompanyUserInfo']['province']]); ?>&nbsp;</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['address']); ?>&nbsp;</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['code']); ?>&nbsp;</td>
-		<td><?php echo h($companyUserInfo['CompanyUserInfo']['website']); ?>&nbsp;</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['qq']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $companyUserInfo['CompanyUserInfo']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $companyUserInfo['CompanyUserInfo']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $companyUserInfo['CompanyUserInfo']['id']), null, __('Are you sure you want to delete # %s?', $companyUserInfo['CompanyUserInfo']['id'])); ?>
+			<?php echo $this->Html->link(__('编辑'), array('action' => 'edit', $companyUserInfo['CompanyUserInfo']['id'])); ?>
+			<?php //echo $this->Form->postLink(__('删除'), array('action' => 'delete', $companyUserInfo['CompanyUserInfo']['id']), null, __('确定删除公司: %s?', $companyUserInfo['CompanyUserInfo']['company'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -53,18 +44,5 @@
 	</div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Company User Info'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Company Introduces'), array('controller' => 'company_introduces', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Company Introduce'), array('controller' => 'company_introduces', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Proxy Infos'), array('controller' => 'proxy_infos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Proxy Info'), array('controller' => 'proxy_infos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Recruitments'), array('controller' => 'recruitments', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Recruitment'), array('controller' => 'recruitments', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Ad Lists'), array('controller' => 'ad_lists', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Ad List'), array('controller' => 'ad_lists', 'action' => 'add')); ?> </li>
-	</ul>
+	<?php echo $this->element('admin_options'); ?>
 </div>

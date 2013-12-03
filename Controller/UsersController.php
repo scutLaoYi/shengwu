@@ -16,7 +16,7 @@ class UsersController extends AppController {
 	 */
 	public $helpers = array('Html','Form'); //added by GentleH
 
-	public $components = array('Paginator', 'EmailSender');
+	public $components = array('Paginator', 'EmailSender', 'List');
 	
 	public $uses = array('CompanyUserInfo','User');
 	/**
@@ -24,9 +24,15 @@ class UsersController extends AppController {
 	 *
 	 * @return void
 	 */
-	public function index() {
+	public function index($type = null) {
 		$this->User->recursive = 0;
-		$this->set('users', $this->Paginator->paginate());
+		$options = array('conditions'=>array('User.id !='=>null), 'limit'=>10);
+		if($type)
+		{
+			$options['conditions']['User.type'] = $type;
+		}
+		$this->Paginator->settings = $options;
+		$this->set('users', $this->Paginator->paginate('User'));
 	}
 
 	/**
@@ -70,18 +76,19 @@ class UsersController extends AppController {
 	 */
 	public function edit($id = null) {
 		if (!$this->User->exists($id)) {
-			throw new NotFoundException(__('Invalid user'));
+			throw new NotFoundException(__('用户不存在...'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'));
+				$this->Session->setFlash(__('用户信息已保存.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('用户信息更新失败，请检查错误.'));
 			}
 		} else {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 			$this->request->data = $this->User->find('first', $options);
+			$this->set('referer', $this->referer());
 		}
 	}
 
@@ -320,6 +327,7 @@ class UsersController extends AppController {
 	/*允许游客登出及个人注册*/
 	public function beforeFilter(){
 		$this->Auth->allow('logout','personal_register','forget_password','change_password','is_current_user','is_current_company');
+		$this->set('allUserType', $this->List->allUserType());
 		parent::beforeFilter();
 	}
 }

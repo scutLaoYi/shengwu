@@ -1,28 +1,30 @@
 <div class="users index">
-	<h2><?php echo __('Users'); ?></h2>
+	<?php
+echo $this->Html->link('个人用户 ', array('action'=>'index', 2)); 
+echo $this->Html->link('企业用户 ', array('action'=>'index', 1)); 
+echo $this->Html->link('管理员帐号', array('action'=>'index', 3)); 
+?>
+	<h2><?php echo __('用户列表'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('username'); ?></th>
-			<th><?php echo $this->Paginator->sort('password'); ?></th>
-			<th><?php echo $this->Paginator->sort('email'); ?></th>
-			<th><?php echo $this->Paginator->sort('type'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th><?php echo $this->Paginator->sort('id', '用户id'); ?></th>
+			<th><?php echo $this->Paginator->sort('username','用户名'); ?></th>
+			<th><?php echo $this->Paginator->sort('email', '用户邮箱'); ?></th>
+			<th><?php echo $this->Paginator->sort('type', '用户类型'); ?></th>
+			<th><?php echo $this->Paginator->sort('created','创建时间'); ?></th>
+			<th class="actions"><?php echo __('操作'); ?></th>
 	</tr>
 	<?php foreach ($users as $user): ?>
 	<tr>
 		<td><?php echo h($user['User']['id']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['password']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['email']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['type']); ?>&nbsp;</td>
+		<td><?php echo h($allUserType[$user['User']['type']]); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['created']); ?>&nbsp;</td>
 
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $user['User']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $user['User']['id']), null, __('Are you sure you want to delete # %s?', $user['User']['id'])); ?>
+			<?php echo $this->Html->link(__('编辑'), array('action' => 'edit', $user['User']['id'])); ?>
+			<?php echo $this->Form->postLink(__('删除'), array('action' => 'delete', $user['User']['id']), null, __('确定删除用户 %s吗?', $user['User']['username'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -42,12 +44,5 @@
 	</div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New User'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Company User Infos'), array('controller' => 'company_user_infos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Company User Info'), array('controller' => 'company_user_infos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Resumes'), array('controller' => 'resumes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Resume'), array('controller' => 'resumes', 'action' => 'add')); ?> </li>
-	</ul>
+	<?php echo $this->element('admin_options'); ?>
 </div>
