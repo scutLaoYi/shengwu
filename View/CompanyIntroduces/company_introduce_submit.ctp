@@ -20,3 +20,4 @@ echo $this->Form->input('introduce',array('label'=>'公司介绍','rows'=>10));
 	</fieldset>
 <?php echo $this->Form->end(__('提交')); ?>
 
+</div>

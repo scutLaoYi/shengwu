@@ -26,7 +26,6 @@ class CompanyIntroducesController extends AppController {
 		$this->Paginator->settings = array('conditions'=>array('CompanyIntroduce.id !='=>null));
 		$companyIntroduces =  $this->Paginator->paginate();
 		$this->set('companyIntroduces', $companyIntroduces);
-		debug($companyIntroduces[0]);
 	}
 
 	/**

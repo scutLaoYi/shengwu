@@ -86,6 +86,7 @@ class CompanyUserInfosController extends AppController {
 			$options = array('conditions' => array('CompanyUserInfo.' . $this->CompanyUserInfo->primaryKey => $id));
 			$this->request->data = $this->CompanyUserInfo->find('first', $options);
 		}
+		$this->set('referer', $this->referer());
 		$this->render('company_edit');
 		//$users = $this->CompanyUserInfo->User->find('list');
 		//$this->set(compact('users'));
@@ -167,6 +168,7 @@ class CompanyUserInfosController extends AppController {
 			$this->User->recursive = '0';
 			$this->request->data = $this->User->find('first', $options);
 		}
+		$this->set('referer', $this->referer());
 		//$this->set(compact('users'));
 	}
 

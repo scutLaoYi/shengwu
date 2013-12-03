@@ -2,25 +2,25 @@
 	<h2><?php echo __('公司用户信息'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
+			<th><?php echo $this->Paginator->sort('username', '用户名'); ?></th>
 			<th><?php echo $this->Paginator->sort('company', '公司名称'); ?></th>
 			<th><?php echo $this->Paginator->sort('contact_person', '联系人'); ?></th>
 			<th><?php echo $this->Paginator->sort('contact_number', '联系电话'); ?></th>
 			<th><?php echo $this->Paginator->sort('province', '省份'); ?></th>
 			<th><?php echo $this->Paginator->sort('address', '地址'); ?></th>
 			<th><?php echo $this->Paginator->sort('code', '邮编'); ?></th>
-			<th><?php echo $this->Paginator->sort('website', '网站'); ?></th>
 			<th><?php echo $this->Paginator->sort('qq'); ?></th>
 			<th class="actions"><?php echo __('操作'); ?></th>
 	</tr>
 	<?php foreach ($companyUserInfos as $companyUserInfo): ?>
 	<tr>
+		<td><?php echo h($companyUserInfo['User']['username']); ?>&nbsp;</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['company']); ?>&nbsp;</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['contact_person']); ?>&nbsp;</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['contact_number']); ?>&nbsp;</td>
 		<td><?php echo h($allProvince[$companyUserInfo['CompanyUserInfo']['province']]); ?>&nbsp;</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['address']); ?>&nbsp;</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['code']); ?>&nbsp;</td>
-		<td><?php echo h($companyUserInfo['CompanyUserInfo']['website']); ?>&nbsp;</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['qq']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('编辑'), array('action' => 'edit', $companyUserInfo['CompanyUserInfo']['id'])); ?>
