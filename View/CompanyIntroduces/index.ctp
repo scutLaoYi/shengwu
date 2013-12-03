@@ -3,10 +3,10 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('company', '公司名称'); ?></th>
-			<th><?php echo $this->Paginator->sort('legal_representative', '法人代表'); ?></th>
-			<th><?php echo $this->Paginator->sort('created', '创建时间'); ?></th>
-			<th><?php echo $this->Paginator->sort('endtime', '到期时间'); ?></th>
-			<th><?php echo $this->Paginator->sort('status', '状态'); ?></th>
+			<th><?php echo $this->Paginator->sort('CompanyIntroduce.legal_representative', '法人代表'); ?></th>
+			<th><?php echo $this->Paginator->sort('CompanyIntroduce.created', '创建时间'); ?></th>
+			<th><?php echo $this->Paginator->sort('CompanyIntroduce.endtime', '到期时间'); ?></th>
+			<th><?php echo $this->Paginator->sort('CompanyIntroduce.status', '状态'); ?></th>
 			<th class="actions"><?php echo __('操作'); ?></th>
 	</tr>
 	<?php foreach ($companyIntroduces as $companyIntroduce): ?>

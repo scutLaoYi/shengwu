@@ -22,9 +22,12 @@ class RecruitmentsController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function index($type = null) {
 		$this->Recruitment->recursive = 0;
-		$this->set('recruitments',$this->Paginator->paginate('Recruitment'));
+		if($type)
+			$this->Paginator->settings = array('conditions' => array('Recruitment.status' => $type));
+		$recruitments = $this->Paginator->paginate('Recruitment');
+		$this->set('recruitments',$recruitments);
 	}
 
 /**
@@ -74,10 +77,10 @@ class RecruitmentsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Recruitment->save($this->request->data)) {
-				$this->Session->setFlash(__('The recruitment has been saved.'));
+				$this->Session->setFlash(__('招聘数据保存成功'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The recruitment could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('招聘数据保存失败，请重试！'));
 			}
 		} else {
 			$options = array('conditions' => array('Recruitment.' . $this->Recruitment->primaryKey => $id));
@@ -171,6 +174,8 @@ class RecruitmentsController extends AppController {
 		$this->set('allEducational',$this->List->allEducational());
 		$this->set('allWorkingType',$this->List->allWorkingType());
 		$this->set('allProvince',$this->List->allProvince());
+		$this->set('allStatus', $this->List->allStatus());
+		$this->set('allMonth', $this->List->allMonth());
 		$this->Auth->allow('recruitment_view','recruitment_list');
 		parent::beforeFilter();
 	}
