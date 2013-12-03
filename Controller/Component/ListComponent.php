@@ -93,6 +93,12 @@ class ListComponent extends Component {
 	{
 		return array('异常用户', '企业用户', '个人用户', '管理员');
 	}
+
+	//状态列表
+	public function allStatus()
+	{
+		return array('非法状态','待审核', '已上线', '已过期');
+	}
 }
 
 ?>

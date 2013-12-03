@@ -1,5 +1,5 @@
 <div class="companyUserInfos index">
-	<h2><?php echo __('Company User Infos'); ?></h2>
+	<h2><?php echo __('公司用户信息'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('company', '公司名称'); ?></th>
@@ -23,8 +23,8 @@
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['website']); ?>&nbsp;</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['qq']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $companyUserInfo['CompanyUserInfo']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $companyUserInfo['CompanyUserInfo']['id']), null, __('确定删除公司: %s?', $companyUserInfo['CompanyUserInfo']['company'])); ?>
+			<?php echo $this->Html->link(__('编辑'), array('action' => 'edit', $companyUserInfo['CompanyUserInfo']['id'])); ?>
+			<?php //echo $this->Form->postLink(__('删除'), array('action' => 'delete', $companyUserInfo['CompanyUserInfo']['id']), null, __('确定删除公司: %s?', $companyUserInfo['CompanyUserInfo']['company'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
