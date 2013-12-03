@@ -5,6 +5,7 @@
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('pic_url'); ?></th>
 			<th><?php echo $this->Paginator->sort('company_user_info_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('deadline'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($adLists as $adList): ?>
@@ -12,12 +13,13 @@
 		<td><?php echo h($adList['AdList']['id']); ?>&nbsp;</td>
 		<td><?php echo h($adList['AdList']['pic_url']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($adList['CompanyUserInfo']['id'], array('controller' => 'company_user_infos', 'action' => 'view', $adList['CompanyUserInfo']['id'])); ?>
+			<?php echo $adList['AdList']['company_user_info_id']; ?>
 		</td>
+		<td><?php echo h($adList['AdList']['deadline']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $adList['AdList']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $adList['AdList']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $adList['AdList']['id']), null, __('Are you sure you want to delete # %s?', $adList['AdList']['id'])); ?>
+			<?php echo $this->Html->link(__('添加广告位'), array('action' => 'edit', $adList['AdList']['id'])); ?>
+			<?php echo $this->Form->postLink(__('恢复'), array('action' => 'delete', $adList['AdList']['id']), null, __('您确定恢复该广告位', $adList['AdList']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

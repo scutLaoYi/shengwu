@@ -1,22 +1,13 @@
 <div class="adLists form">
-<?php echo $this->Form->create('AdList'); ?>
+<?php echo $this->Form->create('AdList',array('type'=>'file')); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Ad List'); ?></legend>
+		<legend><?php echo __('添加广告位'); ?></legend>
 	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('pic_url');
-		echo $this->Form->input('company_user_info_id');
+		echo $this->Form->input('pic_url',array('type'=>'file','label'=>'图片'));
+		echo $this->Form->input('username');
+		echo $this->Form->input('deadline',array('type'=>'date','label'=>'截至时间'));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<?php echo $this->Form->end(__('提交')); ?>
+<?php echo $this->Html->link('返回',array('controller'=>'AdLists','action'=>'index'));?>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('AdList.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('AdList.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Ad Lists'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Company User Infos'), array('controller' => 'company_user_infos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Company User Info'), array('controller' => 'company_user_infos', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
