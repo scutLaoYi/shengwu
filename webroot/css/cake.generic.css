@@ -22,14 +22,14 @@
 }
 
 /** General Style Info **/
+
 body {
-	background: #003d4c;
+	background:White/*#003d4c;*/
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:90%;
 	margin: 0;
 
-	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -77,12 +77,23 @@ p {
 }
 
 /** Layout **/
+#logo {
+width:1600px;
+height:150px;
+background:#CCCCCC;
+}
 #container {
 	text-align: left;
+	margin:0 auto;
+	width:1024px;
 }
 
 #header{
-	padding: 10px 20px;
+	padding:0;
+	height:25px;
+	float:center;
+	width:1024px;
+	background:#003d4c;
 }
 #header h1 {
 	line-height:20px;
@@ -105,13 +116,16 @@ p {
 	background: #fff;
 	clear: both;
 	color: #333;
-	padding: 10px 20px 40px 20px;
+	padding-top:10px;
 	overflow: auto;
 }
 #footer {
 	clear: both;
-	padding: 6px 10px;
 	text-align: right;
+	background:#33CCCC;
+	width:1024px;
+	height:256px;
+	margin-top:10px;
 }
 #header a, #footer a {
 	color: #fff;
@@ -119,49 +133,93 @@ p {
 
 /** menubar **/
 #menubar{
-	width: 1366px;
+	width: 1024px;
 	margin-left: auto;
 	margin-right: auto;
-	
+	background:#33CCCC; /* GentleH: waiting img */
+	height:32px;
 }
 #menubar ul {
   font-family: Arial, Verdana;
-  font-size: 18px;
+  font-size: 15px;
   margin: 0;
   padding: 0;
   list-style: none;
-
 }
 
+#menubar li {
+display:block;
+margin:0px;
+}
 #menubar ul li {
   display: block;
   position: relative;
   float: left;
-
 }
-#menubar li ul { display: none; }
+#menubar li ul { display: none;}
 #menubar ul li a {
   display: block;
   text-decoration: none;
   color: #ffffff;
-  border-top: 1px solid #ffffff;
+  border: 1px solid #ffffff;
   padding: 5px 15px 5px 15px;
-  background: #2C5463;
-  margin-left: 1px;
+  background: #33CCCC;
+  margin-left: 0px;
   white-space: nowrap;
 }
-#menubar ul li a:hover { background: #617F8A; }
+#menubar ul li a:hover
+{
+background: #617F8A;
+text-align:left;
+}
 #menubar li:hover ul {
   display: block;
   position: absolute;
 }
 #menubar li:hover li {
   float: none;
-  font-size: 11px;
+  font-size: 15px;
 }
-#menubar li:hover a { background: #617F8A; }
+#menubar li:hover a {background: #617F8A;}
 #menubar li:hover li a:hover { background: #95A9B1; }
 
+.search_box {
+background-color:#33CCCC;
+width:1024px;
+height:80px;
+margin:0;
+text-align:left;
+}
+.search_box fieldset {
+margin-left:460px;
+margin-right:10px;
+padding:0;
+border:1px solid #ffffff;
+text-decoration:none;
+background-color:#33CCCC;
+height:60px;
+}
+
+.search_box input {
+font-size:30px;
+}
+.search_box input[type=text] {
+width:350px;
+height:30px;
+text-align:left;
+margin:0;
+padding:0;
+font-size:30px;
+}
+.search_box input[type=radio] {
+width:auto;
+margin:0;padding:0;
+display:inline-block;
+}
+.search_box input[type=submit] {
+margin:auto;
+font-size:30px;
+}
 /**-----------end of menubar -------------**/
 
 /** containers **/

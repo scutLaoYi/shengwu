@@ -41,6 +41,8 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 	?>
 </head>
 <body>
+	<div id="logo">
+	</div>
 	<div id="container">
 		<div id="header">
 			<ul>
@@ -74,12 +76,11 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 					?>
 				</li>	
 			</ul>
-			<h1>这里放置网站标题和logo</h1>
 		</div>
 
 <!-- start of menubar -->
 
-<div id="menubar">
+	<div id="menubar">
  			<ul id="menu">
 			<li><?php echo $this->Html->link('首页', array('controller'=>'Mainpage', 'action'=>'index')); ?></li>
 			<li><?php echo $this->Html->link('企业宣传', array('controller'=>'CompanyIntroduces', 'action'=>'company_introduce_list')); ?></a>
@@ -105,8 +106,46 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 				<li><a href="">广告招租</a></li>
 			
 			</ul>
-		</div>
+	</div>
+<!--
+	<div class="search_box">
+		<form>
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td>
+						<select name="search">
+							<option value="company">公司</option>
+							<option value="proxy">代理</option>
+						</select>
+						<input type="text" name="enter..." value="" />
+						<input type="submit" name="search" value="搜索"/> 
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+-->
 
+	<div class="search_box">
+		<fieldset>
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<td><?php
+						echo $this->Form->input("field",array('label'=>'','options'=>array('公司','代理')));
+						?>
+					</td>
+					<td><?php
+						echo $this->Form->input('content',array('label'=>''));
+						?>
+					</td>
+					<td><?php
+							echo $this->Form->end('搜索');
+						?>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+	</div> 
 <!-- end of menubar -->
 
 		<div id="content">

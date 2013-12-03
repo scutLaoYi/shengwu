@@ -1,23 +1,22 @@
-<div class = "mainpage">
+<!--
+<div class="mainpage">
 	
 	<div class = "mainpage advertise">
-	
-<?php
-for($id = 1; $id < 41; $id++)
-{
-	echo $this->Html->image('ad.png', array('width' => '150'));
-	if($id % 8 == 0)
-	{
-		echo '<br/>';
-	}
-}
-?>
-
+		<?php
+			for($id = 1; $id < 41; $id++)
+			{
+				echo $this->Html->image('ad.png', array('width' => '150'));
+				if($id % 8 == 0)
+				{
+					echo '<br/>';
+				}
+			}
+		?>
 	</div>
-
+</div>
+-->
 <!-- ------------infomations-------- -->
-
-
+<div class="ad">a</div>
 
 <div class="summary_message">
 <ul class="summary" id="left">
@@ -74,22 +73,20 @@ for($id = 1; $id < 41; $id++)
 	<li><a>林连南</a></li>
 </ul>
 </div>
+
+<div class="ad">a</div>
 <!-- ------------infomations-------- -->
-
-	<div class = "mainpage advertise">
-
-<?php
-for($id = 41; $id < 81; $id++)
-{
-	echo $this->Html->image('ad.png', array('width'=>'150'));
-	if($id % 8 == 0)
+<!--
+<div class = "mainpage advertise">
+	<?php
+	for($id = 41; $id < 81; $id++)
 	{
-		echo '<br/>';
+		echo $this->Html->image('ad.png', array('width'=>'150'));
+		if($id % 8 == 0)
+		{
+			echo '<br/>';
+		}
 	}
-}
-?>
-
-	</div>
-
-
+	?>
 </div>
+-->
