@@ -4,7 +4,6 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('company', '公司名称'); ?></th>
 			<th><?php echo $this->Paginator->sort('legal_representative', '法人代表'); ?></th>
-			<th><?php echo $this->Paginator->sort('business_scope', '经营范围'); ?></th>
 			<th><?php echo $this->Paginator->sort('created', '创建时间'); ?></th>
 			<th><?php echo $this->Paginator->sort('endtime', '到期时间'); ?></th>
 			<th><?php echo $this->Paginator->sort('status', '状态'); ?></th>
@@ -14,7 +13,6 @@
 	<tr>
 		<td><?php echo $this->Html->link($companyIntroduce['CompanyUserInfo']['company'], array('controller'=>'CompanyDescriptions','action' => 'view_info', $companyIntroduce['CompanyUserInfo']['id'])); ?>&nbsp; </td>
 		<td><?php echo h($companyIntroduce['CompanyIntroduce']['legal_representative']); ?>&nbsp;</td>
-		<td><?php echo h($companyIntroduce['CompanyIntroduce']['business_scope']); ?>&nbsp;</td>
 		<td><?php echo h($companyIntroduce['CompanyIntroduce']['created']); ?>&nbsp;</td>
 		<td><?php echo h($companyIntroduce['CompanyIntroduce']['endtime']); ?>&nbsp;</td>
 		<td><?php echo h($allStatus[$companyIntroduce['CompanyIntroduce']['status']]); ?>&nbsp;</td>
