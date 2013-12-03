@@ -16,16 +16,12 @@
 			<?php echo $this->Html->link($adList['CompanyUserInfo']['id'], array('controller' => 'company_user_infos', 'action' => 'view', $adList['CompanyUserInfo']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('截至时间');?>
+		<dd>
+			<?php echo h($adList['AdList']['deadline']); ?>
+			&nbsp;
+		</dd>
+	<?php echo $this->Html->link('返回',array('conditions'=>'AdLists','action'=>'index'));?>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Ad List'), array('action' => 'edit', $adList['AdList']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Ad List'), array('action' => 'delete', $adList['AdList']['id']), null, __('Are you sure you want to delete # %s?', $adList['AdList']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Ad Lists'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Ad List'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Company User Infos'), array('controller' => 'company_user_infos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Company User Info'), array('controller' => 'company_user_infos', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+
