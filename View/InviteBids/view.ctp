@@ -6,10 +6,10 @@
 			<?php echo h($inviteBid['InviteBid']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Content'); ?></dt>
+		<dt><?php echo __('内容'); ?></dt>
 		<dd>
-			<?php echo h($inviteBid['InviteBid']['content']); ?>
-			&nbsp;
+			<?php $message=ereg_replace("\n","</br>\n",$inviteBid['InviteBid']['content']);?>
+			<?php echo ($message); ?>
 		</dd>
 	</dl>
 </div>

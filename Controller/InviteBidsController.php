@@ -100,4 +100,15 @@ class InviteBidsController extends AppController {
 			$this->Session->setFlash(__('The invite bid could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+	public function invite_bid_list()
+	{
+		$this->InviteBid->recursive = 0;
+		$this->set('inviteBids', $this->Paginator->paginate());
+	}
+	public function beforeFilter()
+	{
+		$this->Auth->allow('invite_bid_list');
+		return parent::beforeFilter();
+	}
+}

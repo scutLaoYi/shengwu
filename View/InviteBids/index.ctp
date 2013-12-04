@@ -9,7 +9,8 @@
 	<?php foreach ($inviteBids as $inviteBid): ?>
 	<tr>
 		<td><?php echo h($inviteBid['InviteBid']['id']); ?>&nbsp;</td>
-		<td><?php echo h($inviteBid['InviteBid']['content']); ?>&nbsp;</td>
+		<?php $message=ereg_replace("\n","</br>\n",$inviteBid['InviteBid']['content']);?>
+		<td><?php echo ($message); ?></td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $inviteBid['InviteBid']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $inviteBid['InviteBid']['id'])); ?>
