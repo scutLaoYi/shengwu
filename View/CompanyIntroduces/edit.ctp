@@ -1,7 +1,7 @@
 <div class="companyIntroduces form">
 <?php echo $this->Form->create('CompanyIntroduce'); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Company Introduce'); ?></legend>
+		<legend><?php echo __('公司推广信息编辑'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->hidden('company_user_info_id');

@@ -2,10 +2,10 @@
 	<h2><?php echo __('Ad Lists'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('pic_url'); ?></th>
-			<th><?php echo $this->Paginator->sort('company_user_info_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('deadline'); ?></th>
+			<th><?php echo $this->Paginator->sort('id','广告位位置'); ?></th>
+			<th><?php echo $this->Paginator->sort('pic_url','图片路径'); ?></th>
+			<th><?php echo $this->Paginator->sort('company_user_info_id','公司id'); ?></th>
+			<th><?php echo $this->Paginator->sort('deadline','截至时间'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($adLists as $adList): ?>

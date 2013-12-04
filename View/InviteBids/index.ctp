@@ -1,9 +1,10 @@
 <div class="inviteBids index">
-	<h2><?php echo __('Invite Bids'); ?></h2>
+	<h2><?php echo __('招标中标管理'); ?></h2>
+	<?php echo $this->Html->link('创建',array('controller'=>'InviteBids','action'=>'add'));?>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('content'); ?></th>
+			<th><?php echo $this->Paginator->sort('content','内容'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($inviteBids as $inviteBid): ?>
@@ -12,9 +13,9 @@
 		<?php $message=ereg_replace("\n","</br>\n",$inviteBid['InviteBid']['content']);?>
 		<td><?php echo ($message); ?></td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $inviteBid['InviteBid']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $inviteBid['InviteBid']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $inviteBid['InviteBid']['id']), null, __('Are you sure you want to delete # %s?', $inviteBid['InviteBid']['id'])); ?>
+			<?php echo $this->Html->link(__('查看'), array('action' => 'view', $inviteBid['InviteBid']['id'])); ?>
+			<?php echo $this->Html->link(__('编辑'), array('action' => 'edit', $inviteBid['InviteBid']['id'])); ?>
+			<?php echo $this->Form->postLink(__('删除'), array('action' => 'delete', $inviteBid['InviteBid']['id']), null, __('Are you sure you want to delete # %s?', $inviteBid['InviteBid']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -34,8 +35,5 @@
 	</div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Invite Bid'), array('action' => 'add')); ?></li>
-	</ul>
+	<?php echo $this->element('admin_options');?>
 </div>

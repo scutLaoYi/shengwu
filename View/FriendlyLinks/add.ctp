@@ -1,18 +1,14 @@
 <div class="friendlyLinks form">
 <?php echo $this->Form->create('FriendlyLink'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Friendly Link'); ?></legend>
+		<legend><?php echo __('创建友情链接'); ?></legend>
 	<?php
-		echo $this->Form->input('link_name');
-		echo $this->Form->input('link_url');
+		echo $this->Form->input('link_name',array('label'=>'链接名称'));
+		echo $this->Form->input('link_url',array('label'=>'链接'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Friendly Links'), array('action' => 'index')); ?></li>
-	</ul>
+	<?php echo $this->element('admin_options');?>
 </div>
