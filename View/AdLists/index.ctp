@@ -17,9 +17,8 @@
 		</td>
 		<td><?php echo h($adList['AdList']['deadline']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $adList['AdList']['id'])); ?>
 			<?php echo $this->Html->link(__('添加广告位'), array('action' => 'edit', $adList['AdList']['id'])); ?>
-			<?php echo $this->Form->postLink(__('恢复'), array('action' => 'delete', $adList['AdList']['id']), null, __('您确定恢复该广告位', $adList['AdList']['id'])); ?>
+			<?php echo $this->Form->postLink(__('复位'), array('action' => 'delete', $adList['AdList']['id']), null, __('您确定恢复该广告位', $adList['AdList']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

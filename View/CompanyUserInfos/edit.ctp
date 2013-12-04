@@ -4,9 +4,9 @@
 		<legend><?php echo __('Edit Company User Info'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('user_id');
-		echo $this->Form->input('company');
-		echo $this->Form->input('contact_person');
+		echo $this->Form->hidden('user_id');
+		echo $this->Form->input('company', array('label'=>'公司名称'));
+		echo $this->Form->input('contact_person',array('label'=>'联系人'));
 		echo $this->Form->input('contact_number');
 		echo $this->Form->input('tax');
 		echo $this->Form->input('province');

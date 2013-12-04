@@ -1,10 +1,8 @@
 <div class="companyIntroduces company_introduce_list">
 <div class="actions">
 <?php echo $this->Form->create('CompanySearch');?>
-	<fieldset>
 	<?php echo $this->Form->input('Country',array('options'=>$allCountrys,'label'=>'公司地区'));?>
 	<?php echo $this->Form->input('search',array('label'=>'公司名'));?>
-	</fieldset>
 <?php echo $this->Form->end(__('搜索'));?>
 </div>
 

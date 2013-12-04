@@ -23,10 +23,14 @@ class ProxyInfosController extends AppController {
 	 *
 	 * @return void
 	 */
-	public function index() {
+	public function index($status = null) {
 		$this->ProxyInfo->recursive = 0;
-		$this->Paginator->settings = array('conditions'=>array('ProxyInfo.id !='=>null));
-		$this->set('proxyInfos', $this->Paginator->paginate('ProxyInfo'));
+		$options = array('conditions'=>array('ProxyInfo.id !='=>null));
+		if($status)
+			$options['conditions']['ProxyInfo.status'] = $status;
+		$this->Paginator->settings = $options;
+		$proxyInfos= $this->Paginator->paginate('ProxyInfo');
+		$this->set('proxyInfos',$proxyInfos);
 
 	}
 
@@ -104,7 +108,7 @@ class ProxyInfosController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->ProxyInfo->delete()) {
-			$this->Session->setFlash(__('The proxy info has been deleted.'));
+			$this->Session->setFlash(__('删除代理信息成功.'));
 		} else {
 			$this->Session->setFlash(__('The proxy info could not be deleted. Please, try again.'));
 		}
@@ -144,9 +148,6 @@ class ProxyInfosController extends AppController {
 	 */
 	public function proxy_search($type = null)
 	{
-		//调用Component搜索结果
-		$result = $this->ProxySearcher->proxy_search(0, $type);
-		$this->set('result',$result);
 		//页面固定项
 		$allCountry = $this->List->allCountry();
 		$this->set('allCountrys', $allCountry);	
@@ -293,6 +294,8 @@ class ProxyInfosController extends AppController {
 			$this->set('allCountrys',$this->List->allCountry());
 			$this->set('allProduct',$this->List->allProduct());
 			$this->set('allMaterial',$this->List->allMaterial());
+			$this->set('allStatus', $this->List->allStatus());
+			$this->set('allMonth', $this->List->allMonth());
 		$this->Auth->allow('proxy_list', 'proxy_view','proxy_search');
 		return parent::beforeFilter();
 	}

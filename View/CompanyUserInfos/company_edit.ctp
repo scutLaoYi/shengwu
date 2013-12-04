@@ -20,4 +20,5 @@ echo $this->Form->input('CompanyUserInfo.qq',array('label'=>'QQ'));
 ?>
 	</fieldset>
 <?php echo $this->Form->end(__('提交')); ?>
+<?php echo $this->Html->link('返回', $referer); ?>
 </div>

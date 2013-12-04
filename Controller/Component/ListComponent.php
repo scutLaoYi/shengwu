@@ -88,6 +88,22 @@ class ListComponent extends Component {
 '护创材料',  '医用纺织品',  '医用非织造布', '敷料机械','其他');
 	}
 
+	//用户类型列表 by scutLaoYi
+	public function allUserType()
+	{
+		return array('异常用户', '企业用户', '个人用户', '管理员');
+	}
+
+	//状态列表
+	public function allStatus()
+	{
+		return array('非法状态','待审核', '已上线', '已过期');
+	}
+
+	public function allMonth()
+	{
+		return array(1=>'一月','二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月');
+	}
 }
 
 ?>

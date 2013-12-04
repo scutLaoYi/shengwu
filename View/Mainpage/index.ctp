@@ -1,26 +1,20 @@
-<div class = "mainpage">
-
-	<div class = "mainpage advertise">
-
+<div class="ad">
 <?php
 for($id = 0; $id < 40; $id++)
 {
 	if($advertise[$id]['AdList']['pic_url']=='ad_image/ad.png')
-		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '150','height'=>'100','url'=>array('controller'=>'Mainpage','action'=>'index')));
+		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '125','height'=>'100','url'=>array('controller'=>'Mainpage','action'=>'index')));
 	else 
-		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '150','height'=>'100','url'=>array('controller'=>'CompanyDescriptions','action'=>'view_info',$advertise[$id]['AdList']['company_user_info_id'])));
+		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '125','height'=>'100','url'=>array('controller'=>'CompanyDescriptions','action'=>'view_info',$advertise[$id]['AdList']['company_user_info_id'])));
 	if(($id+1) % 8 == 0)
 	{
 		echo '<br/>';
 	}
 }
 ?>
-
-	</div>
+</div>
 
 <!-- ------------infomations-------- -->
-
-
 
 <div class="summary_message">
 <ul class="summary" id="left">
@@ -77,26 +71,18 @@ for($id = 0; $id < 40; $id++)
 	<li><a>林连南</a></li>
 </ul>
 </div>
-<!-- ------------infomations-------- -->
 
-	<div class = "mainpage advertise">
-
+<div class="ad">
 <?php
 for($id = 40; $id < 80; $id++)
 {
 	if($advertise[$id]['AdList']['pic_url']=='ad_image/ad.png')
-		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '150','height'=>'100','url'=>array('controller'=>'Mainpage','action'=>'index')));
+		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '125','height'=>'100','url'=>array('controller'=>'Mainpage','action'=>'index')));
 	else 
-		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '150','height'=>'100','url'=>array('controller'=>'CompanyDescriptions','action'=>'view_info',$advertise[$id]['AdList']['company_user_info_id'])));
-	if(($id+1) % 8 == 0)
-	{
-		echo '<br/>';
+		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '125','height'=>'100','url'=>array('controller'=>'CompanyDescriptions','action'=>'view_info',$advertise[$id]['AdList']['company_user_info_id'])));
+	if(($id+1) % 8 == 0){
+			echo '<br/>';
 	}
 }
 ?>
-
-
-	</div>
-
-
 </div>

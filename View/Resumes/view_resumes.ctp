@@ -1,6 +1,9 @@
 <div class="resumes view">
-<h2><?php echo __('我的简历'); ?> &nbsp;&nbsp;&nbsp; 
-		<?php echo $this->Html->link('编辑',array('controller'=>'Resumes','action'=>'edit_resumes')) ?>
+<h2><?php echo __($resume['Resume']['name'].'的简历'); ?> &nbsp;&nbsp;&nbsp; 
+		<?php 
+if($this->Session->read('type') == 2)
+	echo $this->Html->link('编辑',array('controller'=>'Resumes','action'=>'edit_resumes')) 
+?>
  </h2>
 	<dl>
 		<dt><?php echo __('头像');?></dt>
@@ -151,4 +154,5 @@
 			&nbsp;
 		</dd>
 	</dl>
+<?php echo $this->Html->link('返回', $referer); ?>
 </div>
