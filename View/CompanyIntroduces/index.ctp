@@ -1,4 +1,4 @@
-<div class="companyIntroduces index">
+<div id="anotherPageBox">
 	<h2><?php echo __('公司推广信息'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>

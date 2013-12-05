@@ -154,6 +154,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
+<!--
 		<div id="footer">
 <?php 
 		echo '友情链接：';
@@ -166,6 +167,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 		}
 ?>
 		</div>
+-->
 	</div>
 	<?php echo $this->element('sql_dump'); ?> 
 	<?php echo $this->Js->writeBuffer();?>

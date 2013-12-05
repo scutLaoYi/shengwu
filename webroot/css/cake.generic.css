@@ -138,12 +138,13 @@ text-decoration:underline;
 #footer {
 	clear: both;
 	text-align: right;
-	background:#33CCCC;
-	width:1024px;
+	background:url(img/friendly_link/foot.png);
 	height:256px;
 	margin-top:10px;
 	margin-left:auto;
 	margin-right:auto;
+	-webkit-background-size:100%;
+	background-size:100%
 }
 #header a, #footer a {
 	color: #fff;
@@ -162,14 +163,15 @@ text-decoration:underline;
 #menubar ul {
   font-family: Arial, Verdana;
   font-size: 15px;
-  margin: 0;
-  padding: 0;
+  margin:0;
+  padding:0;
   list-style: none;
 }
 
 #menubar li {
 display:block;
-margin:1px;
+margin:0px;
+padding:0px;
 }
 #menubar ul li {
   display: block;
@@ -192,6 +194,7 @@ margin:1px;
     background:-moz-linear-gradient(top, White, rgba(211, 211, 211, 0.5));  
     background:-webkit-gradient(linear, 0 0, 0 bottom, from(White), to(rgba(211, 211, 211, 0.5)));  
     background:-o-linear-gradient(top, White, rgba(211, 211, 211, 0.5)); 
+	border:1px solid Black;
 }
 /*
 #menubar ul li a {
@@ -208,8 +211,9 @@ margin:1px;
 }*/
 #menubar ul li a:hover
 {
-background: #617F8A;
+background: rgb(167,200,183);
 text-align:left;
+text-shadow:0px 0px 15px #fff;
 }
 #menubar li:hover ul {
   display: block;
@@ -219,8 +223,8 @@ text-align:left;
   float: none;
   font-size: 15px;
 }
-#menubar li:hover a {background: #617F8A;}
-#menubar li:hover li a:hover { background: #95A9B1; }
+#menubar li:hover a {background: rgb(167,200,183);}
+#menubar li:hover li a:hover { background: rgb(167,200,183); }
 
 .search_box {
 background-color:#33CCCC;

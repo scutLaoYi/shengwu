@@ -1,4 +1,4 @@
-<div class="inviteBids index">
+<div id="anotherPageBox">
 	<h2><?php echo __('院方招标'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<?php foreach ($inviteBids as $inviteBid): ?>

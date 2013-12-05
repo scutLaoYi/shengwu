@@ -1,4 +1,4 @@
-<div class="companyIntroduces company_introduce_list">
+<div id="anotherPageBox">
 <div class="actions">
 <?php echo $this->Form->create('CompanySearch');?>
 	<?php echo $this->Form->input('Country',array('options'=>$allCountrys,'label'=>'公司地区'));?>
