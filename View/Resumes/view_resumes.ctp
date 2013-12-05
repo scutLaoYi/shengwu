@@ -1,4 +1,4 @@
-<div class="resumes view">
+<div id="anotherPageBox">
 <h2><?php echo __($resume['Resume']['name'].'的简历'); ?> &nbsp;&nbsp;&nbsp; 
 		<?php 
 if($this->Session->read('type') == 2)

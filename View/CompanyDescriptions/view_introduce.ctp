@@ -1,4 +1,4 @@
-<div class="CompanyDescriptions_view_introduce index">
+<div id="anotherPageBox">
 
 <?php if(!isset($introduce))
 	{

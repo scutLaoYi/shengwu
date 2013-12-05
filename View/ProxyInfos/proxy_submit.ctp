@@ -2,7 +2,7 @@
 <?php echo $this->Html->script('proxySelection'); ?>
 <!-- end of script -->
 
-<div class="proxyInfos form">
+<div id="anotherPageBox">
 <?php echo $this->Form->create('ProxyInfo',array('type'=>'file')); ?>
 	<fieldset>
 		<legend><?php echo __('公司代理产品提交'); ?></legend>

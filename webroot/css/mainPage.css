@@ -41,18 +41,16 @@ list-style:none;
 width:490px;
 height:400px;
 display:block;
-background:#FFFFF;
-border-style:solid;
-border-width:thin;
+background:#F5F5F5;
 }
 ul.summary a {
 text-decoration:none;
-font-size:20px;
+font-size:15px;
 color:Black;
 }
 ul.summary li{
 position:relative;
-padding:5px;
+padding:1px;
 color:black;
 text-align:left;
 font-size:20px;
@@ -66,6 +64,7 @@ text-decoration:underline;
 
 #topForMore {
 margin:0;
+border-style:none;
 background:url(img/summary/summary_top.png);
 -webkit-background-size:100%;
 background-size:100%
@@ -80,14 +79,63 @@ margin-right:5px;
 float:right;
 }
 #more_right {
-margin-left:350px;
+margin-left:360px;
 }
 /* 其他页面的容器div */
 #anotherPageBox {
+text-align:center;
 margin-top:10px;
 width:1024px;
 margin-left:auto;
 margin-right:auto;
 }
 
+#anotherPageBox dl{
+margin-left:auto;
+margin-right:auto;
+}
+
+#anotherPageBox fieldset {
+width:500px;
+margin-left:auto;
+margin-right:auto;
+border:1px solid Black;
+}
 /* 结束 - 其他页面的容器div */
+
+/* 搜索框 */
+.searchinput{
+	border-right-width: 0px;
+	padding-left: 3px;
+	width: 220px;
+	font-family: arial;
+	float: left;
+	border-top-width: 0px;
+	border-bottom-width: 0px;
+	color: #636365;
+	margin-left: 4px;
+	font-size: 14pt;
+	vertical-align: middle;
+	border-left-width: 0px;
+	margin-right: 3px;
+}
+.tab_search{
+	border-bottom: #cccccc 1px solid;
+	border-left: #cccccc 1px solid;
+	height: 30px;
+	width:250px;
+	border-top: #cccccc 1px solid;
+	border-right: #cccccc 1px solid;
+	background-color:#33CCCC;
+	float:right;
+	margin-top:5px;
+}
+.searchaction{
+	width: 70px;
+	float: left;
+	height: 25px;
+	text-align:center;
+	padding:0;
+	font-size:12pt;
+}
+/* 结束 - 搜索框 */

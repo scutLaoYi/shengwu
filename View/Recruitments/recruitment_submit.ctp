@@ -1,4 +1,4 @@
-<div class="recruitments form">
+<div id="anotherPageBox">
 
 <?php echo $this->Form->create('Recruitment'); ?>
 <fieldset>

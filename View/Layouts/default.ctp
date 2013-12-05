@@ -106,6 +106,18 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 				<li><a href="">广告招租</a></li>
 			
 			</ul>
+			<form action="#" name="search">
+			<table border="0" cellpadding="0" cellspacing="0" class="tab_search">
+			<tr>
+				<td>
+					<input type="text" name="q" title="Search" class="searchinput" id="searchinput"  value="" size="10"/>
+				</td>
+				<td>
+					<input type="button" width="51" height="25" class="searchaction"  alt="Search" value="搜索" border="0" hspace="2"/>
+				</td>
+			</tr>
+			</table>
+			</form>
 	</div>
 <!--
 	<div class="search_box">

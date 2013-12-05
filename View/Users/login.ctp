@@ -1,4 +1,4 @@
-<div class = "users form">
+<div id = "anotherPageBox">
 <?php echo $this->Form->create('User'); ?>
 <fieldset>
 	<legend><?php __('请输入帐号和密码'); ?></legend>

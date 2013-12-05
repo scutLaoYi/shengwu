@@ -6,7 +6,7 @@ function change(obj) {
             }
         }
 </script>
-<div class="companyUserInfos form">
+<div id="anotherPageBox">
 <?php echo $this->Form->create('CompanyUserInfo_for'); ?>
 	<fieldset>
 		<legend><?php echo __('企业注册信息'); ?></legend>
