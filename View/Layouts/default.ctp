@@ -124,7 +124,6 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 			</table>
 		</form>
 	</div>
--->
 
 	<div class="search_box">
 		<fieldset>
@@ -146,6 +145,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 			</table>
 		</fieldset>
 	</div> 
+-->
 <!-- end of menubar -->
 
 		<div id="content">

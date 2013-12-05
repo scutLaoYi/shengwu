@@ -29,7 +29,6 @@ body {
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:90%;
 	margin: 0;
-
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -78,22 +77,42 @@ p {
 
 /** Layout **/
 #logo {
+background-image:url(img/logo/logo.png);
+background-repeat:no-repeat;
 width:1600px;
-height:150px;
-background:#CCCCCC;
+height:160px;
+/*-webkit-background-size:100%;*/
+background-size:100%
 }
 #container {
 	text-align: left;
-	margin:0 auto;
-	width:1024px;
+	margin-left:auto;
+	margin-right:auto;
+	width:1600px;
 }
 
 #header{
 	padding:0;
 	height:25px;
-	float:center;
 	width:1024px;
-	background:#003d4c;
+	background:White;
+	text-align:right;
+	margin-left:auto;
+	margin-right:auto;
+}
+#header ul {
+text-decoration:none;
+}
+#header li {
+text-decoration:none;
+list-style:none;
+}
+#header ul li a {
+text-decoration:none;
+color:Black;
+}
+#header ul li a:hover {
+text-decoration:underline;
 }
 #header h1 {
 	line-height:20px;
@@ -126,6 +145,8 @@ background:#CCCCCC;
 	width:1024px;
 	height:256px;
 	margin-top:10px;
+	margin-left:auto;
+	margin-right:auto;
 }
 #header a, #footer a {
 	color: #fff;
@@ -136,8 +157,10 @@ background:#CCCCCC;
 	width: 1024px;
 	margin-left: auto;
 	margin-right: auto;
-	background:#33CCCC; /* GentleH: waiting img */
-	height:32px;
+	background:url(img/menubar/menubar_background.png) no-repeat;
+	height:100px;
+	-webkit-background-size:100%;
+	background-size:100%
 }
 #menubar ul {
   font-family: Arial, Verdana;
@@ -149,7 +172,7 @@ background:#CCCCCC;
 
 #menubar li {
 display:block;
-margin:0px;
+margin:1px;
 }
 #menubar ul li {
   display: block;
@@ -160,12 +183,14 @@ margin:0px;
 #menubar ul li a {
   display: block;
   text-decoration: none;
-  color: #ffffff;
-  border: 1px solid #ffffff;
-  padding: 5px 15px 5px 15px;
-  background: #33CCCC;
-  margin-left: 0px;
+  color: Black;
+ /* border: 1px solid #ffffff;*/
+  padding: 10px 20px 10px 20px;
+  background: url(img/menubar/button.png) no-repeat;
+  margin:auto;
   white-space: nowrap;
+  -webkit-background-size:100%;
+  /*background-size:100%*/
 }
 #menubar ul li a:hover
 {

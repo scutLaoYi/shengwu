@@ -2,10 +2,21 @@
 margin-top:10px;
 height:420px;
 width:1024px;
+margin-left:auto;
+margin-right:auto;
+}
+.ad_background {
+width:1600px;
+height:520px;
+background:url(img/ad/ad_background.png) no-repeat;
+margin-left:0;
+margin-right:0;
 }
 .ad {
 width:1024px;
 height:520px;
+margin-left:auto;
+margin-right:auto;
 background:Yellow;
 }
 /* all kinds of h1 */
