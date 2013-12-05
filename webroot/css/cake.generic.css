@@ -79,16 +79,14 @@ p {
 #logo {
 background-image:url(img/logo/logo.png);
 background-repeat:no-repeat;
-width:1600px;
 height:160px;
-/*-webkit-background-size:100%;*/
+-webkit-background-size:100%;
 background-size:100%
 }
 #container {
 	text-align: left;
-	margin-left:auto;
-	margin-right:auto;
-	width:1600px;
+	margin-left:0;
+	margin-right:0;
 }
 
 #header{
@@ -179,18 +177,35 @@ margin:1px;
   float: left;
 }
 #menubar li ul { display: none;}
+
+#menubar ul li a {
+	display:block;
+	text-decoration:none;
+	color:black;
+	padding:10px 20px 10px 20px;
+	margin-left:5px;
+	white-space: nowrap;
+	-webkit-background-size:100%;
+    filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=red,endcolorstr=blue,gradientType=0);
+    -ms-filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=red,endcolorstr=blue,gradientType=0);/*IE8*/	
+    background:White; /* 一些不支持背景渐变的浏览器 */  
+    background:-moz-linear-gradient(top, White, rgba(211, 211, 211, 0.5));  
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(White), to(rgba(211, 211, 211, 0.5)));  
+    background:-o-linear-gradient(top, White, rgba(211, 211, 211, 0.5)); 
+}
+/*
 #menubar ul li a {
   display: block;
   text-decoration: none;
   color: Black;
- /* border: 1px solid #ffffff;*/
+  border: 1px solid #ffffff;
   padding: 10px 20px 10px 20px;
   background: url(img/menubar/button.png) no-repeat;
   margin:auto;
   white-space: nowrap;
   -webkit-background-size:100%;
-  /*background-size:100%*/
-}
+  background-size:100%
+}*/
 #menubar ul li a:hover
 {
 background: #617F8A;

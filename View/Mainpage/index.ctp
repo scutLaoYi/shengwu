@@ -4,9 +4,13 @@
 for($id = 0; $id < 40; $id++)
 {
 	if($advertise[$id]['AdList']['pic_url']=='ad_image/ad.png')
+	{
 		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '124','height'=>'100','url'=>array('controller'=>'Mainpage','action'=>'index')));
-	else 
+	}
+	else
+	{ 
 		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '124','height'=>'100','url'=>array('controller'=>'CompanyDescriptions','action'=>'view_info',$advertise[$id]['AdList']['company_user_info_id'])));
+	}
 		?>&nbsp;<?php
 	if(($id+1) % 8 == 0)
 	{
@@ -33,6 +37,7 @@ for($id = 0; $id < 40; $id++)
 	<?php foreach($recruitments as $recruitment):?>
 	<li><a><?php echo $this->Html->link($recruitment['Recruitment']['job_title'].' '.$recruitment['CompanyUserInfo']['company'],array('controller'=>'Recruitments','action'=>'recruitment_view',$recruitment['Recruitment']['id']));?></a></li>
 <?php endforeach;?>
+
 </ul>
 </div>
 
@@ -42,10 +47,11 @@ for($id = 0; $id < 40; $id++)
 	<?php foreach($proxys as $proxy):?>
 	<li><a><?php echo $this->Html->link($proxy['ProxyInfo']['product_name'].' '.$proxy['CompanyUserInfo']['company'],array('controller'=>'ProxyInfos','action'=>'proxy_view',$proxy['ProxyInfo']['id']));?></a></li>
 <?php endforeach;?>
+
 </ul>
 
 <ul class="summary" id="right">
-	<li id="blue">论坛<a id="more_right">更多</a></li>
+	<li id="topForMore">论坛<a id="more_right">更多</a></li>
 	<li><a>孙正扬</a></li>
 	<li><a>蒋慧强</a></li>
 	<li><a>林标标</a></li>
