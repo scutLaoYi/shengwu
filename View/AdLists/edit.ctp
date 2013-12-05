@@ -4,8 +4,8 @@
 		<legend><?php echo __('添加广告位'); ?></legend>
 	<?php
 		echo $this->Form->input('pic_url',array('type'=>'file','label'=>'图片'));
-		echo $this->Form->input('username');
-		echo $this->Form->input('deadline',array('type'=>'date','label'=>'截至时间'));
+		echo $this->Form->input('username',array('label'=>'用户名'));
+		echo $this->Form->input('deadline',array('type'=>'date','label'=>'截至时间','monthNames'=>$allMonth));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('提交')); ?>

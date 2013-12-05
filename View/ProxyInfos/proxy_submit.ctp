@@ -17,7 +17,7 @@
 		echo $this->Form->input('product_unit',array('label'=>'产品单位'));
 		echo $this->Form->input('phone',array('label'=>'联系方式'));
 		echo $this->Form->input('qq',array('label'=>'qq'));
-		echo $this->Form->input('deadline',array('label'=>'截至时间','type'=>'date'));	
+		echo $this->Form->input('deadline',array('label'=>'截至时间','type'=>'date','monthNames'=>$allMonth));	
 		echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产品分类','onchange'=>'setOption(this.options[this.selectedIndex].value, "请选择");','options'=>$allProduct));
 		if($this->request->data!=null)
 		{

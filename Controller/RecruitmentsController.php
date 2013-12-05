@@ -30,39 +30,6 @@ class RecruitmentsController extends AppController {
 		$this->set('recruitments',$recruitments);
 	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		if (!$this->Recruitment->exists($id)) {
-			throw new NotFoundException(__('Invalid recruitment'));
-		}
-		$options = array('conditions' => array('Recruitment.' . $this->Recruitment->primaryKey => $id));
-		$this->set('recruitment',$this->Recruitment->find('first', $options));
-	}
-
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->Recruitment->create();
-			if ($this->Recruitment->save($this->request->data)) {
-				$this->Session->setFlash(__('The recruitment has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The recruitment could not be saved. Please, try again.'));
-			}
-		}
-		$companyUserInfos = $this->Recruitment->CompanyUserInfo->find('list');
-		$this->set(compact('companyUserInfos'));
-	}
 
 /**
  * edit method
@@ -104,9 +71,9 @@ class RecruitmentsController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Recruitment->delete()) {
-			$this->Session->setFlash(__('The recruitment has been deleted.'));
+			$this->Session->setFlash(__('招聘信息删除成功'));
 		} else {
-			$this->Session->setFlash(__('The recruitment could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('招聘信息删除失败，请稍后再试'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

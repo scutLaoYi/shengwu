@@ -17,7 +17,7 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('查看'), array('action' => 'view', $inviteBid['InviteBid']['id'])); ?>
 			<?php echo $this->Html->link(__('编辑'), array('action' => 'edit', $inviteBid['InviteBid']['id'])); ?>
-			<?php echo $this->Form->postLink(__('删除'), array('action' => 'delete', $inviteBid['InviteBid']['id']), null, __('Are you sure you want to delete # %s?', $inviteBid['InviteBid']['id'])); ?>
+			<?php echo $this->Form->postLink(__('删除'), array('action' => 'delete', $inviteBid['InviteBid']['id']), null, __('你确定删除该招标信息么？', $inviteBid['InviteBid']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

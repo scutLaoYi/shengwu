@@ -50,10 +50,10 @@ class FriendlyLinksController extends AppController {
 		if ($this->request->is('post')) {
 			$this->FriendlyLink->create();
 			if ($this->FriendlyLink->save($this->request->data)) {
-				$this->Session->setFlash(__('The friendly link has been saved.'));
+				$this->Session->setFlash(__('新建链接成功'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The friendly link could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('新建链接失败，请稍后再试'));
 			}
 		}
 	}
@@ -71,10 +71,10 @@ class FriendlyLinksController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->FriendlyLink->save($this->request->data)) {
-				$this->Session->setFlash(__('The friendly link has been saved.'));
+				$this->Session->setFlash(__('链接修改成功'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The friendly link could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('链接修改失败，请稍后再试'));
 			}
 		} else {
 			$options = array('conditions' => array('FriendlyLink.' . $this->FriendlyLink->primaryKey => $id));
@@ -96,9 +96,9 @@ class FriendlyLinksController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->FriendlyLink->delete()) {
-			$this->Session->setFlash(__('The friendly link has been deleted.'));
+			$this->Session->setFlash(__('链接删除成功'));
 		} else {
-			$this->Session->setFlash(__('The friendly link could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('链接删除失败，请稍后再试'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

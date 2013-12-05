@@ -45,50 +45,7 @@ class ResumesController extends AppController {
 		$this->render('view_resumes');
 	}
 
-	/**
-	 * add method
-	 *
-	 * @return void
-	 */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->Resume->create();
-			if ($this->Resume->save($this->request->data)) {
-				$this->Session->setFlash(__('The resume has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The resume could not be saved. Please, try again.'));
-			}
-		}
-		$users = $this->Resume->User->find('list');
-		$this->set(compact('users'));
-	}
 
-	/**
-	 * edit method
-	 *
-	 * @throws NotFoundException
-	 * @param string $id
-	 * @return void
-	 */
-	public function edit($id = null) {
-		if (!$this->Resume->exists($id)) {
-			throw new NotFoundException(__('Invalid resume'));
-		}
-		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Resume->save($this->request->data)) {
-				$this->Session->setFlash(__('The resume has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The resume could not be saved. Please, try again.'));
-			}
-		} else {
-			$options = array('conditions' => array('Resume.' . $this->Resume->primaryKey => $id));
-			$this->request->data = $this->Resume->find('first', $options);
-		}
-		$users = $this->Resume->User->find('list');
-		$this->set(compact('users'));
-	}
 
 	/**
 	 * delete method
@@ -104,9 +61,9 @@ class ResumesController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Resume->delete()) {
-			$this->Session->setFlash(__('The resume has been deleted.'));
+			$this->Session->setFlash(__('删除成功'));
 		} else {
-			$this->Session->setFlash(__('The resume could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('删除失败，请稍候再试'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

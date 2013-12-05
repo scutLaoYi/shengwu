@@ -21,9 +21,12 @@ class CompanyIntroducesController extends AppController {
 	 *
 	 * @return void
 	 */
-	public function index() {
+	public function index($status=null) {
 		$this->CompanyIntroduce->recursive = 0;
-		$this->Paginator->settings = array('conditions'=>array('CompanyIntroduce.id !='=>null));
+		$option=array('conditions'=>array('CompanyIntroduce.id !='=>null));
+		if($status)
+			 $this->Paginator->settings = array('conditions'=>array('CompanyIntroduce.id !='=>null,'CompanyIntroduce.status'=>$status));
+		else $this->Paginator->settings = array('conditions'=>array('CompanyIntroduce.id !='=>null));
 		$companyIntroduces =  $this->Paginator->paginate();
 		$this->set('companyIntroduces', $companyIntroduces);
 	}
@@ -43,24 +46,6 @@ class CompanyIntroducesController extends AppController {
 		$this->set('companyIntroduce', $this->CompanyIntroduce->find('first', $options));
 	}
 
-	/**
-	 * add method
-	 *
-	 * @return void
-	 */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->CompanyIntroduce->create();
-			if ($this->CompanyIntroduce->save($this->request->data)) {
-				$this->Session->setFlash(__('The company introduce has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The company introduce could not be saved. Please, try again.'));
-			}
-		}
-		$companyUserInfos = $this->CompanyIntroduce->CompanyUserInfo->find('list');
-		$this->set(compact('companyUserInfos'));
-	}
 
 	/**
 	 * edit method
@@ -75,10 +60,10 @@ class CompanyIntroducesController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->CompanyIntroduce->save($this->request->data)) {
-				$this->Session->setFlash(__('The company introduce has been saved.'));
+				$this->Session->setFlash(__('修改成功'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The company introduce could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('修改失败，请稍候再试'));
 			}
 		} else {
 			$options = array('conditions' => array('CompanyIntroduce.' . $this->CompanyIntroduce->primaryKey => $id));
@@ -102,9 +87,9 @@ class CompanyIntroducesController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->CompanyIntroduce->delete()) {
-			$this->Session->setFlash(__('The company introduce has been deleted.'));
+			$this->Session->setFlash(__('删除成功'));
 		} else {
-			$this->Session->setFlash(__('The company introduce could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('删除失败，请稍后再试'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
@@ -241,8 +226,10 @@ class CompanyIntroducesController extends AppController {
 	{
 		$this->set('allStatus', $this->List->allStatus());
 		$this->set('allCountrys',$this->List->allCountry());
-		$this->set('nature',$nature=$this->List->companyEconomicNature());
-		$this->set('number',$number=$this->List->companyNumber());
+		$this->set('nature',$this->List->companyEconomicNature());
+		$this->set('number',$this->List->companyNumber());
+		$this->set('allStatus',$this->List->allStatus());
+		$this->set('allMonth',$this->List->allMonth());
 		$this->Auth->allow('company_introduce_list');
 		parent::beforeFilter();
 	}
