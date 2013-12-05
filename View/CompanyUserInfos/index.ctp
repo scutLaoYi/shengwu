@@ -14,7 +14,7 @@
 	</tr>
 	<?php foreach ($companyUserInfos as $companyUserInfo): ?>
 	<tr>
-		<td><?php echo h($companyUserInfo['User']['username']); ?>&nbsp;</td>
+		<td><?php echo $this->Html->link($companyUserInfo['User']['username'],array('controller'=>'Users','action'=>'view',$companyUserInfo['User']['id'])); ?>&nbsp;</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['company']); ?>&nbsp;</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['contact_person']); ?>&nbsp;</td>
 		<td><?php echo h($companyUserInfo['CompanyUserInfo']['contact_number']); ?>&nbsp;</td>

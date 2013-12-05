@@ -93,8 +93,8 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 				</ul>
 			  </li>
 			  <li><?php echo $this->Html->link('招聘求职', array('controller'=>'Recruitments', 'action'=>'recruitment_list')); ?></a></li>
-				<li><a href="">招标中标</a></li> 
-				<li><a href="">论坛交流</a></li>
+			<li><?php echo $this->Html->link('招标中标', array('controller'=>'InviteBids', 'action'=>'invite_bid_list')); ?></a></li> 
+			<li><?php echo $this->Html->link('论坛交流', 'http://10.0.0.4/phpwind/index.php'); ?></li>
 				<li><a href="">信息发布</a>
 					<ul> 
 					<li><?php echo $this->Html->link('发布公司信息', array('controller'=>'companyIntroduces', 'action'=>'company_introduce_submit')); ?></li>

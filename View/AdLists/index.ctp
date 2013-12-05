@@ -2,10 +2,10 @@
 	<h2><?php echo __('Ad Lists'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('pic_url'); ?></th>
-			<th><?php echo $this->Paginator->sort('company_user_info_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('deadline'); ?></th>
+			<th><?php echo $this->Paginator->sort('id','广告位位置'); ?></th>
+			<th><?php echo $this->Paginator->sort('pic_url','图片路径'); ?></th>
+			<th><?php echo $this->Paginator->sort('company_user_info_id','公司id'); ?></th>
+			<th><?php echo $this->Paginator->sort('deadline','截至时间'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($adLists as $adList): ?>
@@ -17,9 +17,8 @@
 		</td>
 		<td><?php echo h($adList['AdList']['deadline']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $adList['AdList']['id'])); ?>
 			<?php echo $this->Html->link(__('添加广告位'), array('action' => 'edit', $adList['AdList']['id'])); ?>
-			<?php echo $this->Form->postLink(__('恢复'), array('action' => 'delete', $adList['AdList']['id']), null, __('您确定恢复该广告位', $adList['AdList']['id'])); ?>
+			<?php echo $this->Form->postLink(__('复位'), array('action' => 'delete', $adList['AdList']['id']), null, __('您确定恢复该广告位', $adList['AdList']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

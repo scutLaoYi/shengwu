@@ -6,7 +6,8 @@
 <li><?php echo $this->Html->link('公司代理管理', array('controller'=>'ProxyInfos', 'action'=>'index')); ?></li>
 <li><?php echo $this->Html->link('公司招聘管理',array('controller'=>'Recruitments', 'action'=>'index')); ?></li>
 <li><?php echo $this->Html->link('广告位管理', array('controller'=>'AdLists', 'action'=>'index')); ?></li>
-<li><?php echo $this->Html->link('友情链接管理',array('controller'=>'FriendlyLinks')); ?></li>
+<li><?php echo $this->Html->link('招标中标管理', array('controller'=>'InviteBids', 'action'=>'index')); ?></li>
+<li><?php echo $this->Html->link('友情链接管理',array('controller'=>'FriendlyLinks','action'=>'index')); ?></li>
 <li><?php echo $this->Html->link('论坛管理'); ?></li>
 <li><?php echo $this->Html->link('网站信息管理'); ?></li>
 </ul>

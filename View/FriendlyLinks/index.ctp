@@ -1,10 +1,11 @@
 <div class="friendlyLinks index">
-	<h2><?php echo __('Friendly Links'); ?></h2>
+	<h2><?php echo __('友情链接管理'); ?></h2>
+	<?php echo $this->Html->link('创建友情链接',array('controller'=>'FriendlyLinks','action'=>'add'));?>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('link_name'); ?></th>
-			<th><?php echo $this->Paginator->sort('link_url'); ?></th>
+			<th><?php echo $this->Paginator->sort('link_name','链接名称'); ?></th>
+			<th><?php echo $this->Paginator->sort('link_url','链接'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($friendlyLinks as $friendlyLink): ?>
@@ -13,9 +14,9 @@
 		<td><?php echo h($friendlyLink['FriendlyLink']['link_name']); ?>&nbsp;</td>
 		<td><?php echo h($friendlyLink['FriendlyLink']['link_url']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $friendlyLink['FriendlyLink']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $friendlyLink['FriendlyLink']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $friendlyLink['FriendlyLink']['id']), null, __('Are you sure you want to delete # %s?', $friendlyLink['FriendlyLink']['id'])); ?>
+			<?php echo $this->Html->link(__('查看'), array('action' => 'view', $friendlyLink['FriendlyLink']['id'])); ?>
+			<?php echo $this->Html->link(__('编辑'), array('action' => 'edit', $friendlyLink['FriendlyLink']['id'])); ?>
+			<?php echo $this->Form->postLink(__('删除'), array('action' => 'delete', $friendlyLink['FriendlyLink']['id']), null, __('Are you sure you want to delete # %s?', $friendlyLink['FriendlyLink']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

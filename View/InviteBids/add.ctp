@@ -1,7 +1,7 @@
 <div class="inviteBids form">
 <?php echo $this->Form->create('InviteBid'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Invite Bid'); ?></legend>
+		<legend><?php echo __('创建招标'); ?></legend>
 	<?php
 		echo $this->Form->input('content');
 	?>
@@ -9,9 +9,5 @@
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Invite Bids'), array('action' => 'index')); ?></li>
-	</ul>
+<?php echo $this->element('admin_options');?>
 </div>

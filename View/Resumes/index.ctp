@@ -2,6 +2,7 @@
 	<h2><?php echo __('简历列表'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
+			<th><?php echo $this->Paginator->sort('User.username','用户名');?></th>
 			<th><?php echo $this->Paginator->sort('name', '姓名'); ?></th>
 			<th><?php echo $this->Paginator->sort('sex', '性别'); ?></th>
 			<th><?php echo $this->Paginator->sort('age', '年龄'); ?></th>
@@ -13,6 +14,7 @@
 	</tr>
 	<?php foreach ($resumes as $resume): ?>
 	<tr>
+		<td><?php echo $this->Html->link($resume['User']['username'], array('controller'=>'Users','action'=>'view', $resume['User']['id'])); ?>&nbsp;</td>
 		<td><?php echo $this->Html->link($resume['Resume']['name'], array('action'=>'view', $resume['Resume']['id'])); ?>&nbsp;</td>
 		<td><?php echo h($allSex[$resume['Resume']['sex']]); ?>&nbsp;</td>
 		<td><?php echo h($resume['Resume']['age']); ?>&nbsp;</td>

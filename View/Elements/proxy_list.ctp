@@ -5,13 +5,13 @@ echo __('代理信息');
 ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('产品名称'); ?></th>
-			<th><?php echo $this->Paginator->sort('公司名称'); ?></th>	
-			<th><?php echo $this->Paginator->sort('产品图片'); ?></th>	
-			<th><?php echo $this->Paginator->sort('代理区域'); ?></th>
+			<th><?php echo '产品名称'; ?></th>
+			<th><?php echo '公司名称'; ?></th>	
+			<th><?php echo '产品图片'; ?></th>	
+			<th><?php echo '代理区域'; ?></th>
 
-			<th><?php echo $this->Paginator->sort('产品分类'); ?></th>
-			<th><?php echo $this->Paginator->sort('代理介绍'); ?></th>
+			<th><?php echo '产品分类'; ?></th>
+			<th><?php echo '代理介绍'; ?></th>
 	</tr>
 	<?php foreach ($proxyInfos as $proxyInfo): ?>
 	<tr>
