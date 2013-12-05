@@ -1,4 +1,4 @@
-<div  class="Recruitments recruitment_list">
+<div  id="anotherPageBox">
 <?php 
 echo $this->element('recruitment_list', array('recruitments', $recruitments)); 
 ?>

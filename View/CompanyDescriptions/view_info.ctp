@@ -1,4 +1,10 @@
-<div class="CompanyDescriptions_view_info index">
+
+<div id="anotherPageBox">
+<div class="actions">
+<?php echo $this->element('company_description_option', array(
+		'currentId' => $company_info['id']));
+?>
+</div>
 <?php 
 
 if(isset($isCurrentCompany))
@@ -14,8 +20,6 @@ if(isset($isCurrentCompany))
 <p>邮    编：<?php echo $company_info['code']; ?></p>
 <p>网    址：<?php echo $company_info['website']; ?></p>
 <p>联 系 QQ：<?php echo $company_info['qq']; ?></p>
-
 </div>
 
-<?php echo $this->element('company_description_option', array(
-		'currentId' => $company_info['id']));?>
+

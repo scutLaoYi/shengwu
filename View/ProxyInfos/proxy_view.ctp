@@ -1,4 +1,4 @@
-<div class="proxyInfos view">
+<div id="anotherPageBox">
 <h2><?php echo __('代理信息'); ?></h2>
 <?php   if(isset($iscurrent))
 {

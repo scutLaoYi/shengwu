@@ -1,4 +1,5 @@
 <!-- 导入外部的选项内容 -->
+<div id="anotherPageBox">
 <?php echo $this->Html->script('allSelections'); ?>
 <?php echo $this->Html->script('proxySelection'); ?>
 <script>
@@ -70,3 +71,4 @@ echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产
 
 window.onload = setAndSearch(document.getElementById("product_type").selectedIndex, "全部");
 </script>
+</div>

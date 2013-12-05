@@ -78,6 +78,20 @@ for($id = 40; $id < 80; $id++)
 			echo '<br/>';
 	}
 }
+
 ?>
 </div>
 </div>
+
+		<div id="footer">
+<?php 
+		echo '友情链接：';
+		$links = $this->requestAction('/FriendlyLinks/list_link');
+		foreach($links as $onelink)
+		{
+			$currentName =  $onelink['FriendlyLink']['link_name'];
+			$currentUrl = $onelink['FriendlyLink']['link_url'];
+			echo $this->Html->link($currentName,$currentUrl);
+		}
+?>
+		</div>

@@ -1,4 +1,4 @@
-<div class="companyIntroduces index">
+<div id="anotherPageBox">
 <?php 
 	echo $this->Html->link('待审核  ',array('action'=>'index','1'));
 	echo $this->Html->link('已上线  ',array('action'=>'index','2'));
