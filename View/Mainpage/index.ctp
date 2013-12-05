@@ -25,7 +25,7 @@ for($id = 0; $id < 40; $id++)
 
 <div class="summary_message">
 <ul class="summary" id="left">
-<li id="blue">公司介绍<a id="more_right"><?php echo $this->Html->link('更多',array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list'));?></a></li>
+<li id="topForMore">公司介绍<a id="more_right"><?php echo $this->Html->link('更多',array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list'));?></a></li>
 <?php foreach($company_introduces as $company_introduce):?>
 
 <li><a><?php echo $this->Html->link($company_introduce['CompanyUserInfo']['company'],array('controller'=>'CompanyDescriptions','action'=>'view_info',$company_introduce['CompanyUserInfo']['id']));?></a></li>
@@ -33,7 +33,7 @@ for($id = 0; $id < 40; $id++)
 </ul>
 
 <ul class="summary" id="right">
-<li id="blue">招聘信息<a id="more_right"><?php echo $this->Html->link('更多',array('controller'=>'Recruitments','action'=>'recruitment_list'));?></a></li>
+<li id="topForMore">招聘信息<a id="more_right"><?php echo $this->Html->link('更多',array('controller'=>'Recruitments','action'=>'recruitment_list'));?></a></li>
 	<?php foreach($recruitments as $recruitment):?>
 	<li><a><?php echo $this->Html->link($recruitment['Recruitment']['job_title'].' '.$recruitment['CompanyUserInfo']['company'],array('controller'=>'Recruitments','action'=>'recruitment_view',$recruitment['Recruitment']['id']));?></a></li>
 <?php endforeach;?>
@@ -43,7 +43,7 @@ for($id = 0; $id < 40; $id++)
 
 <div class="summary_message">
 <ul class="summary" id="left">
-<li id="blue">代理信息<a id="more_right"><?php echo $this->Html->link('更多',array('controller'=>'ProxyInfos','action'=>'proxy_search'));?></a></li>
+<li id="topForMore">代理信息<a id="more_right"><?php echo $this->Html->link('更多',array('controller'=>'ProxyInfos','action'=>'proxy_search'));?></a></li>
 	<?php foreach($proxys as $proxy):?>
 	<li><a><?php echo $this->Html->link($proxy['ProxyInfo']['product_name'].' '.$proxy['CompanyUserInfo']['company'],array('controller'=>'ProxyInfos','action'=>'proxy_view',$proxy['ProxyInfo']['id']));?></a></li>
 <?php endforeach;?>
