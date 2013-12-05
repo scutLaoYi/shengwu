@@ -19,4 +19,9 @@ class RecruitmentSearcherComponent extends Component
 		$this->Paginator->settings = array('limit'=>10,'order'=>array('Recruitment.created'=>'desc'),'conditions'=>$options);
 		return $this->Paginator->paginate('Recruitment');
 	}
+	public function search_lastest()
+	{
+		$this->Paginator->settings = array('limit'=>10,'order'=>array('Recruitment.created'=>'desc'),'conditions'=>array('Recruitment.status'=>'2'));
+		return $this->Paginator->paginate('Recruitment');
+	}
 }	

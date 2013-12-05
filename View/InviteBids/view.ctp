@@ -11,6 +11,10 @@
 			<?php $message=ereg_replace("\n","</br>\n",$inviteBid['InviteBid']['content']);?>
 			<?php echo ($message); ?>
 		</dd>
+		<dt><?php echo __('创建时间'); ?></dt>
+		<dd>
+			<?php echo h($inviteBid['InviteBid']['created']); ?>
+		</dd>
 	</dl>
 </div>
 <div class="actions">

@@ -5,6 +5,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('content','内容'); ?></th>
+			<th><?php echo $this->Paginator->sort('created','创建时间'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($inviteBids as $inviteBid): ?>
@@ -12,6 +13,7 @@
 		<td><?php echo h($inviteBid['InviteBid']['id']); ?>&nbsp;</td>
 		<?php $message=ereg_replace("\n","</br>\n",$inviteBid['InviteBid']['content']);?>
 		<td><?php echo ($message); ?></td>
+		<td><?php echo h($inviteBid['InviteBid']['created']); ?></td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('查看'), array('action' => 'view', $inviteBid['InviteBid']['id'])); ?>
 			<?php echo $this->Html->link(__('编辑'), array('action' => 'edit', $inviteBid['InviteBid']['id'])); ?>
