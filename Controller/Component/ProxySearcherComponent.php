@@ -37,12 +37,17 @@ class ProxySearcherComponent extends Component
 		//开始筛选条件并返回结果
 		$this->Paginator->settings = array(
 			'conditions'=>$options,
-			'limit'=>5,
+			'limit'=>'10',
 			'order'=>array('ProxyInfo.created'=>'desc')
 		);
 		$result = $this->Paginator->paginate('ProxyInfo');
 
 		return $result;
+	}
+	public function proxy_lastest()
+	{
+		$this->Paginator->settings = array('limit'=>'10','order'=>array('ProxyInfo.created'=>'desc'),'conditions'=>array('ProxyInfo.status'=>'2'));
+		return $this->Paginator->paginate('ProxyInfo');
 	}
 }
 

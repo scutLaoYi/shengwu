@@ -104,6 +104,7 @@ class InviteBidsController extends AppController {
 	public function invite_bid_list()
 	{
 		$this->InviteBid->recursive = 0;
+		$this->Paginator->settings = array('limit'=>'10','order'=>array('InviteBid.created'=>'desc'));
 		$this->set('inviteBids', $this->Paginator->paginate());
 	}
 	public function beforeFilter()
