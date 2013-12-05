@@ -1,4 +1,4 @@
-<div class="companyIntroduces form">
+<div id="anotherPageBox">
 <?php echo $this->Form->create('CompanyIntroduce',array('type'=>'file')); ?>
 	<fieldset>
 		<legend><?php echo __('公司介绍提交表单'); ?></legend>

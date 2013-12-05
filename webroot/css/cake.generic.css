@@ -226,43 +226,6 @@ text-shadow:0px 0px 15px #fff;
 #menubar li:hover a {background: rgb(167,200,183);}
 #menubar li:hover li a:hover { background: rgb(167,200,183); }
 
-.search_box {
-background-color:#33CCCC;
-width:1024px;
-height:80px;
-margin:0;
-text-align:left;
-}
-.search_box fieldset {
-margin-left:460px;
-margin-right:10px;
-padding:0;
-border:1px solid #ffffff;
-text-decoration:none;
-background-color:#33CCCC;
-height:60px;
-}
-
-.search_box input {
-font-size:30px;
-}
-.search_box input[type=text] {
-width:350px;
-height:30px;
-text-align:left;
-margin:0;
-padding:0;
-font-size:30px;
-}
-.search_box input[type=radio] {
-width:auto;
-margin:0;padding:0;
-display:inline-block;
-}
-.search_box input[type=submit] {
-margin:auto;
-font-size:30px;
-}
 /**-----------end of menubar -------------**/
 
 /** containers **/
@@ -475,6 +438,7 @@ select {
 	clear: both;
 	font-size: 120%;
 	vertical-align: text-bottom;
+	width:175px;
 }
 select[multiple=multiple] {
 	width: 100%;

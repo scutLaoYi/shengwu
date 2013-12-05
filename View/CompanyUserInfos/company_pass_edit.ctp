@@ -1,4 +1,4 @@
-<div class="company_user_info form">
+<div id="anotherPageBox">
 
 <?php echo $this->Form->create('User'); ?>
 <fieldset>

@@ -1,4 +1,4 @@
-<div class = 'index'>
+<div id = 'anotherPageBox'>
 <?php
 echo $this->element('proxy_list', array('proxyInfos'=>$proxyInfos));
 ?>

@@ -1,4 +1,4 @@
-<div class="users view">
+<div id="anotherPageBox">
 
 <h2><?php echo __('个人信息'); ?></h2>
 	<dl>

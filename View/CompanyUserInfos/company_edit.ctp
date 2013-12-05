@@ -1,4 +1,4 @@
-<div class="companyUserInfos form">
+<div id="anotherPageBox">
 <?php echo $this->Form->create('CompanyUserInfo'); ?>
 	<fieldset>
 		<legend><?php echo __('编辑企业信息'); ?></legend>

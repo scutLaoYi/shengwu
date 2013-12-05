@@ -1,4 +1,4 @@
-<div class="recruitments view">
+<div id="anotherPageBox">
 <h2><?php echo __('招聘详细'); ?> </h2>
 	<dl>
 		<dt><?php echo __('工作名称'); ?></dt>

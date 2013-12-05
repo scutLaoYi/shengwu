@@ -1,4 +1,4 @@
-<div class="Resumes form">
+<div id="anotherPageBox">
 
 <?php echo $this->Form->create('Resume',array('type'=>'file')); ?>
 
