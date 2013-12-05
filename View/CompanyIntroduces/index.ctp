@@ -1,4 +1,9 @@
 <div id="anotherPageBox">
+<?php 
+	echo $this->Html->link('待审核  ',array('action'=>'index','1'));
+	echo $this->Html->link('已上线  ',array('action'=>'index','2'));
+	echo $this->Html->link('已过期  ',array('action'=>'index','3'));
+?>
 	<h2><?php echo __('公司推广信息'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
@@ -12,7 +17,7 @@
 	<?php foreach ($companyIntroduces as $companyIntroduce): ?>
 	<tr>
 		<td><?php echo $this->Html->link($companyIntroduce['CompanyUserInfo']['company'], array('controller'=>'CompanyDescriptions','action' => 'view_info', $companyIntroduce['CompanyUserInfo']['id'])); ?>&nbsp; </td>
-		<td><?php echo h($companyIntroduce['CompanyIntroduce']['legal_representative']); ?>&nbsp;</td>
+		<td><?php echo $this->Html->link($companyIntroduce['CompanyIntroduce']['legal_representative'],array('action'=>'view',$companyIntroduce['CompanyIntroduce']['id'])); ?>&nbsp;</td>
 		<td><?php echo h($companyIntroduce['CompanyIntroduce']['created']); ?>&nbsp;</td>
 		<td><?php echo h($companyIntroduce['CompanyIntroduce']['endtime']); ?>&nbsp;</td>
 		<td><?php echo h($allStatus[$companyIntroduce['CompanyIntroduce']['status']]); ?>&nbsp;</td>

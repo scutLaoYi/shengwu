@@ -2,8 +2,8 @@
 <?php echo $this->Form->create('User'); ?>
 <fieldset>
 	<legend><?php __('请输入帐号和密码'); ?></legend>
-		<?php echo $this->Form->input('username');
-		      echo $this->Form->input('password');
+		<?php echo $this->Form->input('username',array('label'=>'用户名'));
+		      echo $this->Form->input('password',array('label'=>'密码'));
 		?>
 </fieldset>
 

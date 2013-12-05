@@ -34,39 +34,6 @@ class ProxyInfosController extends AppController {
 
 	}
 
-	/**
-	 * view method
-	 *
-	 * @throws NotFoundException
-	 * @param string $id
-	 * @return void
-	 */
-	public function view($id = null) {
-		if (!$this->ProxyInfo->exists($id)) {
-			throw new NotFoundException(__('Invalid proxy info'));
-		}
-		$options = array('conditions' => array('ProxyInfo.' . $this->ProxyInfo->primaryKey => $id));
-		$this->set('proxyInfo', $this->ProxyInfo->find('first', $options));
-	}
-
-	/**
-	 * add method
-	 *
-	 * @return void
-	 */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->ProxyInfo->create();
-			if ($this->ProxyInfo->save($this->request->data)) {
-				$this->Session->setFlash(__('The proxy info has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The proxy info could not be saved. Please, try again.'));
-			}
-		}
-		$companyUserInfos = $this->ProxyInfo->CompanyUserInfo->find('list');
-		$this->set(compact('companyUserInfos'));
-	}
 
 	/**
 	 * edit method
@@ -81,10 +48,10 @@ class ProxyInfosController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->ProxyInfo->save($this->request->data)) {
-				$this->Session->setFlash(__('The proxy info has been saved.'));
+				$this->Session->setFlash(__('保存成功'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The proxy info could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('保存失败，请稍候再试'));
 			}
 		} else {
 			$options = array('conditions' => array('ProxyInfo.' . $this->ProxyInfo->primaryKey => $id));
@@ -110,7 +77,7 @@ class ProxyInfosController extends AppController {
 		if ($this->ProxyInfo->delete()) {
 			$this->Session->setFlash(__('删除代理信息成功.'));
 		} else {
-			$this->Session->setFlash(__('The proxy info could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('删除失败，请稍后再试'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

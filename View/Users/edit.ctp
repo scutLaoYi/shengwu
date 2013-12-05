@@ -7,11 +7,9 @@
 		echo $this->Form->input('username', array('label'=>'用户名'));
 		echo $this->Form->input('password', array('label'=>'密码'));
 		echo $this->Form->input('email', array('label'=>'电子邮箱'));
-		echo $this->Form->input('type', array('label'=>'类型','options'=>$allUserType));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-<?php echo $this->Html->link('返回', $referer); ?>
+<?php echo $this->Form->end(__('提交')); ?>
 </div>
 
 <div class="actions">

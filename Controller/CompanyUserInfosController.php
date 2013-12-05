@@ -45,24 +45,6 @@ class CompanyUserInfosController extends AppController {
 		$this->set('companyUserInfo', $this->CompanyUserInfo->find('first', $options));
 	}
 
-	/**
-	 * add method
-	 *
-	 * @return void
-	 */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->CompanyUserInfo->create();
-			if ($this->CompanyUserInfo->save($this->request->data)) {
-				$this->Session->setFlash(__('The company user info has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The company user info could not be saved. Please, try again.'));
-			}
-		}
-		$users = $this->CompanyUserInfo->User->find('list');
-		$this->set(compact('users'));
-	}
 
 	/**
 	 * edit method
@@ -77,10 +59,10 @@ class CompanyUserInfosController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->CompanyUserInfo->save($this->request->data)) {
-				$this->Session->setFlash(__('The company user info has been saved.'));
+				$this->Session->setFlash(__('公司信息修改成功'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The company user info could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('公司信息修改失败'));
 			}
 		} else {
 			$options = array('conditions' => array('CompanyUserInfo.' . $this->CompanyUserInfo->primaryKey => $id));
@@ -92,26 +74,6 @@ class CompanyUserInfosController extends AppController {
 		//$this->set(compact('users'));
 	}
 
-	/**
-	 * delete method
-	 *
-	 * @throws NotFoundException
-	 * @param string $id
-	 * @return void
-	 */
-	public function delete($id = null) {
-		$this->CompanyUserInfo->id = $id;
-		if (!$this->CompanyUserInfo->exists()) {
-			throw new NotFoundException(__('Invalid company user info'));
-		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->CompanyUserInfo->delete()) {
-			$this->Session->setFlash(__('The company user info has been deleted.'));
-		} else {
-			$this->Session->setFlash(__('The company user info could not be deleted. Please, try again.'));
-		}
-		return $this->redirect(array('action' => 'index'));
-	}
 
 	/*
 	 * 公司注册页面

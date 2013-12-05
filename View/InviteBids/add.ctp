@@ -3,7 +3,7 @@
 	<fieldset>
 		<legend><?php echo __('创建招标'); ?></legend>
 	<?php
-		echo $this->Form->input('content');
+		echo $this->Form->input('content',array('label'=>'内容'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

@@ -1,76 +1,63 @@
 <div class="companyIntroduces view">
-<h2><?php echo __('Company Introduce'); ?></h2>
+<h2><?php echo __('公司介绍'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($companyIntroduce['CompanyIntroduce']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Company User Info'); ?></dt>
+		<dt><?php echo __('公司主页图片'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($companyIntroduce['CompanyUserInfo']['id'], array('controller' => 'company_user_infos', 'action' => 'view', $companyIntroduce['CompanyUserInfo']['id'])); ?>
+			<?php echo $this->Html->image('./'.$companyIntroduce['CompanyIntroduce']['picture_url'],array('width'=>'300','height'=>'300')); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Economic Nature'); ?></dt>
+		<dt><?php echo __('企业经济性质'); ?></dt>
 		<dd>
-			<?php echo h($companyIntroduce['CompanyIntroduce']['economic_nature']); ?>
+			<?php echo h($nature[$companyIntroduce['CompanyIntroduce']['economic_nature']]); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Business Type'); ?></dt>
+		<dt><?php echo __('企业经营模式'); ?></dt>
 		<dd>
 			<?php echo h($companyIntroduce['CompanyIntroduce']['business_type']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Legal representative'); ?></dt>
+		<dt><?php echo __('法人'); ?></dt>
 		<dd>
 			<?php echo h($companyIntroduce['CompanyIntroduce']['legal_representative']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Business Scope'); ?></dt>
+		<dt><?php echo __('企业经营范围'); ?></dt>
 		<dd>
 			<?php echo h($companyIntroduce['CompanyIntroduce']['business_scope']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Registered Capital'); ?></dt>
+		<dt><?php echo __('注册资金'); ?></dt>
 		<dd>
 			<?php echo h($companyIntroduce['CompanyIntroduce']['registered_capital']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Employees Number'); ?></dt>
+		<dt><?php echo __('公司员工'); ?></dt>
 		<dd>
-			<?php echo h($companyIntroduce['CompanyIntroduce']['employees_number']); ?>
+			<?php echo h($number[$companyIntroduce['CompanyIntroduce']['employees_number']]); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Introduce'); ?></dt>
+		<dt><?php echo __('公司介绍'); ?></dt>
 		<dd>
 			<?php echo h($companyIntroduce['CompanyIntroduce']['introduce']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Created'); ?></dt>
+		<dt><?php echo __('创建时间'); ?></dt>
 		<dd>
 			<?php echo h($companyIntroduce['CompanyIntroduce']['created']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Picture Url'); ?></dt>
+		<dt><?php echo __('状态');?></dt>
 		<dd>
-			<?php echo h($companyIntroduce['CompanyIntroduce']['picture_url']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Status');?></dt>
-		<dd>
-			<?php echo h($companyIntroduce['CompanyIntroduce']['status']); ?>
+			<?php echo h($allStatus[$companyIntroduce['CompanyIntroduce']['status']]); ?>
 			&nbsp;
 		</dd>
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Company Introduce'), array('action' => 'edit', $companyIntroduce['CompanyIntroduce']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Company Introduce'), array('action' => 'delete', $companyIntroduce['CompanyIntroduce']['id']), null, __('Are you sure you want to delete # %s?', $companyIntroduce['CompanyIntroduce']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Company Introduces'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Company Introduce'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Company User Infos'), array('controller' => 'company_user_infos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Company User Info'), array('controller' => 'company_user_infos', 'action' => 'add')); ?> </li>
-	</ul>
+<?php echo $this->element('admin_options');?>
 </div>

@@ -108,4 +108,9 @@ class AdListsController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+public function beforeFilter()
+{
+	$this->set('allMonth',$this->List->allMonth());
+	return parent::beforeFilter();
+}
 }

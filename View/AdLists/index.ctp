@@ -10,7 +10,7 @@
 	</tr>
 	<?php foreach ($adLists as $adList): ?>
 	<tr>
-		<td><?php echo h($adList['AdList']['id']); ?>&nbsp;</td>
+		<td><?php echo $this->Html->link($adList['AdList']['id'],array('action'=>'view',$adList['AdList']['id'])); ?>&nbsp;</td>
 		<td><?php echo h($adList['AdList']['pic_url']); ?>&nbsp;</td>
 		<td>
 			<?php echo $adList['AdList']['company_user_info_id']; ?>

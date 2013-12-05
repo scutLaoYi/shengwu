@@ -49,10 +49,10 @@ class InviteBidsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->InviteBid->create();
 			if ($this->InviteBid->save($this->request->data)) {
-				$this->Session->setFlash(__('The invite bid has been saved.'));
+				$this->Session->setFlash(__('招标信息添加成功'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The invite bid could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('招标信息添加失败，请稍后再试'));
 			}
 		}
 	}
@@ -70,10 +70,10 @@ class InviteBidsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->InviteBid->save($this->request->data)) {
-				$this->Session->setFlash(__('The invite bid has been saved.'));
+				$this->Session->setFlash(__('修改成功'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The invite bid could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('修改失败'));
 			}
 		} else {
 			$options = array('conditions' => array('InviteBid.' . $this->InviteBid->primaryKey => $id));
@@ -95,9 +95,9 @@ class InviteBidsController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->InviteBid->delete()) {
-			$this->Session->setFlash(__('The invite bid has been deleted.'));
+			$this->Session->setFlash(__('删除成功'));
 		} else {
-			$this->Session->setFlash(__('The invite bid could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('删除失败，请稍候再试'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

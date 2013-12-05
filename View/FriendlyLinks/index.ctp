@@ -16,7 +16,7 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('查看'), array('action' => 'view', $friendlyLink['FriendlyLink']['id'])); ?>
 			<?php echo $this->Html->link(__('编辑'), array('action' => 'edit', $friendlyLink['FriendlyLink']['id'])); ?>
-			<?php echo $this->Form->postLink(__('删除'), array('action' => 'delete', $friendlyLink['FriendlyLink']['id']), null, __('Are you sure you want to delete # %s?', $friendlyLink['FriendlyLink']['id'])); ?>
+			<?php echo $this->Form->postLink(__('删除'), array('action' => 'delete', $friendlyLink['FriendlyLink']['id']), null, __('你确定删除该链接么？', $friendlyLink['FriendlyLink']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

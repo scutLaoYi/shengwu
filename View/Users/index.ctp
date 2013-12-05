@@ -2,7 +2,8 @@
 	<?php
 echo $this->Html->link('个人用户 ', array('action'=>'index', 2)); 
 echo $this->Html->link('企业用户 ', array('action'=>'index', 1)); 
-echo $this->Html->link('管理员帐号', array('action'=>'index', 3)); 
+echo $this->Html->link('管理员帐号 ', array('action'=>'index', 3)); 
+echo $this->Html->link('创建管理员 ',array('action'=>'add'));
 ?>
 	<h2><?php echo __('用户列表'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
