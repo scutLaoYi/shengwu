@@ -16,7 +16,8 @@ class ProxySearcherComponent extends Component
 								$function = null,
 								$department = null,
 								$material = null,
-								$company_id = null)
+								$company_id = null,
+								$str = null)
 	{
 		//创建sql筛选条件
 		$options = array('ProxyInfo.id != '=>null);
@@ -33,6 +34,8 @@ class ProxySearcherComponent extends Component
 			$options['ProxyInfo.material'] = $material;
 		if($company_id)
 			$options['ProxyInfo.company_user_info_id'] = $company_id;
+		if($str)
+			$options['ProxyInfo.product_name LIKE'] = '%'.$str.'%'; 
 
 		//开始筛选条件并返回结果
 		$this->Paginator->settings = array(

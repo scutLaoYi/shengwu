@@ -181,7 +181,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 		</div>
 -->
 	</div>
-	<?php echo $this->element('sql_dump'); ?> 
+	<?php //echo $this->element('sql_dump'); ?> 
 	<?php echo $this->Js->writeBuffer();?>
 </body>
 </html>
