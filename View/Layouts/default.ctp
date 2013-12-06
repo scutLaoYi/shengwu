@@ -102,8 +102,8 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 					<li><?php echo $this->Html->link('发布招聘信息',array('controller'=>'Recruitments', 'action'=>'recruitment_submit')); ?></li>
 					</ul>
 				</li>
-				<li><a href="">关于我们</a></li>
-				<li><a href="">广告招租</a></li>
+				<li><?php echo $this->Html->link('关于我们', array('controller'=>'AboutUs', 'action'=>'pre_link_us_view'));?></li>
+				<li><?php echo $this->Html->link('广告招租', array('controller'=>'AboutUs', 'action'=>'pre_ad_notice_view'));?></li>
 			
 			</ul>
 	</div>

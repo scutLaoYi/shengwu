@@ -14,7 +14,7 @@ class EmailSenderComponent extends Component
 	public function sendEmailTo($destination,$subject, $message, $picture = null)
 	{
 		$newEmail = new CakeEmail('gmail');
-		$newEmail->from(array('522623259@qq.com'=>'中国生物医学材料'));
+		$newEmail->from(array('biomatchina@126.com'=>'中国生物医学材料'));
 		$newEmail->to($destination);
 		$newEmail->subject($subject);
 		//发图片用的
