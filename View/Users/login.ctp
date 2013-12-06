@@ -5,8 +5,10 @@
 		<?php echo $this->Form->input('username',array('label'=>'用户名'));
 		      echo $this->Form->input('password',array('label'=>'密码'));
 		?>
+		<?php echo $this->Form->end(__('登录')); ?>
+		<?php echo $this->Html->link('忘记密码',array('action'=>'forget_password'));?>
 </fieldset>
 
-<?php echo $this->Form->end(__('登录')); ?>
-<?php echo $this->Html->link('忘记密码',array('action'=>'forget_password'));?>
+
 </div>
+

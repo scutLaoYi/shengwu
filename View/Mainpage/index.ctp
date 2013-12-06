@@ -1,4 +1,4 @@
-<div class="ad_background">
+
 <div class="ad">
 <?php
 for($id = 0; $id < 40; $id++)
@@ -19,7 +19,7 @@ for($id = 0; $id < 40; $id++)
 }
 ?>
 </div>
-</div>
+
 
 <!-- ------------infomations-------- -->
 
@@ -64,7 +64,7 @@ for($id = 0; $id < 40; $id++)
 </ul>
 </div>
 
-<div class="ad_background">
+
 <div class="ad">
 <?php
 for($id = 40; $id < 80; $id++)
@@ -81,7 +81,7 @@ for($id = 40; $id < 80; $id++)
 
 ?>
 </div>
-</div>
+
 
 		<div id="footer">
 <?php 

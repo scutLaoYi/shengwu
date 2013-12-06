@@ -15,8 +15,9 @@ margin-right:0;
 .ad {
 width:1024px;
 height:520px;
-margin-left:288px;
-margin-right:288px;
+margin-left:auto;
+margin-right:auto;
+background:#1E90FF;
 }
 /* all kinds of h1 */
 h1.mainPage {
@@ -101,6 +102,12 @@ margin-left:auto;
 margin-right:auto;
 border:1px solid Black;
 }
+
+#anotherPageBox a{
+margin-left:auto;
+margin-right:auto;
+}
+
 /* 结束 - 其他页面的容器div */
 
 /* 搜索框 */
@@ -129,6 +136,10 @@ border:1px solid Black;
 	background-color:#33CCCC;
 	float:right;
 	margin-top:5px;
+}
+.searchRadio {
+padding:0;
+margin:0;
 }
 .searchaction{
 	width: 70px;
