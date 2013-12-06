@@ -8,6 +8,6 @@
 <li><?php echo $this->Html->link('广告位管理', array('controller'=>'AdLists', 'action'=>'index')); ?></li>
 <li><?php echo $this->Html->link('招标中标管理', array('controller'=>'InviteBids', 'action'=>'index')); ?></li>
 <li><?php echo $this->Html->link('友情链接管理',array('controller'=>'FriendlyLinks','action'=>'index')); ?></li>
-<li><?php echo $this->Html->link('论坛管理'); ?></li>
+<li><?php echo $this->Html->link('关于我们管理',array('controller'=>'AboutUs','action'=>'know_us_view')); ?></li>
 <li><?php echo $this->Html->link('网站信息管理'); ?></li>
 </ul>
