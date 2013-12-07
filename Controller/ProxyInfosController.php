@@ -101,9 +101,7 @@ class ProxyInfosController extends AppController {
 		
 		//修改默认的布局，换ajax布局页面
 		$this->layout = 'ajax';
-
 		$result = $this->ProxySearcher->proxy_search($province, $type, $function, $department, $material);
-
 		$this->set('proxyInfos', $result);
 
 	}
