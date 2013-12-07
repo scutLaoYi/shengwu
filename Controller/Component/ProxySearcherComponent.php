@@ -33,7 +33,6 @@ class ProxySearcherComponent extends Component
 			$options['ProxyInfo.material'] = $material;
 		if($company_id)
 			$options['ProxyInfo.company_user_info_id'] = $company_id;
-
 		//开始筛选条件并返回结果
 		$this->Paginator->settings = array(
 			'conditions'=>$options,

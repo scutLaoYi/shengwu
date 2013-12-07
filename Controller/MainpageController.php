@@ -23,7 +23,13 @@ class MainpageController extends AppController
 		$this->set('recruitments',$this->RecruitmentSearcher->search_lastest());
 		$this->set('proxys',$this->ProxySearcher->proxy_lastest());
 		$this->set('company_introduces',$this->CompanyIntroduceSearcher->company_introduce_lastest());
-		
+		if($this->request->is('post')) {
+			$data = $this->request->data['search'];
+			if($data['radio'] == 'company')
+			{
+				return $this->redirect(array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list',0,$data['search_text']));
+			}
+		}	
 	}
 
 	/*

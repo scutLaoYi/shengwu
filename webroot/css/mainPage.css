@@ -18,6 +18,7 @@ height:520px;
 margin-left:auto;
 margin-right:auto;
 background:#1E90FF;
+margin-top:80px;
 }
 /* all kinds of h1 */
 h1.mainPage {
@@ -111,42 +112,50 @@ margin-right:auto;
 /* 结束 - 其他页面的容器div */
 
 /* 搜索框 */
-.searchinput{
+#searchDiv {
+text-align:center;
+width:1024px;
+margin-left:auto;
+margin-right:auto;
+}
+
+#searchDiv input[type=text]{
 	border-right-width: 0px;
-	padding-left: 3px;
-	width: 220px;
 	font-family: arial;
-	float: left;
 	border-top-width: 0px;
 	border-bottom-width: 0px;
 	color: #636365;
-	margin-left: 4px;
-	font-size: 14pt;
+	font-size: 15pt;
 	vertical-align: middle;
 	border-left-width: 0px;
-	margin-right: 3px;
 }
-.tab_search{
+#searchDiv table{
+	color:White;
 	border-bottom: #cccccc 1px solid;
 	border-left: #cccccc 1px solid;
-	height: 30px;
-	width:250px;
+	height: 25px;
+	width:400px;
 	border-top: #cccccc 1px solid;
 	border-right: #cccccc 1px solid;
-	background-color:#33CCCC;
 	float:right;
-	margin-top:5px;
+	border-collapse:collapse;
+filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=red,endcolorstr=blue,gradientType=0);
+    -ms-filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=red,endcolorstr=blue,gradientType=0);/*IE8*/	
+    background:rgb(65,105,225); /* 一些不支持背景渐变的浏览器 */  
+    background:-moz-linear-gradient(top, rgb(65,105,225), rgba(30,144,255,0.8));  
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgb(65,105,225)), to(rgba(30,144,255, 0.8)));  
+    background:-o-linear-gradient(top, rgb(65,105,225), rgba(30,144,255, 0.8)); 
+	border:1px solid Black;
 }
-.searchRadio {
-padding:0;
-margin:0;
+
+#radioLength {
+width:20%;
 }
-.searchaction{
-	width: 70px;
-	float: left;
-	height: 25px;
-	text-align:center;
-	padding:0;
-	font-size:12pt;
+#inputLength {
+width:55%;
 }
+#buttonLength {
+width:25%;
+}
+
 /* 结束 - 搜索框 */

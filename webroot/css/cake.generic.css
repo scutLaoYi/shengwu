@@ -107,7 +107,7 @@ list-style:none;
 }
 #header ul li a {
 text-decoration:none;
-color:Black;
+color:#00008B;
 }
 #header ul li a:hover {
 text-decoration:underline;
@@ -151,6 +151,7 @@ text-decoration:underline;
 }
 
 /** menubar **/
+/*
 #menubar{
 	width: 1024px;
 	margin-left: auto;
@@ -159,6 +160,19 @@ text-decoration:underline;
 	height:100px;
 	-webkit-background-size:100%;
 	background-size:100%
+}*/
+#menubar {
+	width: 1024px;
+	margin-left: auto;
+	margin-right: auto;   
+	height:38px; 
+    filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=rgb(179,238,58),endcolorstr=rgb(69,139,0),gradientType=0);
+    -ms-filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=rgb(179,238,58),endcolorstr=rgb(69,139,0),gradientType=0);/*IE8*/	
+    background:rgb(179,238,58); /* 一些不支持背景渐变的浏览器 */  
+    background:-moz-linear-gradient(top, rgb(179,238,58), rgba(69,139,0,0.5));  
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgb(179,238,58)), to(rgba(69,139,0,0.5)));  
+    background:-o-linear-gradient(top, rgb(179,238,58), rgba(69,139,0,0.5)); 
+	border:1px solid White;   
 }
 #menubar ul {
   font-family: Arial, Verdana;
@@ -183,18 +197,20 @@ padding:0px;
 #menubar ul li a {
 	display:block;
 	text-decoration:none;
-	color:black;
+	color:#4F4F4F;
 	padding:10px 20px 10px 20px;
-	margin-left:5px;
+	/*margin-left:5px;*/
 	white-space: nowrap;
 	-webkit-background-size:100%;
+border-right:1px solid White;
+/*
     filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=red,endcolorstr=blue,gradientType=0);
-    -ms-filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=red,endcolorstr=blue,gradientType=0);/*IE8*/	
-    background:White; /* 一些不支持背景渐变的浏览器 */  
+    -ms-filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=red,endcolorstr=blue,gradientType=0);
+    background:White;  
     background:-moz-linear-gradient(top, White, rgba(211, 211, 211, 0.5));  
     background:-webkit-gradient(linear, 0 0, 0 bottom, from(White), to(rgba(211, 211, 211, 0.5)));  
     background:-o-linear-gradient(top, White, rgba(211, 211, 211, 0.5)); 
-	border:1px solid Black;
+	border:1px solid Black;*/
 }
 /*
 #menubar ul li a {
@@ -211,9 +227,9 @@ padding:0px;
 }*/
 #menubar ul li a:hover
 {
-background: rgb(167,200,183);
+/*background: rgb(167,200,183);*/
 text-align:left;
-text-shadow:0px 0px 15px #fff;
+text-shadow:0px 0px 15px #FFFAFA;
 }
 #menubar li:hover ul {
   display: block;
@@ -223,8 +239,18 @@ text-shadow:0px 0px 15px #fff;
   float: none;
   font-size: 15px;
 }
-#menubar li:hover a {background: rgb(167,200,183);}
-#menubar li:hover li a:hover { background: rgb(167,200,183); }
+#menubar li:hover a {
+ filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=rgb(179,238,58),endcolorstr=rgb(69,139,0),gradientType=0);
+    -ms-filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=rgb(179,238,58),endcolorstr=rgb(69,139,0),gradientType=0);/*IE8*/	
+    background:rgb(179,238,58); /* 一些不支持背景渐变的浏览器 */  
+    background:-moz-linear-gradient(top, rgb(179,238,58), rgba(69,139,0,0.5));  
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgb(179,238,58)), to(rgba(69,139,0,0.5)));  
+    background:-o-linear-gradient(top, rgb(179,238,58), rgba(69,139,0,0.5)); 
+	border:1px solid White;   
+border-right:1px solid White;
+/*background: rgb(167,200,183);*/
+}
+#menubar li:hover li a:hover { background: #00CD00;border-right:1px solid White; }
 
 /**-----------end of menubar -------------**/
 
@@ -420,7 +446,6 @@ form .required label:after {
 form div.submit {
 	border: 0;
 	clear: both;
-	margin-top: 10px;
 }
 label {
 	display: block;
@@ -480,7 +505,9 @@ form .submit input[type=submit] {
 	border-color: #2d6324;
 	color: #fff;
 	text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0px;
-	padding: 8px 10px;
+	/*padding: 8px 10px;*/
+	padding-left:10px;
+	padding-right:10px;
 }
 form .submit input[type=submit]:hover {
 	background: #5BA150;
