@@ -93,7 +93,8 @@ class ProxyInfosController extends AppController {
 								$type = null,
 								$function = null,
 								$department = null,
-								$material = null)
+								$material = null,
+								$str = null)
 	{
 		//not a ajax request, reject! 
 		if(!$this->request->is('ajax'))
@@ -101,7 +102,9 @@ class ProxyInfosController extends AppController {
 		
 		//修改默认的布局，换ajax布局页面
 		$this->layout = 'ajax';
-		$result = $this->ProxySearcher->proxy_search($province, $type, $function, $department, $material);
+
+		$result = $this->ProxySearcher->proxy_search($province, $type, $function, $department, $material, null,$str);
+
 		$this->set('proxyInfos', $result);
 
 	}
@@ -111,7 +114,7 @@ class ProxyInfosController extends AppController {
 	 * by scutLaoYi
 	 * 挂载选项框，使用javascript捕捉内容变动并用ajax传送筛选条件到proxy_list中，显示返回结果
 	 */
-	public function proxy_search($type = null)
+	public function proxy_search($type = null, $str = null)
 	{
 		//页面固定项
 		$allCountry = $this->List->allCountry();
@@ -125,6 +128,8 @@ class ProxyInfosController extends AppController {
 		//若搜索特定类型产品（在导航条选择），将选项框默认值更新
 		if($type)
 			$this->request->data['product_type'] = $type;
+		if($str)
+			$this->request->data['str'] = $str;
 	}
 
 	/*
