@@ -36,7 +36,7 @@ class MainpageController extends AppController
 		}
 		else
 		{
-			$this->redirect(array('controller'=>'ProxyInfos','action'=>'proxy_list','null','null','null','null','null',$this->request->data['content']));		
+			$this->redirect(array('controller'=>'ProxyInfos','action'=>'proxy_search','null',$this->request->data['content']));		
 		}
 
 	}
