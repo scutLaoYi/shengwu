@@ -12,6 +12,7 @@ function searching()
 	var func = document.getElementById("function");
 	var depart = document.getElementById("department");
 	var material = document.getElementById("material");
+	var str = document.getElementById("str");
 
 	var ajaxUrl ='<?php echo Router::url(array(
 				'controller'=>'ProxyInfos',
@@ -21,9 +22,10 @@ function searching()
 	ajaxUrl = ajaxUrl.concat(type.selectedIndex, '/', 
 		func.selectedIndex,'/', 
 		depart.selectedIndex, '/', 
-		material.selectedIndex);
+		material.selectedIndex, '/',
+		str.value);
 
-	//document.getElementById("debugDiv").innerHTML = ajaxUrl;
+	document.getElementById("debugDiv").innerHTML = ajaxUrl;
 	$.ajax({
 		dataType:"HTML",
 			cache:false,
@@ -59,6 +61,8 @@ echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产
 		<label id="material_label">卫生材料分类</label>
 <?php
 	echo $this->Form->input('material',array('id'=>'material','label'=>false,'onchange'=>'searching()','options'=>array('-全部-')));		
+	echo $this->Form->input('str', array('id'=>'str','label'=>false));
+	echo $this->Form->button('搜索', array('onClick'=>'searching()'));
 ?>
 </div>
 
