@@ -31,11 +31,27 @@ class MainpageController extends AppController
 			}
 		}	
 	}
+	public function search()
+	{
+	
+	if($this->request->is('post'))
+	{
+		if($this->request->data['select']=='0')
+		{
+			$this->redirect(array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list','0',$this->request->data['content']));		
+		}
+		else
+		{
+			$this->redirect(array('controller'=>'ProxyInfos','action'=>'proxy_search','null',$this->request->data['content']));		
+		}
+
+	}
+	}
 
 	/*
 	 * 权限管理，任何人均可访问首页
 	 */
 	public function beforeFilter(){
-		$this->Auth->allow('index');
+		$this->Auth->allow('index','search');
 	}
 }

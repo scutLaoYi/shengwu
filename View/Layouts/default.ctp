@@ -95,8 +95,8 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 			  <li><?php echo $this->Html->link('招聘求职', array('controller'=>'Recruitments', 'action'=>'recruitment_list')); ?></a></li>
 			<li><?php echo $this->Html->link('招标中标', array('controller'=>'InviteBids', 'action'=>'invite_bid_list')); ?></a></li> 
 			<li><?php echo $this->Html->link('论坛交流', 'http://10.0.0.4/phpwind/index.php'); ?></li>
-				<li><a href="">信息发布</a>
-					<ul> 
+ 				<li><a href="">信息发布</a>
+ 					<ul> 
 					<li><?php echo $this->Html->link('发布公司信息', array('controller'=>'companyIntroduces', 'action'=>'company_introduce_submit')); ?></li>
 					<li><?php echo $this->Html->link('发布代理信息', array('controller'=>'ProxyInfos', 'action'=>'proxy_submit'));?></li>
 					<li><?php echo $this->Html->link('发布招聘信息',array('controller'=>'Recruitments', 'action'=>'recruitment_submit')); ?></li>
@@ -106,6 +106,24 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 				<li><?php echo $this->Html->link('广告招租', array('controller'=>'AboutUs', 'action'=>'pre_ad_notice_view'));?></li>
 			
 			</ul>
+			<form action="/cakephp/Mainpage/search"  method="post" accept-charset="utf-8" name="search">
+			<table border="0" cellpadding="0" cellspacing="0" class="tab_search">
+			<tr>
+				<td>
+					<select name="select" id="searchselect" style="width:60px;">
+					<option value="0">公司</option>
+					<option value="1">产品</option>
+					</select>
+				</td>
+				<td>
+					<input type="text" name="content" title="Search" class="searchinput" id="searchinput"  value="" size="10"/>
+				</td>
+				<td>
+					<input type="submit" width="51" height="25" class="searchaction"  alt="Search" value="搜索" border="0" hspace="2"/>
+				</td>
+			</tr>
+			</table>
+			</form>
 	</div>
 <!--
 	<div class="search_box">
@@ -130,7 +148,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 			<table cellpadding="0" cellspacing="0">
 				<tr>
 					<td><?php
-						echo $this->Form->input("field",array('label'=>'','options'=>array('公司','代理')));
+						echo $this->Form->input("field",array('label'=>'选择','options'=>array('公司','代理')));
 						?>
 					</td>
 					<td><?php
@@ -168,7 +186,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 		</div>
 -->
 	</div>
-	<?php echo $this->element('sql_dump'); ?> 
+	<?php //echo $this->element('sql_dump'); ?> 
 	<?php echo $this->Js->writeBuffer();?>
 </body>
 </html>
