@@ -106,6 +106,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 				<li><?php echo $this->Html->link('广告招租', array('controller'=>'AboutUs', 'action'=>'pre_ad_notice_view'));?></li>
 			
 			</ul>
+<!--
 			<form action="/cakephp/Mainpage/search"  method="post" accept-charset="utf-8" name="search">
 			<table border="0" cellpadding="0" cellspacing="0" class="tab_search">
 			<tr>
@@ -125,6 +126,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 			</table>
 			</form>
 	</div>
+-->
 <!--
 	<div class="search_box">
 		<form>
