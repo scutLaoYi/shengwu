@@ -23,35 +23,26 @@ class MainpageController extends AppController
 		$this->set('recruitments',$this->RecruitmentSearcher->search_lastest());
 		$this->set('proxys',$this->ProxySearcher->proxy_lastest());
 		$this->set('company_introduces',$this->CompanyIntroduceSearcher->company_introduce_lastest());
-		if($this->request->is('post')) {
-			$data = $this->request->data['search'];
-			if($data['radio'] == 'company')
+		if($this->request->is('post'))
+		{
+			print_r($this->request->data);
+			if($this->request->data['search']['select']=='company')
 			{
-				return $this->redirect(array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list',0,$data['search_text']));
+				$this->redirect(array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list','0',$this->request->data['search']['content']));		
 			}
-		}	
-	}
-	public function search()
-	{
-	
-	if($this->request->is('post'))
-	{
-		if($this->request->data['select']=='0')
-		{
-			$this->redirect(array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list','0',$this->request->data['content']));		
+			else
+			{
+				$this->redirect(array('controller'=>'ProxyInfos','action'=>'proxy_search','null',$this->request->data['search']['content']));		
+			}
+		 
+		
 		}
-		else
-		{
-			$this->redirect(array('controller'=>'ProxyInfos','action'=>'proxy_search','null',$this->request->data['content']));		
-		}
-
-	}
 	}
 
-	/*
-	 * 权限管理，任何人均可访问首页
-	 */
-	public function beforeFilter(){
-		$this->Auth->allow('index','search');
+		/*
+		 * 权限管理，任何人均可访问首页
+		 */
+		public function beforeFilter(){
+			$this->Auth->allow('index','search');
+		}
 	}
-}

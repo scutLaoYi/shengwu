@@ -16,6 +16,9 @@
 	<td>
 		<?php echo '招聘人数:'.$recruitment['Recruitment']['number'];?>
 	</td>
+	<td>
+		<?php echo '发布时间:'.$recruitment['Recruitment']['created'];?>
+	</td>
 </tr>
 <?php endforeach; ?>
 </table>

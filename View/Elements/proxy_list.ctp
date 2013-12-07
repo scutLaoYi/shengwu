@@ -11,6 +11,7 @@ echo __('代理信息');
 			<th><?php echo '代理区域'; ?></th>
 
 			<th><?php echo '产品分类'; ?></th>
+			<th><?php echo '发布时间'; ?></th>
 			<th><?php echo '代理介绍'; ?></th>
 	</tr>
 	<?php foreach ($proxyInfos as $proxyInfo): ?>
@@ -23,6 +24,7 @@ array('controller'=>'CompanyDescriptions','action'=>'view_proxy', $proxyInfo['Co
 		<td><?php echo h($allCountrys[$proxyInfo['ProxyInfo']['product_area']]); ?>&nbsp;</td>
 
 		<td><?php echo h($allProduct[$proxyInfo['ProxyInfo']['product_type']]); ?>&nbsp;</td>
+		<td><?php echo h($proxyInfo['ProxyInfo']['created']); ?>&nbsp;</td>
 <?php 
 $str_introduce=$proxyInfo['ProxyInfo']['product_introduce'];
 if(strlen($str_introduce)>100)
