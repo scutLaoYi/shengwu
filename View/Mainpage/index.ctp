@@ -22,7 +22,7 @@ for($id = 0; $id < 40; $id++)
 {
 	if($advertise[$id]['AdList']['pic_url']=='ad_image/ad.png')
 	{
-		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '124','height'=>'100','url'=>array('controller'=>'Mainpage','action'=>'index')));
+		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '124','height'=>'100','url'=>array('controller'=>'AboutUs','action'=>'pre_ad_notice_view')));
 	}
 	else
 	{ 
@@ -87,7 +87,7 @@ for($id = 0; $id < 40; $id++)
 for($id = 40; $id < 80; $id++)
 {
 	if($advertise[$id]['AdList']['pic_url']=='ad_image/ad.png')
-		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '124','height'=>'100','url'=>array('controller'=>'Mainpage','action'=>'index')));
+		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '124','height'=>'100','url'=>array('controller'=>'AboutUs','action'=>'pre_ad_notice_view')));
 	else 
 		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '124','height'=>'100','url'=>array('controller'=>'CompanyDescriptions','action'=>'view_info',$advertise[$id]['AdList']['company_user_info_id'])));
 		?>&nbsp;<?php
