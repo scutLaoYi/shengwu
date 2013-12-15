@@ -3,20 +3,21 @@ App::uses('AppController', 'Controller');
 App::uses('Folder', 'Utility');
 App::uses('File', 'Utility');
 /**
- * AdLists Controller
+ * AboutUs Controller
  *
- * @property AdList $AdList
- * @property PaginatorComponent $Paginator
+ * ----------------------------------
+ * 关于我们的控制器
+ * 包含对若干数据的显示和编辑
+ * 关于我们的数据存放于文件中
+ * 游客允许访问关于我们的相关信息
+ * 
+ * Author:标神
  */
 class AboutUsController extends AppController {
 
-	/**
-	 * Components
-	 *
-	 * @var array
-	 */
 	public $components = array('File');
 	public $helpers = array('Html','Form');
+
 	/**
 	 *know_us_view   了解我们视图，
 	 */
@@ -27,6 +28,7 @@ class AboutUsController extends AppController {
 		$this->set('content',$content);
 
 	}
+
 	/**
 	 *know_us_edit  了解我们编辑，
 	 */
@@ -49,6 +51,7 @@ class AboutUsController extends AppController {
 		$this->request->data['AboutUs']['content']=$content;
 
 	}
+
 	/**
 	 *service_view  服务项目视图，
 	 */

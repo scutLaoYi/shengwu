@@ -39,7 +39,8 @@ class AppController extends Controller {
 			'loginRedirect'=>array('controller'=>'Mainpage','action'=>'index'),
 			'logoutRedirect'=>array('controller'=>'Mainpage','action'=>'index'),
 			'authorize'=>array('Controller')
-		)
+		),
+		'Security'
 	);
 
 	public function isAuthorized($user) {
@@ -50,6 +51,13 @@ class AppController extends Controller {
 	}
 
 	public function beforeFilter() {
+		$this->Security->blackHoleCallback = 'blackhole';
+	}
+
+	public function blackhole($type){
+		if($type == 'csrf')
+			$this->Session->setFlash('出于安全考虑，不允许再次访问该表单！请重新进入...');
+		return $this->redirect(array('controller'=>'Mainpage', 'action'=>'index'));
 	}
 }
 
