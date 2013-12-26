@@ -106,12 +106,6 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 		<!-- end of menubar -->
 	</div>
 	<div id="container">
-	<div id="content">
-
-		<?php echo $this->Session->flash(); ?>
-
-		<?php echo $this->fetch('content'); ?>
-	</div>
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
