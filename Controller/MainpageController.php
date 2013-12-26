@@ -9,8 +9,8 @@ App::uses('AppController', 'Controller');
 class MainpageController extends AppController
 {
 
-	public $components = array('Paginator','RecruitmentSearcher','ProxySearcher','CompanyIntroduceSearcher');
-	public $uses = array('AdList','Recruitment','ProxyInfo','CompanyIntroduce');
+	public $components = array('Paginator','RecruitmentSearcher','ProxySearcher','CompanyIntroduceSearcher','ForumSearcher');
+	public $uses = array('AdList','Recruitment','ProxyInfo','CompanyIntroduce','Forum');
 	public $helpers = array('Html','Form');
 	/*
 	 * index函数返回首页，调用adlist读取所有广告并展示
@@ -23,6 +23,7 @@ class MainpageController extends AppController
 		$this->set('recruitments',$this->RecruitmentSearcher->search_lastest());
 		$this->set('proxys',$this->ProxySearcher->proxy_lastest());
 		$this->set('company_introduces',$this->CompanyIntroduceSearcher->company_introduce_lastest());
+		$this->set('forums',$this->ForumSearcher->forum_lastest());
 		if($this->request->is('post'))
 		{
 			print_r($this->request->data);
