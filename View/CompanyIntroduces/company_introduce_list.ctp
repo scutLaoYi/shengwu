@@ -1,28 +1,28 @@
 <div id="anotherPageBox">
-<div class="actions">
+<div id="actionBox">
 <?php echo $this->Form->create('CompanySearch');?>
 	<?php echo $this->Form->input('Country',array('options'=>$allCountrys,'label'=>'公司地区'));?>
 	<?php echo $this->Form->input('search',array('label'=>'公司名'));?>
 <?php echo $this->Form->end(__('搜索'));?>
 </div>
 
-<div class="index">
+<div id="subPage">
 	<h2><?php echo $head;?></h2>
 	<table cellpadding="0" cellspacing ="0">
 	<?php foreach($companys as $company):?>
 	<tr>
-		<td>		
+		<td id="tdForHead">		
 			<?php echo $this->Html->link($company['CompanyUserInfo']['company'],array('controller'=>'CompanyDescriptions','action'=>'view_info',$company['CompanyUserInfo']['id']));?>
 		</td>
-		<td>
+		<td id="tdForHead">
 			<?php echo $allCountrys[$company['CompanyUserInfo']['province']+1];?>
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td id="tdForPic">
 		<?php echo $this->Html->image('./'.$company['CompanyIntroduce']['picture_url'],array('width'=>'100','height'=>'100'));?>
 		</td>
-		<td>
+		<td id="tdForPic">
 <?php 
 $str_introduce=$company['CompanyIntroduce']['introduce'];
 if(strlen($str_introduce)>100)

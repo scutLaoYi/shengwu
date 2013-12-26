@@ -18,6 +18,7 @@
 </div>
 
 <div class="ad">
+<!--
 <?php
 for($id = 0; $id < 40; $id++)
 {
@@ -35,14 +36,14 @@ for($id = 0; $id < 40; $id++)
 		echo '<br/>';
 	}
 }
-?>
+?>-->
 </div>
 
 
 <!-- ------------infomations-------- -->
 
 <div class="summary_message">
-<ul class="summary" id="left">
+<ul id="left">
 <li id="topForMore">公司介绍<a id="more_right"><?php echo $this->Html->link('更多',array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list'));?></a></li>
 <?php foreach($company_introduces as $company_introduce):?>
 
@@ -50,17 +51,16 @@ for($id = 0; $id < 40; $id++)
 <?php endforeach;?>
 </ul>
 
-<ul class="summary" id="right">
+<ul id="right">
 <li id="topForMore">招聘信息<a id="more_right"><?php echo $this->Html->link('更多',array('controller'=>'Recruitments','action'=>'recruitment_list'));?></a></li>
 	<?php foreach($recruitments as $recruitment):?>
 	<li><a><?php echo $this->Html->link($recruitment['Recruitment']['job_title'].' '.$recruitment['CompanyUserInfo']['company'],array('controller'=>'Recruitments','action'=>'recruitment_view',$recruitment['Recruitment']['id']));?></a></li>
 <?php endforeach;?>
-
 </ul>
 </div>
 
 <div class="summary_message">
-<ul class="summary" id="left">
+<ul id="left">
 <li id="topForMore">代理信息<a id="more_right"><?php echo $this->Html->link('更多',array('controller'=>'ProxyInfos','action'=>'proxy_search'));?></a></li>
 	<?php foreach($proxys as $proxy):?>
 	<li><a><?php echo $this->Html->link($proxy['ProxyInfo']['product_name'].' '.$proxy['CompanyUserInfo']['company'],array('controller'=>'ProxyInfos','action'=>'proxy_view',$proxy['ProxyInfo']['id']));?></a></li>
@@ -68,7 +68,7 @@ for($id = 0; $id < 40; $id++)
 
 </ul>
 
-<ul class="summary" id="right">
+<ul id="right">
 	<li id="topForMore">论坛<a id="more_right">更多</a></li>
 	<li><a>孙正扬</a></li>
 	<li><a>蒋慧强</a></li>
@@ -84,7 +84,7 @@ for($id = 0; $id < 40; $id++)
 
 
 <div class="ad">
-<?php
+<!--<?php
 for($id = 40; $id < 80; $id++)
 {
 	if($advertise[$id]['AdList']['pic_url']=='ad_image/ad.png')
@@ -97,7 +97,7 @@ for($id = 40; $id < 80; $id++)
 	}
 }
 
-?>
+?>-->
 </div>
 
 
