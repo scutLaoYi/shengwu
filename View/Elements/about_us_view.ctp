@@ -9,7 +9,7 @@
 	&nbsp;
 	<?php echo $this->Html->link('友情提示',array('controller'=>'AboutUs','action'=>'friend_message_view'));?>
 	&nbsp;
-	<?php echo $this->Html->link('广告为招租注意事项',array('controller'=>'AboutUs','action'=>'ad_notice_view'));?>
+	<?php echo $this->Html->link('广告位招租注意事项',array('controller'=>'AboutUs','action'=>'ad_notice_view'));?>
 	&nbsp;
 	</br>
 	<?php echo $this->Html->link('编辑'.$head,array('action'=>$url));?>

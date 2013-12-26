@@ -1,22 +1,21 @@
 <div id="searchDiv">
-	<?php echo $this->Form->create('search'); ?>
-	<table>
-	<tr>
-		<td id="radioLength">
-			<?php $options = array('company'=>'公司','proxy'=>'代理');
+			<?php echo $this->Form->create('search'); ?>
+			<table>
+			<tr>
+				<td id="radioLength">
+				<?php $options = array('company'=>'公司','proxy'=>'代理');
 				  $attributes = array('legend'=>false,'value'=>'company');
-				  echo $this->Form->radio('radio',$options,$attributes);?>
-		</td>
-		<td id="inputLength">
-			<?php echo $this->Form->input('search_text',array('label'=>'')) ?>
-		</td>
-		<td id="buttonLength">
+				  echo $this->Form->radio('select',$options,$attributes);?>
+				</td>
+				<td id="inputLength">
+				<?php echo $this->Form->input('content',array('label'=>'')) ?>
+				</td>
+			<td id="buttonLength">
 			<?php echo $this->Form->end('搜索');?>
-		</td>
-	</tr>
-	</table>
+			</td>
+			</tr>
+			</table>
 </div>
-
 <div class="ad">
 <!--
 <?php
@@ -24,7 +23,7 @@ for($id = 0; $id < 40; $id++)
 {
 	if($advertise[$id]['AdList']['pic_url']=='ad_image/ad.png')
 	{
-		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '124','height'=>'100','url'=>array('controller'=>'Mainpage','action'=>'index')));
+		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '124','height'=>'100','url'=>array('controller'=>'AboutUs','action'=>'pre_ad_notice_view')));
 	}
 	else
 	{ 
@@ -88,7 +87,7 @@ for($id = 0; $id < 40; $id++)
 for($id = 40; $id < 80; $id++)
 {
 	if($advertise[$id]['AdList']['pic_url']=='ad_image/ad.png')
-		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '124','height'=>'100','url'=>array('controller'=>'Mainpage','action'=>'index')));
+		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '124','height'=>'100','url'=>array('controller'=>'AboutUs','action'=>'pre_ad_notice_view')));
 	else 
 		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '124','height'=>'100','url'=>array('controller'=>'CompanyDescriptions','action'=>'view_info',$advertise[$id]['AdList']['company_user_info_id'])));
 		?>&nbsp;<?php
@@ -101,15 +100,3 @@ for($id = 40; $id < 80; $id++)
 </div>
 
 
-<div id="footer">
-	<?php 
-		echo '友情链接：';
-		$links = $this->requestAction('/FriendlyLinks/list_link');
-		foreach($links as $onelink)
-		{
-			$currentName =  $onelink['FriendlyLink']['link_name'];
-			$currentUrl = $onelink['FriendlyLink']['link_url'];
-			echo $this->Html->link($currentName,$currentUrl);
-		}
-	?>
-</div>

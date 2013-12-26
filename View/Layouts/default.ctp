@@ -90,7 +90,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 			  </li>
 			  <li><?php echo $this->Html->link('招聘求职', array('controller'=>'Recruitments', 'action'=>'recruitment_list')); ?></a></li>
 			<li><?php echo $this->Html->link('招标中标', array('controller'=>'InviteBids', 'action'=>'invite_bid_list')); ?></a></li> 
-			<li><?php echo $this->Html->link('论坛交流', 'http://10.0.0.4/phpwind/index.php'); ?></li>
+			<li><?php echo $this->Html->link('论坛交流', array('controller'=>'Forums','action'=>'index')); ?></li>
  				<li><a href="">信息发布</a>
  					<ul> 
 					<li><?php echo $this->Html->link('发布公司信息', array('controller'=>'companyIntroduces', 'action'=>'company_introduce_submit')); ?></li>
@@ -112,7 +112,13 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 
 		<?php echo $this->fetch('content'); ?>
 	</div>
-<!--
+		<div id="content">
+
+			<?php echo $this->Session->flash(); ?>
+
+			<?php echo $this->fetch('content'); ?>
+		</div>
+
 		<div id="footer">
 <?php 
 		echo '友情链接：';
@@ -125,7 +131,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 		}
 ?>
 		</div>
--->
+
 	</div>
 	<?php //echo $this->element('sql_dump'); ?> 
 	<?php echo $this->Js->writeBuffer();?>

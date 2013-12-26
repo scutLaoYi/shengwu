@@ -16,7 +16,13 @@ class User extends AppModel
 			 'className'=>'Resume',
 			'dependent'=>true
 		 )
+	
      );
+    var $hasMany=array
+        (
+            'Forum'=>array('className'=>'Forum','dependent'=>true),
+	     'Remark'=>array('className'=>'Remark','dependent'=>true)
+        );
    var $validate=array
     (
         'username'=>array

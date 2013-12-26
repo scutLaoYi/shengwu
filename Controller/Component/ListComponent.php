@@ -104,7 +104,70 @@ class ListComponent extends Component {
 	{
 		return array(1=>'一月','二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月');
 	}
-	
+	public function allDiscussion()
+	{
+		return array('休闲火爆话题','医药家园','会议信息','医药区','医学','注册执考区','资料共享','其他');
+	}
+	public function allsecondDis($type)
+	{
+		switch($type)
+		{
+			case '0': return array('热门话题','畅所欲言');
+			case '1': return array('交流畅谈','医药心情','职场交流','健康养生','寻求帮助');
+			case '2': return array('学术会议','博览会信息');
+			case '3': return array('药物研发','药品生产','医药综合','药学');
+			case '4': return array('临床讨论','实验','医学检验','经验分享');
+			case '5': return array('药师','医师','资料共享','考试动态');
+			case '6': return array('科研求助','课件资源','科研工具','试题资源');
+			case '7': return array('公告栏','提意见','我与中国生物医学材料的故事');
+		}
+	}
+	public function checkSecondDis($type,$subtype)
+	{
+		switch($type)
+		{
+		case '0':
+	   	{
+			if($subtype<2)return true;
+			else return false;
+		};
+		case '1':
+	   	{
+			if($subtype<5)return true;
+			else return false;
+		};
+		case '2':
+	   	{
+			if($subtype<2)return true;
+			else return false;
+		};
+		case '3':
+	   	{
+			if($subtype<4)return true;
+			else return false;
+		};
+		case '4':
+	   	{
+			if($subtype<4)return true;
+			else return false;
+		};
+		case '5':
+	   	{
+			if($subtype<4)return true;
+			else return false;
+		};
+		case '6':
+	   	{
+			if($subtype<4)return true;
+			else return false;
+		};
+		case '7':
+	   	{
+			if($subtype<3)return true;
+			else return false;
+		};
+		}
+	}
 }
 
 ?>
