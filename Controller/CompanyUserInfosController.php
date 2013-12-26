@@ -114,7 +114,19 @@ class CompanyUserInfosController extends AppController {
 	{
 		$this->set('allProvince',$allprovince= $this->List->allProvince());
 		$this->set('title_for_layout', '企业信息修改');
+
+		//查找数据
+		$options = array('conditions' => array('User.id =' => $this->Auth->user('id')));
+		$this->User->recursive = '0';
+		$info = $this->User->find('first', $options);
+
+		//前台传入更新数据
 		if ($this->request->is(array('post', 'put'))) {
+			//覆盖前台id及user_id数据项，防止篡改
+			$this->request->data['CompanyUserInfo']['id'] = $info['CompanyUserInfo']['id']; 
+			$this->request->data['CompanyUserInfo']['user_id'] = $info['CompanyUserInfo']['user_id'];
+
+			//存入新数据
 			if($this->CompanyUserInfo->save($this->request->data))
 			{
 				$this->Session->setFlash(__('企业信息修改成功!'));
@@ -126,9 +138,8 @@ class CompanyUserInfosController extends AppController {
 			}
 		} 
 		else {
-			$options = array('conditions' => array('User.id =' => $this->Auth->user('id')));
-			$this->User->recursive = '0';
-			$this->request->data = $this->User->find('first', $options);
+			//前台数据写入
+			$this->request->data = $info;
 		}
 		$this->set('referer', $this->referer());
 		//$this->set(compact('users'));

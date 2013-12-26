@@ -32,7 +32,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css(array('cake.generic','mainPage'));
+		echo $this->Html->css(array('mainStyle','mainPage'));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -42,8 +42,6 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 </head>
 <body>
 	<div id="logo">
-	</div>
-	<div id="container">
 		<div id="header">
 			<ul>
 				<li><?php 
@@ -77,10 +75,8 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 				</li>	
 			</ul>
 		</div>
-
 <!-- start of menubar -->
-
-	<div id="menubar">
+		<div id="menubar">
  			<ul id="menu">
 			<li><?php echo $this->Html->link('首页', array('controller'=>'Mainpage', 'action'=>'index')); ?></li>
 			<li><?php echo $this->Html->link('企业宣传', array('controller'=>'CompanyIntroduces', 'action'=>'company_introduce_list')); ?></a>
@@ -106,12 +102,10 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 				<li><?php echo $this->Html->link('广告招租', array('controller'=>'AboutUs', 'action'=>'pre_ad_notice_view'));?></li>
 			
 			</ul>
+		</div>
+		<!-- end of menubar -->
 	</div>
-			
-
-
-
-<!-- end of menubar -->
+	<div id="container">
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>

@@ -108,16 +108,24 @@ class CompanyIntroducesController extends AppController {
 			$this->Session->setFlash('您不是企业用户，无法编辑企业介绍');
 			$this->redirect($this->referer());
 		}
+		//读取数据
 		$this->CompanyUserInfo->recursive = 0;
 		$company=$this->CompanyUserInfo->find('first',array('conditions'=>array('CompanyUserInfo.user_id'=>$this->Auth->user('id'))));
 		$this->CompanyIntroduce->recursive = 0;
 		$companyIntroduce=$this->CompanyIntroduce->find('first',array('conditions'=>array('CompanyIntroduce.company_user_info_id'=>$company['CompanyUserInfo']['id'])));
+
+		//前台传入更新数据
 		if($this->request->is(array('post','put')))
 		{
 			$this->request->data['CompanyIntroduce']['company_user_info_id']=$company['CompanyUserInfo']['id'];
-			//判断状态字
+			
+			//判断状态字,若为新记录,则设定为待审核
+			//否则覆盖前台传入的id值防止恶意篡改
 			if($companyIntroduce==null)
 				$this->request->data['CompanyIntroduce']['status']='1';
+			else
+				$this->request->data['CompanyIntroduce']['id'] = $companyIntroduce['CompanyIntroduce']['id'];
+
 			//处理图片
 			$file = $this->data['CompanyIntroduce']['company_image'];
 			$path='company_image/'.$this->Auth->user('username').'_'.date("YmdHis").'.';
@@ -137,9 +145,11 @@ class CompanyIntroducesController extends AppController {
 				{
 					//修改公司介绍，但没有改变图片，图片设置为原来的图片
 					$this->request->data['CompanyIntroduce']['picture']=$companyIntroduce['CompanyIntroduce']['picture_url'];
-
 				}
 			}
+			//图片处理结束
+
+			//尝试保存数据
 			if($this->CompanyIntroduce->save($this->request->data))
 			{
 				if($companyIntroduce==null)
@@ -157,7 +167,7 @@ class CompanyIntroducesController extends AppController {
 				$this->Session->setFlash('公司介绍提交失败，请检查是否已经填写完整');
 			}
 		}
-		else
+		else //前台页面写入原有数据
 		{
 			if($companyIntroduce!=null)
 			{

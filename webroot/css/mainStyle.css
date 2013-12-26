@@ -1,0 +1,273 @@
+#logo {
+height:260px;
+filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=rgb(30,144,255),endcolorstr=rgb(255,255,255),gradientType=0);
+    -ms-filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=rgb(30,144,255),endcolorstr=rgb(255,255,255),gradientType=0);/*IE8*/	
+    background:rgb(30,144,255); /* 一些不支持背景渐变的浏览器 */  
+    background:-moz-linear-gradient(top, rgb(30,144,255), rgba(255,255,255,0.5));  
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgb(30,144,255)), to(rgba(255,255,255,0.5)));  
+    background:-o-linear-gradient(top, rgb(30,144,255), rgba(255,255,255,0.5));  
+	border-bottom:none;
+}
+#container {
+	text-align: left;
+	margin-left:0;
+	margin-right:0;
+}
+
+#header{
+	padding:0;
+	width:1024px;
+	text-align:right;
+	margin-left:auto;
+	margin-right:auto;
+	position:relative;
+	top:100px;
+}
+#header ul {
+text-decoration:none;
+}
+#header li {
+text-decoration:none;
+list-style:none;
+}
+#header ul li a {
+text-decoration:none;
+color:#00008B;
+}
+#header ul li a:hover {
+text-decoration:underline;
+}
+#header h1 {
+	line-height:20px;
+	background: #003d4c url('../img/cake.icon.png') no-repeat left;
+	color: #fff;
+	padding: 0px 30px;
+}
+#header h1 a {
+	color: #fff;
+	background: #003d4c;
+	font-weight: normal;
+	text-decoration: none;
+}
+#header h1 a:hover {
+	color: #fff;
+	background: #003d4c;
+	text-decoration: underline;
+}
+#content{
+	background: #fff;
+	clear: both;
+	color: #333;
+	padding-top:10px;
+}
+#footer {
+	clear: both;
+	text-align: right;
+	background:url(img/friendly_link/foot.png);
+	height:256px;
+	margin-top:10px;
+	margin-left:auto;
+	margin-right:auto;
+	-webkit-background-size:100%;
+	background-size:100%
+}
+#header a, #footer a {
+	color: #fff;
+}
+
+/** menubar **/
+#menubar {
+	width: 1024px;
+	margin-left: auto;
+	margin-right: auto;   
+	float:center;
+	height:38px; 
+    filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=rgb(30,144,255),endcolorstr=rgb(65,105,225),gradientType=0);
+    -ms-filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=rgb(30,144,255),endcolorstr=rgb(65,105,225),gradientType=0);	
+    background:rgb(30,144,255); 
+    background:-moz-linear-gradient(top, rgb(30,144,255), rgb(65,105,225));  
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgb(30,144,255)), to(gba(65,105,225)));  
+    background:-o-linear-gradient(top, rgb(30,144,255), gba(65,105,225)); 
+	border:thin solid #87CEFA;
+	position:relative;
+	top:100px;
+}
+#menubar ul {
+  font-family: Arial, Verdana;
+  font-size: 15px;
+  margin:0;
+  padding:0;
+  list-style: none;
+}
+
+#menubar li {
+display:block;
+margin:0px;
+padding:0px;
+}
+#menubar ul li {
+  display: block;
+  position: relative;
+  float: left;
+}
+#menubar li ul { display: none;}
+
+#menubar ul li a {
+	display:block;
+	text-decoration:none;
+	color:White;
+	padding:10px 20px 10px 20px;
+	/*margin-left:5px;*/
+	white-space: nowrap;
+	-webkit-background-size:100%;
+	border-right:1px solid White;
+}
+#menubar ul li a:hover
+{
+text-decoration:underline;
+background-color:rgb(30,144,255);
+}
+#menubar li:hover ul {
+  display: block;
+  position: absolute;
+}
+#menubar li:hover li {
+  float: none;
+  font-size: 15px;
+background-color:rgb(30,144,255);
+}
+#menubar li:hover a {
+	border:1px solid White;   
+}
+#menubar li:hover li a:hover { background:rgb(30,144,255);border-right:1px solid White; }
+
+/**-----------end of menubar -------------**/
+
+/* 二级页面table等元素 */
+#subPage h2 {
+font-size:30px;
+color:Green;
+position:relative;
+float:center;
+}
+#subPage table{
+position:relative;
+text-align:left;
+border:1px solid Black;
+width:750px;
+left:5px;
+}
+/* td */
+#tdForHead {
+background:#9ACD32;
+border-bottom:thin solid Black;
+color:Black;
+}
+#tdForPic {
+height:100px;
+text-align:left;
+padding:0;
+background:White;
+border-right:thin solid Black;
+}
+#tdForProxy {
+height:100px;
+text-align:left;
+padding:0;
+background:White;
+border-right:thin solid Black;
+border-bottom:thin solid Black;
+}
+
+/* end of td */
+
+#subPage table a {
+color:Black;
+text-decoration:underline;
+}
+
+#subPage table a:hover {
+color:Blue;
+text-decoration:underline;
+}
+/* 结束 二级页面table */
+
+/* 二级页面action */
+#actionBox {
+border:1px solid Black;
+width:250px;
+float:left;
+text-align:left;
+position:relative;
+top:60px;
+}
+#actionBox select {
+width:150px;
+border:thin solid Black;
+}
+/** Paging **/
+.paging {
+	background:#fff;
+	color: #ccc;
+	margin-top: 1em;
+	clear:both;
+}
+.paging .current,
+.paging .disabled,
+.paging a {
+	text-decoration: none;
+	padding: 5px 8px;
+	display: inline-block
+}
+.paging > span {
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-left: 0;
+}
+.paging > span:hover {
+	background: #efefef;
+}
+.paging .prev {
+	border-left: 1px solid #ccc;
+	-moz-border-radius: 4px 0 0 4px;
+	-webkit-border-radius: 4px 0 0 4px;
+	border-radius: 4px 0 0 4px;
+}
+.paging .next {
+	-moz-border-radius: 0 4px 4px 0;
+	-webkit-border-radius: 0 4px 4px 0;
+	border-radius: 0 4px 4px 0;
+}
+.paging .disabled {
+	color: #ddd;
+}
+.paging .disabled:hover {
+	background: transparent;
+}
+.paging .current {
+	background: #efefef;
+	color: #c73e14;
+}
+
+/** Scaffold View **/
+dl {
+	line-height: 2em;
+	margin: 0em 0em;
+	width: 60%;
+}
+dl dd:nth-child(4n+2),
+dl dt:nth-child(4n+1) {
+	background: #f4f4f4;
+}
+
+dt {
+	font-weight: bold;
+	padding-left: 4px;
+	vertical-align: top;
+	width: 10em;
+}
+dd {
+	margin-left: 10em;
+	margin-top: -2em;
+	vertical-align: top;
+}

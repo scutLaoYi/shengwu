@@ -1,30 +1,31 @@
-
+<div id="subPage">
 <!-- begin of index -->
 	<h2><?php 
 echo __('代理信息');
 ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo '产品名称'; ?></th>
-			<th><?php echo '公司名称'; ?></th>	
-			<th><?php echo '产品图片'; ?></th>	
-			<th><?php echo '代理区域'; ?></th>
-
-			<th><?php echo '产品分类'; ?></th>
-			<th><?php echo '发布时间'; ?></th>
-			<th><?php echo '代理介绍'; ?></th>
+			<th id="tdForHead"><?php echo '产品名称'; ?></th>
+			<th id="tdForHead"><?php echo '公司名称'; ?></th>	
+			<th id="tdForHead"><?php echo '产品图片'; ?></th>	
+			<th id="tdForHead"><?php echo '代理区域'; ?></th>
+			<th id="tdForHead"><?php echo '产品分类'; ?></th>
+			<th id="tdForHead"><?php echo '发布时间'; ?></th>
+			<th id="tdForHead"><?php echo '代理介绍'; ?></th>
 	</tr>
 	<?php foreach ($proxyInfos as $proxyInfo): ?>
 	<tr>
-		<td><?php echo $this->Html->link($proxyInfo['ProxyInfo']['product_name'], 
+		<td id="tdForProxy"><?php echo $this->Html->link($proxyInfo['ProxyInfo']['product_name'], 
 array('controller'=>'ProxyInfos','action'=>'proxy_view', $proxyInfo['ProxyInfo']['id'])); ?>&nbsp;</td>
-		<td><?php echo $this->Html->link($proxyInfo['CompanyUserInfo']['company'], 
+		<td id="tdForProxy"><?php echo $this->Html->link($proxyInfo['CompanyUserInfo']['company'], 
 array('controller'=>'CompanyDescriptions','action'=>'view_proxy', $proxyInfo['CompanyUserInfo']['id'])); ?>&nbsp;</td>
-		<td><?php echo $this->Html->image('./'.$proxyInfo['ProxyInfo']['picture_url'],array('width'=>'100','height'=>'100')); ?>&nbsp;</td>
-		<td><?php echo h($allCountrys[$proxyInfo['ProxyInfo']['product_area']]); ?>&nbsp;</td>
+		<td id="tdForProxy"><?php echo $this->Html->image('./'.$proxyInfo['ProxyInfo']['picture_url'],array('width'=>'100','height'=>'100')); ?>&nbsp;</td>
+		<td id="tdForProxy"><?php echo h($allCountrys[$proxyInfo['ProxyInfo']['product_area']]); ?>&nbsp;</td>
 
-		<td><?php echo h($allProduct[$proxyInfo['ProxyInfo']['product_type']]); ?>&nbsp;</td>
-		<td><?php echo h($proxyInfo['ProxyInfo']['created']); ?>&nbsp;</td>
+
+		<td id="tdForProxy"><?php echo h($allProduct[$proxyInfo['ProxyInfo']['product_type']]); ?>&nbsp;</td>
+		<td id="tdForProxy"><?php echo h($proxyInfo['ProxyInfo']['created']); ?>&nbsp;</td>
+
 <?php 
 $str_introduce=$proxyInfo['ProxyInfo']['product_introduce'];
 if(strlen($str_introduce)>100)
@@ -32,10 +33,11 @@ if(strlen($str_introduce)>100)
 	$str_introduce=substr($str_introduce,0,97).'...';
 }
 ?>
-		<td><?php echo h($str_introduce); ?>&nbsp;</td>
+		<td id="tdForProxy"><?php echo h($str_introduce); ?>&nbsp;</td>
 	</tr>
 <?php endforeach; ?>
 	</table>
+</div>
 	<p>
 <?php
 echo $this->Paginator->counter(array(

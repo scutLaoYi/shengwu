@@ -2,7 +2,16 @@
 App::uses('AppController', 'Controller');
 
 /*
- * 公司三级页面专用控制器 by scutLaoYi
+ * CompanyDescription Controller
+ * ---------------------------------
+ *
+ * 公司三级页面专用控制器 
+ * 显示公司的详细信息，包括简介、推广、代理列表和招聘列表
+ * 游客可以访问公司信息
+ * 公司可编辑自己的信息
+ *
+ * Author:scutLaoYi
+ *
  */
 class CompanyDescriptionsController extends AppController
 {
@@ -25,7 +34,7 @@ class CompanyDescriptionsController extends AppController
 	 */
 	public function view_info($company_id = null)
 	{
-		if(!$company_id)
+		if(!$company_id || !$this->CompanyUserInfo->exists($company_id))
 		{
 			//未传入公司id且不是公司用户，直接跳出
 			if($this->Auth->user('type') != '1')
@@ -59,8 +68,8 @@ class CompanyDescriptionsController extends AppController
 	 */
 	public function view_introduce($company_id = null)
 	{
-		if(!$company_id)
-			throw new NotFoundExcetion('页面不存在');
+		if(!$company_id || !$this->CompanyUserInfo->exists($company_id))
+			throw new NotFoundException('页面不存在');
 
 		$this->CompanyIntroduce->recursive = 0;
 		$introduce = $this->CompanyIntroduce->find('first', array(
@@ -69,6 +78,7 @@ class CompanyDescriptionsController extends AppController
 			$this->set('introduce', $introduce['CompanyIntroduce']);
 		$this->set('company_id', $company_id);
 
+		debug($introduce);
 		//对当前公司自己的宣传页面提供编辑接口
 		if($this->Auth->user('type') == '1')
 		{
@@ -87,7 +97,7 @@ class CompanyDescriptionsController extends AppController
 	 */
 	public function view_proxy($company_id = null)
 	{
-		if(!$company_id)
+		if(!$company_id || !$this->CompanyUserInfo->exists($company_id))
 			throw new NotFoundException('页面不存在');
 
 		$result = $this->ProxySearcher->proxy_search(0, 0, 0, 0, 0, $company_id);
@@ -102,8 +112,8 @@ class CompanyDescriptionsController extends AppController
 	 */
 	public function view_recruitment($company_id = null)
 	{
-		if(!$company_id)
-			throw new NotFoundException();
+		if(!$company_id || !$this->CompanyUserInfo->exists($company_id))
+			throw new NotFoundException('页面不存在');
 
 		$this->set('recruitments', $this->RecruitmentSearcher->search($company_id));
 		$this->set('company_id', $company_id);
@@ -121,12 +131,7 @@ class CompanyDescriptionsController extends AppController
 		$this->set('companyEconomicNature',$this->List->companyEconomicNature());
 		$this->set('companyNumber',$this->List->companyNumber());
 		$this->set('allProvince',$this->List->allProvince());
-		$this->Auth->allow(
-			'view_info', 
-			'view_introduce',
-			'view_proxy',
-			'view_recruitment'
-		);
+		$this->Auth->allow();
 		parent::beforeFilter();
 	}
 

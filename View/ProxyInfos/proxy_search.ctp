@@ -51,7 +51,7 @@ setOption(option, "全部")
 
 <!-- actions for filter -->
 <!-- beginning of actions -->
-<div class="actions">
+<div id="actionBox">
 <?php
 echo $this->Form->input('product_area', array('id'=>'product_area', 'label'=>'代理地区', 'options'=>$allCountrys,'onchange'=>'searching();'));
 echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产品分类','onchange'=>'setAndSearch(this.selectedIndex);','options'=>$allProduct));
