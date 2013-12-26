@@ -17,12 +17,21 @@
 	<?php foreach($remarks as $remark):?>
 	<tr>
 		<td> 
+			<?php echo $remark['Remark']['id'];?>
 			<?php echo $remark['User']['username'];?>
 			</br>
 			<?php echo $remark['Remark']['created'];?>
 		</td>
 		<td>
 			<?php echo $remark['Remark']['message'];?>
+		</td>
+		<td>
+		<?php 
+			if($isAdmin)
+			{
+				echo $this->Html->link('删除',array('action'=>'deleteRemark',$remark['Remark']['id']));
+			}
+		?>
 		</td>
 	</tr>
 	<?php endforeach;?>

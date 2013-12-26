@@ -128,44 +128,45 @@ class ListComponent extends Component {
 		{
 		case '0':
 	   	{
-			if($subtype<2)return true;
+			if(in_array($subtype,array('0','1','2')))return true;
 			else return false;
 		};
 		case '1':
 	   	{
-			if($subtype<5)return true;
+			if(in_array($subtype,array('0','1','2','3','4')))return true;
 			else return false;
 		};
 		case '2':
 	   	{
-			if($subtype<2)return true;
+			if(in_array($subtype,array('0','1')))return true;
 			else return false;
 		};
 		case '3':
 	   	{
-			if($subtype<4)return true;
+			if(in_array($subtype,array('0','1','2','3')))return true;
 			else return false;
 		};
 		case '4':
 	   	{
-			if($subtype<4)return true;
+			if(in_array($subtype,array('0','1','2','3')))return true;
 			else return false;
 		};
 		case '5':
 	   	{
-			if($subtype<4)return true;
+			if(in_array($subtype,array('0','1','2','3')))return true;
 			else return false;
 		};
 		case '6':
 	   	{
-			if($subtype<4)return true;
+			if(in_array($subtype,array('0','1','2','3')))return true;
 			else return false;
 		};
 		case '7':
 	   	{
-			if($subtype<3)return true;
+			if(in_array($subtype,array('0','1','2')))return true;
 			else return false;
 		};
+		default :return false;
 		}
 	}
 }

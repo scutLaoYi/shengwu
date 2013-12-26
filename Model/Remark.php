@@ -8,6 +8,11 @@ class Remark extends AppModel
 			(
 				'className'=>'User',
 				'foreignKey'=>'user_id'
+			),
+		'Forum'=>array
+			(
+				'className'=>'Forum',
+				'foreignKey'=>'forum_id'
 			)
 	);
 var $validate=array
