@@ -2,7 +2,7 @@
 
 App::uses('Component', 'Controller');
 /*
- * proxy search engine.
+ * CompanyIntroduce search engine.
  * post some args and return the result.
  * by scutLaoYi.
  */

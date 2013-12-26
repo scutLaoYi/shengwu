@@ -20,6 +20,14 @@
 		<td>
 			<?php echo $forum['Forum']['created'];?>
 		</td>
+		<td>	
+		<?php
+		if($isAdmin)
+		{
+			echo $this->html->link('删除',array('action'=>'deletePost',$forum['Forum']['id']));
+		}
+		?>
+		</td>
 	</tr>
 	<?php endforeach;?>
 </table>

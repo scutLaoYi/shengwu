@@ -77,16 +77,11 @@ for($index = 0; $index < 5; $index++)
 </ul>
 
 <ul id="right">
-	<li id="topForMore">论坛<a id="more_right">更多</a></li>
-	<li><a>孙正扬</a></li>
-	<li><a>蒋慧强</a></li>
-	<li><a>林标标</a></li>
-	<li><a>许瑞霖</a></li>
-	<li><a>贺智超</a></li>
-	<li><a>曾兵</a></li>
-	<li><a>金龙存</a></li>
-	<li><a>黄翰</a></li>
-	<li><a>林连南</a></li>
+<li id="topForMore">论坛交流<a id="more_right"><?php echo $this->Html->link('更多',array('controller'=>'Forums','action'=>'index'));?></a></li>
+<?php foreach($forums as $forum):?>
+
+<li><a><?php echo $this->Html->link($forum['Forum']['title'],array('controller'=>'Forums','action'=>'view',$forum['Forum']['id']));?></a></li>
+<?php endforeach;?>
 </ul>
 </div>
 

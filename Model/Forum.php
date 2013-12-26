@@ -10,6 +10,10 @@ class Forum extends AppModel
 				'foreignKey'=>'user_id'
 			)
 	);
+	 var $hasMany=array
+        (
+            'Remark'=>array('className'=>'Remark','dependent'=>true)
+        );
 var $validate=array
 	(
 

@@ -15,7 +15,7 @@ class ForumsController extends AppController {
 	 */
 	public $components = array('Paginator','Picture','List');
 	public $uses = array('User','Forum','Remark');
-
+	public $helper = array('Js');
 
 	public function index()
 	{
@@ -29,7 +29,8 @@ class ForumsController extends AppController {
 
 	public function posting_list($type=null,$typesub=null)
 	{
-		if(!($type<8&&$this->List->checkSecondDis($type,$typesub)))
+		
+		if($type==null||$typesub==null||$this->List->checkSecondDis($type,$typesub)==false)
 		{
 			$this->Session->setFlash('输入错误');
 			$this->redirect(array('controller'=>'Forums','action'=>'index'));
@@ -42,16 +43,23 @@ class ForumsController extends AppController {
 		$this->set('typesub',$typesub);
 		$this->Paginator->settings = array('limit'=>'20','conditions'=>array('Forum.type'=>$type,'Forum.typesub'=>$typesub));
 		$this->set('forums',$this->Paginator->paginate('Forum'));
+		//管理员身份判断
+			if($this->Auth->user('type')=='3')
+				$isAdmin=true;
+			else 
+				$isAdmin=false;
+			$this->set('isAdmin',$isAdmin);
 	}
 	public function posting($type,$typesub)
 	{
-		if(!($type<8&&$this->List->checkSecondDis($type,$typesub)))
+		if($type==null||$typesub==null||$this->List->checkSecondDis($type,$typesub)==false)
 		{
 			$this->Session->setFlash('输入错误');
 			$this->redirect(array('controller'=>'Forums','action'=>'index'));
 		}
 		if($this->request->is('post'))
 		{
+				
 				$this->request->data['Forum']['type']=$type;	
 				$this->request->data['Forum']['typesub']=$typesub;	
 				$this->request->data['Forum']['user_id']=$this->Auth->user('id');	
@@ -79,6 +87,12 @@ class ForumsController extends AppController {
 			$this->set('forum',$forum);
 			$this->Paginator->settings = array('limit'=>'20','order'=>array('Remark.created'=>'asc'),'conditions'=>array('Remark.forum_id'=>$id));
 			$this->set('remarks',$this->Paginator->paginate('Remark'));
+			//管理员身份判断
+			if($this->Auth->user('type')=='3')
+				$isAdmin=true;
+			else 
+				$isAdmin=false;
+			$this->set('isAdmin',$isAdmin);
 		}
 		else
 		{
@@ -87,7 +101,35 @@ class ForumsController extends AppController {
 		}
 	}
 
-
+	//删除评论 ，function deleteRemark
+	public function deleteRemark($remark_id=null)
+	{
+		
+		$this->Remark->id = $remark_id;
+		if (!$this->Remark->exists()) {
+			throw new NotFoundException(__('Invalid post'));
+		}
+		if ($this->Remark->delete()) {
+			$this->Session->setFlash(__('评论删除成功'));
+		} else {
+			$this->Session->setFlash(__('评论删除失败，请稍后再试'));
+		}
+		return $this->redirect($this->referer());
+	}
+	//删除帖子，并把该贴所有评论一并删除
+	public function deletePost($forum_id)
+	{
+		$this->Forum->id = $forum_id;
+		if (!$this->Forum->exists()) {
+			throw new NotFoundException(__('Invalid post'));
+		}
+		if ($this->Forum->delete()) {
+			$this->Session->setFlash(__('帖子删除成功'));
+		} else {
+			$this->Session->setFlash(__('帖子删除失败，请稍后再试'));
+		}
+		return $this->redirect($this->referer());
+	}
 	public function beforeFilter()
 	{
 
