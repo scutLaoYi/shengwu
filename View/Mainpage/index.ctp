@@ -16,26 +16,35 @@
 			</tr>
 			</table>
 </div>
-<div class="ad">
-<!--
+<div id="ad">
 <?php
-for($id = 0; $id < 40; $id++)
+for($index = 0; $index < 5; $index++)
 {
-	if($advertise[$id]['AdList']['pic_url']=='ad_image/ad.png')
+	$offset = $index*8; ?>
+	<ul>
+	<?php
+	for($id = $offset; $id < $offset+8; $id++)
 	{
-		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '124','height'=>'100','url'=>array('controller'=>'AboutUs','action'=>'pre_ad_notice_view')));
+		?>
+		<li>
+		<?php 
+			if($advertise[$id]['AdList']['pic_url'] == 'ad_image/ad.png')
+			{
+				echo $this->Html->image($advertise[$id]['AdList']['pic_url'],array('width'=>'122','height'=>'100','url'=>array('controller'=>'AboutUs','action'=>'pre_ad_notice_view')));
+			}
+			else
+			{
+				echo $this->Html->image($advertise[$id]['AdList']['pic_url'],array('width'=>'122','height'=>'100','url'=>array('controller'=>'CompanyDescriptions','action'=>'view_info',$advertise[$id]['AdList']['company_user_info_id'])));
+			}
+		?>
+		</li>
+		<?php
 	}
-	else
-	{ 
-		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '124','height'=>'100','url'=>array('controller'=>'CompanyDescriptions','action'=>'view_info',$advertise[$id]['AdList']['company_user_info_id'])));
-	}
-		?>&nbsp;<?php
-	if(($id+1) % 8 == 0)
-	{
-		echo '<br/>';
-	}
+	?>
+	</ul>
+	<?php
 }
-?>-->
+?>
 </div>
 
 
@@ -82,7 +91,7 @@ for($id = 0; $id < 40; $id++)
 </div>
 
 
-<div class="ad">
+<div id="ad">
 <!--<?php
 for($id = 40; $id < 80; $id++)
 {
