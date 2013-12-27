@@ -1,6 +1,6 @@
 <?php
 
-App::uses('Article', 'Model');
+App::uses('User','Model');
 
 /*
  * 用户模型的测试
