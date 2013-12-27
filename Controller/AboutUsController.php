@@ -239,6 +239,7 @@ class AboutUsController extends AppController {
 	 */
 	public function pre_link_us_view()
 	{
+		$this->set('title_for_layout', '关于我们');
 		$path=WWW_ROOT.'/files/link_us.txt';
 		$content=$this->File->read($path);
 		$this->set('content',$content);
@@ -257,6 +258,7 @@ class AboutUsController extends AppController {
 	 */
 	public function pre_ad_notice_view()
 	{
+		$this->set('title_for_layout', '广告位招租');
 		$path=WWW_ROOT.'/files/ad_notice.txt';
 		$content=$this->File->read($path);
 		$this->set('content',$content);
