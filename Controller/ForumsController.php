@@ -16,7 +16,6 @@ class ForumsController extends AppController {
 	public $components = array('Paginator','Picture','List');
 	public $uses = array('User','Forum','Remark');
 	public $helper = array('Js');
-
 	public function index()
 	{
 		$this->set('allDiscussions',$discussion=$this->List->allDiscussion());
