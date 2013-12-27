@@ -1,10 +1,26 @@
-.ad {
+#ad {
 width:1024px;
-height:520px;
+height:530px;
 margin-left:auto;
 margin-right:auto;
 background:#1E90FF;
 margin-top:40px;
+}
+#ad ul {
+height:100px;
+padding:0;
+padding-top:5px;
+margin:0;
+}
+#ad li {
+float:left;
+list-style:none;
+padding-left:5px;
+padding-bottom:0px;
+}
+#ad a {
+text-decoration:none;
+padding:0;
 }
 /* all kinds of h1 */
 h1.mainPage {
