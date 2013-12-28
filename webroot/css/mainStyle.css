@@ -62,7 +62,7 @@ text-decoration:underline;
 }
 #footer {
 	clear: both;
-	text-align: right;
+	text-align: left;
 	background:url(img/friendly_link/foot.png);
 	height:256px;
 	margin-top:10px;

@@ -52,6 +52,7 @@ class CompanyDescriptionsController extends AppController
 				'conditions' => array('CompanyUserInfo.id' => $company_id)));
 			if(!$info)
 				throw new NotFoundException('页面不存在');
+			$this->set('title_for_layout', $info['CompanyUserInfo']['company']);
 			$this->set('company_info', $info['CompanyUserInfo']);
 			//对当前公司用户自身信息提供编辑接口
 			if($this->Auth->user('type') == 1)

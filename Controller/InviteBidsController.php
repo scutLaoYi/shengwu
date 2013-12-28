@@ -101,12 +101,15 @@ class InviteBidsController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
 	public function invite_bid_list()
 	{
+		$this->set('title_for_layout', '招标中标');
 		$this->InviteBid->recursive = 0;
 		$this->Paginator->settings = array('limit'=>'10','order'=>array('InviteBid.created'=>'desc'));
 		$this->set('inviteBids', $this->Paginator->paginate());
 	}
+
 	public function beforeFilter()
 	{
 		$this->Auth->allow('invite_bid_list');
