@@ -147,3 +147,21 @@ width:20%;
 }
 
 /* 结束 - 搜索框 */
+
+/* 友情链接 */
+#friendLink {
+	clear: both;
+	text-align: left;
+	background:url(img/friendly_link/foot.png);
+	height:256px;
+	width:1024px;
+	margin-top:10px;
+	margin-left:auto;
+	margin-right:auto;
+	-webkit-background-size:100%;
+	background-size:100%
+}
+#friendLink a {
+padding:10px;
+}
+/*结束 友情连接 */
