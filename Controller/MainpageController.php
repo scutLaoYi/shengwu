@@ -26,14 +26,13 @@ class MainpageController extends AppController
 		$this->set('forums',$this->ForumSearcher->forum_lastest());
 		if($this->request->is('post'))
 		{
-			print_r($this->request->data);
 			if($this->request->data['search']['select']=='company')
 			{
-				$this->redirect(array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list','0',$this->request->data['search']['content']));		
+				return $this->redirect(array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list','0',$this->request->data['search']['content']));		
 			}
 			else
 			{
-				$this->redirect(array('controller'=>'ProxyInfos','action'=>'proxy_search','null',$this->request->data['search']['content']));		
+				return $this->redirect(array('controller'=>'ProxyInfos','action'=>'proxy_search','null',$this->request->data['search']['content']));		
 			}
 		 
 		
@@ -44,6 +43,6 @@ class MainpageController extends AppController
 		 * 权限管理，任何人均可访问首页
 		 */
 		public function beforeFilter(){
-			$this->Auth->allow('index','search');
+			$this->Auth->allow('index');
 		}
 	}
