@@ -114,23 +114,18 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 		</div>
 
 		<div id="footer">
-<?php 
-		echo '友情链接：';
-		$links = $this->requestAction('/FriendlyLinks/list_link');
-		foreach($links as $onelink)
-		{
-			$currentName =  $onelink['FriendlyLink']['link_name'];
-			$currentUrl = $onelink['FriendlyLink']['link_url'];
-			echo $this->Html->link($currentName,$currentUrl);
-		}
-?>
-		</br>
 <?php
+		echo '-';
 		echo $this->Html->link('了解我们',array('controller'=>'AboutUs','action'=>'pre_know_us_view'));
+		echo '-';
 		echo $this->Html->link('服务项目',array('controller'=>'AboutUs','action'=>'pre_service_view'));
+		echo '-';
 		echo $this->Html->link('法律声明',array('controller'=>'AboutUs','action'=>'pre_legal_notice_view'));
+		echo '-';
 		echo $this->Html->link('联系我们',array('controller'=>'AboutUs','action'=>'pre_link_us_view'));
+		echo '-';
 		echo $this->Html->link('友情提示',array('controller'=>'AboutUs','action'=>'pre_friend_message_view'));
+		echo '-';
 ?>
 		</div>
 	</div>

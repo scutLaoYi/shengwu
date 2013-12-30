@@ -61,17 +61,20 @@ text-decoration:underline;
 	padding-top:10px;
 }
 #footer {
-	clear: both;
-	text-align: right;
-	background:url(img/friendly_link/foot.png);
-	height:256px;
-	margin-top:10px;
-	margin-left:auto;
-	margin-right:auto;
-	-webkit-background-size:100%;
-	background-size:100%
+	margin-top:20px;
+	text-align: center;
+	height:100px;
 }
-#header a, #footer a {
+#footer a {
+color:Black;
+text-decoration:none;
+padding-left:10px;
+padding-right:10px;
+}
+#footer a:hover {
+text-decoration:underline;
+}
+#header a{
 	color: #fff;
 }
 

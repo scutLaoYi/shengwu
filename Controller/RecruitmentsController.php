@@ -82,6 +82,7 @@ class RecruitmentsController extends AppController {
 
 	/* 提交招聘，仅限公司用户 */
 	public function recruitment_submit() {
+		$this->set('title_for_layout', '招聘提交表单');
 		if($this->Auth->user('type')!='1')
 		{
 			$this->Session->setFlash('您不是企业用户，无法编辑招聘信息');
@@ -105,6 +106,7 @@ class RecruitmentsController extends AppController {
 	public function recruitment_view($id = null) {
 		$options = array('conditions' => array('Recruitment.' . $this->Recruitment->primaryKey => $id));
 		$recruitment=$this->Recruitment->find('first',$options);
+		$this->set('title_for_layout', $recruitment['Recruitment']['job_title']);
 		if($recruitment!=null)
 		{
 		$this->set('recruitment',$recruitment);
@@ -121,6 +123,7 @@ class RecruitmentsController extends AppController {
 
 	/* 招聘信息二级页面，所有用户均可查看 */
 	public function recruitment_list() {
+		$this->set('title_for_layout', '招聘信息');
 		$this->set('recruitments',$this->RecruitmentSearcher->search());
 	}
 

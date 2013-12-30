@@ -87,20 +87,46 @@ for($index = 0; $index < 5; $index++)
 
 
 <div id="ad">
-<!--<?php
-for($id = 40; $id < 80; $id++)
+<?php
+for($index = 0; $index < 5; $index++)
 {
-	if($advertise[$id]['AdList']['pic_url']=='ad_image/ad.png')
-		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '124','height'=>'100','url'=>array('controller'=>'AboutUs','action'=>'pre_ad_notice_view')));
-	else 
-		echo $this->Html->image($advertise[$id]['AdList']['pic_url'], array('width' => '124','height'=>'100','url'=>array('controller'=>'CompanyDescriptions','action'=>'view_info',$advertise[$id]['AdList']['company_user_info_id'])));
-		?>&nbsp;<?php
-	if(($id+1) % 8 == 0){
-			echo '<br/>';
+	$offset = $index*8 + 40; ?>
+	<ul>
+	<?php
+	for($id = $offset; $id < $offset+8; $id++)
+	{
+		?>
+		<li>
+		<?php 
+			if($advertise[$id]['AdList']['pic_url'] == 'ad_image/ad.png')
+			{
+				echo $this->Html->image($advertise[$id]['AdList']['pic_url'],array('width'=>'122','height'=>'100','url'=>array('controller'=>'AboutUs','action'=>'pre_ad_notice_view')));
+			}
+			else
+			{
+				echo $this->Html->image($advertise[$id]['AdList']['pic_url'],array('width'=>'122','height'=>'100','url'=>array('controller'=>'CompanyDescriptions','action'=>'view_info',$advertise[$id]['AdList']['company_user_info_id'])));
+			}
+		?>
+		</li>
+		<?php
 	}
+	?>
+	</ul>
+	<?php
 }
-
-?>-->
+?>
 </div>
 
+<div id="friendLink">
+<?php 
+		echo '友情链接：';
+		$links = $this->requestAction('/FriendlyLinks/list_link');
+		foreach($links as $onelink)
+		{
+			$currentName =  $onelink['FriendlyLink']['link_name'];
+			$currentUrl = $onelink['FriendlyLink']['link_url'];
+			echo $this->Html->link($currentName,$currentUrl);
+		}
+?>
+</div>
 

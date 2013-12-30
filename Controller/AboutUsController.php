@@ -23,6 +23,7 @@ class AboutUsController extends AppController {
 	 */
 	public function know_us_view()
 	{
+		$this->set('title_for_layout', '了解我们');
 		$path=WWW_ROOT.'/files/know_us.txt';
 		$content=$this->File->read($path);
 		$this->set('content',$content);
@@ -34,6 +35,7 @@ class AboutUsController extends AppController {
 	 */
 	public function know_us_edit()
 	{
+		$this->set('title_for_layout', '了解我们编辑');
 		$path=WWW_ROOT.'/files/know_us.txt';
 		if($this->request->is('post'))
 		{
@@ -57,6 +59,7 @@ class AboutUsController extends AppController {
 	 */
 	public function service_view()
 	{
+		$this->set('title_for_layout', '服务视图');
 		$path=WWW_ROOT.'/files/service.txt';
 		$content=$this->File->read($path);
 		$this->set('content',$content);
@@ -66,6 +69,7 @@ class AboutUsController extends AppController {
 	 */
 	public function service_edit()
 	{
+		$this->set('title_for_layout', '服务项目编辑');
 		$path=WWW_ROOT.'/files/service.txt';
 		if($this->request->is('post'))
 		{
@@ -88,6 +92,7 @@ class AboutUsController extends AppController {
 	 */
 	public function legal_notice_view()
 	{
+		$this->set('title_for_layout', '法律声明');
 		$path=WWW_ROOT.'/files/legal_notice.txt';
 		$content=$this->File->read($path);
 		$this->set('content',$content);
@@ -97,6 +102,7 @@ class AboutUsController extends AppController {
 	 */
 	public function legal_notice_edit()
 	{
+		$this->set('title_for_layout', '法律声明编辑');
 		$path=WWW_ROOT.'/files/legal_notice.txt';
 		if($this->request->is('post'))
 		{
@@ -119,6 +125,7 @@ class AboutUsController extends AppController {
 	 */
 	public function link_us_view()
 	{
+		$this->set('title_for_layout', '联系我们');
 		$path=WWW_ROOT.'/files/link_us.txt';
 		$content=$this->File->read($path);
 		$this->set('content',$content);
@@ -128,6 +135,7 @@ class AboutUsController extends AppController {
 	 */
 	public function link_us_edit()
 	{
+		$this->set('title_for_layout', '联系我们编辑');
 		$path=WWW_ROOT.'/files/link_us.txt';
 		if($this->request->is('post'))
 		{
@@ -150,6 +158,7 @@ class AboutUsController extends AppController {
 	 */
 	public function friend_message_view()
 	{	
+		$this->set('title_for_layout', '友情提示');
 		$path=WWW_ROOT.'/files/friend_message.txt';
 		$content=$this->File->read($path);
 		$this->set('content',$content);
@@ -158,7 +167,8 @@ class AboutUsController extends AppController {
 	 *friend_message_edit  友情提示编辑，
 	 */
 	public function friend_message_edit()
-	{	
+	{		
+		$this->set('title_for_layout', '友情提示编辑');
 		$path=WWW_ROOT.'/files/friend_message.txt';
 		if($this->request->is('post'))
 		{
@@ -181,6 +191,7 @@ class AboutUsController extends AppController {
 	 */
 	public function ad_notice_view()
 	{
+		$this->set('title_for_layout', '广告位注意事项');
 		$path=WWW_ROOT.'/files/ad_notice.txt';
 		$content=$this->File->read($path);
 		$this->set('content',$content);
@@ -190,6 +201,7 @@ class AboutUsController extends AppController {
 	 */
 	public function ad_notice_edit()
 	{
+		$this->set('title_for_layout', '广告位注意事项编辑');
 		$path=WWW_ROOT.'/files/ad_notice.txt';
 		if($this->request->is('post'))
 		{
@@ -211,6 +223,7 @@ class AboutUsController extends AppController {
 	 */
 	public function pre_know_us_view()
 	{
+		$this->set('title_for_layout', '关于我们');
 		$path=WWW_ROOT.'/files/know_us.txt';
 		$content=$this->File->read($path);
 		$this->set('content',$content);
@@ -221,6 +234,7 @@ class AboutUsController extends AppController {
 	 */
 	public function pre_service_view()
 	{
+		$this->set('title_for_layout', '关于我们');
 		$path=WWW_ROOT.'/files/service.txt';
 		$content=$this->File->read($path);
 		$this->set('content',$content);
@@ -230,6 +244,7 @@ class AboutUsController extends AppController {
 	 */
 	public function pre_legal_notice_view()
 	{
+		$this->set('title_for_layout', '关于我们');
 		$path=WWW_ROOT.'/files/legal_notice.txt';
 		$content=$this->File->read($path);
 		$this->set('content',$content);
@@ -239,6 +254,7 @@ class AboutUsController extends AppController {
 	 */
 	public function pre_link_us_view()
 	{
+		$this->set('title_for_layout', '关于我们');
 		$path=WWW_ROOT.'/files/link_us.txt';
 		$content=$this->File->read($path);
 		$this->set('content',$content);
@@ -248,6 +264,7 @@ class AboutUsController extends AppController {
 	 */
 	public function pre_friend_message_view()
 	{	
+		$this->set('title_for_layout', '关于我们');
 		$path=WWW_ROOT.'/files/friend_message.txt';
 		$content=$this->File->read($path);
 		$this->set('content',$content);
@@ -257,6 +274,7 @@ class AboutUsController extends AppController {
 	 */
 	public function pre_ad_notice_view()
 	{
+		$this->set('title_for_layout', '广告位招租');
 		$path=WWW_ROOT.'/files/ad_notice.txt';
 		$content=$this->File->read($path);
 		$this->set('content',$content);

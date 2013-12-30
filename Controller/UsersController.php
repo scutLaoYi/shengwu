@@ -219,14 +219,14 @@ class UsersController extends AppController {
 			if($mdf5!=$mdf||$nowunix-$date>3600)
 			{
 				$this->Session->setFlash('链接失效，请重新操作');
-				$this->redirect(array('action'=>'login'));
+				return $this->redirect(array('action'=>'login'));
 			}
 
 		}
 		else
 		{
 			$this->Session->setFlash('链接失效，请重新操作');
-			$this->redirect(array('action'=>'login'));
+			return $this->redirect(array('action'=>'login'));
 		}
 		//链接有效，获取用户输入进行重置密码操作
 		if($this->request->is('post'))

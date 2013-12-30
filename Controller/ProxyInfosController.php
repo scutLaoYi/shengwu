@@ -116,6 +116,7 @@ class ProxyInfosController extends AppController {
 	 */
 	public function proxy_search($type = null, $str = null)
 	{
+		$this->set('title_for_layout', '代理信息');
 		//页面固定项
 		$allCountry = $this->List->allCountry();
 		$this->set('allCountrys', $allCountry);	
@@ -140,6 +141,7 @@ class ProxyInfosController extends AppController {
 	 */
 	public function proxy_submit($proxy_id=null)
 	{
+		$this->set('title_for_layout', '公司代理产品提交');
 		if($this->Auth->user('type')!='1')
 		{
 			$this->Session->setFlash('您不是企业用户，无法编辑代理信息');
@@ -234,6 +236,7 @@ class ProxyInfosController extends AppController {
 		{
 			$this->set('allFunction',$this->List->allFunction($proxy['ProxyInfo']['product_type']));
 			$this->set('allDepartment',$this->List->allDepartment($proxy['ProxyInfo']['product_type']));
+			$this->set('title_for_layout', $proxy['ProxyInfo']['product_name']);
 			if($this->Auth->user('type')=='1')
 			{
 				$this->CompanyUserInfo->recursive = 0;

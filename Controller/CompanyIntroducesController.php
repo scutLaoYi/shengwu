@@ -102,6 +102,7 @@ class CompanyIntroducesController extends AppController {
 	 */
 	public function company_introduce_submit()
 	{
+		$this->set('title_for_layout', '公司介绍提交表单');
 		//判断用户类型
 		if($this->Auth->user('type')!='1')
 		{
@@ -184,7 +185,7 @@ class CompanyIntroducesController extends AppController {
 	 */ 
 	public function company_introduce_list($province = null, $str = null)
 	{
-
+		$this->set('title_for_layout', '公司宣传');
 		//静态数组
 		$this->CompanyUserInfo->recursive=0;
 

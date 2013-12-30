@@ -1,6 +1,6 @@
 <?php
 
-App::uses('Article', 'Model');
+App::uses('User','Model');
 
 /*
  * 用户模型的测试
@@ -38,7 +38,7 @@ class UserTest extends CakeTestCase
 		$this->assertEquals(0,$result);
 
 		//save some data...
-		$data = array('User'=>array('username'=>'tester', 'password'=>'tester123', 'email'=>'tester@test.com', 'type' => '1'));
+		$data = array('User'=>array('username'=>'tester', 'password'=>'123456456', 'email'=>'tester@test.com', 'type' => '1'));
 		$this->User->create();
 		$this->User->save($data);
 
