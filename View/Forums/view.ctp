@@ -1,3 +1,11 @@
+<?php echo $this->Html->script('tiny_mce/tiny_mce.js');?>
+<script type="text/javascript">
+    tinyMCE.init({
+        theme : "advanced",
+        mode : "textareas",
+        convert_urls : false
+    });
+</script> 
 <?php echo $this->Html->link('论坛首页',array('action'=>'index'));?>
 <?php echo ('>>');?>
 <?php echo $this->Html->link($title.'_'.$subtitle,array('action'=>'posting_list',$forum['Forum']['type'],$forum['Forum']['typesub']));?>
@@ -17,7 +25,6 @@
 	<?php foreach($remarks as $remark):?>
 	<tr>
 		<td> 
-			<?php echo $remark['Remark']['id'];?>
 			<?php echo $remark['User']['username'];?>
 			</br>
 			<?php echo $remark['Remark']['created'];?>
@@ -54,6 +61,6 @@
 <!--回复编辑器-->
 <div>
 	<?php echo $this->Form->create('Remark',array('url'=>array('controller'=>'Remarks','action'=>'save',$forum['Forum']['id'])));?>
-	<?php echo $this->Form->input('message',array('rows'=>4,'label'=>'快速回复该主题'));?>
+	<?php echo $this->Form->input('content',array('rows'=>4,'label'=>'快速回复该主题'));?>
 	<?php echo $this->Form->end('发表回复');?>
 </div>

@@ -58,7 +58,7 @@ class ForumsController extends AppController {
 		}
 		if($this->request->is('post'))
 		{
-				
+				$this->request->data['Forum']['message']=$this->request->data['Forum']['content'];
 				$this->request->data['Forum']['type']=$type;	
 				$this->request->data['Forum']['typesub']=$typesub;	
 				$this->request->data['Forum']['user_id']=$this->Auth->user('id');	
@@ -69,7 +69,7 @@ class ForumsController extends AppController {
 				}
 				else
 				{
-					$this->Session->setFlash('发帖失败，请稍候再试');
+					$this->Session->setFlash('发帖失败，请检查是否填写完整');
 				}
 
 		}

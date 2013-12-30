@@ -20,6 +20,7 @@ class RemarksController extends AppController {
 	{
 	  if($this->request->is('post'))
 	{	
+		$this->request->data['Remark']['message']=$this->request->data['Remark']['content'];
 		$this->request->data['Remark']['user_id']=$this->Auth->user('id');
 		$this->request->data['Remark']['forum_id']=$forum_id;
 		if($this->Remark->save($this->request->data))
