@@ -25,6 +25,7 @@
 	<?php foreach($remarks as $remark):?>
 	<tr>
 		<td> 
+			<?php echo $remark['Remark']['level'].'楼  ';?>
 			<?php echo $remark['User']['username'];?>
 			</br>
 			<?php echo $remark['Remark']['created'];?>

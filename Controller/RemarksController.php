@@ -23,6 +23,16 @@ class RemarksController extends AppController {
 		$this->request->data['Remark']['message']=$this->request->data['Remark']['content'];
 		$this->request->data['Remark']['user_id']=$this->Auth->user('id');
 		$this->request->data['Remark']['forum_id']=$forum_id;
+		$this->Remark->recursive= -1;
+		$maxLevel =	$this->Remark->find('first',array('conditions'=>array('Remark.forum_id'=>$forum_id),'fields'=>('Max(Remark.level) as maxLevel')));
+		if($maxLevel)
+		{
+			$this->request->data['Remark']['level']=$maxLevel['0']['maxLevel']+1;
+		}
+		else
+		{
+			$this->request->data['Remark']['level']=1;
+		}
 		if($this->Remark->save($this->request->data))
 		{
 			$this->Session->setFlash('回复成功');

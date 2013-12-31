@@ -1,4 +1,8 @@
 <div>
+<?php echo $this->Html->link('论坛首页',array('action'=>'index'));?>
+<?php echo ('>>');?>
+<?php echo $this->Html->link($title.'_'.$subtitle,array('action'=>'posting_list',$type,$typesub));?>
+<?php echo ('>>发帖');?>
 <?php echo $this->Html->script('tiny_mce/tiny_mce.js');?>
 <script type="text/javascript">
     tinyMCE.init({

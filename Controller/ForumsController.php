@@ -73,6 +73,12 @@ class ForumsController extends AppController {
 				}
 
 		}
+		$discussion=$this->List->allDiscussion();
+		$second=$this->List->allsecondDis($type);
+		$this->set('title',$discussion[$type]);
+		$this->set('subtitle',$second[$typesub]);
+		$this->set('type',$type);
+		$this->set('typesub',$typesub);
 	}
 	public function view($id=null)
 	{
