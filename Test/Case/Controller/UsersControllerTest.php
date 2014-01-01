@@ -16,11 +16,11 @@ class UsersControllerTest extends ControllerTestCase
 
 	public function testIndex()
 	{
-		$this->testAction('/Mainpage/index', array('method'=>'GET', 'return'=>'contents'));
+		$this->testAction('/users/index', array('method'=>'GET'));
 		$matcher = array(
 			'id'=>'ad'
 		);
-//		$this->assertTag($matcher, $this->contents);
+		$this->assertTag($matcher, $this->view);
 		$this->assertTag($matcher, '<html><p id="ad">Hello</p></html>');
 	}
 }
