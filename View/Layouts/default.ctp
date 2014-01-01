@@ -44,7 +44,10 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 	<div id="logo">
 		<div id="header">
 			<ul>
-				<li><?php 
+			
+				<li>
+<!--nocache-->
+<?php 
 					if($this->Session->check('user')) {
 						if($this->Session->check('type'))
 						{
@@ -72,6 +75,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 						echo $this->Html->link('企业注册', array('controller'=>'CompanyUserInfos', 'action'=>'company_register'));
 					}
 					?>
+			<!--/nocache-->
 				</li>	
 			</ul>
 		</div>

@@ -14,7 +14,9 @@ class InviteBidsController extends AppController {
  * @var array
  */
 	public $components = array('Paginator');
-
+	public $helper = array('Cache');
+	public $cacheAction = array('invite_bid_list' => 36000);
+ 
 /**
  * index method
  *
