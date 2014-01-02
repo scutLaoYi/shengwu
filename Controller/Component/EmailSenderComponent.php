@@ -96,6 +96,7 @@ class EmailSenderComponent extends Component
 		$domain = 'http://127.0.0.1/';
 		$subject = '中国生物医学材料帮您找人才';
 
+		$picture = null;
 		if($resume['picture_url'])
 			$picture = array('file'=>$resume['picture_url'], 'contentId'=>'picId');
 

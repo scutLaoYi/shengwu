@@ -18,6 +18,13 @@ class ForumsController extends AppController {
 	public $helper = array('Js');
 	public function index()
 	{
+		$this->Forum->recursive=-1;
+		$num_post=$this->Forum->find('all',array('fields'=>array('type','typesub','count(*)'),'group'=>array('type','typesub')));
+		foreach($num_post as $post)
+		{
+			$num[$post['Forum']['type']][$post['Forum']['typesub']]=$post[0]['count(*)'];
+		}
+		$this->set('num',$num);
 		$this->set('allDiscussions',$discussion=$this->List->allDiscussion());
 		for($i=0;$i<8;$i++)
 		{
@@ -73,6 +80,12 @@ class ForumsController extends AppController {
 				}
 
 		}
+		$discussion=$this->List->allDiscussion();
+		$second=$this->List->allsecondDis($type);
+		$this->set('title',$discussion[$type]);
+		$this->set('subtitle',$second[$typesub]);
+		$this->set('type',$type);
+		$this->set('typesub',$typesub);
 	}
 	public function view($id=null)
 	{
