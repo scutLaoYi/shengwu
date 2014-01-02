@@ -1,0 +1,72 @@
+#Title {
+width:1024px;
+margin-top:80px;
+background-color:#4169E1;
+margin-left:auto;
+margin-right:auto;	
+font-style:italic;
+color:White;
+font-size:64px;
+text-align:center;
+border-radius:16px;
+}
+
+#module {
+width:1024px;
+height:200px;
+margin-top:30px;
+margin-left:auto;
+margin-right:auto;	
+border:thin solid Black;
+}
+
+#module ul {
+width:1024px;
+height:170px;
+text-align:left;
+margin:0;
+padding:0;
+}
+
+#module li {
+list-style:none;
+float:left;
+padding:5px;
+margin-left:10px;
+top:5px;
+position:relative;
+height:147px;
+width:160px;
+border-right:thin solid Black;
+border-bottom:thin solid Black;
+background:#F5F5F5;
+}
+#module a {
+text-decoration:none;
+color:Black;
+font-size:30px;
+}
+#module p {
+color:#696969;
+}
+#module a:hover {
+text-decoration:underline;
+}
+
+#topStyle {
+	margin:0;
+	padding:0;
+	height:30px;
+	border:thin solid Black;
+	border-top:thin solid White;
+	text-align:left;
+	font-style:oblique;
+	font-size:25px;
+    filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=rgb(30,144,255),endcolorstr=rgb(65,105,225),gradientType=0);
+    -ms-filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=rgb(30,144,255),endcolorstr=rgb(65,105,225),gradientType=0);	
+    background:rgb(30,144,255); 
+    background:-moz-linear-gradient(top, rgb(30,144,255), rgb(65,105,225));  
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgb(30,144,255)), to(gba(65,105,225)));  
+    background:-o-linear-gradient(top, rgb(30,144,255), gba(65,105,225)); 
+}
+
