@@ -36,17 +36,19 @@ margin-left:10px;
 top:5px;
 position:relative;
 height:147px;
-width:150px;
+width:160px;
 border-right:thin solid Black;
 border-bottom:thin solid Black;
 background:#F5F5F5;
 }
-
 #module a {
 text-decoration:none;
 color:Black;
+font-size:30px;
 }
-
+#module p {
+color:#696969;
+}
 #module a:hover {
 text-decoration:underline;
 }
