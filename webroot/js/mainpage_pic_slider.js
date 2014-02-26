@@ -4,21 +4,21 @@
  * Date: 2014-02-26
  */
 
-var dir = '/cakephp/img/mainpage/';
+var dir = 'img/mainpage_slider/';
 var pic_amount = 4;
+var pic_id = 'slide_pic';
 
 function swap_pic()
 {
 	var currentDate = new Date();
 	var curpicindex = currentDate.getSeconds() % pic_amount;
 
-	document.getElementById('slide_pic').src =
+	document.getElementById(pic_id).src =
 		dir+curpicindex+'.jpg';
-	return;
+	setTimeout("swap_pic()", 3000);
 }
 
 function slider()
 {
-	var timer = setTimeout("swap_pic()", 4000);
-	return;
+	setTimeout("swap_pic()", 3000);
 }
