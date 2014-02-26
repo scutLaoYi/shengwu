@@ -41,6 +41,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 	?>
 </head>
 <body>
+	<div id="logoHead">
 	<div id="logo">
 		<div id="header">
 			<ul>
@@ -79,7 +80,11 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 				</li>	
 			</ul>
 		</div>
-<!-- start of menubar -->
+		</div>
+	</div>
+		<!-- end of menubar -->
+	<div id="container">
+		<!-- start of menubar -->
 		<div id="menubar">
  			<ul id="menu">
 			<li><?php echo $this->Html->link('首页', array('controller'=>'Mainpage', 'action'=>'index')); ?></li>
@@ -107,16 +112,13 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 			
 			</ul>
 		</div>
-		<!-- end of menubar -->
-	</div>
-	<div id="container">
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
-<div id="friendLink">
+		<div id="friendLink">
 <?php 
 		echo '友情链接：';
 		$links = $this->requestAction('/FriendlyLinks/list_link');
@@ -127,7 +129,8 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 			echo $this->Html->link($currentName,$currentUrl);
 		}
 ?>
-</div>
+		</div>
+	</div>
 		<div id="footer">
 <?php
 		echo '-';
