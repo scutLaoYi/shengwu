@@ -1,10 +1,19 @@
+#rollDiv
+{
+width:1024px;
+height:250px;
+background-image:url('../img/mainPage/mainpage/广告页.jpg');
+background-repeat:no-repeat;
+background-size:100% 100%;
+margin-left:auto;
+margin-right:auto;
+}
 #ad {
 width:1024px;
 height:530px;
 margin-left:auto;
 margin-right:auto;
-background:#1E90FF;
-margin-top:40px;
+background:#F5F5F5;
 }
 #ad ul {
 height:100px;
@@ -39,12 +48,11 @@ text-shadow:0px 0px 10px #fff;
 
 /* 四个信息框 */
 .summary_message {
-margin-top:10px;
 height:420px;
 width:1024px;
 margin-left:auto;
 margin-right:auto;
-border:1px solid Black;
+background:#F0F8FF;
 }
 .summary_message ul {
 width:470px;
@@ -68,9 +76,13 @@ font-size:20px;
 margin:0;
 border-style:none;
 list-style:none;
-background:url(img/summary/summary_top.png);
+
+background:url('../img/mainPage/mainpage/02-1.jpg');
+background-repeat:no-repeat;
+border-bottom:2px solid #6495ED;
+/*
 -webkit-background-size:100%;
-background-size:100%
+background-size:100%*/
 }
 /* 左右信息框 */
 #left {
@@ -81,6 +93,7 @@ float:right;
 }
 #more_right {
 margin-left:350px;
+color:Yellow;
 }
 /* 结束 四个信息框 */
 
@@ -116,9 +129,10 @@ margin-right:auto;
 #searchDiv {
 text-align:center;
 width:1024px;
-height:30px;
+height:45px;
 margin-left:auto;
 margin-right:auto;
+margin-top:0;
 }
 
 #searchDiv input[type=text]{
@@ -126,7 +140,6 @@ margin-right:auto;
 	color: #636365;
 	font-size: 15pt;
 	vertical-align: middle;
-	border:1px solid Black;
 }
 #searchDiv table{
 	color:Black;
@@ -135,7 +148,10 @@ margin-right:auto;
 	border-collapse:collapse;
 	border:none;
 }
-
+#searchBtn
+{
+background:Yellow;
+}
 #radioLength {
 width:30%;
 }

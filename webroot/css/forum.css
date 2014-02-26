@@ -134,3 +134,48 @@ font-size:30px;
 #btn a:hover{
 text-decoration:none;
 }
+
+/*三级页面*/
+#titleH1 {
+font-size:30px;
+text-align:center;
+color:#4169E1;
+}
+#titleH2 {
+font-size:15px;
+text-align:center;
+}
+#tableDiv {
+width:1024px;
+margin-left:auto;
+margin-right:auto;
+}
+#contentDiv {
+width:1024px;
+margin-left:auto;
+margin-right:auto;
+background:#D3D3D3;
+padding:5px;
+}
+#trContent {
+width:1024px;
+margin:0;
+background:#D3D3D3;
+}
+#authorDiv {
+width:1024px;
+margin:0;
+text-align:center;
+padding:0;
+}
+#pBlue {
+color:#4169E1;
+float:center;
+}
+#pagingDiv
+{
+width:1024px;
+margin-left:auto;
+margin-right:auto;
+text-align:center;
+}
