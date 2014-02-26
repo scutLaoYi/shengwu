@@ -18,5 +18,5 @@
 	<?php echo ($message);?>
 </div>
 <div class="actions">
-<?php echo $this->element('admin_options');?>
+<?php echo __($this->element('admin_options');)?>
 </div>

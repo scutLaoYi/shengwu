@@ -13,10 +13,13 @@ class RecruitmentsController extends AppController {
  *
  * @var array
  */
-	public $helpers = array('Html','Form');
+	public $helpers = array('Html','Form', 'Cache');
 	public $components = array('Paginator','List', 'RecruitmentSearcher');
 	public $uses = array('CompanyUserInfo','Recruitment');
 
+	public $cacheAction = array(
+		'recruitment_list' => 36000,
+	);
 /**
  * index method
  *

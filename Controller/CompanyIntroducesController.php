@@ -13,9 +13,12 @@ class CompanyIntroducesController extends AppController {
 	 *
 	 * @var array
 	 */
-	public $helpers = array ('Html','Form');
+	public $helpers = array ('Html','Form', 'Cache');
 	public $components = array('Paginator','List','Picture');
 	public $uses = array('CompanyUserInfo','CompanyIntroduce');
+	public $cacheAction = array(
+		'company_introduce_list' => 36000,
+	);
 	/**
 	 * index method
 	 *

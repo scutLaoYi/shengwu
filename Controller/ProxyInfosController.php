@@ -16,7 +16,7 @@ class ProxyInfosController extends AppController {
 	public $helpers = array('Html','Form');
 	public $uses = array('CompanyUserInfo','ProxyInfo');
 	public $components = array('Paginator','List', 'RequestHandler','Picture','ProxySearcher');
-	public $helper = array('Js');
+	public $helper = array('Js', 'Cache');
 
 	/**
 	 * index method
