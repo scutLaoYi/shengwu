@@ -11,13 +11,13 @@
 		<?php echo $this->Html->link($recruitment['CompanyUserInfo']['company'],array('controller'=>'CompanyDescriptions','action'=>'view_recruitment',$recruitment['CompanyUserInfo']['id']) );?>
 	</td>
 	<td>
-		<?php echo '工作地点:'.$allProvince[$recruitment['Recruitment']['working_area']];?>
+		<?php echo h('工作地点:'.$allProvince[$recruitment['Recruitment']['working_area']]);?>
 	</td>
 	<td>
-		<?php echo '招聘人数:'.$recruitment['Recruitment']['number'];?>
+		<?php echo h('招聘人数:'.$recruitment['Recruitment']['number']);?>
 	</td>
 	<td>
-		<?php echo '发布时间:'.$recruitment['Recruitment']['created'];?>
+		<?php echo h('发布时间:'.$recruitment['Recruitment']['created']);?>
 	</td>
 </tr>
 <?php endforeach; ?>

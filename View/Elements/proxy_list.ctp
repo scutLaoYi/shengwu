@@ -5,13 +5,13 @@ echo __('代理信息');
 ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th id="tdForHead"><?php echo '产品名称'; ?></th>
-			<th id="tdForHead"><?php echo '公司名称'; ?></th>	
-			<th id="tdForHead"><?php echo '产品图片'; ?></th>	
-			<th id="tdForHead"><?php echo '代理区域'; ?></th>
-			<th id="tdForHead"><?php echo '产品分类'; ?></th>
-			<th id="tdForHead"><?php echo '发布时间'; ?></th>
-			<th id="tdForHead"><?php echo '代理介绍'; ?></th>
+			<th id="tdForHead"><?php echo __('产品名称'); ?></th>
+			<th id="tdForHead"><?php echo __('公司名称'); ?></th>	
+			<th id="tdForHead"><?php echo __('产品图片'); ?></th>	
+			<th id="tdForHead"><?php echo __('代理区域'); ?></th>
+			<th id="tdForHead"><?php echo __('产品分类'); ?></th>
+			<th id="tdForHead"><?php echo __('发布时间'); ?></th>
+			<th id="tdForHead"><?php echo __('代理介绍'); ?></th>
 	</tr>
 	<?php foreach ($proxyInfos as $proxyInfo): ?>
 	<tr>

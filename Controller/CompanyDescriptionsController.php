@@ -79,7 +79,6 @@ class CompanyDescriptionsController extends AppController
 			$this->set('introduce', $introduce['CompanyIntroduce']);
 		$this->set('company_id', $company_id);
 
-		debug($introduce);
 		//对当前公司自己的宣传页面提供编辑接口
 		if($this->Auth->user('type') == '1')
 		{

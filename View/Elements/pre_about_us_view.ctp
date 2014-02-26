@@ -12,6 +12,6 @@
 	
 	</br>
 	<?php $message=ereg_replace("\n","</br>\n",$content);?>
-	<?php echo ($message);?>
+	<?php echo __($message);?>
 </div>
 
