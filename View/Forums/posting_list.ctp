@@ -1,16 +1,26 @@
-<?php echo $this->Html->link('论坛首页',array('action'=>'index'));?>
-<?php echo ('>>'.$title.'_'.$subtitle);?>
+<div id="Title"><?php echo $subtitle;?></div>
 <div id="anotherPageBox">
-<div class="list">
-	<h2><?php echo $subtitle;?></h2>
-<?php echo $this->Html->link('发帖',array('controller'=>'Forums','action'=>'posting',$type,$typesub));?>	
+<?php echo $this->Html->link('论坛首页',array('action'=>'index'));?>
+<?php echo ('>>'.$title.'>>'.$subtitle);?>
+<div class="paging">
+<?php
+echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+echo $this->Paginator->numbers(array('separator' => ''));
+echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+?>
+</div>
+<div id="forumDiv">
+<div id="btnDiv"><div id="btn"><?php echo $this->Html->link('发贴',array('controller'=>'Forums','action'=>'posting',$type,$typesub));?></div></div>	
 	<table cellpadding="0" cellspacing ="0">
-	<th><?php echo '标题'?></th>
+	<tr>
+	<th id="Left"><?php echo '标题'?></th>
 	<th><?php echo '作者'?></th>
 	<th><?php echo '发布时间'?></th>
+	<th></th>
+	</tr>
 	<?php foreach($forums as $forum):?>
 	<tr>
-		<td>	
+		<td id="Left">	
 			<?php 
 			 echo $this->Html->link($forum['Forum']['title'],array('controller'=>'Forums','action'=>'view',$forum['Forum']['id']));?>
 		</td>
@@ -31,6 +41,7 @@
 	</tr>
 	<?php endforeach;?>
 </table>
+
 <p>
 <?php
 echo $this->Paginator->counter(array(
@@ -45,5 +56,6 @@ echo $this->Paginator->numbers(array('separator' => ''));
 echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 ?>
 </div>
+
 </div>
 </div>
