@@ -6,15 +6,14 @@
 
 var dir = 'img/mainpage_slider/';
 var pic_amount = 4;
-var pic_id = 'slide_pic';
+var pic_id = 'rollpic';
 
 function swap_pic()
 {
 	var currentDate = new Date();
 	var curpicindex = currentDate.getSeconds() % pic_amount;
 
-	document.getElementById(pic_id).src =
-		dir+curpicindex+'.jpg';
+	document.getElementById(pic_id).src = dir+curpicindex+'.jpg';
 	setTimeout("swap_pic()", 3000);
 }
 

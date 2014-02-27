@@ -17,7 +17,17 @@
 			</table>
 </div>
 <div id="rollDiv">
+<img id="rollpic" src="img/mainpage_slider/0.jpg">
+</img>
 </div>
+<!-- JavaScript for rollDiv -->
+<?php echo $this->Html->script("mainpage_pic_slider");?>
+				  <script>
+				  window.onload=function(){
+					  slider();
+				  }
+				  </script>
+<!-- end of js for rollDiv -->
 <div id="ad">
 <?php
 for($index = 0; $index < 5; $index++)
