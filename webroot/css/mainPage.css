@@ -52,15 +52,17 @@ height:420px;
 width:1024px;
 margin-left:auto;
 margin-right:auto;
-background:#F0F8FF;
+background:#F0F8FF;/*#F8F8FF;*/
 }
 .summary_message ul {
-width:470px;
+width:502px;
 height:400px;
 text-align:left;
+padding:0px;
+margin:5px;
 }
 .summary_message li {
-list-style:circle; 
+list-style:none; 
 }
 .summary_message a {
 text-decoration:none;
@@ -70,7 +72,7 @@ color:Black;
 text-decoration:underline;
 color:#00008B;
 }
-#topForMore {
+#topLeft {
 height:28px;
 font-size:20px;
 margin:0;
@@ -84,6 +86,50 @@ border-bottom:2px solid #6495ED;
 -webkit-background-size:100%;
 background-size:100%*/
 }
+#topLeft {
+height:28px;
+font-size:20px;
+margin:0;
+border-style:none;
+list-style:none;
+
+background:url('../img/mainPage/mainpage/02-1.jpg');
+background-repeat:no-repeat;
+border-bottom:2px solid #6495ED;
+}
+#topRight {
+height:28px;
+font-size:20px;
+margin:0;
+border-style:none;
+list-style:none;
+
+background:url('../img/mainPage/mainpage/02-2.jpg');
+background-repeat:no-repeat;
+border-bottom:2px solid #6495ED;
+}
+#downLeft {
+height:28px;
+font-size:20px;
+margin:0;
+border-style:none;
+list-style:none;
+
+background:url('../img/mainPage/mainpage/02-1.jpg');
+background-repeat:no-repeat;
+border-bottom:2px solid #6495ED;
+}
+#downRight {
+height:28px;
+font-size:20px;
+margin:0;
+border-style:none;
+list-style:none;
+
+background:url('../img/mainPage/mainpage/02-5.jpg');
+background-repeat:no-repeat;
+border-bottom:2px solid #6495ED;
+}
 /* 左右信息框 */
 #left {
 float:left;
@@ -92,8 +138,7 @@ float:left;
 float:right;
 }
 #more_right {
-margin-left:350px;
-color:Yellow;
+margin-left:400px;
 }
 /* 结束 四个信息框 */
 
@@ -165,13 +210,21 @@ width:20%;
 /* 结束 - 搜索框 */
 
 /* 友情链接 */
+#friendLinkHead {
+width:1024px;
+margin-left:auto;
+margin-right:auto;
+height:40px;
+background:url('../img/mainPage/mainpage/友情链接.jpg');
+background-repeat:no-repeat;
+background-size:12% 100%;
+}
 #friendLink {
 	clear: both;
 	text-align: left;
-	background:url(img/friendly_link/foot.png);
+	background:url('../img/mainPage/mainpage/友情链接背景.jpg');
 	height:256px;
 	width:1024px;
-	margin-top:10px;
 	margin-left:auto;
 	margin-right:auto;
 	-webkit-background-size:100%;
