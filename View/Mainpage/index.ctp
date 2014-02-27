@@ -17,7 +17,17 @@
 			</table>
 </div>
 <div id="rollDiv">
+<img id="rollpic" src="img/mainpage_slider/0.jpg">
+</img>
 </div>
+<!-- JavaScript for rollDiv -->
+<?php echo $this->Html->script("mainpage_pic_slider");?>
+				  <script>
+				  window.onload=function(){
+					  slider();
+				  }
+				  </script>
+<!-- end of js for rollDiv -->
 <div id="ad">
 <?php
 for($index = 0; $index < 5; $index++)
@@ -54,7 +64,7 @@ for($index = 0; $index < 5; $index++)
 
 <div class="summary_message">
 <ul id="left">
-<li id="topForMore"><a id="more_right"><?php echo $this->Html->link('More',array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list'));?></a></li>
+<li id="topLeft"><a id="more_right"><?php echo $this->Html->link('More',array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list'));?></a></li>
 <?php foreach($company_introduces as $company_introduce):?>
 
 <li><a><?php echo $this->Html->link($company_introduce['CompanyUserInfo']['company'],array('controller'=>'CompanyDescriptions','action'=>'view_info',$company_introduce['CompanyUserInfo']['id']));?></a></li>
@@ -62,7 +72,7 @@ for($index = 0; $index < 5; $index++)
 </ul>
 
 <ul id="right">
-<li id="topForMore"><a id="more_right"><?php echo $this->Html->link('More',array('controller'=>'Recruitments','action'=>'recruitment_list'));?></a></li>
+<li id="topRight"><a id="more_right"><?php echo $this->Html->link('More',array('controller'=>'Recruitments','action'=>'recruitment_list'));?></a></li>
 	<?php foreach($recruitments as $recruitment):?>
 	<li><a><?php echo $this->Html->link($recruitment['Recruitment']['job_title'].' '.$recruitment['CompanyUserInfo']['company'],array('controller'=>'Recruitments','action'=>'recruitment_view',$recruitment['Recruitment']['id']));?></a></li>
 <?php endforeach;?>
@@ -71,7 +81,7 @@ for($index = 0; $index < 5; $index++)
 
 <div class="summary_message">
 <ul id="left">
-<li id="topForMore"><a id="more_right"><?php echo $this->Html->link('More',array('controller'=>'ProxyInfos','action'=>'proxy_search'));?></a></li>
+<li id="downLeft"><a id="more_right"><?php echo $this->Html->link('More',array('controller'=>'ProxyInfos','action'=>'proxy_search'));?></a></li>
 	<?php foreach($proxys as $proxy):?>
 	<li><a><?php echo $this->Html->link($proxy['ProxyInfo']['product_name'].' '.$proxy['CompanyUserInfo']['company'],array('controller'=>'ProxyInfos','action'=>'proxy_view',$proxy['ProxyInfo']['id']));?></a></li>
 <?php endforeach;?>
@@ -79,14 +89,13 @@ for($index = 0; $index < 5; $index++)
 </ul>
 
 <ul id="right">
-<li id="topForMore"><a id="more_right"><?php echo $this->Html->link('More',array('controller'=>'Forums','action'=>'index'));?></a></li>
+<li id="downRight"><a id="more_right"><?php echo $this->Html->link('More',array('controller'=>'Forums','action'=>'index'));?></a></li>
 <?php foreach($forums as $forum):?>
 
 <li><a><?php echo $this->Html->link($forum['Forum']['title'],array('controller'=>'Forums','action'=>'view',$forum['Forum']['id']));?></a></li>
 <?php endforeach;?>
 </ul>
 </div>
-
 
 <div id="ad">
 <?php
@@ -118,6 +127,5 @@ for($index = 0; $index < 5; $index++)
 }
 ?>
 </div>
-
 
 
