@@ -118,9 +118,9 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
+		<div id="friendLinkHead"></div>
 		<div id="friendLink">
 <?php 
-		echo '友情链接：';
 		$links = $this->requestAction('/FriendlyLinks/list_link');
 		foreach($links as $onelink)
 		{
