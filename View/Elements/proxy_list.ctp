@@ -1,4 +1,4 @@
-<div id="subPage">
+<div>
 <!-- begin of index -->
 	<h2><?php 
 echo __('代理信息');
