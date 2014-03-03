@@ -1,5 +1,5 @@
 <!-- 导入外部的选项内容 -->
-<div id="anotherPageBox">
+
 <?php echo $this->Html->script('allSelections'); ?>
 <?php echo $this->Html->script('proxySelection'); ?>
 <script>
@@ -34,7 +34,7 @@ function searching()
 			evalScripts:true,
 			data: ({type:'original'}),
 			success:function(data, textStatus){
-					$("#index").html(data);
+					$("#rightBox").html(data);
 				}
 });
 }
@@ -51,7 +51,8 @@ setOption(option, "全部")
 
 <!-- actions for filter -->
 <!-- beginning of actions -->
-<div id="actionBox">
+<div id="bigBox">
+<div id="leftBox">
 <?php
 echo $this->Form->input('product_area', array('id'=>'product_area', 'label'=>'代理地区', 'options'=>$allCountrys,'onchange'=>'searching();'));
 echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产品分类','onchange'=>'setAndSearch(this.selectedIndex);','options'=>$allProduct));
@@ -67,9 +68,7 @@ echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产
 </div>
 
 <!-- data of ajax -->
-<div class="index" id="index">
-</div>
-<div id="debugDiv">
+<div id="rightBox">
 </div>
 <script>
 

@@ -1,4 +1,8 @@
-<div id="anotherPageBox">
+<div id="leftBox">
+<?php echo $this->element('company_description_option', array(
+		'currentId' => $company_id));?>
+</div>
+<div id="rightBox">
 
 <?php if(!isset($introduce))
 	{
@@ -23,6 +27,3 @@ else
 }
 ?>
 </div>
-
-<?php echo $this->element('company_description_option', array(
-		'currentId' => $company_id));?>

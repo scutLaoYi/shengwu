@@ -227,6 +227,7 @@ background-repeat:no-repeat;
 background-size:12% 100%;
 }
 #friendLink {
+	margin-top:50px;
 	clear: both;
 	text-align: left;
 	background:url('../img/mainPage/mainpage/友情链接背景.jpg');

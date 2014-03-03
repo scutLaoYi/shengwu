@@ -1,0 +1,27 @@
+#bigBox {
+width:1024px;
+margin-left:auto;
+margin-right:auto;
+margin-top:5px;
+}
+#leftBox {
+width:250px;
+border:1px solid #EEE5DE;
+border-radius:5px;
+float:left;
+margin-top:60px;
+margin-left:10px;
+height:300px;
+text-align:center;
+background:#F5F5F5;
+}
+#rightBox {
+width:740px;
+float:right;
+top:100px;
+margin-top:60px;
+}
+#listLi {
+list-style:none;
+width:180px;
+}

@@ -1,12 +1,12 @@
-<div id="anotherPageBox">
-<div id="actionBox">
+<div id="bigBox">
+<div id="leftBox">
 <?php echo $this->Form->create('CompanySearch');?>
 	<?php echo $this->Form->input('Country',array('options'=>$allCountrys,'label'=>'公司地区'));?>
 	<?php echo $this->Form->input('search',array('label'=>'公司名'));?>
 <?php echo $this->Form->end(__('搜索'));?>
 </div>
 
-<div id="subPage">
+<div id="rightBox">
 	<h2><?php echo $head;?></h2>
 	<table cellpadding="0" cellspacing ="0">
 	<?php foreach($companys as $company):?>

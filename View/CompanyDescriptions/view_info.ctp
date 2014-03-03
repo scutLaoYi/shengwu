@@ -1,10 +1,10 @@
 
-<div id="anotherPageBox">
-<div class="actions">
+<div id="leftBox">
 <?php echo $this->element('company_description_option', array(
 		'currentId' => $company_info['id']));
 ?>
 </div>
+<div id="rightBox">
 <?php 
 
 if(isset($isCurrentCompany))
@@ -21,5 +21,6 @@ if(isset($isCurrentCompany))
 <p>网    址：<?php echo h($company_info['website']); ?></p>
 <p>联 系 QQ：<?php echo h($company_info['qq']); ?></p>
 </div>
+
 
 

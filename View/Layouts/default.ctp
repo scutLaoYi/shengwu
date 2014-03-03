@@ -32,7 +32,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css(array('mainStyle','mainPage','forum'));
+		echo $this->Html->css(array('mainStyle','mainPage','secondPage','forum'));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -118,8 +118,8 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
-		<div id="friendLinkHead"></div>
 		<div id="friendLink">
+		<div id="friendLinkHead"></div>
 <?php 
 		$links = $this->requestAction('/FriendlyLinks/list_link');
 		foreach($links as $onelink)
@@ -146,7 +146,6 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 		echo '-';
 ?>
 		</div>
-	</div>
 	<?php //echo $this->element('sql_dump'); ?> 
 	<?php echo $this->Js->writeBuffer();?>
 </body>
