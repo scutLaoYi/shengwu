@@ -1,21 +1,23 @@
 <div id="searchDiv">
-			<?php echo $this->Form->create('search'); ?>
-			<table>
-			<tr>
-				<td id="radioLength">
-				<?php $options = array('company'=>'公司','proxy'=>'代理');
-				  $attributes = array('legend'=>false,'value'=>'company');
-				  echo $this->Form->radio('select',$options,$attributes);?>
-				</td>
-				<td id="inputLength">
+	<?php echo $this->Form->create('search'); ?>
+		<ul>
+			<li>
+				<label>
+				<?php
+				$options = array('company'=>'公司','proxy'=>'代理');
+				$attributes = array('legend'=>false,'value'=>'company');
+				echo $this->Form->radio('select',$options,$attributes);?>
+				</label>
+			</li>
+			<li>
 				<?php echo $this->Form->input('content',array('label'=>'')) ?>
-				</td>
-			<td id="buttonLength">
-			<?php echo $this->Form->end('搜索');?>
-			</td>
-			</tr>
-			</table>
+			</li>
+			<li>
+				<?php echo $this->Form->end('搜索');?>
+			</li>
+		</ul>
 </div>
+
 <div id="rollDiv">
 <img id="rollpic" src="img/mainpage_slider/0.jpg">
 </img>
@@ -63,38 +65,60 @@ for($index = 0; $index < 5; $index++)
 <!-- ------------infomations-------- -->
 
 <div class="summary_message">
-<ul id="left">
-<li id="topLeft"><a id="more_right"><?php echo $this->Html->link('More',array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list'));?></a></li>
+	<div id="message_box_left">
+		<b id="message_b">公司介绍</b>
+		<span id="message_span">
+			<?php echo $this->Html->link('More',array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list'));?>
+		</span>
+	</div>
+	<div id="message_box_right">
+		<b id="message_b">招聘信息</b>
+		<span id="message_span">
+			<?php echo $this->Html->link('More',array('controller'=>'Recruitments','action'=>'recruitment_list'));?>
+		</span>
+	</div>
+	<ul id="left">
 <?php foreach($company_introduces as $company_introduce):?>
-
-<li><a><?php echo $this->Html->link($company_introduce['CompanyUserInfo']['company'],array('controller'=>'CompanyDescriptions','action'=>'view_info',$company_introduce['CompanyUserInfo']['id']));?></a></li>
+	<li>
+		<?php echo $this->Html->link($company_introduce['CompanyUserInfo']['company'],array('controller'=>'CompanyDescriptions','action'=>'view_info',$company_introduce['CompanyUserInfo']['id']));?>
+	</li>
 <?php endforeach;?>
-</ul>
+	</ul>
 
-<ul id="right">
-<li id="topRight"><a id="more_right"><?php echo $this->Html->link('More',array('controller'=>'Recruitments','action'=>'recruitment_list'));?></a></li>
-	<?php foreach($recruitments as $recruitment):?>
-	<li><a><?php echo $this->Html->link($recruitment['Recruitment']['job_title'].' '.$recruitment['CompanyUserInfo']['company'],array('controller'=>'Recruitments','action'=>'recruitment_view',$recruitment['Recruitment']['id']));?></a></li>
+
+	<ul id="right">
+		<?php foreach($recruitments as $recruitment):?>
+		<li><?php echo $this->Html->link($recruitment['Recruitment']['job_title'].' '.$recruitment['CompanyUserInfo']['company'],array('controller'=>'Recruitments','action'=>'recruitment_view',$recruitment['Recruitment']['id']));?>
+		</li>
 <?php endforeach;?>
-</ul>
+	</ul>
+
 </div>
 
 <div class="summary_message">
-<ul id="left">
-<li id="downLeft"><a id="more_right"><?php echo $this->Html->link('More',array('controller'=>'ProxyInfos','action'=>'proxy_search'));?></a></li>
+	<div id="message_box_left">
+		<b id="message_b">代理信息</b>
+		<span id="message_span">
+			<?php echo $this->Html->link('More',array('controller'=>'ProxyInfos','action'=>'proxy_search'));?>
+		</span>
+	</div>
+	<div id="message_box_right">
+		<b id="message_b">论坛</b>
+		<span id="message_span">
+			<?php echo $this->Html->link('More',array('controller'=>'Forums','action'=>'index'));?>
+		</span>
+	</div>
+	<ul id="left">
 	<?php foreach($proxys as $proxy):?>
-	<li><a><?php echo $this->Html->link($proxy['ProxyInfo']['product_name'].' '.$proxy['CompanyUserInfo']['company'],array('controller'=>'ProxyInfos','action'=>'proxy_view',$proxy['ProxyInfo']['id']));?></a></li>
-<?php endforeach;?>
+	<li><?php echo $this->Html->link($proxy['ProxyInfo']['product_name'].' '.$proxy['CompanyUserInfo']['company'],array('controller'=>'ProxyInfos','action'=>'proxy_view',$proxy['ProxyInfo']['id']));?></li>
+	<?php endforeach;?>
+	</ul>
 
-</ul>
-
-<ul id="right">
-<li id="downRight"><a id="more_right"><?php echo $this->Html->link('More',array('controller'=>'Forums','action'=>'index'));?></a></li>
-<?php foreach($forums as $forum):?>
-
-<li><a><?php echo $this->Html->link($forum['Forum']['title'],array('controller'=>'Forums','action'=>'view',$forum['Forum']['id']));?></a></li>
-<?php endforeach;?>
-</ul>
+	<ul id="right">
+	<?php foreach($forums as $forum):?>
+		<li><?php echo $this->Html->link($forum['Forum']['title'],array('controller'=>'Forums','action'=>'view',$forum['Forum']['id']));?></li>
+	<?php endforeach;?>
+	</ul>
 </div>
 
 <div id="ad">

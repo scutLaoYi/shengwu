@@ -119,16 +119,18 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="friendLink">
-		<div id="friendLinkHead"></div>
-<?php 
-		$links = $this->requestAction('/FriendlyLinks/list_link');
-		foreach($links as $onelink)
-		{
-			$currentName =  $onelink['FriendlyLink']['link_name'];
-			$currentUrl = $onelink['FriendlyLink']['link_url'];
-			echo $this->Html->link($currentName,$currentUrl);
-		}
-?>
+			<div id="friendLinkHead"><b>友情链接</b></div>
+			<div id="friendLinkeContent">
+			<?php 
+			$links = $this->requestAction('/FriendlyLinks/list_link');
+			foreach($links as $onelink)
+			{
+				$currentName =  $onelink['FriendlyLink']['link_name'];
+				$currentUrl = $onelink['FriendlyLink']['link_url'];
+				echo $this->Html->link($currentName,$currentUrl);
+			}
+			?>
+			</div>
 		</div>
 	</div>
 		<div id="footer">
