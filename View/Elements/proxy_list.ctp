@@ -27,13 +27,14 @@ array('controller'=>'CompanyDescriptions','action'=>'view_proxy', $proxyInfo['Co
 	</ul>
 	<?php endforeach; ?>
 
-	<p>
+	
+	<div class="paging">
+<p>
 <?php
 echo $this->Paginator->counter(array(
 	'format' => __('第{:page}页， 共{:pages}页')
 ));
 ?>	</p>
-	<div class="paging">
 <?php
 if(isset($isAjax))
 	$this->Paginator->options(array('update'=>'#ajax', 'evalScripts'=>true));
