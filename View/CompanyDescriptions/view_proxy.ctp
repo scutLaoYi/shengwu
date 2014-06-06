@@ -1,4 +1,5 @@
 <div id = 'leftBox'>
+<div id="company_third_title"></div>
 <?php
 echo $this->element('company_description_option', array('currentId'=>$company_id));
 ?>

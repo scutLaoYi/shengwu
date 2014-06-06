@@ -53,6 +53,7 @@ setOption(option, "全部")
 <!-- beginning of actions -->
 <div id="bigBox">
 <div id="leftBox">
+<div id="proxy_title"></div>
 <?php
 echo $this->Form->input('product_area', array('id'=>'product_area', 'label'=>'代理地区', 'options'=>$allCountrys,'onchange'=>'searching();'));
 echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产品分类','onchange'=>'setAndSearch(this.selectedIndex);','options'=>$allProduct));

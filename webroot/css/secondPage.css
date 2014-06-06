@@ -4,6 +4,28 @@ margin-left:auto;
 margin-right:auto;
 margin-top:5px;
 }
+#company_title
+{
+width:220px;
+margin-left:auto;
+margin-right:auto;
+margin-top:10px;
+height:60px;
+background:url('../img/mainPage/secondPage/companySearch.jpg');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+#proxy_title
+{
+width:220px;
+margin-left:auto;
+margin-right:auto;
+margin-top:10px;
+height:60px;
+background:url('../img/mainPage/secondPage/proxyInfo.jpg');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
 #leftBox {
 width:250px;
 border:1px solid #EEE5DE;
@@ -15,13 +37,67 @@ height:300px;
 text-align:center;
 background:#F5F5F5;
 }
+.leftBoxSubmit
+{
+background:yellow;
+}
 #rightBox {
 width:740px;
 float:right;
 top:100px;
 margin-top:60px;
 }
-#listLi {
-list-style:none;
-width:180px;
+
+/*公司列表图标*/
+#gslb {
+margin-left:300px;
+width:160px;
+height:40px;
 }
+#gslb_1 {
+background:url('../img/mainPage/secondPage/gslb-1.jpg');
+float:left;
+width:100px;
+height:25px;
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+#gslb_2 {
+background:url('../img/mainPage/secondPage/gslb-2.jpg');
+float:right;
+width:45px;
+height:38px;
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+
+/*内容列表*/
+#content_list {
+width:710px;
+height:auto;
+padding:5px;
+margin:0px;
+float:left;
+border-top:1px solid #778899;
+}
+#content_list_li {
+width:100px;
+height:100px;
+float:left;
+list-style:none;
+}
+#content_list_li_1{
+width:300px;
+height:25px;
+float:left;
+list-style:none;
+}
+#content_list_li_2 {
+width:700px;
+height:50px;
+float:left;
+list-style:none;
+background:rgb(245, 245, 245);
+border-top:2px solid #DCDCDC;
+}
+

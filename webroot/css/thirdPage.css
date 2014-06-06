@@ -1,0 +1,42 @@
+#company_third_title
+{
+width:220px;
+margin-left:auto;
+margin-right:auto;
+margin-top:10px;
+height:60px;
+background:url('../img/mainPage/thirdPage/advertise.jpg');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+
+#listUl {
+width:150px;
+height:auto;
+float:center;
+text-align:0px;
+}
+#listUl li {
+display:block;
+width:150px;
+height:30px;
+float:left;
+list-style:none;
+background:url('../img/mainPage/thirdPage/list-1.jpg');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+#listUl li a {
+text-decoration:none;
+padding-top:8px;
+display:block;
+color:#363636;
+white-space:nowrap;
+}
+#listUl li a:hover
+{
+/*text-decoration:underline;*/
+background-image:url('../img/mainPage/thirdPage/list-2.jpg');
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+}
