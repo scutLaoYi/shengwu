@@ -288,6 +288,11 @@ class ProxyInfosController extends AppController {
 				return true;
 			}
 		}
+		if($this->Auth->user('type')==2)
+		{
+			$this->Session->setFlash("您当前不是企业用户，无法发布代理信息，请注册企业用户！");
+			return false;
+		}
 		return parent::isAuthorized($user);
 	}
 }
