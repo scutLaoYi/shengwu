@@ -296,3 +296,15 @@ dd {
 	margin-top: -2em;
 	vertical-align: top;
 }
+
+/** Notices and Errors **/
+.message {
+	clear: both;
+	color: #006600;
+	font-size: 140%;
+	font-weight: bold;
+	margin: 0 0 1em 0;
+	padding: 5px;
+	background:#63B8FF;
+}
+
