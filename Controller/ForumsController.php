@@ -47,7 +47,7 @@ class ForumsController extends AppController {
 		$this->set('subtitle',$second[$typesub]);
 		$this->set('type',$type);
 		$this->set('typesub',$typesub);
-		$this->Paginator->settings = array('limit'=>'20','conditions'=>array('Forum.type'=>$type,'Forum.typesub'=>$typesub));
+		$this->Paginator->settings = array('limit'=>'20','order'=>array('Forum.created'=>'desc'),'conditions'=>array('Forum.type'=>$type,'Forum.typesub'=>$typesub));
 		$this->set('forums',$this->Paginator->paginate('Forum'));
 		//管理员身份判断
 			if($this->Auth->user('type')=='3')
