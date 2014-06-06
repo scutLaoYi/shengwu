@@ -39,21 +39,21 @@
 		</li>
 	</ul>
 	<?php endforeach;?>
-<p>
-<?php
-echo $this->Paginator->counter(array(
-	'format' => __(
+
+	<div class="paging">
+	<p>
+	<?php
+	echo $this->Paginator->counter(array(
+'format' => __(
 '第{:page}页， 共{:pages}页'
-)
-));
-?>	
-</p>
-<div class="paging">
-<?php
-echo $this->Paginator->prev('< ' . __('上一页'), array(), null, array('class' => 'prev disabled'));
-echo $this->Paginator->numbers(array('separator' => ''));
-echo $this->Paginator->next(__('下一页') . ' >', array(), null, array('class' => 'next disabled'));
-?>
-</div>
-</div>
+)));
+	?>	
+	</p>
+	<?php
+	echo $this->Paginator->prev('< ' . __('上一页'), array(), null, array('class' => 'prev disabled'));
+	echo $this->Paginator->numbers(array('separator' => ''));
+	echo $this->Paginator->next(__('下一页') . ' >', array(), null, array('class' => 'next disabled'));
+	?>
+	</div>
+	</div>
 </div>

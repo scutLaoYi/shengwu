@@ -10,6 +10,7 @@ background-repeat:no-repeat;
 background-size:100% 100%;
 }
 
+/*action bar*/
 #listUl {
 width:150px;
 height:auto;
@@ -40,3 +41,69 @@ background-image:url('../img/mainPage/thirdPage/list-2.jpg');
 	background-repeat:no-repeat;
 	background-size:100% 100%;
 }
+
+/*三级页面表单*/
+#proxy_div {
+text-align:center;
+margin-top:10px;
+width:1024px;
+margin-left:auto;
+margin-right:auto;
+}
+#proxy_dl {
+	line-height: 2em;
+	float:left;
+	width: 65%;
+}
+
+#proxy_dt {
+	font-weight: bold;
+	padding-left: 4px;
+	vertical-align: top;
+	width: 8em;
+	border-bottom:2px solid #20B2AA;
+	margin-left:80px;
+}
+#proxy_dd {
+	margin-left: 300px;
+	margin-top:-2em;
+	vertical-align: top;
+	border-bottom:2px dotted #D3D3D3;
+	text-align:left;
+}
+#anotherPageBox a {
+color:black;
+}
+#dlxx {
+width:160px;
+height:50px;
+margin-left:auto;
+margin-right:auto;
+}
+#dlxx_1 {
+background:url('../img/mainPage/thirdPage/dlxx-1.jpg');
+width:100px;
+height:25px;
+margin-top:15px;
+float:left;
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+#dlxx_2 {
+background:url('../img/mainPage/thirdPage/dlxx-2.jpg');
+width:40px;
+height:50px;
+float:right;
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+#girl_div {
+background:url('../img/mainPage/thirdPage/dlxx-3.jpg');
+width:269px;
+height:243px;
+float:right;
+margin-right:30px;
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+

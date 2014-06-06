@@ -26,6 +26,17 @@ background:url('../img/mainPage/secondPage/proxyInfo.jpg');
 background-repeat:no-repeat;
 background-size:100% 100%;
 }
+#aboutUs_title{
+width:220px;
+margin-left:auto;
+margin-right:auto;
+margin-top:10px;
+height:60px;
+background:url('../img/mainPage/secondPage/aboutUs.jpg');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+
 #leftBox {
 width:250px;
 border:1px solid #EEE5DE;
@@ -52,21 +63,22 @@ margin-top:60px;
 #gslb {
 margin-left:300px;
 width:160px;
-height:40px;
+height:50px;
 }
 #gslb_1 {
 background:url('../img/mainPage/secondPage/gslb-1.jpg');
 float:left;
 width:100px;
 height:25px;
+margin-top:15px;
 background-repeat:no-repeat;
 background-size:100% 100%;
 }
 #gslb_2 {
 background:url('../img/mainPage/secondPage/gslb-2.jpg');
 float:right;
-width:45px;
-height:38px;
+width:40px;
+height:50px;
 background-repeat:no-repeat;
 background-size:100% 100%;
 }
@@ -88,16 +100,22 @@ list-style:none;
 }
 #content_list_li_1{
 width:300px;
-height:25px;
+height:30px;
 float:left;
 list-style:none;
 }
 #content_list_li_2 {
-width:700px;
-height:50px;
+width:600px;
+height:70px;
 float:left;
 list-style:none;
 background:rgb(245, 245, 245);
 border-top:2px solid #DCDCDC;
 }
 
+/*招聘2级页面*/
+#recruitment_div {
+width:710px;
+margin-left:auto;
+margin-right:auto;
+}
