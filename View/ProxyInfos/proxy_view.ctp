@@ -1,5 +1,6 @@
 <div id="anotherPageBox">
 	<div id="dlxx">
+		<?php ?>
 		<div id="dlxx_1"></div>
 		<div id="dlxx_2"></div>
 	</div>

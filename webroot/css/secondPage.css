@@ -36,7 +36,16 @@ background:url('../img/mainPage/secondPage/aboutUs.jpg');
 background-repeat:no-repeat;
 background-size:100% 100%;
 }
-
+#login_title {
+width:220px;
+margin-left:auto;
+margin-right:auto;
+margin-top:10px;
+height:60px;
+background:url('../img/mainPage/secondPage/login.jpg');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
 #leftBox {
 width:250px;
 border:1px solid #EEE5DE;
@@ -118,4 +127,73 @@ border-top:2px solid #DCDCDC;
 width:710px;
 margin-left:auto;
 margin-right:auto;
+}
+
+/*登录 */
+.inputLine, .inputLine ul {
+width:480px;
+margin:0px;
+float:left;
+padding:0px;
+height:auto;
+}
+/*
+.inputLine ul li {
+width:auto;
+height:auto;
+float:left;
+list-style:none;
+}
+*/
+#inputIcon {
+width:auto;
+height:auto;
+float:left;
+list-style:none;
+padding:0px;
+margin:0px;
+text-align:center;
+}
+#inputTest_li {
+width:110px;
+height:auto;
+float:left;
+list-style:none;
+padding:0px;
+margin:0px;
+text-align:center;
+}
+#inputField_li {
+width:auto;
+height:auto;
+float:left;
+list-style:none;
+}
+#username {
+width:45px;
+height:45px;
+background:url('../img/mainPage/secondPage/username.jpg');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+#password {
+width:45px;
+height:45px;
+background:url('../img/mainPage/secondPage/password.jpg');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+#inputField {
+width:auto;
+height:45px;
+margin-top:15px;
+text-align:right;
+}
+
+/*注册*/
+#inputField2 {
+width:auto;
+height:30px;
+margin-top:15px;
+text-align:right;
 }

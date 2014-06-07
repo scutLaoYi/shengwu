@@ -107,3 +107,24 @@ background-repeat:no-repeat;
 background-size:100% 100%;
 }
 
+.company_dl dl {
+	line-height: 2em;
+	float:left;
+	width: 65%;
+}
+
+.company_dl dl dt  {
+	font-weight: bold;
+	padding-left: 4px;
+	vertical-align: top;
+	width: 8em;
+	border-bottom:2px solid #20B2AA;
+	margin-left:80px;
+}
+.company_dl dl dd{
+	margin-left: 300px;
+	margin-top:-2em;
+	vertical-align: top;
+	border-bottom:2px dotted #D3D3D3;
+	text-align:left;
+}
