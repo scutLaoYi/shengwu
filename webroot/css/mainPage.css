@@ -15,13 +15,8 @@ height:250px;
 margin-left:auto;
 margin-right:auto;
 }
-#ad {
-width:1024px;
-height:530px;
-margin-left:auto;
-margin-right:auto;
-background:#F5F5F5;
-}
+
+/*
 #ad ul {
 height:100px;
 padding:0;
@@ -37,6 +32,20 @@ padding-bottom:0px;
 #ad a {
 text-decoration:none;
 padding:0;
+}
+*/
+.ad, .ad ul {
+height:auto;
+width:1024px;
+float:left;
+padding:0px;
+margin:0px;
+}
+.ad ul li {
+width:auto;
+height:auto;
+float:left;
+list-style:none;
 }
 /* all kinds of h1 */
 h1.mainPage {
@@ -56,36 +65,37 @@ text-shadow:0px 0px 10px #fff;
 /* 四个信息框 */
 .summary_message {
 height:460px;
-width:1024px;
-margin-left:auto;
-margin-right:auto;
-background:#F0F8FF;/*#F8F8FF;*/
+width:510px;
+margin:0px;
+float:left;
+background:white;
+border:1px solid #D3D3D3;;
 }
 #message_box_left
 {
-width:480px;
+width:512px;
 height:40px;
 text-align:left;
-margin:10px;
+margin:10px 0px 0px 0px;
 float:left;
 font-size:20px;
 background-image:url('../img/mainPage/mainpage/message.jpg');
+background-color:rgb(245, 251, 254);
 background-repeat:no-repeat;
 background-size:25% 100%;
-border-bottom:1px solid #87CEFA;
 }
 #message_box_right
 {
-width:480px;
+width:512px;
 height:40px;
 text-align:left;
-margin:10px;
+margin:10px 0px 0px 0px;
 float:right;
 font-size:20px;
 background-image:url('../img/mainPage/mainpage/message.jpg');
+background-color:rgb(245, 251, 254);
 background-repeat:no-repeat;
 background-size:25% 100%;
-border-bottom:1px solid #87CEFA;
 display:inline
 }
 #message_b

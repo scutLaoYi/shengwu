@@ -155,7 +155,8 @@ width:1024px;
 margin-left:auto;
 margin-right:auto;
 background:#D3D3D3;
-padding:5px;
+padding-top:10px;
+padding-bottom:10px;
 }
 #trContent {
 width:1024px;
