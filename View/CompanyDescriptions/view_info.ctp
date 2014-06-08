@@ -11,28 +11,44 @@
 if(isset($isCurrentCompany))
 	echo $this->Html->link('编辑', array('controller'=>'CompanyUserInfos', 'action'=>'company_edit'));
 ?>
-<div class="company_dl">
-<dl>
-	<dt>公司名称</dt>
-	<dd><?php echo h($company_info['company']); ?></dd>
-	<dt>联 系 人</dt>
-	<dd><?php echo h($company_info['contact_person']); ?></dd>
-	<dt>联系方式</dt>
-	<dd><?php echo h($company_info['contact_number']); ?> </dd>
-	<dt>传    真</dt>
-	<dd><?php echo h($company_info['tax']); ?></dd>
-	<dt>所在省份</dt>
-	<dd><?php echo h($allProvince[$company_info['province']]); ?></dd>
-	<dt>详细地址</dt>
-	<dd><?php echo h($company_info['address']); ?></dd>
-	<dt>邮    编</dt>
-	<dd><?php echo h($company_info['code']); ?></dd>
-	<dt>网    址</dt>
-	<dd><?php echo h($company_info['website']); ?></dd>
-	<dt>联 系 QQ</dt>
-	<dd><?php echo h($company_info['qq']); ?></dd>
-</dl>
-</div>
+<ul id="company_3_ul">
+	<li id="company_3_li">
+		<span id="companry_3_span">【公司名称】</span>
+		<?php echo h($company_info['company']); ?>
+	</li>
+	<li id="company_3_li">
+		<span id="companry_3_span">【联 系 人】</span>
+		<?php echo h($company_info['contact_person']); ?>
+	</li>
+	<li id="company_3_li">
+		<span id="companry_3_span">【联系方式】</span>
+			<?php echo h($company_info['contact_number']); ?>
+	</li>
+	<li id="company_3_li">
+		<span id="companry_3_span">【传    真】</span>
+			<?php echo h($company_info['tax']); ?>
+	</li>
+	<li id="company_3_li">
+		<span id="companry_3_span">【所在省份】</span>
+			<?php echo h($allProvince[$company_info['province']]); ?>
+	</li>
+	<li id="company_3_li">
+		<span id="companry_3_span">【详细地址】</span>
+			<?php echo h($company_info['address']); ?>
+	</li>
+	<li id="company_3_li">
+		<span id="companry_3_span">【邮    编】</span>
+			<?php echo h($company_info['code']); ?>
+	</li>
+	<li id="company_3_li">
+		<span id="companry_3_span">【网    址】</span>
+			<?php echo h($company_info['website']); ?>
+	</li>
+	<li id="company_3_li">
+		<span id="companry_3_span">【联 系 QQ】</span>
+			<?php echo h($company_info['qq']); ?>
+	</li>
+</ul>
 </div>
 
 

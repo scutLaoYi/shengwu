@@ -128,3 +128,25 @@ background-size:100% 100%;
 	border-bottom:2px dotted #D3D3D3;
 	text-align:left;
 }
+
+#company_3_ul {
+width:700px;
+margin:0px;
+float:left;
+padding-left:20px;
+height:auto;
+border:3px dotted rgb(238,238,238);
+}
+#company_3_li {
+width:700px;
+line-height:27px;
+float:left;
+list-color:blue;
+border-bottom:1px solid rgb(238,238,238);
+padding:0px;
+}
+#companry_3_span {
+font-weight:bold;
+font-size:15px;
+color:#3333FF;
+}

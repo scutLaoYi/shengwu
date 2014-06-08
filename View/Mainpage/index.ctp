@@ -1,4 +1,4 @@
-<div id="searchDiv">
+<div class="searchDiv">
 	<?php echo $this->Form->create('search'); ?>
 		<ul>
 			<li>
