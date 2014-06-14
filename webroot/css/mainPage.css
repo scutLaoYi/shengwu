@@ -182,7 +182,7 @@ margin-right:auto;
 
 #anotherPageBox fieldset {
 width:500px;
-margin-left:100px;
+margin:50px auto 50px auto;
 border:3px solid #BEBEBE;
 border-style:ridge;
 border-radius:5px;
@@ -202,7 +202,7 @@ width:1024px;
 height:auto;
 margin:0px;
 float:left;
-border-bottom:2px solid #DCDCDC;
+/*border-bottom:2px solid #DCDCDC;*/
 background:url('../img/mainPage/mainpage/white.jpg');
 background-repeat:no-repeat;
 background-size:100% 100%;
