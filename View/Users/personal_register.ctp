@@ -3,6 +3,9 @@
 <fieldset>
 	<div class="inputLine">
 		<ul>
+			<li id="inputIcon">
+				<div id="username"></div>
+			</li>
 			<li id="inputTest_li"><p>用户名</p></li>
 			<li id="inputField_li">
 				<div id="inputField2">
@@ -13,6 +16,9 @@
 	</div>
 	<div class="inputLine">
 		<ul>
+			<li id="inputIcon">
+				<div id="password"></div>
+			</li>
 			<li id="inputTest_li"><p>密码</p></li>
 			<li id="inputField_li">
 				<div id="inputField2">
@@ -23,6 +29,9 @@
 	</div>
 	<div class="inputLine">
 		<ul>
+			<li id="inputIcon">
+				<div id="password"></div>
+			</li>
 			<li id="inputTest_li"><p>确认密码</p></li>
 			<li id="inputField_li">
 				<div id="inputField2">
@@ -33,6 +42,9 @@
 	</div>
 	<div class="inputLine">
 		<ul>
+			<li id="inputIcon">
+				<div id="email"></div>
+			</li>
 			<li id="inputTest_li"><p>电子邮箱</p></li>
 			<li id="inputField_li">
 				<div id="inputField2">

@@ -64,19 +64,15 @@ for($index = 0; $index < 5; $index++)
 </div>
 
 <!-- ------------infomations-------- -->
-
-	<div id="message_box_left">
+<div class="msg_box">
+<div class="msg_box_left">
+	<div id="message_box">
 		<b id="message_b">公司介绍</b>
 		<span id="message_span">
 			<?php echo $this->Html->link('More',array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list'));?>
 		</span>
 	</div>
-	<div id="message_box_right">
-		<b id="message_b">招聘信息</b>
-		<span id="message_span">
-			<?php echo $this->Html->link('More',array('controller'=>'Recruitments','action'=>'recruitment_list'));?>
-		</span>
-	</div>
+
 	<div class="summary_message">
 	<ul id="left">
 <?php foreach($company_introduces as $company_introduce):?>
@@ -86,7 +82,15 @@ for($index = 0; $index < 5; $index++)
 <?php endforeach;?>
 	</ul>
 	</div>
+</div>
 
+<div class="msg_box_right">
+	<div id="message_box">
+		<b id="message_b">招聘信息</b>
+		<span id="message_span">
+			<?php echo $this->Html->link('More',array('controller'=>'Recruitments','action'=>'recruitment_list'));?>
+		</span>
+	</div>
 	<div class="summary_message">
 	<ul id="right">
 		<?php foreach($recruitments as $recruitment):?>
@@ -95,19 +99,16 @@ for($index = 0; $index < 5; $index++)
 <?php endforeach;?>
 	</ul>
 	</div>
+</div>
 
-	<div id="message_box_left">
+<div class="msg_box_left">
+	<div id="message_box">
 		<b id="message_b">代理信息</b>
 		<span id="message_span">
 			<?php echo $this->Html->link('More',array('controller'=>'ProxyInfos','action'=>'proxy_search'));?>
 		</span>
 	</div>
-	<div id="message_box_right">
-		<b id="message_b">论坛</b>
-		<span id="message_span">
-			<?php echo $this->Html->link('More',array('controller'=>'Forums','action'=>'index'));?>
-		</span>
-	</div>
+
 	<div class="summary_message">
 	<ul id="left">
 	<?php foreach($proxys as $proxy):?>
@@ -115,7 +116,14 @@ for($index = 0; $index < 5; $index++)
 	<?php endforeach;?>
 	</ul>
 	</div>
-
+</div>
+<div class="msg_box_right">
+	<div id="message_box">
+		<b id="message_b">论坛</b>
+		<span id="message_span">
+			<?php echo $this->Html->link('More',array('controller'=>'Forums','action'=>'index'));?>
+		</span>
+	</div>
 	<div class="summary_message">
 	<ul id="right">
 	<?php foreach($forums as $forum):?>
@@ -123,6 +131,8 @@ for($index = 0; $index < 5; $index++)
 	<?php endforeach;?>
 	</ul>
 	</div>
+</div>
+</div>
 
 <div class="ad">
 <?php

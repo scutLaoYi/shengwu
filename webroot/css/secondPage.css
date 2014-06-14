@@ -55,7 +55,7 @@ margin-top:60px;
 margin-left:10px;
 height:300px;
 text-align:center;
-background:#F5F5F5;
+background:#f7f7f7;
 }
 .leftBoxSubmit
 {
@@ -118,8 +118,8 @@ width:600px;
 height:70px;
 float:left;
 list-style:none;
-background:rgb(245, 245, 245);
-border-top:2px solid #DCDCDC;
+background:#eff4fa;
+border-top:2px solid #c9d9e8;
 }
 
 /*招聘2级页面*/
@@ -170,16 +170,23 @@ float:left;
 list-style:none;
 }
 #username {
-width:45px;
+width:47px;
 height:45px;
 background:url('../img/mainPage/secondPage/username.jpg');
 background-repeat:no-repeat;
 background-size:100% 100%;
 }
 #password {
-width:45px;
+width:47px;
 height:45px;
 background:url('../img/mainPage/secondPage/password.jpg');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+#email {
+width:47px;
+height:45px;
+background:url('../img/mainPage/secondPage/email.jpg');
 background-repeat:no-repeat;
 background-size:100% 100%;
 }
@@ -196,4 +203,66 @@ width:auto;
 height:30px;
 margin-top:15px;
 text-align:right;
+}
+
+/*表单*/
+#list_bg {
+background:url('../img/mainPage/secondPage/ditu.jpg');
+background-repeat:no-repeat;
+background-size:70% 100%;
+width:980px;
+height:auto;
+float:right;
+min-height:800px;
+}
+/*招标*/
+.invite_bids_top {
+width:1024px;
+height:60px;
+float:left;
+margin-top:30px;
+background:url('../img/mainPage/secondPage/zhaibiao.png');
+background-repeat:no-repeat;
+background-size:26% 100%;
+}
+.bids_box{
+width:1024px;
+height:auto;
+float:left;
+padding:0px;
+}
+.bids_box ul {
+height:auto;
+float:left;
+padding-left:24px;
+width:900px;
+}
+.bids_box li {
+width:auto;
+border-top:1px solid black;
+font-size:17px;
+padding-top:10px;
+text-align:left;
+}
+
+/*关于我们*/
+#aboutUsBox {
+width:740px;
+float:right;
+top:100px;
+margin-top:60px;
+height:auto;
+min-height:500px;
+background:url('../img/mainPage/secondPage/jiantou.png');
+background-repeat:no-repeat;
+background-size:400px 250px;
+background-position:top right;
+background-color:#fdfdfd;
+}
+#aboutUs_content {
+width:400px;
+float:left;
+top:100px;
+min-height:500px;
+background-color:#fdfdfd;
 }

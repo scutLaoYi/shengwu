@@ -1,11 +1,18 @@
-<div class="users index">
+<div class="action_menu">
+	<?php echo $this->element('admin_options'); ?>
+</div>
+
+<h2><?php echo __('用户列表'); ?></h2>
+
+<div class="container_box">
 	<?php
 echo $this->Html->link('个人用户 ', array('action'=>'index', 2)); 
 echo $this->Html->link('企业用户 ', array('action'=>'index', 1)); 
 echo $this->Html->link('管理员帐号 ', array('action'=>'index', 3)); 
 echo $this->Html->link('创建管理员 ',array('action'=>'add'));
 ?>
-	<h2><?php echo __('用户列表'); ?></h2>
+
+	<div class="table_box">
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id', '用户id'); ?></th>
@@ -30,6 +37,7 @@ echo $this->Html->link('创建管理员 ',array('action'=>'add'));
 	</tr>
 <?php endforeach; ?>
 	</table>
+	</div>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
@@ -44,6 +52,4 @@ echo $this->Html->link('创建管理员 ',array('action'=>'add'));
 	?>
 	</div>
 </div>
-<div class="actions">
-	<?php echo $this->element('admin_options'); ?>
-</div>
+

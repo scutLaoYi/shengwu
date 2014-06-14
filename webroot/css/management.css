@@ -1,0 +1,49 @@
+.action_menu, .action_menu ul{
+width:1024px;
+height:auto;
+float:left;
+margin:0px;
+padding:0px;
+background:rgb(72, 143, 206);
+}
+.action_menu {
+margin-top:40px;
+}
+.action_menu li{
+list-style:none;
+float:left;
+padding:6px;
+border-right:1px solid white;
+border-bottom:1px solid white;
+}
+.action_menu a{
+color:white;
+text-decoration:none;
+}
+.action_menu li:hover{
+background:rgb(59, 127, 196);
+}
+
+.container_box {
+width:1024px;
+height:auto;
+float:left;
+}
+.container_box a {
+color:#3963ab;
+}
+.table_box, .table_box table{
+width:1024px;
+height:auto;
+float:left;
+}
+.table_box table,td,th {
+border:1px solid rgb(85, 85, 87);
+}
+
+.table_box th{
+height:50px;
+}
+.table_box td{
+text-align:center;
+}

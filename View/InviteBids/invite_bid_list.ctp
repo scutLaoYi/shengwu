@@ -1,14 +1,17 @@
+<?php ?>
+
 <div id="anotherPageBox">
-	<h2><?php echo __('院方招标'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+<div class="bids_box">
+<h2><?php echo __('院方招标'); ?></h2>
+	<ul>
 	<?php foreach ($inviteBids as $inviteBid): ?>
-	<tr>
+	<li>
 			<?php $message=ereg_replace("\n","</br>\n",$inviteBid['InviteBid']['content']);?>	
-		<td><?php echo ($message); ?></td>
-	
-	</tr>
-<?php endforeach; ?>
-	</table>
+		<?php echo ($message); ?>
+	</li>
+	<?php endforeach; ?>
+	</ul>
+</div>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(

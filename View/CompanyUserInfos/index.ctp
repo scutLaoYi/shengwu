@@ -1,5 +1,11 @@
-<div class="companyUserInfos index">
-	<h2><?php echo __('公司用户信息'); ?></h2>
+<div class="action_menu">
+	<?php echo $this->element('admin_options'); ?>
+</div>
+
+<h2><?php echo __('公司用户信息'); ?></h2>
+
+<div class="container_box">
+	<div class="table_box">
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('username', '用户名'); ?></th>
@@ -29,6 +35,7 @@
 	</tr>
 <?php endforeach; ?>
 	</table>
+	</div>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
@@ -43,6 +50,4 @@
 	?>
 	</div>
 </div>
-<div class="actions">
-	<?php echo $this->element('admin_options'); ?>
-</div>
+
