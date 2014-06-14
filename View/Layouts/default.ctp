@@ -149,6 +149,10 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 		echo '-';
 ?>
 		</div>
+		<div id="icp">
+			<p>Copyright ©1996-2014 山东兴华医疗器械有限公司, All Rights Reserved</p>
+			<p>鲁ICP备11018841号-2</p>
+		</div>
 	</div>
 
 	<?php //echo $this->element('sql_dump'); ?> 
