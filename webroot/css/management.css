@@ -32,11 +32,18 @@ float:left;
 .container_box a {
 color:#3963ab;
 }
-.table_box, .table_box table{
+.table_box{
 width:1024px;
 height:auto;
 float:left;
 }
+.table_box table {
+width:1024px;
+height:auto;
+float:left;
+border:1px solid rgb(85, 85, 87);
+}
+
 .table_box table,td,th {
 border:1px solid rgb(85, 85, 87);
 }

@@ -1,5 +1,4 @@
 <div id="anotherPageBox">
-<div id="list_bg">
 <?php echo $this->Form->create('CompanyIntroduce',array('type'=>'file')); ?>
 <fieldset>
 	<div class="inputLine">
@@ -96,5 +95,4 @@
 	</div>
 	<?php echo $this->Form->end(__('提交')); ?>
 </fieldset>
-</div>
 </div>
