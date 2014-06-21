@@ -53,7 +53,8 @@ border-radius:5px;
 float:left;
 margin-top:60px;
 margin-left:10px;
-height:300px;
+min-height:300px;
+height:auto;
 text-align:center;
 background:#f7f7f7;
 }
@@ -65,7 +66,7 @@ background:yellow;
 width:740px;
 float:right;
 top:100px;
-margin-top:60px;
+margin-top:10px;
 }
 
 /*公司列表图标*/
@@ -99,29 +100,102 @@ height:auto;
 padding:5px;
 margin:0px;
 float:left;
-border-top:1px solid #778899;
 }
-#content_list_li {
-width:100px;
-height:100px;
-float:left;
-list-style:none;
-}
+
 #content_list_li_1{
-width:300px;
-height:30px;
+width:305px;
+height:auto;
+min-height:25px;
 float:left;
 list-style:none;
 }
 #content_list_li_2 {
-width:600px;
-height:70px;
+width:710px;
+height:auto;
+min-height:50px;
 float:left;
 list-style:none;
 background:#eff4fa;
 border-top:2px solid #c9d9e8;
 }
 
+/*代理二级页面内容列表*/
+#proxy_list {
+width:710px;
+height:auto;
+padding:5px;
+margin:0px;
+float:left;
+}
+#proxy_list_li_img {
+width:100px;
+height:100px;
+float:left;
+list-style:none;
+}
+#proxy_list_li_1{
+width:305px;
+height:auto;
+min-height:33px;
+float:left;
+list-style:none;
+}
+#proxy_list_li_2 {
+width:710px;
+height:auto;
+min-height:50px;
+float:left;
+list-style:none;
+background:#eff4fa;
+border-top:2px solid #c9d9e8;
+}
+
+/*代理ajax布局*/
+ .py_ajax 
+{
+width:250px;
+height:auto;
+margin:0px;
+float:left;
+/*border-bottom:2px solid #DCDCDC;*/
+}
+
+.py_ajax ul
+{
+width: 250px; 
+float:left;
+height:auto; 
+margin:0px;
+padding:0px;
+/*border:1px solid #DCDCDC;*/
+}
+.py_ajax ul li
+{
+float:left;
+display:block;
+margin-left:10px;
+padding:5px;
+height:30px;
+width:230px;
+text-align:left;
+}
+.py_ajax input[type=submit] {
+width:100px;
+height:26px;
+background-image:url('../img/mainPage/mainpage/button.jpg');
+background-repeat:no-repeat;
+background-size:100% 100%;
+/*border:1px dotted black;*/
+border-radius:3px;
+color:white;
+cursor:pointer;
+}
+.py_ajax select {
+width:160px;
+}
+.py_ajax input {
+width:210px;
+}
 /*招聘2级页面*/
 #recruitment_div {
 width:710px;
