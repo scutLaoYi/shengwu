@@ -1,87 +1,63 @@
 <div id="anotherPageBox">
-<h2><?php echo __('招聘详细'); ?> </h2>
-	<dl>
-		<dt><?php echo __('工作名称'); ?></dt>
-		<dd>
+	<h2><?php echo __('招聘详细'); ?> </h2>
+	<div class="recuitment_class">
+	<ul>
+		<li>【工作名称】
 			<?php echo h($recruitment['Recruitment']['job_title']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('公司名称'); ?></dt>
-		<dd>
+		</li>
+		<li>【公司名称】
 			<?php echo h($recruitment['CompanyUserInfo']['company']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('招聘人数'); ?></dt>
-		<dd>
+		</li>
+		<li>【招聘人数】
 			<?php echo h($recruitment['Recruitment']['number']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('性别要求'); ?></dt>
-		<dd>
+		</li>
+		<li>【性别要求】
 			<?php echo h($allSexs[$recruitment['Recruitment']['sex']]); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('年龄要求'); ?></dt>
-		<dd>
+		</li>
+		<li>【年龄要求】
 			<?php echo h($recruitment['Recruitment']['age']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('教育程度'); ?></dt>
-		<dd>
+		</li>
+		<li>【教育程度】
 			<?php echo h($allEducational[$recruitment['Recruitment']['educational']]); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('工作类型'); ?></dt>
-		<dd>
+		</li>
+		<li>【工作类型】
 			<?php echo h($allWorkingType[$recruitment['Recruitment']['working_type']]); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('工作时间'); ?></dt>
-		<dd>
+		</li>
+		<li>【工作时间】
 			<?php echo h($recruitment['Recruitment']['working_time']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('工作地区'); ?></dt>
-		<dd>
+		</li>
+		<li>【工作地区】
 			<?php echo h($allProvince[$recruitment['Recruitment']['working_area']]); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('户口要求'); ?></dt>
-		<dd>
+		</li>
+		<li>【户口要求】
 			<?php echo h($recruitment['Recruitment']['account_required']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('外语要求'); ?></dt>
-		<dd>
+		</li>
+		<li>【外语要求】
 			<?php echo h($recruitment['Recruitment']['language_acquired']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('职位月薪'); ?></dt>
-		<dd>
+		</li>
+		<li>【职位月薪】
 			<?php echo h($recruitment['Recruitment']['salary']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('截至日期'); ?></dt>
-		<dd>
+		</li>
+		<li>【截至日期】
 			<?php echo h($recruitment['Recruitment']['deadline']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('具体要求'); ?></dt>
-		<dd>
-			<?php echo h($recruitment['Recruitment']['detail']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('联系邮箱'); ?></dt>
-		<dd>
+		</li>
+		<li>【联系邮箱】
 			<?php echo h($recruitment['Recruitment']['email']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('联系电话'); ?></dt>
-		<dd>
+		</li>
+		<li>【联系电话】
 			<?php echo h($recruitment['Recruitment']['phone']); ?>
-			&nbsp;
-		</dd>
-	</dl>
+		</li>
+	</ul>
+	</div>
+
+	<div class="request_content ">
+	<span class="request_title ">具体要求</span>
+		<div class="request_item">
+			<?php echo h($recruitment['Recruitment']['detail']); ?>
+		</div>
+	</span>
+	</div>
 	<?php echo $this->Html->link('返回', $referer);?>
 	&nbsp;&nbsp;&nbsp;
 	<?php echo $this->Html->link('我要发简历', array('controller'=>'Resumes','action'=>'post_resume',$recruitment['Recruitment']['id']));?>

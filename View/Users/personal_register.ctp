@@ -35,7 +35,7 @@
 			<li id="inputTest_li"><p>确认密码</p></li>
 			<li id="inputField_li">
 				<div id="inputField2">
-			<?php echo $this->Form->input('confirm_password',array('label'=>'','type'=>''));?>
+			<?php echo $this->Form->input('confirm_password',array('label'=>'','type'=>'password'));?>
 				</div>
 			</li>
 		</ul>
