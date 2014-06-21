@@ -191,6 +191,8 @@ Department['3']=[
 ];
 var Material=[];
 Material['0'] = [];
+Material['1'] = [];
+Material['2'] = [];
 Material['3']=[
 {txt:'创面损伤', val:'1'},
 {txt:'功能敷料', val:'2'},

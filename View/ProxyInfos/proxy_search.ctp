@@ -41,7 +41,7 @@ function searching()
 
 function setAndSearch(option)
 {
-setOption(option, "全部")
+	setOption(option, "全部");
 	searching();
 }
 
@@ -82,11 +82,11 @@ echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产
 	echo $this->Form->input('function',array('id'=>'function','label'=>'功能分类','onchange'=>'searching();','options'=>array('-全部-')));?>
 	</li>
 </ul>
-		<label id="material_label">材料分类</label>
 <ul>
 	<li>
+	<!--<label id="material_label">材料分类</label> -->
 	<?php
-	echo $this->Form->input('material',array('id'=>'material','label'=>false,'onchange'=>'searching()','options'=>array('-全部-')));		?>
+	echo $this->Form->input('material',array('id'=>'material','label'=>"材料分类",'onchange'=>'searching()','options'=>array('全部')));		?>
 	</li>
 </ul>
 <ul>

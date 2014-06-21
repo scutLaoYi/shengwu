@@ -74,15 +74,16 @@ function setSelectOption(selectObj, optionList, firstOption, selected)
 //显示或隐藏三级选择框及其文本(只有医疗耗材存在卫生材料选择)
 function show(is)
 {
+	return;
 	if(is)
 	{
-		document.getElementById('material').style.display='block';
-		document.getElementById('material_label').style.display='block';
+		document.getElementById('material').style.visibility='visible';
+		document.getElementById('material_label').style.visibility='visible';
 	}
 	else
 	{
-		document.getElementById('material').style.display='none';
-		document.getElementById('material_label').style.display='none';
+		document.getElementById('material').style.visibility='hidden';
+		document.getElementById('material_label').style.visibility='hidden';
 	}
 }
 
@@ -99,7 +100,10 @@ function setOption(index, firstOption)
 		setSelectOption('material',Material[index],firstOption);
 	}
 	else 
+	{
 		show(0);
+		setSelectOption('material',Material[index],firstOption);
+	}
 
 }
 
