@@ -41,7 +41,7 @@ function searching()
 
 function setAndSearch(option)
 {
-	setOption(option, "全部");
+	setOption(option, "全部", false);
 	searching();
 }
 

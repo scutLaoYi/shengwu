@@ -74,7 +74,6 @@ function setSelectOption(selectObj, optionList, firstOption, selected)
 //显示或隐藏三级选择框及其文本(只有医疗耗材存在卫生材料选择)
 function show(is)
 {
-	return;
 	if(is)
 	{
 		document.getElementById('material').style.visibility='visible';
@@ -89,20 +88,23 @@ function show(is)
 
 //更新选项内容的函数,每次产品分类选择框选项变化通过该函数自动处理其他选择框的内容
 //为便于复用，在此加入第二个参数设定首个选项的内容
-function setOption(index, firstOption)
+function setOption(index, firstOption, shouldhidden=true)
 {  
 
 	setSelectOption('department', Department[index], firstOption);
 	setSelectOption('function', Functions[index], firstOption);
+	setSelectOption('material',Material[index],firstOption);
+	if(shouldhidden == false)
+	{
+		return;
+	}
 	if(index==3)
 	{	
 		show(1);
-		setSelectOption('material',Material[index],firstOption);
 	}
 	else 
 	{
 		show(0);
-		setSelectOption('material',Material[index],firstOption);
 	}
 
 }
