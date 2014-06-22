@@ -18,16 +18,13 @@
 	</div>
 	<?php foreach($companys as $company):?>
 	<ul id="content_list">
-		<li id="content_list_li">
-		<?php echo $this->Html->image('./'.$company['CompanyIntroduce']['picture_url'],array('width'=>'100','height'=>'100'));?>
-		</li>
-		<li id="content_list_li_1">
+		<li id="content_list_li_1">【公司名称】
 		<?php echo $this->Html->link($company['CompanyUserInfo']['company'],array('controller'=>'CompanyDescriptions','action'=>'view_info',$company['CompanyUserInfo']['id']));?>
 		</li>
-		<li id="content_list_li_1">
+		<li id="content_list_li_1">【公司地址】
 		<?php echo $allCountrys[$company['CompanyUserInfo']['province']+1];?>
 		</li>
-		<li id="content_list_li_2">
+		<li id="content_list_li_2">【公司简介】
 		<?php 
 		$str_introduce=$company['CompanyIntroduce']['introduce'];
 		if(strlen($str_introduce)>100)

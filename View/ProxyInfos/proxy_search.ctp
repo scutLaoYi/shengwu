@@ -41,7 +41,7 @@ function searching()
 
 function setAndSearch(option)
 {
-setOption(option, "全部")
+	setOption(option, "全部", false);
 	searching();
 }
 
@@ -54,18 +54,50 @@ setOption(option, "全部")
 <div id="bigBox">
 <div id="leftBox">
 <div id="proxy_title"></div>
+<div class="py_ajax">
 <?php
-echo $this->Form->input('product_area', array('id'=>'product_area', 'label'=>'代理地区', 'options'=>$allCountrys,'onchange'=>'searching();'));
-echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产品分类','onchange'=>'setAndSearch(this.selectedIndex);','options'=>$allProduct));
-	echo $this->Form->input('department',array('id'=>'department','label'=>'产品适用分类','onchange'=>'searching();','options'=>array('-全部-')));
-	echo $this->Form->input('function',array('id'=>'function','label'=>'功能分类','onchange'=>'searching();','options'=>array('-全部-')));
 ?>
-		<label id="material_label">卫生材料分类</label>
-<?php
-	echo $this->Form->input('material',array('id'=>'material','label'=>false,'onchange'=>'searching()','options'=>array('-全部-')));		
-	echo $this->Form->input('str', array('id'=>'str','label'=>false));
-	echo $this->Form->button('搜索', array('onClick'=>'searching()'));
-?>
+<ul>
+	<li>
+	<?php
+	echo $this->Form->input('product_area', array('id'=>'product_area', 'label'=>'代理地区', 'options'=>$allCountrys,'onchange'=>'searching();'));
+	?>
+	</li>
+</ul>
+<ul>
+	<li>
+	<?php
+echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产品分类','onchange'=>'setAndSearch(this.selectedIndex);','options'=>$allProduct));?>
+	</li>
+</ul>
+<ul>
+	<li>
+	<?php
+	echo $this->Form->input('department',array('id'=>'department','label'=>'产品适用','onchange'=>'searching();','options'=>array('-全部-')));?>
+	</li>
+</ul>
+<ul>
+	<li>
+	<?php
+	echo $this->Form->input('function',array('id'=>'function','label'=>'功能分类','onchange'=>'searching();','options'=>array('-全部-')));?>
+	</li>
+</ul>
+<ul>
+	<li>
+	<!--<label id="material_label">材料分类</label> -->
+	<?php
+	echo $this->Form->input('material',array('id'=>'material','label'=>"材料分类",'onchange'=>'searching()','options'=>array('全部')));		?>
+	</li>
+</ul>
+<ul>
+	<li>
+	<?php
+	echo $this->Form->input('str', array('id'=>'str','label'=>false));?>
+	</li>
+</ul>
+	<?php
+	echo $this->Form->end('搜索', array('onClick'=>'searching()'));?>
+</div>
 </div>
 
 <!-- data of ajax -->

@@ -1,4 +1,8 @@
-<div class="view form">
+<div class="action_menu">
+<?php echo __($this->element('admin_options'));?>
+</div>
+
+<div class="container_box">
 	<?php echo $this->Html->link('了解我们',array('controller'=>'AboutUs','action'=>'know_us_view'));?>
 	&nbsp;
 	<?php echo $this->Html->link('服务项目',array('controller'=>'AboutUs','action'=>'service_view'));?>
@@ -17,6 +21,4 @@
 	<?php $message=ereg_replace("\n","</br>\n",$content);?>
 	<?php echo ($message);?>
 </div>
-<div class="actions">
-<?php echo __($this->element('admin_options');)?>
-</div>
+

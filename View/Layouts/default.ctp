@@ -32,7 +32,7 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css(array('mainStyle','mainPage','secondPage','forum','thirdPage'));
+		echo $this->Html->css(array('mainStyle','mainPage','secondPage','forum','thirdPage','management'));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -119,8 +119,10 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="friendLink">
-			<div id="friendLinkHead"><b>友情链接</b></div>
-			<div id="friendLinkeContent">
+			<div id="friendLinkHead">
+				<span id="friendLink_span"></span>
+			</div>
+			<div id="friendLinkContent">
 			<?php 
 			$links = $this->requestAction('/FriendlyLinks/list_link');
 			foreach($links as $onelink)
@@ -132,7 +134,6 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 			?>
 			</div>
 		</div>
-	</div>
 		<div id="footer">
 <?php
 		echo '-';
@@ -148,6 +149,12 @@ $websiteDescription = __d('web_dev', '中国卫生材料');
 		echo '-';
 ?>
 		</div>
+		<div id="icp">
+			<p>Copyright 山东兴华医疗器械有限公司, All Rights Reserved</p>
+			<p>鲁ICP备11018841号-2</p>
+		</div>
+	</div>
+
 	<?php //echo $this->element('sql_dump'); ?> 
 	<?php echo $this->Js->writeBuffer();?>
 </body>

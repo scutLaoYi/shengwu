@@ -1,20 +1,20 @@
 <div>
 <!-- begin of index -->
 	<?php foreach ($proxyInfos as $proxyInfo): ?>
-	<ul id="content_list">
-		<li id="content_list_li"><?php echo $this->Html->image('./'.$proxyInfo['ProxyInfo']['picture_url'],array('width'=>'100','height'=>'100')); ?>&nbsp;</li>
+	<ul id="proxy_list">
+		<li id="proxy_list_li_img"><?php echo $this->Html->image('./'.$proxyInfo['ProxyInfo']['picture_url'],array('width'=>'100','height'=>'100')); ?>&nbsp;</li>
 
-		<li id="content_list_li_1"><?php echo $this->Html->link($proxyInfo['ProxyInfo']['product_name'], 
+		<li id="proxy_list_li_1">【产品名称】<?php echo $this->Html->link($proxyInfo['ProxyInfo']['product_name'], 
 array('controller'=>'ProxyInfos','action'=>'proxy_view', $proxyInfo['ProxyInfo']['id'])); ?>&nbsp;</li>
 
-		<li id="content_list_li_1"><?php echo $this->Html->link($proxyInfo['CompanyUserInfo']['company'], 
+		<li id="proxy_list_li_1">【公司名称】<?php echo $this->Html->link($proxyInfo['CompanyUserInfo']['company'], 
 array('controller'=>'CompanyDescriptions','action'=>'view_proxy', $proxyInfo['CompanyUserInfo']['id'])); ?>&nbsp;</li>
 
-		<li id="content_list_li_1"><?php echo h($allCountrys[$proxyInfo['ProxyInfo']['product_area']]); ?>&nbsp;</li>
+		<li id="proxy_list_li_1">【代理区域】<?php echo h($allCountrys[$proxyInfo['ProxyInfo']['product_area']]); ?>&nbsp;</li>
 
-		<li id="content_list_li_1"><?php echo h($allProduct[$proxyInfo['ProxyInfo']['product_type']]); ?>&nbsp;</li>
+		<li id="proxy_list_li_1">【产品类型】<?php echo h($allProduct[$proxyInfo['ProxyInfo']['product_type']]); ?>&nbsp;</li>
 
-		<li id="content_list_li_1"><?php echo h($proxyInfo['ProxyInfo']['created']); ?>&nbsp;</li>
+		<li id="proxy_list_li_1">【发布时间】<?php echo h($proxyInfo['ProxyInfo']['created']); ?>&nbsp;</li>
 
 		<?php 
 		$str_introduce=$proxyInfo['ProxyInfo']['product_introduce'];
@@ -23,7 +23,7 @@ array('controller'=>'CompanyDescriptions','action'=>'view_proxy', $proxyInfo['Co
 			$str_introduce=substr($str_introduce,0,97).'...';
 		}
 		?>
-		<li id="content_list_li_2"><?php echo h($str_introduce); ?>&nbsp;</li>
+		<li id="proxy_list_li_2">【内容简介】<?php echo h($str_introduce); ?>&nbsp;</li>
 	</ul>
 	<?php endforeach; ?>
 

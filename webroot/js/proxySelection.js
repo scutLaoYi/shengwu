@@ -76,30 +76,36 @@ function show(is)
 {
 	if(is)
 	{
-		document.getElementById('material').style.display='block';
-		document.getElementById('material_label').style.display='block';
+		document.getElementById('material').style.visibility='visible';
+		document.getElementById('material_label').style.visibility='visible';
 	}
 	else
 	{
-		document.getElementById('material').style.display='none';
-		document.getElementById('material_label').style.display='none';
+		document.getElementById('material').style.visibility='hidden';
+		document.getElementById('material_label').style.visibility='hidden';
 	}
 }
 
 //更新选项内容的函数,每次产品分类选择框选项变化通过该函数自动处理其他选择框的内容
 //为便于复用，在此加入第二个参数设定首个选项的内容
-function setOption(index, firstOption)
+function setOption(index, firstOption, shouldhidden=true)
 {  
 
 	setSelectOption('department', Department[index], firstOption);
 	setSelectOption('function', Functions[index], firstOption);
+	setSelectOption('material',Material[index],firstOption);
+	if(shouldhidden == false)
+	{
+		return;
+	}
 	if(index==3)
 	{	
 		show(1);
-		setSelectOption('material',Material[index],firstOption);
 	}
 	else 
+	{
 		show(0);
+	}
 
 }
 

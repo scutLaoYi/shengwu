@@ -1,10 +1,17 @@
-<div class="recruitments index">
+<div class="action_menu">
+	<?php echo $this->element('admin_options');?>
+</div>
+
+<h2><?php echo __('招聘信息'); ?></h2>
+
+<div class="container_box">
 <?php
 echo $this->Html->link('待审核 ', array('action'=>'index', 1));
 echo $this->Html->link('已上线 ', array('action'=>'index', 2));
 echo $this->Html->link('已过期 ', array('action'=>'index', 3));
 ?>
-	<h2><?php echo __('招聘信息'); ?></h2>
+
+	<div class="table_box">
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('job_title', '招聘职位'); ?></th>
@@ -26,6 +33,7 @@ echo $this->Html->link('已过期 ', array('action'=>'index', 3));
 	</tr>
 <?php endforeach; ?>
 	</table>
+	</div>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
@@ -40,6 +48,4 @@ echo $this->Html->link('已过期 ', array('action'=>'index', 3));
 	?>
 	</div>
 </div>
-<div class="actions">
-	<?php echo $this->element('admin_options');?>
-</div>
+

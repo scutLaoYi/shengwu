@@ -25,9 +25,11 @@
 		</li>
 
 	</div>
-	<div id="rightBox">
+	<div id="aboutUsBox">
 	<?php $message=ereg_replace("\n","</br>\n",$content);?>
+	<div id="aboutUs_content">
 	<?php echo __($message);?>
+	</div>
 	</div>
 </div>
 

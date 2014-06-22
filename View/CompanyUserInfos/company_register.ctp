@@ -1,3 +1,4 @@
+<?php ?>
 <script language="JavaScript" type="text/javascript">
 function change(obj) {
             var text = obj.value;   // 获取input的值
@@ -8,28 +9,143 @@ function change(obj) {
 </script>
 <div id="anotherPageBox">
 <?php echo $this->Form->create('CompanyUserInfo_for'); ?>
-	<fieldset>
-		<legend><?php echo __('企业注册信息'); ?></legend>
-	<?php
-		
-	echo $this->Form->input('User.username',array('label'=>'用户名'));
-	echo $this->Form->input('User.password',array('label'=>'密码'));
-	echo $this->Form->input('User.confirm_password',array('label'=>'确认密码','type'=>'password'));
-	echo $this->Form->input('User.email',array('label'=>'电子邮箱'));	
-	echo $this->Form->input('CompanyUserInfo.company',array('label'=>'公司名称'));
-	echo $this->Form->input('CompanyUserInfo.contact_person',array('label'=>'联系人'));
-	echo $this->Form->input('CompanyUserInfo.contact_number',array('label'=>'联系电话'));
-	echo $this->Form->input('CompanyUserInfo.tax',array('label'=>'传真号码'));
-	echo $this->Form->input('CompanyUserInfo.province',array(
+<fieldset>
+	<div class="inputLine">
+		<ul>
+			<li id="inputTest_li"><p>用户名</p></li>
+			<li id="inputField_li">
+				<div id="inputField2">
+				<?php echo $this->Form->input('User.username',array('label'=>''));?>
+				</div>
+			</li>
+		</ul>
+	</div>
+<div class="inputLine">
+		<ul>
+			<li id="inputTest_li"><p>密码</p></li>
+			<li id="inputField_li">
+				<div id="inputField2">
+				<?php echo $this->Form->input('User.password',array('label'=>''));?>
+				</div>
+			</li>
+		</ul>
+	</div>
+<div class="inputLine">
+		<ul>
+			<li id="inputTest_li"><p>确认密码</p></li>
+			<li id="inputField_li">
+				<div id="inputField2">
+				<?php echo $this->Form->input('User.confirm_password',array('label'=>'','type'=>'password'));?>
+				</div>
+			</li>
+		</ul>
+	</div>
+<div class="inputLine">
+		<ul>
+			<li id="inputTest_li"><p>电子邮箱</p></li>
+			<li id="inputField_li">
+				<div id="inputField2">
+				<?php echo $this->Form->input('User.email',array('label'=>''));	?>
+				</div>
+			</li>
+		</ul>
+	</div>
+<div class="inputLine">
+		<ul>
+			<li id="inputTest_li"><p>公司名称</p></li>
+			<li id="inputField_li">
+				<div id="inputField2">
+				<?php echo $this->Form->input('CompanyUserInfo.company',array('label'=>''));?>
+				</div>
+			</li>
+		</ul>
+	</div>
+<div class="inputLine">
+		<ul>
+			<li id="inputTest_li"><p>联系人</p></li>
+			<li id="inputField_li">
+				<div id="inputField2">
+				<?php echo $this->Form->input('CompanyUserInfo.contact_person',array('label'=>''));?>
+				</div>
+			</li>
+		</ul>
+	</div>
+<div class="inputLine">
+		<ul>
+			<li id="inputTest_li"><p>联系电话</p></li>
+			<li id="inputField_li">
+				<div id="inputField2">
+				<?php echo $this->Form->input('CompanyUserInfo.contact_number',array('label'=>''));?>
+				</div>
+			</li>
+		</ul>
+	</div>
+<div class="inputLine">
+		<ul>
+			<li id="inputTest_li"><p>传真号码</p></li>
+			<li id="inputField_li">
+				<div id="inputField2">
+				<?php echo $this->Form->input('CompanyUserInfo.tax',array('label'=>''));?>
+				</div>
+			</li>
+		</ul>
+	</div>
+<div class="inputLine">
+		<ul>
+			<li id="inputTest_li"><p>省份</p></li>
+			<li id="inputField_li">
+				<div id="inputField2">
+				<?php echo $this->Form->input('CompanyUserInfo.province',array(
 		'options'=>$allProvince,
-		'label'=>'省份'
-));
-	echo $this->Form->input('CompanyUserInfo.address',array('label'=>'地址'));
-	echo $this->Form->input('CompanyUserInfo.code',array('label'=>'邮编'));
-	echo $this->Form->input('CompanyUserInfo.website',array('label'=>'网站','value'=>'http://'));
-	echo $this->Form->input('CompanyUserInfo.qq',array('label'=>'QQ'));
+		'label'=>''
+));?>
+				</div>
+			</li>
+		</ul>
+	</div>
+<div class="inputLine">
+		<ul>
+			<li id="inputTest_li"><p>地址</p></li>
+			<li id="inputField_li">
+				<div id="inputField2">
+				<?php echo $this->Form->input('CompanyUserInfo.address',array('label'=>''));?>
+				</div>
+			</li>
+		</ul>
+	</div>
+<div class="inputLine">
+		<ul>
+			<li id="inputTest_li"><p>邮编</p></li>
+			<li id="inputField_li">
+				<div id="inputField2">
+				<?php echo $this->Form->input('CompanyUserInfo.code',array('label'=>''));?>
+				</div>
+			</li>
+		</ul>
+	</div>
+<div class="inputLine">
+		<ul>
+			<li id="inputTest_li"><p>网站</p></li>
+			<li id="inputField_li">
+				<div id="inputField2">
+				<?php echo $this->Form->input('CompanyUserInfo.website',array('label'=>'','value'=>'http://'));?>
+				</div>
+			</li>
+		</ul>
+	</div>
+<div class="inputLine">
+		<ul>
+			<li id="inputTest_li"><p>QQ</p></li>
+			<li id="inputField_li">
+				<div id="inputField2">
+				<?php echo $this->Form->input('CompanyUserInfo.qq',array('label'=>''));
 		
 	?>
-	</fieldset>
-<?php echo $this->Form->end(__('提交')); ?>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<?php echo $this->Form->end(__('提交')); ?>
+</fieldset>
+
 </div>

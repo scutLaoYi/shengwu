@@ -1,14 +1,18 @@
 #Title {
 width:1024px;
-margin-top:80px;
-background-color:#4169E1;
+margin-top:20px;
+height:130px;
+background-image:url('../img/mainPage/mainpage/menu_ul.jpg');
+background-repeat:no-repeat;
+background-size:100% 100%;
 margin-left:auto;
 margin-right:auto;	
 font-style:italic;
-color:White;
+color:white;
+letter-spacing:30px;
 font-size:64px;
 text-align:center;
-border-radius:16px;
+border-radius:8px;
 }
 
 #module {
@@ -17,7 +21,6 @@ height:200px;
 margin-top:30px;
 margin-left:auto;
 margin-right:auto;	
-border:thin solid Black;
 }
 
 #module ul {
@@ -57,17 +60,13 @@ text-decoration:underline;
 	margin:0;
 	padding:0;
 	height:30px;
-	border:thin solid Black;
-	border-top:thin solid White;
 	text-align:left;
 	font-style:oblique;
 	font-size:25px;
-    filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=rgb(30,144,255),endcolorstr=rgb(65,105,225),gradientType=0);
-    -ms-filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=rgb(30,144,255),endcolorstr=rgb(65,105,225),gradientType=0);	
-    background:rgb(30,144,255); 
-    background:-moz-linear-gradient(top, rgb(30,144,255), rgb(65,105,225));  
-    background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgb(30,144,255)), to(gba(65,105,225)));  
-    background:-o-linear-gradient(top, rgb(30,144,255), gba(65,105,225)); 
+	color:white;
+	background-image:url('../img/mainPage/mainpage/button.jpg');
+	background-repeat:no-repeat;
+	background-size:100% 100%; 
 }
 
 /* 二级页面 */
@@ -155,7 +154,8 @@ width:1024px;
 margin-left:auto;
 margin-right:auto;
 background:#D3D3D3;
-padding:5px;
+padding-top:10px;
+padding-bottom:10px;
 }
 #trContent {
 width:1024px;
