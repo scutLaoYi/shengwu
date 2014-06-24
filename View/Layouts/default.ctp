@@ -18,7 +18,7 @@
  */
 
 $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
-$websiteDescription = __d('web_dev', '中国卫生材料');
+$websiteDescription = __d('web_dev','中国生物医学材料');
 
 ?>
 <!DOCTYPE html>

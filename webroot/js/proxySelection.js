@@ -52,6 +52,13 @@ function setSelectOption(selectObj, optionList, firstOption, selected)
 		start ++;
 	}
 
+	//如果没有选项那就算了
+	optionList = typeof optionList !== 'undefined' ? optionList : false;
+	if(optionList == false)
+	{
+		return;
+	}
+
 	var len = optionList.length;
 
 	for (var i=0; i < len; i++)
@@ -76,36 +83,50 @@ function show(is)
 {
 	if(is)
 	{
-		document.getElementById('material').style.visibility='visible';
-		document.getElementById('material_label').style.visibility='visible';
+		document.getElementById('material').style.display='block';
+		document.getElementById('material_label').style.display='block';
 	}
 	else
 	{
-		document.getElementById('material').style.visibility='hidden';
-		document.getElementById('material_label').style.visibility='hidden';
+		document.getElementById('material').style.display='none';
+		document.getElementById('material_label').style.display='none';
 	}
 }
 
 //更新选项内容的函数,每次产品分类选择框选项变化通过该函数自动处理其他选择框的内容
 //为便于复用，在此加入第二个参数设定首个选项的内容
+//由于显示隐藏的html对齐问题，加入第三个参数设定是否隐藏材料分类
 function setOption(index, firstOption, shouldhidden)
 {  
 	shouldhidden = typeof shouldhidden !== 'undefined' ? shouldhidden : false;
 	setSelectOption('department', Department[index], firstOption);
 	setSelectOption('function', Functions[index], firstOption);
-	setSelectOption('material',Material[index],firstOption);
-	if(shouldhidden == false)
+	//搜索页面的，不用隐藏的，默认值只有全部的
+	if(!shouldhidden)
 	{
-		return;
+		if(index==3)
+		{
+			setSelectOption('material',Material[3],firstOption);
+		}
+		else
+		{
+			setSelectOption('material',Material[4],firstOption);
+		}
 	}
-	if(index==3)
-	{	
-		show(1);
-	}
-	else 
+	else
 	{
-		show(0);
+	//表单提交页面的，要隐藏的，默认值要给个默认选项好处理提交的
+		if(index==3)
+		{
+			setSelectOption('material',Material[3],firstOption);
+			show(1);
+		}
+		else
+		{
+			setSelectOption('material',Material[index],firstOption);
+			show(0);
+			document.getElementById('material').value=1;
+		}
 	}
-
 }
 

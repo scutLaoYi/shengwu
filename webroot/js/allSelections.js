@@ -190,9 +190,10 @@ Department['3']=[
 {txt:'其他', val:'10'}
 ];
 var Material=[];
-Material['0'] = [];
-Material['1'] = [];
-Material['2'] = [];
+Material['0'] = [{
+txt:'无', val:'1'}];
+Material['1'] = [{txt:'无', val:'1'}];
+Material['2'] = [{txt:'无', val:'1'}];
 Material['3']=[
 {txt:'创面损伤', val:'1'},
 {txt:'功能敷料', val:'2'},
@@ -205,3 +206,4 @@ Material['3']=[
 {txt:'敷料机械', val:'9'},
 {txt:'其他', val:'10'}
 ]
+Material['4'] = [];
