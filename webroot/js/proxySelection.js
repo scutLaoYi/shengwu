@@ -88,9 +88,9 @@ function show(is)
 
 //更新选项内容的函数,每次产品分类选择框选项变化通过该函数自动处理其他选择框的内容
 //为便于复用，在此加入第二个参数设定首个选项的内容
-function setOption(index, firstOption, shouldhidden=true)
+function setOption(index, firstOption, shouldhidden)
 {  
-
+	shouldhidden = typeof shouldhidden !== 'undefined' ? shouldhidden : false;
 	setSelectOption('department', Department[index], firstOption);
 	setSelectOption('function', Functions[index], firstOption);
 	setSelectOption('material',Material[index],firstOption);

@@ -105,6 +105,6 @@ echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产
 </div>
 <script>
 
-window.onload = setAndSearch(document.getElementById("product_type").selectedIndex, "全部");
+window.onload = setAndSearch(document.getElementById("product_type").selectedIndex);
 </script>
 </div>
