@@ -112,10 +112,10 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 			
 			</ul>
 		</div>
+		<div id="position_teller">您现在的位置：<?php echo $title_for_layout;?> </div>
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
-
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="friendLink">

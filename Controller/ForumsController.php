@@ -145,6 +145,7 @@ class ForumsController extends AppController {
 	public function beforeFilter()
 	{
 
+		$this->set('title_for_layout', '首页>>论坛交流');
 		$this->Auth->allow('index','posting_list','view');
 		return parent::beforeFilter();
 	}

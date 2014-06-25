@@ -163,12 +163,14 @@ class UsersController extends AppController {
 
 	/*查看个人信息，包括用户名，邮箱，注册时间，只有已登录用户才能查看自己的信息*/
 	public function personal_infos() {
+		$this->set('title_for_layout', '个人信息');
 		$options = array('conditions'=>array('User.id'=>$this->Auth->user('id')));
 		$this->set('user',$this->User->find('first',$options));
 	}
 
 	/*修改用户密码，已登录用户可进入*/
 	public function personal_edit () {
+		$this->set('title_for_layout', '个人信息编辑');
 		if($this->request->is(array('post','put'))) {
 			$this->User->recursive = 0;
 			$oldPassword = $this->User->find('first',array('conditions'=>array('User.id'=>$this->Auth->user('id'))));
@@ -205,6 +207,7 @@ class UsersController extends AppController {
 	 */
 	function change_password($user=null,$date=null,$mdf5=null)
 	{
+		$this->set('title_for_layout', '找回密码');
 		//验证链接有效性
 		if($user!=null&&$date!=null&&$mdf5!=null)
 		{
@@ -260,6 +263,8 @@ class UsersController extends AppController {
 	 */
 	function forget_password()
 	{
+
+		$this->set('title_for_layout', '忘记密码');
 		if($this->request->is('post'))
 		{
 			$this->User->recursive = 0;

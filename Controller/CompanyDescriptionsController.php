@@ -52,7 +52,6 @@ class CompanyDescriptionsController extends AppController
 				'conditions' => array('CompanyUserInfo.id' => $company_id)));
 			if(!$info)
 				throw new NotFoundException('页面不存在');
-			$this->set('title_for_layout', $info['CompanyUserInfo']['company']);
 			$this->set('company_info', $info['CompanyUserInfo']);
 			//对当前公司用户自身信息提供编辑接口
 			if($this->Auth->user('type') == 1)
@@ -125,6 +124,7 @@ class CompanyDescriptionsController extends AppController
 	 */
 	public function beforeFilter()
 	{
+		$this->set('title_for_layout', '首页>>企业宣传');
 		$this->set('allCountrys',$this->List->allCountry());
 		$this->set('allProduct',$this->List->allProduct());
 		$this->set('allMaterial',$this->List->allMaterial());
