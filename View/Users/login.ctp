@@ -34,6 +34,19 @@
 					</li>
 				</ul>
 			</div>
+			<div class="inputLine">
+				<ul>
+					<li id="inputIcon">
+						<div id="password"></div>
+					</li>
+					<li id="inputTest_li"><p>验证码</p></li>
+					<li id="inputField_li">
+						<div id="inputField">
+							<?php $this->Captcha->render($captchaSettings);?>
+						</div>
+					</li>
+				</ul>
+			</div>
 			<?php echo $this->Form->end(__('登录')); ?>
 			<?php echo $this->Html->link('忘记密码',array('action'=>'forget_password'));?>
 	</fieldset>

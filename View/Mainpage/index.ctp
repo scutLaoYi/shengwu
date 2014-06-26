@@ -45,7 +45,8 @@ for($index = 0; $index < 5; $index++)
 		<?php 
 			if($advertise[$id]['AdList']['pic_url'] == 'ad_image/ad.png')
 			{
-				echo $this->Html->image($advertise[$id]['AdList']['pic_url'],array('width'=>'124','height'=>'100','url'=>array('controller'=>'AboutUs','action'=>'pre_ad_notice_view')));
+				$default_image = 'ad_image/ad'.($id%8).'.png';
+				echo $this->Html->image($default_image,array('width'=>'124','height'=>'100','url'=>array('controller'=>'AboutUs','action'=>'pre_ad_notice_view')));
 			}
 			else
 			{
