@@ -2,14 +2,14 @@ body {
 background:#e2e7ed;
 }
 #logoHead {
-height:150px;
-width:1024px;
+height:200px;
+width:100%;
 margin-left:auto;
 margin-right:auto;
 }
 #logo {
-height:150px;
-width:1024px;
+height:200px;
+width:100%;
 margin-left:auto;
 margin-right:auto;
 background-image:url('../img/mainPage/mainpage/logo.gif');
@@ -27,7 +27,7 @@ filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,fi
 	border-bottom:none;*/
 }
 #container {
-	width:1024px;
+	width:1000px;
 	background:white;
 	text-align: left;
 	margin-left:auto;
@@ -38,12 +38,12 @@ filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,fi
 
 #header{
 	padding:0;
-	width:1024px;
+	width:1000px;
 	text-align:right;
 	margin-left:auto;
 	margin-right:auto;
 	position:relative;
-	top:120px;
+	top:170px;
 }
 #header ul {
 text-decoration:none;
@@ -82,11 +82,11 @@ text-decoration:underline;
 	color: #333;
 	float:left;
 	height:auto;
-	width:1024px;
+	width:1000px;
 	min-height:888px;
 }
 #footer {
-	width:1024px;
+	width:1000px;
 	float:left;
 	margin-top:30px;
 	text-align: center;
@@ -110,6 +110,7 @@ text-decoration:underline;
 }
 
 /** menubar **/
+/*
 #menubar {
 	width: 1024px; 
 	float:left;
@@ -146,14 +147,11 @@ padding:0px;
 	text-decoration:none;
 	color:White;
 	padding:5px 20px 5px 20px;
-	/*margin-left:5px;*/
 	white-space: nowrap;
 	-webkit-background-size:100%;
-	/*border-right:1px solid White;*/
 }
 #menubar ul li a:hover
 {
-/*text-decoration:underline;*/
 background-image:url('../img/mainPage/mainpage/menu_li.jpg');
 	background-repeat:no-repeat;
 	background-size:100% 100%;
@@ -170,17 +168,53 @@ background-image:url('../img/mainPage/mainpage/menu_ul.jpg');
 	background-size:100% 100%;
 }
 #menubar li:hover a {
-	/*border:1px solid White;  */ 
 }
 #menubar li:hover li a:hover { 
 background-image:url('../img/mainPage/mainpage/menu_li.jpg');
 	background-repeat:no-repeat;
 	background-size:100% 100%;
-/*background:rgb(30,144,255);border-right:1px solid White;*/
  }
-
+*/
 /**-----------end of menubar -------------**/
 
+.menubar, .menubar ul {
+height:30px;
+width:1000px;
+margin:0px;
+padding:0px;
+}
+.menubar {
+background-image:url('../img/mainPage/mainpage/menu_ul.jpg');
+background-repeat:no-repeat;
+background-size:100% 100%;
+margin-left:auto;
+margin-right:auto;
+}
+.menubar ul {
+float:left;
+}
+.menubar li {
+float:left;
+width:100px;
+height:30px;
+list-style:none;
+border-right:1px solid white;
+}
+.menubar li a {
+text-decoration:none;
+color:white;
+}
+.menubar li ul {
+display:none;
+}
+.menubar li:hover ul {
+display:block;
+position:absolute;
+}
+.menubar li ul li {
+list-style:none;
+float:center;
+}
 /* 二级页面table等元素 */
 #subPage h2 {
 font-size:30px;
