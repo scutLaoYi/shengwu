@@ -1,52 +1,43 @@
 #rollDiv
 {
 float:left;
-width:1024px;
+width:1000px;
 height:auto;
 /*background-image:url('../img/mainPage/mainpage/广告页.jpg');*/
 background-repeat:no-repeat;
 background-size:100% 100%;
 margin-left:auto;
 margin-right:auto;
+border:none;
 }
 #rollpic
 {
-width:1024px;
+width:1000px;
 height:250px;
 margin-left:auto;
 margin-right:auto;
 }
-
-/*
-#ad ul {
-height:100px;
-padding:0;
-padding-top:5px;
-margin:0;
-}
-#ad li {
-float:left;
-list-style:none;
-padding-left:5px;
-padding-bottom:0px;
-}
-#ad a {
-text-decoration:none;
-padding:0;
-}
-*/
 .ad, .ad ul {
 height:auto;
-width:1024px;
+width:1000px;
 float:left;
-padding:0px;
-margin:0px;
+padding:0;
+margin:0;
+border:none;
 }
 .ad ul li {
-width:auto;
-height:auto;
+width:125px;
+height:100px;
 float:left;
 list-style:none;
+border:none;
+}
+.ad a {
+text-decoration:none;
+border:none;
+}
+.ad a img {
+border:none;
 }
 /* all kinds of h1 */
 h1.mainPage {
@@ -65,27 +56,31 @@ text-shadow:0px 0px 10px #fff;
 
 /* 四个信息框 */
 .msg_box {
-width:1024px;
+width:1000px;
 height:auto;
 float:left;
 background:#f7fbfe;
 }
 .msg_box_left {
-width:490px;
-height:400px;
+width:460px;
+min-height:200px;
+height:auto;
 float:left;
 margin-top:10px;
-margin-left:22px;
+margin-left:15px;
 }
 .msg_box_right {
-width:490px;
-height:400px;
+width:460px;
+min-height:200px;
+height:auto;
 float:right;
+margin-right:15px;
 margin-top:10px;
 }
 .summary_message{
-height:360px;
-width:490px;
+min-height:200px;
+height:auto;
+width:460px;
 margin:0px;
 float:left;
 background:#f7fbfe;
@@ -94,26 +89,27 @@ border-radius:8px;
 
 #message_box
 {
-width:490px;
-height:40px;
+width:460px;
+height:30px;
 text-align:left;
 float:left;
-font-size:20px;
+font-size:16px;
 background:#f7fbfe;
 background-image:url('../img/mainPage/mainpage/message.jpg');
 background-repeat:no-repeat;
-background-size:25% 100%;
+background-size:23% 100%;
 border-bottom:1px solid #aacde9;
-border-radius:3px;
 }
 
 #message_b
 {
-width: 96px;
-height: 40px;
-line-height:40px;
+width: 184px;
+height: 30px;
 padding-left:25px;
+font-weight:bold;
 color:White;
+position:relative;
+top:5px;
 }
 #message_span
 {
@@ -133,8 +129,9 @@ text-decoration:underline;
 color:#1E90FF;
 }
 .summary_message ul{
-width:470px;
-height:360px;
+width:460px;
+min-height:200px;
+height:auto;
 text-align:left;
 float:left;
 padding-left:20px;
@@ -147,7 +144,6 @@ line-height:26px;
 .summary_message a{
 text-decoration:none;
 color:#555557;
-border-bottom:1px dashed black;
 }
 .summary_message a:hover{
 text-decoration:underline;
@@ -198,7 +194,7 @@ margin-right:auto;
 /* 搜索框 */
  .searchDiv 
 {
-width:1024px;
+width:1000px;
 height:auto;
 margin:0px;
 float:left;
@@ -240,8 +236,8 @@ cursor:pointer;
 
 /* 友情链接 */
 #friendLinkHead {
-width:1024px;
-height:35px;
+width:1000px;
+height:30px;
 background:url('../img/mainPage/mainpage/friendlink_bg.jpg');
 background-repeat:no-repeat;
 background-size:100% 100%;
@@ -251,11 +247,12 @@ float:left;
 }
 #friendLink_span {
 width:120px;
-height:35px;
+height:30px;
 float:left;
-background:url('../img/mainPage/mainpage/friendlink_tt.jpg');
-background-repeat:no-repeat;
-background-size:100% 100%;
+background:#3963ab;
+color:white;
+text-align:center;
+line-height:30px;
 }
 #friendLinkHead b
 {
@@ -264,33 +261,47 @@ font-size:25px;
 line-height:35px;
 padding-left:15px;
 }
-#friendLinkContent
+.friendLinkContent
 {
 height:auto;
 float:left;
 background:#bccfed;
 min-height:200px;
-width:1024px;
+width:1000px;
 }
 #friendLink {
 	position:relative;
-	top:20px;
+	top:10px;
 	clear: both;
 	text-align: left;
 	height:auto;
-	width:1024px;
+	width:1000px;
 	float:left;
 	border-radius:3px;
 }
-#friendLinkContent a {
+.friendLinkContent a {
 color:#555557;
-padding:10px;
 text-decoration:none;
-font-size:17px;
+font-size:15px;
 }
-#friendLinkContent a:hover {
+.friendLinkContent a:hover {
 text-decoration:underline;
 color:black;
 }
+.friendLinkContent ul {
+height:auto;
+float:left;
+width:1000px;
+margin:0px;
+padding:0px;
+}
+.friendLinkContent li {
+line-height:20px;
+width:166px;
+float:left;
+text-align:center;
+list-style:none;
+}
+
 /*结束 友情连接 */
 

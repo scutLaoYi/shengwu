@@ -41,7 +41,6 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 	?>
 </head>
 <body>
-	<div id="logoHead">
 	<div id="logo">
 		<div id="header">
 			<ul>
@@ -80,31 +79,30 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 				</li>	
 			</ul>
 		</div>
-		</div>
 	</div>
 		<!-- end of menubar -->
 	<div id="container">
 		<!-- start of menubar -->
-		<div id="menubar">
- 			<ul id="menu">
-			<li><?php echo $this->Html->link('首页', array('controller'=>'Mainpage', 'action'=>'index')); ?></li>
-			<li><?php echo $this->Html->link('企业宣传', array('controller'=>'CompanyIntroduces', 'action'=>'company_introduce_list')); ?></a>
-			  </li>
-			  <li><?php echo $this->Html->link('代理信息', array('controller'=>'ProxyInfos', 'action'=>'proxy_search')); ?></a>
-				<ul>
-				<li><?php echo $this->Html->link('医疗器械', array('controller'=>'ProxyInfos', 'action'=>'proxy_search', 1));?></a></li>
-					<li><?php echo $this->Html->link('生物医药', array('controller'=>'ProxyInfos', 'action'=>'proxy_search', 2));?></a></li>
-					<li><?php echo $this->Html->link('医疗耗材', array('controller'=>'ProxyInfos', 'action'=>'proxy_search', 3));?></a></li>
-				</ul>
-			  </li>
-			  <li><?php echo $this->Html->link('招聘求职', array('controller'=>'Recruitments', 'action'=>'recruitment_list')); ?></a></li>
-			<li><?php echo $this->Html->link('招标中标', array('controller'=>'InviteBids', 'action'=>'invite_bid_list')); ?></a></li> 
+		<div class="menubar">
+ 			<ul>
+				<li><?php echo $this->Html->link('首页', array('controller'=>'Mainpage', 'action'=>'index')); ?></li>
+				<li><?php echo $this->Html->link('企业宣传', array('controller'=>'CompanyIntroduces', 'action'=>'company_introduce_list')); ?>
+				</li>
+				<li><?php echo $this->Html->link('代理信息', array('controller'=>'ProxyInfos', 'action'=>'proxy_search')); ?>
+					<ul>
+						<li><?php echo $this->Html->link('医疗器械', array('controller'=>'ProxyInfos', 'action'=>'proxy_search', 1));?></li>
+						<li><?php echo $this->Html->link('生物医药', array('controller'=>'ProxyInfos', 'action'=>'proxy_search', 2));?></li>
+						<li><?php echo $this->Html->link('医疗耗材', array('controller'=>'ProxyInfos', 'action'=>'proxy_search', 3));?></li>
+					</ul>
+			 	 </li>
+			   <li><?php echo $this->Html->link('招聘求职', array('controller'=>'Recruitments', 'action'=>'recruitment_list')); ?></li>
+				<li><?php echo $this->Html->link('招标中标', array('controller'=>'InviteBids', 'action'=>'invite_bid_list')); ?></li> 
 			<li><?php echo $this->Html->link('论坛交流', array('controller'=>'Forums','action'=>'index')); ?></li>
  				<li><a href="">信息发布</a>
  					<ul> 
-					<li><?php echo $this->Html->link('发布公司信息', array('controller'=>'companyIntroduces', 'action'=>'company_introduce_submit')); ?></li>
-					<li><?php echo $this->Html->link('发布代理信息', array('controller'=>'ProxyInfos', 'action'=>'proxy_submit'));?></li>
-					<li><?php echo $this->Html->link('发布招聘信息',array('controller'=>'Recruitments', 'action'=>'recruitment_submit')); ?></li>
+						<li><?php echo $this->Html->link('发布公司信息', array('controller'=>'companyIntroduces', 'action'=>'company_introduce_submit')); ?></li>
+						<li><?php echo $this->Html->link('发布代理信息', array('controller'=>'ProxyInfos', 'action'=>'proxy_submit'));?></li>
+						<li><?php echo $this->Html->link('发布招聘信息',array('controller'=>'Recruitments', 'action'=>'recruitment_submit')); ?></li>
 					</ul>
 				</li>
 				<li><?php echo $this->Html->link('关于我们', array('controller'=>'AboutUs', 'action'=>'pre_link_us_view'));?></li>
@@ -120,18 +118,23 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 		</div>
 		<div id="friendLink">
 			<div id="friendLinkHead">
-				<span id="friendLink_span"></span>
+				<span id="friendLink_span">友情链接</span>
 			</div>
-			<div id="friendLinkContent">
+			<div class="friendLinkContent">
+			<ul>
 			<?php 
 			$links = $this->requestAction('/FriendlyLinks/list_link');
 			foreach($links as $onelink)
 			{
 				$currentName =  $onelink['FriendlyLink']['link_name'];
-				$currentUrl = $onelink['FriendlyLink']['link_url'];
-				echo $this->Html->link($currentName,$currentUrl);
+				$currentUrl = $onelink['FriendlyLink']['link_url'];?>
+				<li>
+				<?php echo $this->Html->link($currentName,$currentUrl);?>
+				</li>
+			<?php 
 			}
 			?>
+			</li>
 			</div>
 		</div>
 		<div id="footer">
