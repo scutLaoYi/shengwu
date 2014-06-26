@@ -45,7 +45,7 @@ for($index = 0; $index < 5; $index++)
 		<?php 
 			if($advertise[$id]['AdList']['pic_url'] == 'ad_image/ad.png')
 			{
-				echo $this->Html->image($advertise[$id]['AdList']['pic_url'],array('width'=>'124','height'=>'100','url'=>array('controller'=>'AboutUs','action'=>'pre_ad_notice_view')));
+				echo $this->Html->image($advertise[$id]['AdList']['pic_url'],array('width'=>'125','height'=>'100','url'=>array('controller'=>'AboutUs','action'=>'pre_ad_notice_view')));
 			}
 			else
 			{
@@ -67,7 +67,7 @@ for($index = 0; $index < 5; $index++)
 <div class="msg_box">
 <div class="msg_box_left">
 	<div id="message_box">
-		<b id="message_b">公司介绍</b>
+		<span id="message_b">公司介绍</span>
 		<span id="message_span">
 			<?php echo $this->Html->link('More',array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list'));?>
 		</span>
@@ -86,7 +86,7 @@ for($index = 0; $index < 5; $index++)
 
 <div class="msg_box_right">
 	<div id="message_box">
-		<b id="message_b">招聘信息</b>
+		<span id="message_b">招聘信息</span>
 		<span id="message_span">
 			<?php echo $this->Html->link('More',array('controller'=>'Recruitments','action'=>'recruitment_list'));?>
 		</span>
@@ -103,7 +103,7 @@ for($index = 0; $index < 5; $index++)
 
 <div class="msg_box_left">
 	<div id="message_box">
-		<b id="message_b">代理信息</b>
+		<span id="message_b">代理信息</span>
 		<span id="message_span">
 			<?php echo $this->Html->link('More',array('controller'=>'ProxyInfos','action'=>'proxy_search'));?>
 		</span>
@@ -119,7 +119,7 @@ for($index = 0; $index < 5; $index++)
 </div>
 <div class="msg_box_right">
 	<div id="message_box">
-		<b id="message_b">论坛</b>
+		<span id="message_b">论坛</span>
 		<span id="message_span">
 			<?php echo $this->Html->link('More',array('controller'=>'Forums','action'=>'index'));?>
 		</span>

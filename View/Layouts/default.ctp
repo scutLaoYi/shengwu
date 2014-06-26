@@ -118,18 +118,23 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 		</div>
 		<div id="friendLink">
 			<div id="friendLinkHead">
-				<span id="friendLink_span"></span>
+				<span id="friendLink_span">友情链接</span>
 			</div>
-			<div id="friendLinkContent">
+			<div class="friendLinkContent">
+			<ul>
 			<?php 
 			$links = $this->requestAction('/FriendlyLinks/list_link');
 			foreach($links as $onelink)
 			{
 				$currentName =  $onelink['FriendlyLink']['link_name'];
-				$currentUrl = $onelink['FriendlyLink']['link_url'];
-				echo $this->Html->link($currentName,$currentUrl);
+				$currentUrl = $onelink['FriendlyLink']['link_url'];?>
+				<li>
+				<?php echo $this->Html->link($currentName,$currentUrl);?>
+				</li>
+			<?php 
 			}
 			?>
+			</li>
 			</div>
 		</div>
 		<div id="footer">
