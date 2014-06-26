@@ -14,9 +14,16 @@ class UsersController extends AppController {
 	 *
 	 * @var array
 	 */
-	public $helpers = array('Html','Form'); //added by GentleH
+	public $helpers = array('Html','Form', 'Captcha'); //added by GentleH
 
-	public $components = array('Paginator', 'EmailSender', 'List');
+	public $components = array('Paginator', 
+		'EmailSender', 
+		'List',
+		'Captcha'=>array('captchaType'=>'math',
+			'jquerylib'=>true,
+			'modelName'=>'User',
+			'fieldName'=>'captcha')
+	);
 	
 	public $uses = array('CompanyUserInfo','User');
 	/**
@@ -118,19 +125,26 @@ class UsersController extends AppController {
 	/*  用户登录，任何权限均可进入。 */
 	public function login() {
 		$this->set('title_for_layout', '登录');
+
 		if($this->Auth->user('id')) {
 			$this->Session->setFlash(__('你的帐号已登录，无须重复登录'));
 			return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
 		}
+		
 		if($this->request->is('post')) {
-			if($this->Auth->login())
-			{
-				//写入用户名和类型
-				$this->Session->write('user',$this->data['User']['username']);
-				$this->Session->write('type', $this->Auth->user('type'));
-				return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
+			if($this->Captcha->getVerCode() == $this->request->data['User']['captcha']){
+				if($this->Auth->login())
+				{
+					//写入用户名和类型
+					$this->Session->write('user',$this->data['User']['username']);
+					$this->Session->write('type', $this->Auth->user('type'));
+					return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
+				}
+				$this->Session->setFlash(__('帐号或密码有误，请重试'));
 			}
-			$this->Session->setFlash(__('帐号或密码有误，请重试'));
+			else{
+				$this->Session->setFlash(__('验证码错误，请重试'));
+			}
 		}
 	}
 
@@ -146,6 +160,10 @@ class UsersController extends AppController {
 	public function personal_register() {
 		$this->set('title_for_layout', '个人注册');
 		if($this->request->is('post')) {
+			if($this->Captcha->getVerCode() != $this->request->data['User']['captcha']){
+				$this->Session->setFlash(__('验证码错误，请重试'));
+				return;
+			}
 			if($this->request->data['User']['password'] == $this->request->data['User']['confirm_password']) {
 				$this->request->data['User']['type'] = 2;
 				if($this->User->save($this->request->data))
@@ -331,7 +349,7 @@ class UsersController extends AppController {
 	/*beforeFilter function for usersController. scutLaoYi*/
 	/*允许游客登出及个人注册*/
 	public function beforeFilter(){
-		$this->Auth->allow('logout','personal_register','forget_password','change_password','is_current_user','is_current_company');
+		$this->Auth->allow('logout','personal_register','forget_password','change_password','is_current_user','is_current_company', 'captcha');
 		$this->set('allUserType', $this->List->allUserType());
 		parent::beforeFilter();
 	}
