@@ -106,7 +106,6 @@ class InviteBidsController extends AppController {
 
 	public function invite_bid_list()
 	{
-		$this->set('title_for_layout', '招标中标');
 		$this->InviteBid->recursive = 0;
 		$this->Paginator->settings = array('limit'=>'10','order'=>array('InviteBid.created'=>'desc'));
 		$this->set('inviteBids', $this->Paginator->paginate());
@@ -114,6 +113,7 @@ class InviteBidsController extends AppController {
 
 	public function beforeFilter()
 	{
+		$this->set('title_for_layout', '首页>>招标中标');
 		$this->Auth->allow('invite_bid_list');
 		return parent::beforeFilter();
 	}

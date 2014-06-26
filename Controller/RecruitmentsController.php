@@ -13,13 +13,10 @@ class RecruitmentsController extends AppController {
  *
  * @var array
  */
-	public $helpers = array('Html','Form', 'Cache');
+	public $helpers = array('Html','Form');
 	public $components = array('Paginator','List', 'RecruitmentSearcher');
 	public $uses = array('CompanyUserInfo','Recruitment');
 
-	public $cacheAction = array(
-		'recruitment_list' => 36000,
-	);
 /**
  * index method
  *
@@ -109,7 +106,6 @@ class RecruitmentsController extends AppController {
 	public function recruitment_view($id = null) {
 		$options = array('conditions' => array('Recruitment.' . $this->Recruitment->primaryKey => $id));
 		$recruitment=$this->Recruitment->find('first',$options);
-		$this->set('title_for_layout', $recruitment['Recruitment']['job_title']);
 		if($recruitment!=null)
 		{
 		$this->set('recruitment',$recruitment);
@@ -126,7 +122,6 @@ class RecruitmentsController extends AppController {
 
 	/* 招聘信息二级页面，所有用户均可查看 */
 	public function recruitment_list() {
-		$this->set('title_for_layout', '招聘信息');
 		$this->set('recruitments',$this->RecruitmentSearcher->search());
 	}
 
@@ -143,6 +138,7 @@ class RecruitmentsController extends AppController {
 	}
 
 	public function beforeFilter() {
+		$this->set('title_for_layout', '首页>>招聘求职');
 		$this->set('allSexs',$this->List->allSexs());
 		$this->set('allEducational',$this->List->allEducational());
 		$this->set('allWorkingType',$this->List->allWorkingType());

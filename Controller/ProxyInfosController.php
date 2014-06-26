@@ -116,7 +116,6 @@ class ProxyInfosController extends AppController {
 	 */
 	public function proxy_search($type = null, $str = null)
 	{
-		$this->set('title_for_layout', '代理信息');
 		//页面固定项
 		$allCountry = $this->List->allCountry();
 		$this->set('allCountrys', $allCountry);	
@@ -236,7 +235,6 @@ class ProxyInfosController extends AppController {
 		{
 			$this->set('allFunction',$this->List->allFunction($proxy['ProxyInfo']['product_type']));
 			$this->set('allDepartment',$this->List->allDepartment($proxy['ProxyInfo']['product_type']));
-			$this->set('title_for_layout', $proxy['ProxyInfo']['product_name']);
 			if($this->Auth->user('type')=='1')
 			{
 				$this->CompanyUserInfo->recursive = 0;
@@ -264,11 +262,12 @@ class ProxyInfosController extends AppController {
 	 */
 	public function beforeFilter()
 	{
-			$this->set('allCountrys',$this->List->allCountry());
-			$this->set('allProduct',$this->List->allProduct());
-			$this->set('allMaterial',$this->List->allMaterial());
-			$this->set('allStatus', $this->List->allStatus());
-			$this->set('allMonth', $this->List->allMonth());
+		$this->set('title_for_layout', '首页>>代理信息');
+		$this->set('allCountrys',$this->List->allCountry());
+		$this->set('allProduct',$this->List->allProduct());
+		$this->set('allMaterial',$this->List->allMaterial());
+		$this->set('allStatus', $this->List->allStatus());
+		$this->set('allMonth', $this->List->allMonth());
 		$this->Auth->allow('proxy_list', 'proxy_view','proxy_search');
 		return parent::beforeFilter();
 	}
@@ -287,6 +286,11 @@ class ProxyInfosController extends AppController {
 			{
 				return true;
 			}
+		}
+		if($this->Auth->user('type')==2)
+		{
+			$this->Session->setFlash("您当前不是企业用户，无法发布代理信息，请注册企业用户！");
+			return false;
 		}
 		return parent::isAuthorized($user);
 	}

@@ -13,12 +13,9 @@ class CompanyIntroducesController extends AppController {
 	 *
 	 * @var array
 	 */
-	public $helpers = array ('Html','Form', 'Cache');
+	public $helpers = array ('Html','Form');
 	public $components = array('Paginator','List','Picture');
 	public $uses = array('CompanyUserInfo','CompanyIntroduce');
-	public $cacheAction = array(
-		'company_introduce_list' => 36000,
-	);
 	/**
 	 * index method
 	 *
@@ -188,7 +185,7 @@ class CompanyIntroducesController extends AppController {
 	 */ 
 	public function company_introduce_list($province = null, $str = null)
 	{
-		$this->set('title_for_layout', '公司宣传');
+		$this->set('title_for_layout', '首页>>企业宣传');
 		//静态数组
 		$this->CompanyUserInfo->recursive=0;
 
