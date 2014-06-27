@@ -95,8 +95,12 @@ echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产
 	echo $this->Form->input('str', array('id'=>'str','label'=>false));?>
 	</li>
 </ul>
+<ul>
+	<li>
 	<?php
 	echo $this->Form->end('搜索', array('onClick'=>'searching()'));?>
+	</li>
+</ul>
 </div>
 </div>
 

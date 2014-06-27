@@ -49,7 +49,7 @@ class ProxySearcherComponent extends Component
 	}
 	public function proxy_lastest()
 	{
-		$this->Paginator->settings = array('limit'=>'10','order'=>array('ProxyInfo.created'=>'desc'),'conditions'=>array('ProxyInfo.status'=>'2'));
+		$this->Paginator->settings = array('limit'=>'6','order'=>array('ProxyInfo.created'=>'desc'),'conditions'=>array('ProxyInfo.status'=>'2'));
 		return $this->Paginator->paginate('ProxyInfo');
 	}
 }

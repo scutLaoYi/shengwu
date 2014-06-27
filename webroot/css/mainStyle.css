@@ -83,7 +83,6 @@ text-decoration:underline;
 	float:left;
 	height:auto;
 	width:1000px;
-	min-height:888px;
 }
 #footer {
 	width:1000px;
@@ -178,15 +177,14 @@ background-image:url('../img/mainPage/mainpage/menu_li.jpg');
 /**-----------end of menubar -------------**/
 
 .menubar, .menubar ul {
-height:30px;
+height:28px;
 width:1000px;
 margin:0px;
 padding:0px;
 }
 .menubar {
 background-image:url('../img/mainPage/mainpage/menu_ul.jpg');
-background-repeat:no-repeat;
-background-size:100% 100%;
+background-repeat:repeat-x;
 margin-left:auto;
 margin-right:auto;
 }
@@ -196,34 +194,42 @@ float:left;
 .menubar li {
 float:left;
 width:110px;
-height:30px;
+height:28px;
 list-style:none;
 text-align:center;
 }
 .menubar li a {
+width:96px;
 text-decoration:none;
 color:white;
 font-size:16px;
 position:relative;
 top:5px;
 float:center;
-padding:3px 7px 3px 7px;
+padding:0px 7px 0px 7px;
 }
 .menubar li:hover {
 background-image:url('../img/mainPage/mainpage/menu_li.jpg');
 background-repeat:no-repeat;
 background-size:100% 100%;
 }
+.menubar li:hover li {
+width:110px;
+height:28px;
+}
 .menubar li ul {
 display:none;
 }
+
 .menubar li:hover ul {
-padding-top:10px;
+padding-top:8px;
 width:110px;
+position:absolute;
 height:auto;
 display:block;
 position:absolute;
 }
+
 .menubar li ul li {
 width:110px;
 list-style:none;
@@ -231,6 +237,10 @@ float:center;
 background-image:url('../img/mainPage/mainpage/menu_ul.jpg');
 background-repeat:no-repeat;
 background-size:100% 100%;
+}
+.menubar li ul li {
+width:110px;
+height:28px;
 }
 /* 二级页面table等元素 */
 #subPage h2 {
@@ -295,6 +305,7 @@ border:thin solid Black;
 }
 /** Paging **/
 .paging {
+	text-align:center;
 	background:#fff;
 	color: #ccc;
 	margin-top: 1em;

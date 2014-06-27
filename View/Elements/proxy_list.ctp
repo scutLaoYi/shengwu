@@ -1,3 +1,4 @@
+<div id="dlxc"></div>
 <div>
 <!-- begin of index -->
 	<?php foreach ($proxyInfos as $proxyInfo): ?>

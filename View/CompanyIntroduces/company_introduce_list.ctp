@@ -1,20 +1,33 @@
 <div id="bigBox">
+<div id="action_box">
 <div id="leftBox">
 <?php ?>
 <div id="company_title">
 </div>
 
+<ul id="actions_lists">
 <?php echo $this->Form->create('CompanySearch');?>
+	<li>
 	<label>公司地区</label>
+	</li>
+	<li>
 	<?php echo $this->Form->input('Country',array('options'=>$allCountrys,'label'=>''));?>
-	<?php echo $this->Form->input('search',array('label'=>'公司名称'));?>
+	</li>
+	<li>
+	<label>公司名称</label>
+	</li>
+	<li>
+	<?php echo $this->Form->input('search',array('label'=>''));?>
+	</li>
+	<li>
 	<?php echo $this->Form->end(__('搜索'));?>
+	</li>
+</ul>
 </div>
-
+<div id="moving_ad"></div>
+</div>
 <div id="rightBox">
 	<div id="gslb">
-		<div id="gslb_1"></div>
-		<div id="gslb_2"></div>
 	</div>
 	<?php foreach($companys as $company):?>
 	<ul id="content_list">

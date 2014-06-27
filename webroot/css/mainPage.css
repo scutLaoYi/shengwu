@@ -63,7 +63,7 @@ background:#f7fbfe;
 }
 .msg_box_left {
 width:460px;
-min-height:200px;
+min-height:180px;
 height:auto;
 float:left;
 margin-top:10px;
@@ -71,14 +71,14 @@ margin-left:15px;
 }
 .msg_box_right {
 width:460px;
-min-height:200px;
+min-height:180px;
 height:auto;
 float:right;
 margin-right:15px;
 margin-top:10px;
 }
 .summary_message{
-min-height:200px;
+min-height:180px;
 height:auto;
 width:460px;
 margin:0px;
@@ -97,7 +97,7 @@ font-size:16px;
 background:#f7fbfe;
 background-image:url('../img/mainPage/mainpage/message.jpg');
 background-repeat:no-repeat;
-background-size:23% 100%;
+background-size:24% 100%;
 border-bottom:1px solid #aacde9;
 }
 
@@ -129,12 +129,13 @@ text-decoration:underline;
 color:#1E90FF;
 }
 .summary_message ul{
-width:460px;
-min-height:200px;
-height:auto;
+width:440px;
+height:180px;
 text-align:left;
 float:left;
 padding-left:20px;
+overflow:hidden;
+margin:0px;
 }
 .summary_message li{
 list-style:disc; 
@@ -222,15 +223,14 @@ padding:0;
 height:30px;
 }
 input[type=submit] {
-width:100px;
-height:26px;
-background-image:url('../img/mainPage/mainpage/button.jpg');
+width:71px;
+height:28px;
+background-image:url('../img/mainPage/mainpage/button_background.png');
 background-repeat:no-repeat;
 background-size:100% 100%;
-/*border:1px dotted black;*/
-border-radius:3px;
 color:white;
 cursor:pointer;
+border:none;
 }
 /* 结束 - 搜索框 */
 
@@ -302,6 +302,12 @@ float:left;
 text-align:center;
 list-style:none;
 }
-
+#position_teller {
+margin-top:5px;
+width:1000px;
+height:auto;
+text-indent: 0.5cm;
+font-size:15px;
+}
 /*结束 友情连接 */
 

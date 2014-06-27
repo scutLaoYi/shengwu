@@ -12,7 +12,7 @@ class ForumSearcherComponent extends Component
 	
 	public function forum_lastest()
 	{
-		$this->Paginator->settings = array('limit'=>'10','order'=>array('Forum.created'=>'desc'));
+		$this->Paginator->settings = array('limit'=>'6','order'=>array('Forum.created'=>'desc'));
 		return $this->Paginator->paginate('Forum');
 	}
 }

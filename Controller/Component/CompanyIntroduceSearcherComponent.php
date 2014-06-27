@@ -12,7 +12,7 @@ class CompanyIntroduceSearcherComponent extends Component
 	
 	public function company_introduce_lastest()
 	{
-		$this->Paginator->settings = array('limit'=>'10','order'=>array('CompanyIntroduce.created'=>'desc'),'conditions'=>array('CompanyIntroduce.status'=>'2'));
+		$this->Paginator->settings = array('limit'=>'6','order'=>array('CompanyIntroduce.created'=>'desc'),'conditions'=>array('CompanyIntroduce.status'=>'2'));
 		return $this->Paginator->paginate('CompanyIntroduce');
 	}
 }

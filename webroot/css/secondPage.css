@@ -1,27 +1,29 @@
 #bigBox {
-width:1024px;
+width:1000px;
 margin-left:auto;
 margin-right:auto;
 margin-top:5px;
+height:auto;
+float:left;
 }
 #company_title
 {
-width:220px;
+width:164px;
 margin-left:auto;
 margin-right:auto;
-margin-top:10px;
-height:60px;
-background:url('../img/mainPage/secondPage/companySearch.jpg');
+margin-top:4px;
+height:49px;
+background:url('../img/mainPage/secondPage/companySearch.png');
 background-repeat:no-repeat;
 background-size:100% 100%;
 }
 #proxy_title
 {
-width:220px;
+width:164px;
 margin-left:auto;
 margin-right:auto;
-margin-top:10px;
-height:60px;
+margin-top:4px;
+height:49px;
 background:url('../img/mainPage/secondPage/proxyInfo.jpg');
 background-repeat:no-repeat;
 background-size:100% 100%;
@@ -47,36 +49,82 @@ background-repeat:no-repeat;
 background-size:100% 100%;
 }
 #leftBox {
-width:250px;
+width:197px;
 border:1px solid #EEE5DE;
 border-radius:5px;
 float:left;
-margin-top:60px;
-margin-left:10px;
-min-height:300px;
+margin-top:50px;
+margin-left:12px;
+min-height:230px;
 height:auto;
 text-align:center;
 background:#f7f7f7;
+}
+#leftBox input[type=text] {
+width:130px;
+}
+#actions_lists{
+width:197px;
+height:auto;
+margin:0px;
+padding:0px;
+float:left;
+}
+#action_box {
+width:220px;
+height:auto;
+float:left;
+}
+#actions_lists li {
+width:197px;
+padding-top:7px;
+list-style:none;
+}
+#moving_ad {
+float:left;
+width:197px;
+height:106px;
+margin-left:12px;
+margin-top:12px;
+background:url('../img/mainPage/secondPage/activity_ad.png');
+background-repeat:no-repeat;
+background-size:100% 100%;
 }
 .leftBoxSubmit
 {
 background:yellow;
 }
 #rightBox {
-width:740px;
+background:url('../img/mainPage/secondPage/single_black_line.png');
+background-repeat:no-repeat;
+background-position:left;
+background-size:0.2% 150%;
+width:780px;
 float:right;
-top:100px;
+top:70px;
 margin-top:10px;
 }
 
 /*公司列表图标*/
 #gslb {
-margin-left:300px;
-width:160px;
-height:50px;
+width:780px;
+height:60px;
+background:url('../img/mainPage/secondPage/company_title.png');
+background-repeat:no-repeat;
+background-size:22% 100%;
+background-position:center;
 }
+#dlxc {
+width:780px;
+height:60px;
+background:url('../img/mainPage/secondPage/proxy_title.png');
+background-repeat:no-repeat;
+background-size:22% 100%;
+background-position:center;
+}
+/*
 #gslb_1 {
-background:url('../img/mainPage/secondPage/gslb-1.jpg');
+background:url('../img/mainPage/secondPage/company_title.png');
 float:left;
 width:100px;
 height:25px;
@@ -84,6 +132,8 @@ margin-top:15px;
 background-repeat:no-repeat;
 background-size:100% 100%;
 }
+*/
+/*
 #gslb_2 {
 background:url('../img/mainPage/secondPage/gslb-2.jpg');
 float:right;
@@ -92,12 +142,13 @@ height:50px;
 background-repeat:no-repeat;
 background-size:100% 100%;
 }
-
+*/
 /*内容列表*/
 #content_list {
 width:710px;
 height:auto;
-padding:5px;
+padding-left:15px;
+padding-top:3px;
 margin:0px;
 float:left;
 }
@@ -116,14 +167,15 @@ min-height:50px;
 float:left;
 list-style:none;
 background:#eff4fa;
-border-top:2px solid #c9d9e8;
+border-top:1px solid #c9d9e8;
 }
 
 /*代理二级页面内容列表*/
 #proxy_list {
 width:710px;
 height:auto;
-padding:5px;
+padding-left:15px;
+padding-top:3px;
 margin:0px;
 float:left;
 }
@@ -147,13 +199,13 @@ min-height:50px;
 float:left;
 list-style:none;
 background:#eff4fa;
-border-top:2px solid #c9d9e8;
+border-top:1px solid #c9d9e8;
 }
 
 /*代理ajax布局*/
  .py_ajax 
 {
-width:250px;
+width:197px;
 height:auto;
 margin:0px;
 float:left;
@@ -162,7 +214,7 @@ float:left;
 
 .py_ajax ul
 {
-width: 250px; 
+width:197px;
 float:left;
 height:auto; 
 margin:0px;
@@ -171,30 +223,26 @@ padding:0px;
 }
 .py_ajax ul li
 {
-float:left;
-display:block;
-margin-left:10px;
-padding:5px;
-height:30px;
-width:230px;
-text-align:left;
+width:197px;
+padding-top:7px;
+list-style:none;
 }
 .py_ajax input[type=submit] {
-width:100px;
-height:26px;
-background-image:url('../img/mainPage/mainpage/button.jpg');
+width:71px;
+height:28px;
+padding-bottom:5px;
+background-image:url('../img/mainPage/mainpage/button_background.png');
 background-repeat:no-repeat;
 background-size:100% 100%;
-/*border:1px dotted black;*/
-border-radius:3px;
 color:white;
 cursor:pointer;
+border:none;
 }
 .py_ajax select {
-width:160px;
+width:110px;
 }
 .py_ajax input {
-width:210px;
+width:197px;
 }
 /*招聘2级页面*/
 #recruitment_div {
