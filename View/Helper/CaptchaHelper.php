@@ -30,7 +30,7 @@ class CaptchaHelper extends AppHelper {
       break;
       case 'math':
         //echo $settings['stringOperation'].' = ?';
-        echo $this->Form->input($settings['modelName'].'.'.$settings['fieldName'],array('autocomplete'=>'off','label'=>$settings['stringOperation'].' = ','class'=>''));
+        echo $this->Form->input($settings['modelName'].'.'.$settings['fieldName'],array('autocomplete'=>'off','label'=>$settings['stringOperation'].'=','class'=>''));
       break;
     endswitch;
   }
