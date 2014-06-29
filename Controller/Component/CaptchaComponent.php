@@ -107,19 +107,19 @@
           $a = rand(0,20);
           $b = rand(0,20);
           $code = $a + $b;
-          $stringOperation = $a . " + " . $b;
+          $stringOperation = $a . "+" . $b;
         break;
         case "-":
           $a = rand(0,20);
           $b = rand(0,20);
           $code = $a > $b ? $a - $b : $b - $a;
-          $stringOperation =  $a > $b ? $a . " - " . $b : $b . " - " . $a;
+          $stringOperation =  $a > $b ? $a . "-" . $b : $b . "-" . $a;
         break;
         case "*":
           $a = rand(0,10);
           $b = rand(0,10);
           $code = $a * $b;
-          $stringOperation = $a . " * " . $b;
+          $stringOperation = $a . "*" . $b;
         break;
       endswitch;
 
