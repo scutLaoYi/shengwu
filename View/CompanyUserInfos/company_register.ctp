@@ -145,6 +145,16 @@ function change(obj) {
 			</li>
 		</ul>
 	</div>
+<div class="inputLine">
+		<ul>
+			<li id="inputTest_li"><p>验证码</p></li>
+			<li id="inputField_li">
+				<div id="inputField2">
+					<?php $this->Captcha->render($captchaSettings);?>
+				</div>
+			</li>
+		</ul>
+	</div>
 	<?php echo $this->Form->end(__('提交')); ?>
 </fieldset>
 

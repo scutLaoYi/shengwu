@@ -15,7 +15,13 @@ class CompanyUserInfosController extends AppController {
 	 */
 	public $uses=array('User','CompanyUserInfo');
 	public $helpers = array('Html','Form');
-	public $components = array('Paginator','List');
+	public $components = array('Paginator',
+		'List',
+		'Captcha'=>array('captchaType'=>'math',
+			'jquerylib'=>true,
+			'modelName'=>'User',
+			'fieldName'=>'captcha')
+	);
 
 	/**
 	 * index method
@@ -86,6 +92,10 @@ class CompanyUserInfosController extends AppController {
 		$this->set('title_for_layout', '企业注册');
 		if($this->request->is('post'))
 		{
+			if($this->Captcha->getVerCode() != $this->request->data['User']['captcha']){
+				$this->Session->setFlash(__('验证码错误，请重试'));
+				return;
+			}
 
 			if($this->request->data['User']['password'] == $this->request->data['User']['confirm_password']) 
 			{
