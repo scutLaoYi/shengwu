@@ -86,7 +86,7 @@ echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产
 	<li>
 	<!--<label id="material_label">材料分类</label> -->
 	<?php
-	echo $this->Form->input('material',array('id'=>'material','label'=>"材料分类",'onchange'=>'searching()','options'=>array('全部')));		?>
+	echo $this->Form->input('material',array('id'=>'material','label'=>"材料分类",'onchange'=>'searching();','options'=>array('全部')));		?>
 	</li>
 </ul>
 <ul>
@@ -98,7 +98,9 @@ echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产
 <ul>
 	<li>
 	<?php
-	echo $this->Form->end('搜索', array('onClick'=>'searching()'));?>
+	//	echo $this->Form->end('搜索', array('onclick'=>'searching();'));
+	?>
+		<input type="submit" value="搜索" onclick="searching()" />
 	</li>
 </ul>
 </div>
