@@ -39,11 +39,11 @@ background-repeat:no-repeat;
 background-size:100% 100%;
 }
 #login_title {
-width:220px;
+width:164px;
 margin-left:auto;
 margin-right:auto;
 margin-top:10px;
-height:60px;
+height:49px;
 background:url('../img/mainPage/secondPage/login.jpg');
 background-repeat:no-repeat;
 background-size:100% 100%;
@@ -97,17 +97,45 @@ background:yellow;
 #rightBox {
 background:url('../img/mainPage/secondPage/single_black_line.png');
 background-repeat:no-repeat;
-background-position:left;
+background-position:left center;
 background-size:0.2% 150%;
-width:780px;
+width:760px;
 float:right;
 top:70px;
 margin-top:10px;
 }
-
+.loginBox {
+background:url('../img/mainPage/secondPage/single_black_line.png');
+background-repeat:no-repeat;
+background-position:left;
+background-size:0.2% 150%;
+width:760px;
+float:right;
+top:70px;
+margin-top:10px;
+height:auto;
+}
+.loginBox form {
+width:700px;
+height:auto;
+margin:0px;
+padding:0px;
+border:none;
+}
+.loginBox fieldset {
+width:536px;
+height:auto;
+margin:0px 0px 0px 80px;
+border:none;
+background:url('../img/mainPage/secondPage/shining_box.png');
+background-repeat:no-repeat;
+background-size:100% 100%;
+padding:0px;
+overflow:hidden;
+}
 /*公司列表图标*/
 #gslb {
-width:780px;
+width:760px;
 height:60px;
 background:url('../img/mainPage/secondPage/company_title.png');
 background-repeat:no-repeat;
@@ -115,7 +143,7 @@ background-size:22% 100%;
 background-position:center;
 }
 #dlxc {
-width:780px;
+width:760px;
 height:60px;
 background:url('../img/mainPage/secondPage/proxy_title.png');
 background-repeat:no-repeat;
@@ -252,12 +280,15 @@ margin-right:auto;
 }
 
 /*登录 */
-.inputLine, .inputLine ul {
-width:480px;
-margin:0px;
+#inputLine{
+width:505px;
+margin-top:60px;
+margin-left:13px;
+margin-right:13px;
 float:left;
 padding:0px;
 height:auto;
+border:none;
 }
 /*
 .inputLine ul li {
@@ -268,8 +299,8 @@ list-style:none;
 }
 */
 #inputIcon {
-width:auto;
-height:auto;
+width:120px;
+height:63px;
 float:left;
 list-style:none;
 padding:0px;
@@ -277,8 +308,8 @@ margin:0px;
 text-align:center;
 }
 #inputTest_li {
-width:110px;
-height:auto;
+width:65px;
+height:63px;
 float:left;
 list-style:none;
 padding:0px;
@@ -286,37 +317,88 @@ margin:0px;
 text-align:center;
 }
 #inputField_li {
-width:auto;
-height:auto;
+width:320px;
+height:63px;
 float:left;
 list-style:none;
+padding:0px;
+margin:0px;
+}
+#inputField_li input[type=text] {
+margin-top:13px;
+}
+#inputField_li input[type=password] {
+margin-top:13px;
+}
+#yanzhengma {
+width:auto;
+height:63px;
+float:left;
+list-style:none;
+padding:0px;
+margin:0px;
+}
+#button_li {
+margin:0px;
+padding:0px;
+text-align:center;
+float:left;
+width:500px;
+height:28px;
+list-style:none;
+}
+#forget_psw {
+margin:0px;
+padding:0px;
+text-align:center;
+float:left;
+width:500px;
+list-style:none;
+height:15px;
+}
+#forget_psw a img {
+border:none;
+}
+#yanzhengma input[type=text] {
+margin-top:13px;
+width:155px;
+}
+#inputField_li2 {
+width:440px;
+height:63px;
+float:left;
+list-style:none;
+padding:0px;
+margin:0px;
 }
 #username {
-width:47px;
-height:45px;
+width:53px;
+height:56px;
 background:url('../img/mainPage/secondPage/username.jpg');
 background-repeat:no-repeat;
 background-size:100% 100%;
+float:right;
+margin:0px;
+padding:0px;
 }
 #password {
-width:47px;
-height:45px;
+width:53px;
+height:63px;
 background:url('../img/mainPage/secondPage/password.jpg');
 background-repeat:no-repeat;
 background-size:100% 100%;
+float:right;
+margin:0px;
+padding:0px;
 }
 #email {
-width:47px;
-height:45px;
+width:55px;
+height:32px;
 background:url('../img/mainPage/secondPage/email.jpg');
 background-repeat:no-repeat;
 background-size:100% 100%;
-}
-#inputField {
-width:auto;
-height:45px;
-margin-top:15px;
-text-align:right;
+float:right;
+margin-top:6px;
 }
 
 /*注册*/

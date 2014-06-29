@@ -177,14 +177,6 @@ margin-left:auto;
 margin-right:auto;
 }
 
-#anotherPageBox fieldset {
-width:500px;
-margin:50px auto 50px auto;
-border:3px solid #BEBEBE;
-border-style:ridge;
-border-radius:5px;
-}
-
 #anotherPageBox a{
 margin-left:auto;
 margin-right:auto;
