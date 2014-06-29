@@ -10,11 +10,6 @@
 </div>
 <div id="rightBox">
 <div id="jbxx"></div>
-<?php 
-
-if(isset($isCurrentCompany))
-	echo $this->Html->link('编辑', array('controller'=>'CompanyUserInfos', 'action'=>'company_edit'));
-?>
 <ul id="company_3_ul">
 	<li id="company_3_li_0">公司名称</li>
 	<li id="company_3_li">
@@ -52,6 +47,17 @@ if(isset($isCurrentCompany))
 	<li id="company_3_li">
 			<?php echo h($company_info['qq']); ?>
 	</li>
+	<?php 
+	if(isset($isCurrentCompany))
+	{?>
+		<li id="company_3_edit">
+		<?php 
+		echo $this->Html->link('编辑', array('controller'=>'CompanyUserInfos', 'action'=>'company_edit'));
+		?>
+		</li>
+	<?php
+	}
+?>
 </ul>
 </div>
 

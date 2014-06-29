@@ -33,7 +33,7 @@
 							<?php $this->Captcha->render($captchaSettings);?>
 					</li>
 					<li id="button_li">
-						<?php echo $this->form->end(__('登录')); ?>
+						<?php echo $this->Form->end(__('登录')); ?>
 					</li>
 					<li id="forget_psw">
 						<?php echo $this->Html->link('忘记密码',array('action'=>'forget_password'));?>

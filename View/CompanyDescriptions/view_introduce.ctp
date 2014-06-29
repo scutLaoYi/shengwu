@@ -10,18 +10,9 @@
 <div id="rightBox">
 <div id="gsjs"></div>
 <ul id="company_3_ul">
-<?php if(!isset($introduce))
-	{
-?>
-	<li id="company_3_li">暂无记录</li>
-<?php
-	}
-else
-{
-	if(isset($isCurrentCompany))
-		echo $this->Html->link('编辑', array('controller'=>'CompanyIntroduces', 'action'=>'company_introduce_submit'));
-?>
-		<?php echo $this->Html->image('./'.$introduce['picture_url'],array('width'=>'200','height'=>'200'));?>
+	<li id="company_img">
+			<?php echo $this->Html->image('./'.$introduce['picture_url'],array('width'=>'700','height'=>'200'));?>
+	</li>
 	<li id="company_3_li_0">企业经济性质</li>
 	<li id="company_3_li">
 		<?php echo h($companyEconomicNature[$introduce['economic_nature']]);?> 
@@ -50,7 +41,23 @@ else
 	<li id="company_3_li">
 		<?php echo h($introduce['introduce']); ?>
 	</li>
-<?php 
+	<?php if(!isset($introduce))
+	{
+?>
+	<li id="company_3_li">暂无记录</li>
+<?php
+	}
+else
+{
+	if(isset($isCurrentCompany))
+	{ ?>
+		<li id="company_3_edit">
+		<?php 
+		echo $this->Html->link('编辑', array('controller'=>'CompanyIntroduces', 'action'=>'company_introduce_submit'));
+		?>
+		</li>
+<?php
+	}
 }
 ?>
 </div>

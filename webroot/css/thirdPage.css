@@ -79,29 +79,6 @@ margin-right:auto;
 #anotherPageBox a {
 color:black;
 }
-#dlxx {
-width:160px;
-height:50px;
-margin-left:auto;
-margin-right:auto;
-}
-#dlxx_1 {
-background:url('../img/mainPage/thirdPage/dlxx-1.jpg');
-width:100px;
-height:25px;
-margin-top:15px;
-float:left;
-background-repeat:no-repeat;
-background-size:100% 100%;
-}
-#dlxx_2 {
-background:url('../img/mainPage/thirdPage/dlxx-2.jpg');
-width:40px;
-height:50px;
-float:right;
-background-repeat:no-repeat;
-background-size:100% 100%;
-}
 #girl_div {
 background:url('../img/mainPage/thirdPage/dlxx-3.jpg');
 width:269px;
@@ -149,18 +126,29 @@ background-repeat:no-repeat;
 background-size:22% 100%;
 background-position:center;
 }
+#dltitle {
+width:760px;
+height:47px;
+margin-left:auto;
+margin-right:auto;
+background:url('../img/mainPage/thirdPage/proxy_info_with_light.png');
+background-repeat:no-repeat;
+background-size:22% 100%;
+background-position:center;
+}
 #company_3_ul {
 width:700px;
-margin:30px 0px 0px 30px;
+margin:0px;
 float:left;
 padding-left:20px;
 height:auto;
 }
 #company_3_li_0 {
-width:200px;
+width:120px;
 float:left;
 min-height:27px;
 height:auto;
+border-bottom:1px dashed #bababa;
 list-style:square inside url('../img/mainPage/thirdPage/dot.png');
 }
 #company_3_li {
@@ -170,9 +158,77 @@ height:auto;
 float:left;
 padding:0px;
 list-style:none;
+margin-left:80px;
+border-bottom:1px dashed #bababa;
 }
-#dot_label {
-border-bottom:1px dashed solid;
+#company_img {
+width:700px;
+height:auto;
+position:relative;
+float:left;
+margin:0px 0px 20px 0px;
+padding:0px;
+list-style:none;
+}
+#company_3_edit {
+width:700px;
+height:auto;
+float:left;
+margin:0px 0px 10px 0px;
+padding:0px;
+list-style:none;
+text-align:center;
+}
+#proxy_3_box {
+width:900px;
+float:left;
+margin-left:50px;
+padding:0px;
+height:auto;
+background:url('../img/mainPage/thirdPage/dlxx-3.jpg');
+background-size:269px 243px;
+background-repeat:no-repeat;
+background-position:right bottom;
+}
+#proxy_3_ul {
+width:650px;
+margin:0px;
+float:left;
+padding:0px;
+height:auto;
+line-height:35px;
+}
+#proxy_3_li_0 {
+width:98px;
+float:left;
+min-height:27px;
+height:auto;
+list-style:none;
+font-size:14px;
+background:url('../img/mainPage/thirdPage/proxy_word_line.png');
+background-position:bottom;
+background-repeat:no-repeat;
+background-size:100% 10%;
+line-height:35px;
+text-align:center;
+}
+#proxy_3_li {
+width:480px;
+min-height:27px;
+height:auto;
+float:left;
+padding:0px;
+list-style:none;
+margin-left:72px;
+border-bottom:1px dashed #bababa;
+}
+#proxy_3_li_return {
+width:650px;
+float:left;
+min-height:27px;
+height:auto;
+list-style:none;
+text-align:center;
 }
 /*招聘三级页面*/
 .recuitment_class {
