@@ -68,8 +68,14 @@ function change(obj) {
 		
 	?>
 			</li>
+			<li id="inputTest_li"><p>验证码</p></li>
+			<li id="inputField_li">
+				<div id="inputField2">
+					<?php $this->Captcha->render($captchaSettings);?>
+				</div>
+			</li>
 			<li id="button_li">
-			<?php echo $this->Form->end(__('提交')); ?>
+				<?php echo $this->Form->end(__('提交')); ?>
 			</li>
 		</ul>
 </fieldset>
