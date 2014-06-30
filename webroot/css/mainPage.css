@@ -223,28 +223,30 @@ background-size:100% 100%;
 color:white;
 cursor:pointer;
 border:none;
+margin:0px;
+padding:0px;
 }
 /* 结束 - 搜索框 */
 
 /* 友情链接 */
 #friendLinkHead {
 width:1000px;
-height:30px;
-background:url('../img/mainPage/mainpage/friendlink_bg.jpg');
+height:27px;
+background:url('../img/mainPage/mainpage/friendly_link_split.png');
 background-repeat:no-repeat;
-background-size:100% 100%;
+background-size:888px 27px;
+background-position:right;
 text-align:left;
-border-radius:1px;
 float:left;
 }
 #friendLink_span {
-width:120px;
-height:30px;
+width:112px;
+height:27px;
 float:left;
 background:#3963ab;
 color:white;
 text-align:center;
-line-height:30px;
+line-height:27px;
 }
 #friendLinkHead b
 {

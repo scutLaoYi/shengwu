@@ -1,6 +1,7 @@
 <div id="bigBox">
-	<div id="leftBox">
 	<?php ?>
+	<div id="action_box">
+	<div id="leftBox">
 	<div id="aboutUs_title"></div>
 	<ul id="listUl">
 		<li>
@@ -23,13 +24,18 @@
 		<?php echo $this->Html->link('友情提示',array('controller'=>'AboutUs','action'=>'pre_friend_message_view'));?>
 	&nbsp;
 		</li>
-
+	</ul>
 	</div>
-	<div id="aboutUsBox">
-	<?php $message=ereg_replace("\n","</br>\n",$content);?>
-	<div id="aboutUs_content">
-	<?php echo __($message);?>
+	<div id="moving_ad"></div>
 	</div>
-	</div>
+	<div id="rightBox">
+		<div id="ljwm"></div>
+			<div id="aboutUsBox">
+				<?php $message=ereg_replace("\n","</br>\n",$content);?>
+					<div id="aboutUs_content">
+						<?php echo __($message);?>
+					</div>
+			</div>
+		</div>
 </div>
 

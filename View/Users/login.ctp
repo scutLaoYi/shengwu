@@ -8,6 +8,7 @@
 </div>
 	<div class="loginBox">
 	<?php echo $this->Form->create('User'); ?>
+	<div id="fieldset_box">
 	<fieldset>
 				<ul id="inputLine">
 					<li id="inputIcon">
@@ -22,8 +23,7 @@
 					</li>
 					<li id="inputTest_li"><p>密码</p></li>
 					<li id="inputField_li">
-			      	<?php echo $this->Form->input('password',array('label'=>''));
-			?>
+			      	<?php echo $this->Form->input('password',array('label'=>''));?>
 					</li>
 					<li id="inputIcon">
 						<div id="email"></div>
@@ -40,6 +40,7 @@
 					</li>
 				</ul>
 	</fieldset>
+	</div>
 	</div>
 </div>
 

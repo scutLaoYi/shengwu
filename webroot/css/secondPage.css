@@ -29,11 +29,11 @@ background-repeat:no-repeat;
 background-size:100% 100%;
 }
 #aboutUs_title{
-width:220px;
+width:164px;
 margin-left:auto;
 margin-right:auto;
-margin-top:10px;
-height:60px;
+margin-top:4px;
+height:49px;
 background:url('../img/mainPage/secondPage/aboutUs.jpg');
 background-repeat:no-repeat;
 background-size:100% 100%;
@@ -42,9 +42,29 @@ background-size:100% 100%;
 width:164px;
 margin-left:auto;
 margin-right:auto;
-margin-top:10px;
+margin-top:4px;
 height:49px;
 background:url('../img/mainPage/secondPage/login.jpg');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+#p_register_title {
+width:164px;
+margin-left:auto;
+margin-right:auto;
+margin-top:4px;
+height:49px;
+background:url('../img/mainPage/secondPage/personal_register_title.png');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+#c_register_title {
+width:164px;
+margin-left:auto;
+margin-right:auto;
+margin-top:4px;
+height:49px;
+background:url('../img/mainPage/secondPage/company_register_title.png');
 background-repeat:no-repeat;
 background-size:100% 100%;
 }
@@ -122,7 +142,7 @@ margin:0px;
 padding:0px;
 border:none;
 }
-.loginBox fieldset {
+#fieldset_box {
 width:536px;
 height:auto;
 margin:0px 0px 0px 80px;
@@ -130,24 +150,31 @@ border:none;
 background:url('../img/mainPage/secondPage/shining_box.png');
 background-repeat:no-repeat;
 background-size:100% 100%;
+background-position:center;
 padding:0px;
-overflow:hidden;
+}
+.loginBox fieldset {
+width:536px;
+height:auto;
+margin:0px;
+padding:0px;
+border:none;
 }
 /*公司列表图标*/
 #gslb {
 width:760px;
-height:60px;
+height:56px;
 background:url('../img/mainPage/secondPage/company_title.png');
 background-repeat:no-repeat;
-background-size:22% 100%;
+background-size:161px 56px;
 background-position:center;
 }
 #dlxc {
 width:760px;
-height:60px;
+height:56px;
 background:url('../img/mainPage/secondPage/proxy_title.png');
 background-repeat:no-repeat;
-background-size:22% 100%;
+background-size:161px 56px;
 background-position:center;
 }
 /*
@@ -281,10 +308,9 @@ margin-right:auto;
 
 /*登录 */
 #inputLine{
-width:505px;
+width:520px;
 margin-top:60px;
-margin-left:13px;
-margin-right:13px;
+margin-left:16px;
 float:left;
 padding:0px;
 height:auto;
@@ -317,7 +343,7 @@ margin:0px;
 text-align:center;
 }
 #inputField_li {
-width:320px;
+width:335px;
 height:63px;
 float:left;
 list-style:none;
@@ -331,7 +357,7 @@ margin-top:13px;
 margin-top:13px;
 }
 #yanzhengma {
-width:auto;
+width:335px;
 height:63px;
 float:left;
 list-style:none;
@@ -343,7 +369,7 @@ margin:0px;
 padding:0px;
 text-align:center;
 float:left;
-width:500px;
+width:520px;
 height:28px;
 list-style:none;
 }
@@ -449,24 +475,113 @@ padding-top:10px;
 text-align:left;
 }
 
-/*关于我们*/
-#aboutUsBox {
-width:740px;
-float:right;
-top:100px;
-margin-top:60px;
-height:auto;
-min-height:500px;
-background:url('../img/mainPage/secondPage/jiantou.png');
+/*广告招租*/
+#ad_title {
+width:164px;
+margin-left:auto;
+margin-right:auto;
+margin-top:4px;
+height:49px;
+background:url('../img/mainPage/secondPage/ad_invite.png');
 background-repeat:no-repeat;
-background-size:400px 250px;
-background-position:top right;
-background-color:#fdfdfd;
+background-size:100% 100%;
 }
-#aboutUs_content {
-width:400px;
+#adBox {
+width:760px;
 float:left;
-top:100px;
-min-height:500px;
-background-color:#fdfdfd;
+height:auto;
+min-height:180px;
+background:url('../img/mainPage/secondPage/sister_diqiu.png');
+background-repeat:no-repeat;
+background-size:195px 166px;
+background-position:top right;
+}
+#ad_content {
+width:442px;
+float:left;
+min-height:180px;
+margin-left:20px;
+color:#4c4c4c;
+font-size:15px;
+}
+
+/*企业注册*/
+#c_register_box {
+width:760px;
+height:auto;
+float:left;
+margin:0px;
+padding:0px;
+}
+#c_register_box fieldset {
+width:760px;
+height:auto;
+float:left;
+margin:0px;
+padding:0px;
+border:none;
+}
+/*公司信息发布表单*/
+#list_box {
+width: 700px;
+margin: 0px;
+float: left;
+padding-left: 20px;
+height: auto;
+}
+#company_submit_title
+{
+width:164px;
+margin-left:auto;
+margin-right:auto;
+margin-top:4px;
+height:49px;
+background:url('../img/mainPage/secondPage/company_info_submit_title.png');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+#upload_li {
+width: 700px;
+margin: 0px;
+float: left;
+height: 63px;
+list-style:none;
+}
+#list_test_li {
+width: 100px;
+height: 63px;
+float: left;
+list-style: none outside none;
+padding: 0px;
+margin: 0px;
+text-align: center;
+}
+#list_input_li {
+width: 600px;
+height: 63px;
+float: left;
+list-style: none outside none;
+padding: 0px;
+margin: 0px;
+}
+#gsxx_submit {
+width:760px;
+height:40px;
+margin-bottom:5px;
+background:url('../img/mainPage/secondPage/company_introduce_submit_big_title.png');
+background-repeat:no-repeat;
+background-size:262px 40px;
+background-position:center;
+}
+/*代理信息发布*/
+#proxy_submit_title
+{
+width:164px;
+margin-left:auto;
+margin-right:auto;
+margin-top:4px;
+height:49px;
+background:url('../img/mainPage/secondPage/proxy_submit_title.png');
+background-repeat:no-repeat;
+background-size:100% 100%;
 }

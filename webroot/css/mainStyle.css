@@ -313,6 +313,7 @@ border:thin solid Black;
 }
 /** Paging **/
 .paging {
+	width:auto;
 	text-align:center;
 	background:#fff;
 	color: #ccc;

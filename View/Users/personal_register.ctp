@@ -1,5 +1,16 @@
+<div id="bigBox">
+	<div id="action_box">
+		<div id="leftBox">
+		<?php ?>
+			<div id="p_register_title"></div>
+		</div>
+		<div id="moving_ad"></div>
+	</div>
+
+<div id="rightBox">		
 <div class="loginBox">
 <?php echo $this->Form->create('User'); ?>
+<div id="fieldset_box">
 <fieldset>
 		<ul id="inputLine">
 			<li id="inputIcon">
@@ -42,4 +53,6 @@
 			</li>
 		</ul>
 </fieldset>
+</div>
+</div>
 </div>

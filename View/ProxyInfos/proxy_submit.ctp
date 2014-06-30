@@ -2,10 +2,18 @@
 <?php echo $this->Html->script('proxySelection'); ?>
 <!-- end of script -->
 
-<div id="anotherPageBox">
-<?php echo $this->Form->create('ProxyInfo',array('type'=>'file')); ?>
+<div id="bigBox">
+	<div id="action_box">
+		<div id="leftBox">
+		<?php ?>
+			<div id="proxy_submit_title"></div>
+		</div>
+		<div id="moving_ad"></div>
+	</div>
+	<div id="rightBox">
+	<div id="c_register_box">
+	<?php echo $this->Form->create('ProxyInfo',array('type'=>'file')); ?>
 	<fieldset>
-		<legend><?php echo __('公司代理产品提交'); ?></legend>
 	<?php
 		
 	  if($this->request->data!=null&&$this->request->data['ProxyInfo']['picture_url']!=null)
@@ -54,8 +62,10 @@
 		echo $this->Form->input('product_support',array('label'=>'对代理商的支持'));
 		echo $this->Form->input('product_introduce',array('label'=>'产品介绍','rows'=>'5'));
 	?>
-	</fieldset>
 		<?php echo $this->Form->end(__('提交')); ?>
+	</fieldset>
+	</div>
+</div>
 </div>
 
 
