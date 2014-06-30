@@ -45,7 +45,7 @@ class EmailSenderComponent extends Component
 	 */
 	public function sendFoundPassword($username, $user_email)
 	{
-		$domain = 'http://127.0.0.1/';
+		$domain = 'http://www.中国生物医学材料.com';
 		//Create the safe hash. 
 		$datetime = time();
 		$salt = Configure::read('Security.salt');
@@ -60,11 +60,11 @@ class EmailSenderComponent extends Component
     您收到这封这封电子邮件是因为您 (也可能是某人冒充您的名义) 申请了一个新的密码。假如这不是您本人所申请, 请不用理会这封电子邮件, 但是如果您持续收到这类的信件骚扰, 请您尽快联络管理员。
 
     要使用新的密码, 请使用以下链接启用密码。
-'.$domain.'cakephp/users/change_password/'.$username.'/'.$datetime.'/'.$hash.'
+'.$domain.'/users/change_password/'.$username.'/'.$datetime.'/'.$hash.'
 (如果无法点击该URL链接地址，请将它复制并粘帖到浏览器的地址输入框，然后单击回车即可。)
    
     注意:请您在收到邮件1个小时内使用，否则该链接将会失效。
-    关注中国生物医学材料：'.$domain.'cakephp/Mainpage/index';
+    关注中国生物医学材料：'.$domain;
 
 		//-- end of the message.
 
@@ -93,7 +93,7 @@ class EmailSenderComponent extends Component
 		$allWorkingTime = $this->List->allWorkingTime();
 		$allEducational = $this->List->allEducational();
 		//--------------------------------------------
-		$domain = 'http://127.0.0.1/';
+		$domain = 'http://www.中国生物医学材料.com/';
 		$subject = '中国生物医学材料帮您找人才';
 
 		$picture = null;
@@ -132,7 +132,7 @@ class EmailSenderComponent extends Component
 			"\n专业技能:".$resume['professional_technique'].
 			"\n自我评价:".$resume['self_evaluate'].
 			"\n该信息发自中国生物医学材料网:\n".
-			$domain."cakephp/Mainpage/index";
+			$domain."Mainpage/index";
 		return $this->sendEmailTo($company_email,$subject,$message, $picture); 
 	}
 }
