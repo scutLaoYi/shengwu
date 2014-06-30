@@ -285,6 +285,10 @@ class UsersController extends AppController {
 		$this->set('title_for_layout', '忘记密码');
 		if($this->request->is('post'))
 		{
+			if($this->Captcha->getVerCode() != $this->request->data['User']['captcha']){
+				$this->Session->setFlash(__('验证码错误，请重试'));
+				return;
+			}
 			$this->User->recursive = 0;
 			$user=$this->User->find('first',array('conditions'=>array('User.username'=>$this->request->data['Password']['username'])));
 			if($user==null)
