@@ -52,8 +52,9 @@ function setAndSearch(option)
 <!-- actions for filter -->
 <!-- beginning of actions -->
 <div id="bigBox">
-<div id="leftBox">
-<div id="proxy_title"></div>
+<div id="action_box">
+	<div id="leftBox">
+	<div id="proxy_title"></div>
 <div class="py_ajax">
 <?php
 ?>
@@ -104,6 +105,8 @@ echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产
 	</li>
 </ul>
 </div>
+</div>
+<div id="moving_ad"></div>
 </div>
 
 <!-- data of ajax -->
