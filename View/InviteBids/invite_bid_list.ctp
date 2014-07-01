@@ -1,11 +1,18 @@
+<div id="bigBox">
 <?php ?>
-
-<div id="anotherPageBox">
-<div class="bids_box">
-<h2><?php echo __('院方招标'); ?></h2>
+	<div id="action_box">
+		<div id="leftBox">
+		<div id="bids_title"></div>
+		</div>
+		<div id="moving_ad"></div>
+	</div>	
+	<div id="rightBox">
+	<div id="yfzb"></div>
+	<div id="bids_box">
 	<ul>
 	<?php foreach ($inviteBids as $inviteBid): ?>
-	<li>
+	<li id="bids_li0"><p>招标内容</p></li>
+	<li id="bids_li1">
 			<?php $message=ereg_replace("\n","</br>\n",$inviteBid['InviteBid']['content']);?>	
 		<?php echo ($message); ?>
 	</li>
@@ -27,5 +34,6 @@
 		echo $this->Paginator->next(__('下一页') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
+</div>
 </div>
 

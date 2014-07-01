@@ -1,51 +1,66 @@
-<div id="anotherPageBox">
-	<h2><?php echo __('招聘详细'); ?> </h2>
-	<div class="recuitment_class">
-	<ul>
-		<li>【工作名称】
+<div id="bigBox">
+	<div id="recuriment_3_title"></div>
+	<?php ?>
+	<div id="recuriment_3_box">
+	<ul id="recuriment_3_ul">
+		<li id="recuriment_3_li_0">工作名称</li>
+		<li id="recuriment_3_li_1">
 			<?php echo h($recruitment['Recruitment']['job_title']); ?>
 		</li>
-		<li>【公司名称】
+		<li id="recuriment_3_li_0">公司名称</li>
+		<li id="recuriment_3_li_1">
 			<?php echo h($recruitment['CompanyUserInfo']['company']); ?>
 		</li>
-		<li>【招聘人数】
+		<li id="recuriment_3_li_0">招聘人数</li>
+		<li id="recuriment_3_li_1">
 			<?php echo h($recruitment['Recruitment']['number']); ?>
 		</li>
-		<li>【性别要求】
+		<li id="recuriment_3_li_0">性别要求</li>
+		<li id="recuriment_3_li_1">
 			<?php echo h($allSexs[$recruitment['Recruitment']['sex']]); ?>
 		</li>
-		<li>【年龄要求】
+		<li id="recuriment_3_li_0">年龄要求</li>
+		<li id="recuriment_3_li_1">
 			<?php echo h($recruitment['Recruitment']['age']); ?>
 		</li>
-		<li>【教育程度】
+		<li id="recuriment_3_li_0">教育程度</li>
+		<li id="recuriment_3_li_1">
 			<?php echo h($allEducational[$recruitment['Recruitment']['educational']]); ?>
 		</li>
-		<li>【工作类型】
+		<li id="recuriment_3_li_0">工作类型</li>
+		<li id="recuriment_3_li_1">
 			<?php echo h($allWorkingType[$recruitment['Recruitment']['working_type']]); ?>
-			&nbsp;
 		</li>
-		<li>【工作时间】
+		<li id="recuriment_3_li_0">工作时间</li>
+		<li id="recuriment_3_li_1">
 			<?php echo h($recruitment['Recruitment']['working_time']); ?>
 		</li>
-		<li>【工作地区】
+		<li id="recuriment_3_li_0">工作地区</li>
+		<li id="recuriment_3_li_1">
 			<?php echo h($allProvince[$recruitment['Recruitment']['working_area']]); ?>
 		</li>
-		<li>【户口要求】
+		<li id="recuriment_3_li_0">户口要求</li>
+		<li id="recuriment_3_li_1">
 			<?php echo h($recruitment['Recruitment']['account_required']); ?>
 		</li>
-		<li>【外语要求】
+		<li id="recuriment_3_li_0">外语要求</li>
+		<li id="recuriment_3_li_1">
 			<?php echo h($recruitment['Recruitment']['language_acquired']); ?>
 		</li>
-		<li>【职位月薪】
+		<li id="recuriment_3_li_0">职位月薪</li>
+		<li id="recuriment_3_li_1">
 			<?php echo h($recruitment['Recruitment']['salary']); ?>
 		</li>
-		<li>【截至日期】
+		<li id="recuriment_3_li_0">截至日期</li>
+		<li id="recuriment_3_li_1">
 			<?php echo h($recruitment['Recruitment']['deadline']); ?>
 		</li>
-		<li>【联系邮箱】
+		<li id="recuriment_3_li_0">联系邮箱</li>
+		<li id="recuriment_3_li_1">
 			<?php echo h($recruitment['Recruitment']['email']); ?>
 		</li>
-		<li>【联系电话】
+		<li id="recuriment_3_li_0">联系电话</li>
+		<li id="recuriment_3_li_1">
 			<?php echo h($recruitment['Recruitment']['phone']); ?>
 		</li>
 	</ul>
@@ -53,12 +68,15 @@
 
 	<div class="request_content ">
 	<span class="request_title ">具体要求</span>
+		<div class="request_item_box">
 		<div class="request_item">
 			<?php echo h($recruitment['Recruitment']['detail']); ?>
 		</div>
+		</div>
 	</span>
 	</div>
-	<?php echo $this->Html->link('返回', $referer);?>
-	&nbsp;&nbsp;&nbsp;
+	<div class="recuriment_return">
 	<?php echo $this->Html->link('我要发简历', array('controller'=>'Resumes','action'=>'post_resume',$recruitment['Recruitment']['id']));?>
+	<?php echo $this->Html->link('返回', $referer);?>
+	</div>
 </div>

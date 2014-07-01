@@ -136,7 +136,7 @@ margin-left:auto;
 margin-right:auto;
 background:url('../img/mainPage/thirdPage/proxy_info_with_light.png');
 background-repeat:no-repeat;
-background-size:22% 100%;
+background-size:148px 47px;
 background-position:center;
 }
 #company_3_ul {
@@ -234,57 +234,102 @@ list-style:none;
 text-align:center;
 }
 /*招聘三级页面*/
-.recuitment_class {
-width:1024px;
-height:auto;
-min-height:200px;
-background:rgb(240, 240, 240);
-border-top:1px dashed rgb(204, 204, 204);
-border-bottom:1px dashed rgb(204, 204, 204);
-}
-.recuitment_class ul{
-width:1024px;
+#recuriment_3_box {
+width:980px;
 float:left;
+margin-left:50px;
+padding:0px;
 height:auto;
 }
-.recuitment_class ul li{
-width:330px;
-height:30px;
-text-decoration:none;
-float:left;
-text-align:left;
-color: rgb(102, 102, 102);
+#recuriment_3_title {
+width:980px;
+height:47px;
+margin-left:auto;
+margin-right:auto;
+background:url('../img/mainPage/thirdPage/recruitment_with_lamp.png');
+background-repeat:no-repeat;
+background-size:148px 47px;
+background-position:center;
 }
-.request_title {
-padding:10px;
-background: none repeat scroll 0% 0% rgb(240, 240, 240);
-display: block;
-color: rgb(102, 102, 102);
-font-size: 16px;
-width: 80px;
-height: 25px;
-margin-left: 20px;
+#recuriment_3_ul {
+width:900px;
+margin:0px;
+float:left;
+padding:0px;
+height:auto;
+line-height:35px;
+}
+#recuriment_3_li_0 {
+width:98px;
+float:left;
+min-height:27px;
+height:auto;
+list-style:none;
+font-size:14px;
+background:url('../img/mainPage/thirdPage/proxy_word_line.png');
+background-position:bottom;
+background-repeat:no-repeat;
+background-size:98px 3px;
+line-height:35px;
+text-align:center;
+}
+#recuriment_3_li_1 {
+width:200px;
+height:auto;
+min-height:27px;
+float:left;
+margin-left:2px;
+padding:0px;
+font-size:13px;
+list-style:none;
+border-bottom:1px dashed #bababa;
 }
 
 .request_content {
+width: 980px;
+height:auto;
+margin:20px 0px 0px 0px;
 padding:0px;
-margin:0px;
-border-bottom: 1px dashed rgb(204, 204, 204);
-height: auto;
-min-height:100px;
-width:1024px;
-margin-top:30px;
+float:left;
 }
-
+.request_title {
+padding: 6px;
+background: none repeat scroll 0% 0% #2497b2;
+display: block;
+color: white;
+font-size: 16px;
+width: 70px;
+height: 18px;
+margin-left: 20px;
+}
+.request_item_box {
+background:url('../img/mainPage/thirdPage/five_hero.png');
+background-size:228px 171px;
+background-repeat:no-repeat;
+background-position:right bottom;
+width: 900px;
+height:auto;
+min-height:171px;
+margin:10px 40px 10px 40px;
+padding:0px;
+float:left;
+}
 .request_item {
-font-size: 14px;
-height: auto;
-overflow: hidden;
-padding: 5px 25px 20px;
-line-height: 21px;
-text-align:left;
+text-indent: 1cm;
+width:672px;
+height:auto;
+margin:0px;
+padding:0px;
+float:left;
 }
-
+.recuriment_return {
+width: 980px;
+height:auto;
+margin:10px 0px 0px 0px;
+padding:0px;
+float:left;
+text-align:center;
+}
 /*关于我们*/
 #aboutUsBox {
 width:760px;
