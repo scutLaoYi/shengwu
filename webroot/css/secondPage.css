@@ -446,35 +446,66 @@ float:right;
 min-height:800px;
 }
 /*招标*/
-.invite_bids_top {
-width:1024px;
-height:60px;
-float:left;
-margin-top:30px;
-background:url('../img/mainPage/secondPage/zhaibiao.png');
+#yfzb {
+width:760px;
+height:53px;
+background:url('../img/mainPage/secondPage/invite_bid_big_title.png');
 background-repeat:no-repeat;
-background-size:26% 100%;
+background-size:157px 53px;
+background-position:center;
 }
-.bids_box{
-width:1024px;
+#bids_title {
+width:165px;
+margin-left:auto;
+margin-right:auto;
+margin-top:4px;
+height:49px;
+background:url('../img/mainPage/secondPage/invite_bid_blue_back_title.png');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+#bids_box{
+width:760px;
 height:auto;
+min-height:230px;
 float:left;
+background:url('../img/mainPage/secondPage/two_gay.png');
+background-position:bottom right;
+background-repeat:no-repeat;
+background-size:166px 230px
+}
+#bids_box ul {
+width:574px;
+height:auto;
+margin-left:20px;
+float:left;
+}
+#bids_li0 {
+height:59px;
+width:574px;
+float:left;
+margin:0px;
 padding:0px;
+background:url('../img/mainPage/secondPage/man_with_ground_ball.png');
+background-position:left;
+background-repeat:no-repeat;
+background-size:50px 59px;
+list-style:none;
+text-indent: 1.5cm;
+font-size:25px;
+font-style:bold;
+color:#254a8e;
 }
-.bids_box ul {
+#bids_li1 {
 height:auto;
+min-height:59px;
+width:574px;
 float:left;
-padding-left:24px;
-width:900px;
+margin-bottom:15px;
+padding:0px;
+list-style:none;
+text-indent: 1cm;
 }
-.bids_box li {
-width:auto;
-border-top:1px solid black;
-font-size:17px;
-padding-top:10px;
-text-align:left;
-}
-
 /*广告招租*/
 #ad_title {
 width:164px;
