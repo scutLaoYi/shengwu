@@ -19,6 +19,7 @@ class UsersController extends AppController {
 	public $components = array('Paginator', 
 		'EmailSender', 
 		'List',
+		'Log',
 		'Captcha'=>array('captchaType'=>'math',
 			'jquerylib'=>true,
 			'modelName'=>'User',
@@ -138,6 +139,7 @@ class UsersController extends AppController {
 					//写入用户名和类型
 					$this->Session->write('user',$this->data['User']['username']);
 					$this->Session->write('type', $this->Auth->user('type'));
+					$this->Log->writeLoginRecord($this->data['User']['username'], $this->Auth->user('type'), 'ok');
 					return $this->redirect(array('controller'=>'Mainpage','action'=>'index'));
 				}
 				$this->Session->setFlash(__('帐号或密码有误，请重试'));
@@ -145,6 +147,7 @@ class UsersController extends AppController {
 			else{
 				$this->Session->setFlash(__('验证码错误，请重试'));
 			}
+			$this->Log->writeLoginRecord($this->data['User']['username'], "unknow", 'failed');
 		}
 	}
 
