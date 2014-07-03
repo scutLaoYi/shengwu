@@ -555,9 +555,9 @@ border:none;
 /*公司信息发布表单*/
 #list_box {
 width: 700px;
-margin: 0px;
+margin-left: 30px;
 float: left;
-padding-left: 20px;
+padding:0px;
 height: auto;
 }
 #company_submit_title
@@ -575,25 +575,37 @@ background-size:100% 100%;
 width: 700px;
 margin: 0px;
 float: left;
-height: 63px;
+height: auto;
 list-style:none;
 }
 #list_test_li {
-width: 100px;
-height: 63px;
-float: left;
-list-style: none outside none;
-padding: 0px;
-margin: 0px;
-text-align: center;
+width:200px;
+height:auto;
+min-height:30px;
+margin:0px;
+padding:0px;
+float:left;
+list-style:none;
+text-indent:1.4cm;
 }
 #list_input_li {
-width: 600px;
-height: 63px;
-float: left;
-list-style: none outside none;
-padding: 0px;
-margin: 0px;
+width:400px;
+height:auto;
+min-height:30px;
+margin:0px;
+padding:0px;
+float:left;
+list-style:none;
+}
+
+#list_input_button {
+width:700px;
+height:auto;
+padding:0px;
+margin-bottom:10px;
+float:left;
+list-style:none;
+text-align:center;
 }
 #gsxx_submit {
 width:760px;
@@ -616,7 +628,49 @@ background:url('../img/mainPage/secondPage/proxy_submit_title.png');
 background-repeat:no-repeat;
 background-size:100% 100%;
 }
-
+#dlxx_submit {
+width:760px;
+height:40px;
+margin-bottom:5px;
+background:url('../img/mainPage/secondPage/company_proxy_submit_big_title.png');
+background-repeat:no-repeat;
+background-size:262px 40px;
+background-position:center;
+}
+div.input.select.required {
+width:700px;
+float:left;
+height:auto;
+margin:0px;
+padding:0px;
+text-indent:1.4cm;
+overflow:hidden;
+}
+#material_label {
+float:left;
+text-indent:1.4cm;
+}
+/*招聘信息发布*/
+#recuritment_submit_title
+{
+width:164px;
+margin-left:auto;
+margin-right:auto;
+margin-top:4px;
+height:49px;
+background:url('../img/mainPage/secondPage/recruitment_submit_title.png');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+#zpxx_submit {
+width:760px;
+height:40px;
+margin-bottom:5px;
+background:url('../img/mainPage/secondPage/company_recruitment_submit_big_title.png');
+background-repeat:no-repeat;
+background-size:262px 40px;
+background-position:center;
+}
 /*招聘信息二级页面*/
 #recuritment_title {
 width:164px;

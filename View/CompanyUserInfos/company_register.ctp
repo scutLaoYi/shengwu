@@ -17,76 +17,84 @@ function change(obj) {
 		<div id="moving_ad"></div>
 	</div>
 	<div id="rightBox">
-	<div id="c_register_box">
+	<div class="list_submit">
 	<?php echo $this->Form->create('CompanyUserInfo_for'); ?>
-	<fieldset>
-		<ul id="inputLine">
-			<li id="inputTest_li">用户名</li>
-			<li id="inputField_li2">
-				<?php echo $this->Form->input('User.username',array('label'=>''));?>
+		<ul>
+			<li id="color_title">一：填写用户信息</li>
+			<li id="submit_content">
+				<ul id="submit_ul">
+					<li id="submit_li1">用户名</li>
+					<li id="submit_li2">
+						<?php echo $this->Form->input('User.username',array('label'=>''));?>
+					</li>
+					<li id="submit_li1">密码</li>
+					<li id="submit_li2">
+						<?php echo $this->Form->input('User.password',array('label'=>''));?>
+					</li>
+					<li id="submit_li1">确认密码</li>
+					<li id="submit_li2">
+						<?php echo $this->Form->input('User.confirm_password',array('label'=>'','type'=>'password'));?>
+					</li>
+				</ul>
 			</li>
-			<li id="inputTest_li">密码</li>
-			<li id="inputField_li2">
-				<?php echo $this->Form->input('User.password',array('label'=>''));?>
-			</li>
-			<li id="inputTest_li">确认密码</li>
-			<li id="inputField_li2">
-				<?php echo $this->Form->input('User.confirm_password',array('label'=>'','type'=>'password'));?>
-			</li>
-			<li id="inputTest_li">电子邮箱</li>
-			<li id="inputField_li2">
-				<?php echo $this->Form->input('User.email',array('label'=>''));	?>
-			</li>
-			<li id="inputTest_li">公司名称</li>
-			<li id="inputField_li2">
-				<?php echo $this->Form->input('CompanyUserInfo.company',array('label'=>''));?>
-			</li>
-			<li id="inputTest_li">联系人</li>
-			<li id="inputField_li2">
-				<?php echo $this->Form->input('CompanyUserInfo.contact_person',array('label'=>''));?>
-			</li>
-			<li id="inputTest_li">联系电话</li>
-			<li id="inputField_li2">
-				<?php echo $this->Form->input('CompanyUserInfo.contact_number',array('label'=>''));?>
-			</li>
-			<li id="inputTest_li">传真号码</li>
-			<li id="inputField_li2">
-				<?php echo $this->Form->input('CompanyUserInfo.tax',array('label'=>''));?>
-			</li>
-			<li id="inputTest_li">省份</li>
-			<li id="inputField_li2">
-				<?php echo $this->Form->input('CompanyUserInfo.province',array(
+			<li id="color_title">二：填写企业信息</li>
+			<li id="submit_content">
+				<ul id="submit_ul">
+					<li id="submit_li1">电子邮箱</li>
+					<li id="submit_li2">
+						<?php echo $this->Form->input('User.email',array('label'=>''));	?>
+					</li>
+					<li id="submit_li1">公司名称</li>
+					<li id="submit_li2">
+						<?php echo $this->Form->input('CompanyUserInfo.company',array('label'=>''));?>
+					</li>
+					<li id="submit_li1">联系人</li>
+					<li id="submit_li2">
+						<?php echo $this->Form->input('CompanyUserInfo.contact_person',array('label'=>''));?>
+					</li>
+					<li id="submit_li1">联系电话</li>
+					<li id="submit_li2">
+						<?php echo $this->Form->input('CompanyUserInfo.contact_number',array('label'=>''));?>
+					</li>
+					<li id="submit_li1">传真号码</li>
+					<li id="submit_li2">
+						<?php echo $this->Form->input('CompanyUserInfo.tax',array('label'=>''));?>
+					</li>
+					<li id="submit_li1">省份</li>
+					<li id="submit_li2">
+						<?php echo $this->Form->input('CompanyUserInfo.province',array(
 		'options'=>$allProvince,
 		'label'=>''
 ));?>
-			</li>
-			<li id="inputTest_li">地址</li>
-			<li id="inputField_li2">
-				<?php echo $this->Form->input('CompanyUserInfo.address',array('label'=>''));?>
-			</li>
-			<li id="inputTest_li">邮编</li>
-			<li id="inputField_li2">
-				<?php echo $this->Form->input('CompanyUserInfo.code',array('label'=>''));?>
-			</li>
-			<li id="inputTest_li">网站</li>
-			<li id="inputField_li2">
-				<?php echo $this->Form->input('CompanyUserInfo.website',array('label'=>'','value'=>'http://'));?>
-			</li>
-			<li id="inputTest_li">QQ</li>
-			<li id="inputField_li2">
-				<?php echo $this->Form->input('CompanyUserInfo.qq',array('label'=>''));
+					</li>
+					<li id="submit_li1">地址</li>
+					<li id="submit_li2">
+						<?php echo $this->Form->input('CompanyUserInfo.address',array('label'=>''));?>
+					</li>
+					<li id="submit_li1">邮编</li>
+					<li id="submit_li2">
+						<?php echo $this->Form->input('CompanyUserInfo.code',array('label'=>''));?>
+					</li>
+					<li id="submit_li1">网站</li>
+					<li id="submit_li2">
+						<?php echo $this->Form->input('CompanyUserInfo.website',array('label'=>'','value'=>'http://'));?>
+					</li>
+					<li id="submit_li1">QQ</li>
+					<li id="submit_li2">
+						<?php echo $this->Form->input('CompanyUserInfo.qq',array('label'=>''));
 		
 	?>
-			</li>
-			<li id="inputTest_li">验证码</li>
-			<li id="inputField_li2">
-					<?php $this->Captcha->render($captchaSettings);?>
-			</li>
-			<li id="button_li">
-				<?php echo $this->Form->end(__('提交')); ?>
+					</li>
+					<li id="submit_li1">验证码</li>
+					<li id="submit_li2">
+							<?php $this->Captcha->render($captchaSettings);?>
+					</li>
+					<li id="submit_button">
+						<?php echo $this->Form->end(__('提交')); ?>
+					</li>
+				</ul>
 			</li>
 		</ul>
-	</fieldset>
+		</div>
 	</div>
-</div>
 </div>

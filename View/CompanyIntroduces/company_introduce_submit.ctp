@@ -10,7 +10,6 @@
 		<div id="gsxx_submit"></div>
 		<div id="c_register_box">
 		<?php echo $this->Form->create('CompanyIntroduce',array('type'=>'file')); ?>
-		<fieldset>
 		<ul id="list_box">
 			<li id="company_img">
 				<?php echo $this->Form->hidden('id');
@@ -19,8 +18,9 @@
 					 echo $this->Html->image('./'.$this->request->data['CompanyIntroduce']['picture_url'],array('width'=>'700','height'=>'200'));
 				}?>
 			</li>
-			<li id="upload_li">
-				<?php echo $this->Form->input('company_image',array('type'=>'file','label'=>'上传公司主页图片'));?>
+			<li id="list_test_li">上传公司主页图片</li>
+			<li id="list_input_li">
+				<?php echo $this->Form->input('company_image',array('type'=>'file','label'=>''));?>
 			</li>
 			<li id="list_test_li">公司经济类型</li>
 			<li id="list_input_li">
@@ -50,11 +50,10 @@
 			<li id="list_input_li">
 				<?php echo $this->Form->input('introduce',array('label'=>'','rows'=>1));?>
 			</li>
-			<li id="button_li">
+			<li id="list_input_button">
 				<?php echo $this->Form->end(__('提交')); ?>
 			</li>
 		</ul>
-	</fieldset>
 	</div>
 </div>
 </div>

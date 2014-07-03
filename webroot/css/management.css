@@ -1,5 +1,5 @@
 .action_menu, .action_menu ul{
-width:1024px;
+width:1000px;
 height:auto;
 float:left;
 margin:0px;
@@ -12,7 +12,7 @@ margin-top:40px;
 .action_menu li{
 list-style:none;
 float:left;
-padding:6px;
+padding:5px;
 border-right:1px solid white;
 border-bottom:1px solid white;
 }
@@ -25,7 +25,7 @@ background:rgb(59, 127, 196);
 }
 
 .container_box {
-width:1024px;
+width:1000px;
 height:auto;
 float:left;
 }
@@ -33,12 +33,12 @@ float:left;
 color:#3963ab;
 }
 .table_box{
-width:1024px;
+width:1000px;
 height:auto;
 float:left;
 }
 .table_box table {
-width:1024px;
+width:1000px;
 height:auto;
 float:left;
 border:1px solid rgb(85, 85, 87);
