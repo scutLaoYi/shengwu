@@ -40,9 +40,9 @@
 		<li id="content_list_li_2">【公司简介】
 <?php 
 $str_introduce=$company['CompanyIntroduce']['introduce'];
-if(strlen($str_introduce)>100)
+if(mb_strlen($str_introduce)>100)
 {
-	$str_introduce=substr($str_introduce,0,297).'...';
+	$str_introduce=mb_substr($str_introduce,0,150).'...';
 }
 echo $str_introduce;
 ?>

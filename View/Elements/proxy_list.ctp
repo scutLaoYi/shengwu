@@ -19,9 +19,9 @@ array('controller'=>'CompanyDescriptions','action'=>'view_proxy', $proxyInfo['Co
 
 		<?php 
 		$str_introduce=$proxyInfo['ProxyInfo']['product_introduce'];
-		if(strlen($str_introduce)>100)
+		if(mb_strlen($str_introduce)>100)
 		{
-			$str_introduce=substr($str_introduce,0,97).'...';
+			$str_introduce=mb_substr($str_introduce,0,97).'...';
 		}
 		?>
 		<li id="proxy_list_li_2">【内容简介】<?php echo h($str_introduce); ?>&nbsp;</li>
