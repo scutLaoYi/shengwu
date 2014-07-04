@@ -365,7 +365,7 @@ padding:0px;
 margin:0px;
 }
 #button_li {
-margin:0px;
+margin-bottom:10px;
 padding:0px;
 text-align:center;
 float:left;
@@ -374,7 +374,7 @@ height:28px;
 list-style:none;
 }
 #forget_psw {
-margin:0px;
+margin-bottom:10px;
 padding:0px;
 text-align:center;
 float:left;
@@ -535,7 +535,16 @@ margin-left:20px;
 color:#4c4c4c;
 font-size:15px;
 }
-
+#adtitle {
+width:760px;
+height:44px;
+margin-left:auto;
+margin-right:auto;
+background:url('../img/mainPage/secondPage/ad_invite_light.png');
+background-repeat:no-repeat;
+background-size:164px 44px;
+background-position:center;
+}
 /*企业注册*/
 #c_register_box {
 width:760px;
@@ -667,6 +676,27 @@ width:760px;
 height:40px;
 margin-bottom:5px;
 background:url('../img/mainPage/secondPage/company_recruitment_submit_big_title.png');
+background-repeat:no-repeat;
+background-size:262px 40px;
+background-position:center;
+}
+/*简历提交*/
+#resume_submit_title
+{
+width:165px;
+margin-left:auto;
+margin-right:auto;
+margin-top:4px;
+height:49px;
+background:url('../img/mainPage/secondPage/resume_edit_title.png');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+#jlxx_submit {
+width:760px;
+height:40px;
+margin-bottom:5px;
+background:url('../img/mainPage/secondPage/personal_resume_big_title.png');
 background-repeat:no-repeat;
 background-size:262px 40px;
 background-position:center;

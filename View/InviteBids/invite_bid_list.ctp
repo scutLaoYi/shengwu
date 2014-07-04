@@ -18,7 +18,9 @@
 	</li>
 	<?php endforeach; ?>
 	</ul>
-</div>
+	</div>
+	
+	<div class="paging">
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
@@ -27,13 +29,12 @@
 )
 	));
 	?>	</p>
-	<div class="paging">
 	<?php
 		echo $this->Paginator->prev('< ' . __('上一页'), array(), null, array('class' => 'prev disabled'));
 		echo $this->Paginator->numbers(array('separator' => ''));
 		echo $this->Paginator->next(__('下一页') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
+	</div>
 </div>
 

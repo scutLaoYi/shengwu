@@ -35,15 +35,16 @@ function change(obj) {
 					<li id="submit_li2">
 						<?php echo $this->Form->input('User.confirm_password',array('label'=>'','type'=>'password'));?>
 					</li>
+					<li id="submit_li1">电子邮箱</li>
+					<li id="submit_li2">
+						<?php echo $this->Form->input('User.email',array('label'=>''));	?>
+					</li>
 				</ul>
 			</li>
 			<li id="color_title">二：填写企业信息</li>
 			<li id="submit_content">
 				<ul id="submit_ul">
-					<li id="submit_li1">电子邮箱</li>
-					<li id="submit_li2">
-						<?php echo $this->Form->input('User.email',array('label'=>''));	?>
-					</li>
+					
 					<li id="submit_li1">公司名称</li>
 					<li id="submit_li2">
 						<?php echo $this->Form->input('CompanyUserInfo.company',array('label'=>''));?>

@@ -54,3 +54,43 @@ height:50px;
 .table_box td{
 text-align:center;
 }
+
+.manage_fieldset {
+width:700px;
+margin:10px auto 0px 150px;
+padding:0px;
+float:left;
+height:auto;
+}
+.manage_fieldset ul {
+width:700px;
+height:auto;
+margin:0px;
+padding:0px;
+float:left;
+}
+#manage_li1 {
+width:100px;
+float:left;
+margin:0px;
+padding:0px;
+height:auto;
+text-align:center;
+list-style:none;
+color:white;
+background:rgb(72, 143, 206);
+height:auto;
+line-height:30px;
+}
+#manage_li2 {
+width:596px;
+float:left;
+margin-left:3px;
+padding:0px;
+height:auto;
+text-align:left;
+list-style:none;
+height:auto;
+border-bottom:1px dashed black;
+min-height:30px;
+}

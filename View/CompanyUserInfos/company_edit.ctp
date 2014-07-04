@@ -1,4 +1,8 @@
-<div id="anotherPageBox">
+<div class="action_menu">
+	<?php echo $this->element('admin_options'); ?>
+</div>
+
+<div class="manage_fieldset ">
 <?php echo $this->Form->create('CompanyUserInfo'); ?>
 	<fieldset>
 		<legend><?php echo __('编辑企业信息'); ?></legend>
@@ -18,7 +22,7 @@ echo $this->Form->input('CompanyUserInfo.code',array('label'=>'邮编'));
 echo $this->Form->input('CompanyUserInfo.website',array('label'=>'网站'));
 echo $this->Form->input('CompanyUserInfo.qq',array('label'=>'QQ'));
 ?>
-	</fieldset>
 <?php echo $this->Form->end(__('提交')); ?>
 <?php echo $this->Html->link('返回', $referer); ?>
+	</fieldset>
 </div>

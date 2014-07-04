@@ -1,22 +1,24 @@
-<div class="inviteBids view">
-<h2><?php echo __('查看招标中标'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($inviteBid['InviteBid']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('内容'); ?></dt>
-		<dd>
-			<?php $message=ereg_replace("\n","</br>\n",$inviteBid['InviteBid']['content']);?>
-			<?php echo ($message); ?>
-		</dd>
-		<dt><?php echo __('创建时间'); ?></dt>
-		<dd>
-			<?php echo h($inviteBid['InviteBid']['created']); ?>
-		</dd>
-	</dl>
-</div>
-<div class="actions">
+
+<div class="action_menu">
 <?php echo $this->element('admin_options');?>
 </div>
+
+<div class="manage_fieldset">
+<h2><?php echo __('查看招标中标'); ?></h2>
+	<ul>
+		<li id="manage_li1"><?php echo __('Id'); ?></li>
+		<li id="manage_li2">
+			<?php echo h($inviteBid['InviteBid']['id']); ?>
+		</li>
+		<li id="manage_li1"><?php echo __('内容'); ?></li>
+		<li id="manage_li2">
+			<?php $message=ereg_replace("\n","</br>\n",$inviteBid['InviteBid']['content']);?>
+			<?php echo ($message); ?>
+		</li>
+		<li id="manage_li1"><?php echo __('创建时间'); ?></li>
+		<li id="manage_li2">
+			<?php echo h($inviteBid['InviteBid']['created']); ?>
+		</li>
+	</ul>
+</div>
+

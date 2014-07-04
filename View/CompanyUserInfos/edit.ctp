@@ -1,4 +1,4 @@
-<div class="companyUserInfos form">
+<div class="manage_fieldset">
 <?php echo $this->Form->create('CompanyUserInfo'); ?>
 	<fieldset>
 		<legend><?php echo __('Edit Company User Info'); ?></legend>

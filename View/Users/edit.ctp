@@ -1,4 +1,8 @@
-<div class="users form">
+<div class="action_menu">
+	<?php echo $this->element('admin_options'); ?>
+</div>
+
+<div class="manage_fieldset">
 <?php echo $this->Form->create('User'); ?>
 	<fieldset>
 		<legend><?php echo __('编辑用户'); ?></legend>
@@ -8,10 +12,7 @@
 		echo $this->Form->input('password', array('label'=>'密码'));
 		echo $this->Form->input('email', array('label'=>'电子邮箱'));
 	?>
+	<?php echo $this->Form->end(__('提交')); ?>
 	</fieldset>
-<?php echo $this->Form->end(__('提交')); ?>
 </div>
 
-<div class="actions">
-	<?php echo $this->element('admin_options'); ?>
-</div>

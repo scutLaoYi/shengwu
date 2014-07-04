@@ -233,6 +233,65 @@ height:auto;
 list-style:none;
 text-align:center;
 }
+/*简历*/
+#jltitle {
+width:760px;
+height:47px;
+margin-left:auto;
+margin-right:auto;
+background:url('../img/mainPage/secondPage/personal_resume_with_light.png');
+background-repeat:no-repeat;
+background-size:148px 47px;
+background-position:center;
+}
+#resume_box {
+width:800px;
+float:left;
+margin-left:100px;
+padding:0px;
+height:auto;
+}
+#resume_ul {
+width:800px;
+margin:0px;
+float:left;
+padding:0px;
+height:auto;
+line-height:35px;
+}
+#resume_li0 {
+width:98px;
+float:left;
+min-height:27px;
+height:auto;
+list-style:none;
+font-size:14px;
+background:url('../img/mainPage/thirdPage/proxy_word_line.png');
+background-position:bottom;
+background-repeat:no-repeat;
+background-size:100% 10%;
+line-height:35px;
+text-align:center;
+}
+#resume_li {
+width:630px;
+min-height:27px;
+height:auto;
+float:left;
+padding:0px;
+list-style:none;
+margin-left:72px;
+border-bottom:1px dashed #bababa;
+}
+#resume_li_return {
+width:630px;
+float:left;
+min-height:27px;
+height:auto;
+list-style:none;
+text-align:center;
+}
+
 /*招聘三级页面*/
 #recuriment_3_box {
 width:980px;

@@ -421,18 +421,19 @@ text-indent:1cm;
 float:left;
 list-style:none;
 font-size:23px;
-border:1px solid rgb(238, 229, 222);
 line-height:60px;
 }
 
 #submit_content {
-width:700px;
+width:698px;
 height:auto;
 margin:0px;
 padding:0px;
 float:left;
 list-style:none;
-border:1px solid rgb(238, 229, 222);
+border-left:1px solid rgb(238, 229, 222);
+border-right:1px solid rgb(238, 229, 222);
+border-bottom:1px solid rgb(238, 229, 222);
 }
 
 #submit_ul {
@@ -441,6 +442,7 @@ height:auto;
 margin:0px;
 padding:0px;
 float:left;
+border:none;
 }
 
 #submit_li1 {
@@ -452,6 +454,7 @@ padding:0px;
 float:left;
 list-style:none;
 text-indent:1.4cm;
+border:none;
 }
 #submit_li2 {
 width:550px;
@@ -461,6 +464,7 @@ margin:0px;
 padding:0px;
 float:left;
 list-style:none;
+border:none;
 }
 #submit_button {
 width:700px;
@@ -469,6 +473,7 @@ margin-bottom:10px;
 padding:0px;
 text-align:center;
 list-style:none;
+border:none;
 }
 div.error-message {
 float:right;

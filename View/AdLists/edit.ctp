@@ -1,4 +1,8 @@
-<div class="adLists form">
+<div class="action_menu">
+	<?php echo $this->element('admin_options');?>
+</div>
+
+<div class="manage_fieldset">
 <?php echo $this->Form->create('AdList',array('type'=>'file')); ?>
 	<fieldset>
 		<legend><?php echo __('添加广告位'); ?></legend>
@@ -7,11 +11,10 @@
 		echo $this->Form->input('username',array('label'=>'用户名'));
 		echo $this->Form->input('deadline',array('type'=>'date','label'=>'截至时间','monthNames'=>$allMonth));
 	?>
-	</fieldset>
 <?php echo $this->Form->end(__('提交')); ?>
 <?php echo $this->Html->link('返回',array('controller'=>'AdLists','action'=>'index'));?>
+	</fieldset>
+
 </div>
-<div class="actions">
-	<?php echo $this->element('admin_options');?>
-</div>
+
 

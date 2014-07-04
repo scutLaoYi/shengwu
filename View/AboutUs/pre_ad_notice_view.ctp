@@ -9,6 +9,7 @@
 		</div>
 	</div>
 	<div id="rightBox">
+		<div id="adtitle"></div>
 		<div id="adBox">
 			<div id="ad_content">
 				<?php $message=ereg_replace("\n","</br>\n",$content);?>
