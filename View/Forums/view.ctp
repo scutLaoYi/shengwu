@@ -74,10 +74,11 @@
 	<div id="huifu_input">
 	<?php echo $this->Form->create('Remark',array('url'=>array('controller'=>'Remarks','action'=>'save',$forum['Forum']['id'])));?>
 	<?php echo $this->Form->input('content',array('rows'=>4,'label'=>''));?>
-	<li id="inputTest_li"><p>验证码</p></li>
-	<li id="yanzhengma">
-			<?php $this->Captcha->render($captchaSettings);?>
-	</li>
-	<?php echo $this->Form->end('发表回复');?>
+	<div id="huifu_yanzheng">验证码:</div>
+	<div id="huifu_yanzheng_input"><?php $this->Captcha->render($captchaSettings);?>
+	</div>
+	<div id="huifu_button">
+		<?php echo $this->Form->end('发表回复');?>
+	</div>
 	</div>
 </div>

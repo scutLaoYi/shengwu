@@ -792,3 +792,62 @@ text-decoration:none;
 color:white;
 }
 
+/*个人信息*/
+#personaltitle {
+width:760px;
+height:47px;
+margin-left:auto;
+margin-right:auto;
+background:url('../img/mainPage/secondPage/personal_info_with_light.png');
+background-repeat:no-repeat;
+background-size:148px 47px;
+background-position:center;
+}
+#personal_3_box {
+width:900px;
+float:left;
+margin-left:50px;
+padding:0px;
+height:auto;
+}
+#personal_3_ul {
+width:650px;
+margin:0px;
+float:left;
+padding:0px;
+height:auto;
+line-height:35px;
+}
+#personal_3_li_0 {
+width:98px;
+float:left;
+min-height:27px;
+height:auto;
+list-style:none;
+font-size:14px;
+background:url('../img/mainPage/thirdPage/proxy_word_line.png');
+background-position:bottom;
+background-repeat:no-repeat;
+background-size:100% 10%;
+line-height:35px;
+text-align:center;
+}
+#personal_3_li {
+width:480px;
+min-height:27px;
+height:auto;
+float:left;
+padding:0px;
+list-style:none;
+margin-left:72px;
+border-bottom:1px dashed #bababa;
+}
+#personal_3_li_return {
+width:1000px;
+float:left;
+min-height:27px;
+height:auto;
+list-style:none;
+text-align:center;
+margin-top:10px;
+}
