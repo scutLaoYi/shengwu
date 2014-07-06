@@ -13,7 +13,12 @@ class ForumsController extends AppController {
 	 *
 	 * @var array
 	 */
-	public $components = array('Paginator','Picture','List');
+	public $components = array('Paginator','Picture','List',
+		'Captcha'=>array('captchaType'=>'math',
+			'jquerylib'=>true,
+			'modelName'=>'User',
+			'fieldName'=>'captcha')
+	);
 	public $uses = array('User','Forum','Remark');
 	public $helper = array('Js');
 	public function index()
@@ -65,6 +70,11 @@ class ForumsController extends AppController {
 		}
 		if($this->request->is('post'))
 		{
+			if($this->Captcha->getVerCode() != $this->request->data['User']['captcha']){
+				$this->Session->setFlash(__('验证码错误，请重试'));
+			}
+			else
+			{
 				$this->request->data['Forum']['message']=$this->request->data['Forum']['content'];
 				$this->request->data['Forum']['type']=$type;	
 				$this->request->data['Forum']['typesub']=$typesub;	
@@ -78,7 +88,7 @@ class ForumsController extends AppController {
 				{
 					$this->Session->setFlash('发帖失败，请检查是否填写完整');
 				}
-
+			}
 		}
 		$discussion=$this->List->allDiscussion();
 		$second=$this->List->allsecondDis($type);

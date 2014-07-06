@@ -16,5 +16,9 @@
 	<?php echo $this->Form->create('Forum');?>
 	<?php echo $this->Form->input('title',array('label'=>'标题'));?>
 	<?php echo $this->Form->input('content',array('label'=>'内容','rows'=>5));?>
+	<li id="inputTest_li"><p>验证码</p></li>
+	<li id="yanzhengma">
+			<?php $this->Captcha->render($captchaSettings);?>
+	</li>
 	<?php echo $this->Form->end('提交');?>
 </div>

@@ -14,12 +14,22 @@ class RemarksController extends AppController {
 	 * @var array
 	 */
 	
-
+	public $components = array(
+		'Captcha'=>array('captchaType'=>'math',
+			'jquerylib'=>true,
+			'modelName'=>'User',
+			'fieldName'=>'captcha')
+		);
 
 	public function save($forum_id=null)
 	{
 	  if($this->request->is('post'))
 	{	
+		if($this->Captcha->getVerCode() != $this->request->data['User']['captcha']){
+			$this->Session->setFlash(__('验证码错误，请重试'));
+			$this->redirect(array('controller'=>'Forums','action'=>'view',$forum_id));
+			return;
+		}
 		$this->request->data['Remark']['message']=$this->request->data['Remark']['content'];
 		$this->request->data['Remark']['user_id']=$this->Auth->user('id');
 		$this->request->data['Remark']['forum_id']=$forum_id;
