@@ -5,6 +5,7 @@
 		width : "1000",
         theme : "advanced",
         mode : "textareas",
+		invalid_elements : "script",
         convert_urls : false
     });
 </script> 

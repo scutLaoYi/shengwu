@@ -6,9 +6,10 @@
 <?php echo $this->Html->script('tiny_mce/tiny_mce.js');?>
 <script type="text/javascript">
     tinyMCE.init({
-		width : "1024",
+		width : "1000",
         theme : "advanced",
         mode : "textareas",
+		invalid_elements : "script",
         convert_urls : false
     });
 </script> 
