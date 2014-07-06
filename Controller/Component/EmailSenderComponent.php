@@ -45,7 +45,7 @@ class EmailSenderComponent extends Component
 	 */
 	public function sendFoundPassword($username, $user_email)
 	{
-		$domain = 'http://www.中国生物医学材料.com';
+		$domain = 'http://www.biomedicalchina.com';
 		//Create the safe hash. 
 		$datetime = time();
 		$salt = Configure::read('Security.salt');
@@ -93,7 +93,7 @@ class EmailSenderComponent extends Component
 		$allWorkingTime = $this->List->allWorkingTime();
 		$allEducational = $this->List->allEducational();
 		//--------------------------------------------
-		$domain = 'http://www.中国生物医学材料.com/';
+		$domain = 'http://www.biomedicalchina.com/';
 		$subject = '中国生物医学材料帮您找人才';
 
 		$picture = null;

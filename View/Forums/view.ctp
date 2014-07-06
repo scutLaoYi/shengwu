@@ -15,7 +15,7 @@
 	<?php echo ('>>');?>
 	<?php echo $this->Html->link($title.'_'.$subtitle,array('action'=>'posting_list',$forum['Forum']['type'],$forum['Forum']['typesub']));?>
 	<?php echo ('>>');?>
-	<?php echo $forum['Forum']['title'];?>
+	<?php echo h($forum['Forum']['title']);?>
 	</div>
 <!--显示贴头-->
 	<div id="forum_header"><?php echo h($forum['Forum']['title']);?></div>
@@ -23,9 +23,9 @@
 
 	<div id="forum_in">
 		<p id="p_author">作者</p><p id="p_normal">:</p>
-		<p id="p_name"><?php echo $forum['User']['username'];?> </p>
+		<p id="p_name"><?php echo h($forum['User']['username']);?> </p>
 		<p id="p_normal">发表时间:</p>
-		<p id="p_normal"><?php echo $forum['User']['created'];?></p>
+		<p id="p_normal"><?php echo h($forum['User']['created']);?></p>
 	</div> 
 	<div id="forum_box">
 		<div id="forum_item">
@@ -39,7 +39,7 @@
 	<div id="forum_in">
 		<p id="p_normal"><?php echo $remark['Remark']['level'].'楼   ';?></p>
 		<p id="p_normal">用户:</p>
-		<p id="p_name"><?php echo $remark['User']['username'];?></p>
+		<p id="p_name"><?php echo h($remark['User']['username']);?></p>
 		<p id="p_normal"><?php echo '发表时间: '.$remark['Remark']['created'];?></p>
 		<?php 
 			if($isAdmin)
