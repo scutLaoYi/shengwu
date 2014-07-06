@@ -17,11 +17,11 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 ?>
-<h2><?php echo $name; ?></h2>
+<h2><?php echo "出错了！"; ?></h2>
 <p class="error">
-	<strong><?php echo __d('cake', 'Error'); ?>: </strong>
+	<strong><?php echo __d('cake', '错误'); ?>: </strong>
 	<?php printf(
-		__d('cake', 'The requested address %s was not found on this server.'),
+		__d('cake', '页面不存在，请重试'),
 		"<strong>'{$url}'</strong>"
 	); ?>
 </p>

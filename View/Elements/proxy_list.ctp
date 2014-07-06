@@ -3,7 +3,18 @@
 <!-- begin of index -->
 	<?php foreach ($proxyInfos as $proxyInfo): ?>
 	<ul id="proxy_list">
-		<li id="proxy_list_li_img"><?php echo $this->Html->image('./'.$proxyInfo['ProxyInfo']['picture_url'],array('width'=>'100','height'=>'100')); ?>&nbsp;</li>
+	<li id="proxy_list_li_img">
+	<?php 
+		if(strlen($proxyInfo['ProxyInfo']['picture_url']) > 5)
+		{
+			echo $this->Html->image('./'.$proxyInfo['ProxyInfo']['picture_url'],array('width'=>'100','height'=>'100')); 
+		}
+		else
+		{
+			echo $this->Html->image('mainPage/secondPage/Logo100.png', array('width'=>'100', 'height'=>'100'));
+		}
+	?>&nbsp;
+</li>
 
 		<li id="proxy_list_li_1">【产品名称】<?php echo $this->Html->link($proxyInfo['ProxyInfo']['product_name'], 
 array('controller'=>'ProxyInfos','action'=>'proxy_view', $proxyInfo['ProxyInfo']['id'])); ?>&nbsp;</li>
