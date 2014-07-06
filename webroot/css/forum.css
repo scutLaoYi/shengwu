@@ -1,56 +1,67 @@
 #Title {
-width:1024px;
+width:1000px;
 margin-top:20px;
-height:130px;
-background-image:url('../img/mainPage/mainpage/menu_ul.jpg');
-background-repeat:no-repeat;
-background-size:100% 100%;
-margin-left:auto;
-margin-right:auto;	
-font-style:italic;
+height:80px;
+float:left;
+background:#2454b2;
 color:white;
-letter-spacing:30px;
-font-size:64px;
-text-align:center;
-border-radius:8px;
+font-size:30px;
+text-align:left;
+text-indent:0.5cm;
+letter-spacing:5px;
+line-height:50px;
 }
-
+#Title_bottom {
+width:1000px;
+margin:0px;
+padding:0px;
+float:left;
+height:40px;
+background:#284681;
+text-indent:1cm;
+line-height:40px;
+color:white;
+}
+#Title_bottom a{
+color:white;
+}
 #module {
-width:1024px;
-height:200px;
+width:1000px;
+height:auto;
 margin-top:30px;
-margin-left:auto;
-margin-right:auto;	
+float:left;
 }
 
 #module ul {
-width:1024px;
-height:170px;
+width:1000px;
+height:80px;
 text-align:left;
 margin:0;
 padding:0;
+float:left;
+background:#e4ebf9;
 }
 
 #module li {
 list-style:none;
 float:left;
-padding:5px;
-margin-left:10px;
-top:5px;
-position:relative;
-height:147px;
+padding:0px;
+margin:5px 0 5px 30px;
+height:70px;
 width:160px;
 border-right:thin solid Black;
 border-bottom:thin solid Black;
-background:#F5F5F5;
 }
 #module a {
 text-decoration:none;
-color:Black;
-font-size:30px;
+color:#4e6799;
+font-size:16px;
 }
 #module p {
 color:#696969;
+margin:0px;
+padding:0px;
+font-size:14px;
 }
 #module a:hover {
 text-decoration:underline;
@@ -61,17 +72,16 @@ text-decoration:underline;
 	padding:0;
 	height:30px;
 	text-align:left;
-	font-style:oblique;
-	font-size:25px;
+	font-size:18px;
 	color:white;
-	background-image:url('../img/mainPage/mainpage/button.jpg');
-	background-repeat:no-repeat;
-	background-size:100% 100%; 
+	text-indent:0.3cm;
+	line-height:28px;
+	background:#2454b2;
 }
 
 /* 二级页面 */
 #forumDiv {
-width:1024px;
+width:1000px;
 margin-top:10px;
 margin-left:auto;
 margin-right:auto;
@@ -80,102 +90,146 @@ margin-right:auto;
 margin-top:10px;
 padding:0;
 text-align:left;
-width:1024px;
-border:thin solid #BEBEBE;
+width:1000px;
+border:none;
+float:left;
+height:auto;
 }
-#forumDiv table tr {
+#forumDiv tr {
+height:500px
+width:1000px;
 margin:0;
 padding:0;
 }
 #forumDiv table th {
- color:#1E90FF;
- height:50px;
+ color:white;
+ height:30px;
  margin:0;
- padding-left:5px;
- border-bottom:thin solid #BEBEBE;
- background:#CAE1FF;
+ padding:0px;
+ background:#2454b2;;
+border:none;
 }
 #forumDiv table td {
-padding-left:5px;
-height:50px;
+padding:0px;
+margin:0px;
+text-indent:8px;
+border:none;
+height:40px;
 border-bottom:thin solid #BEBEBE;
+font-size:14px;
 }
 #forumDiv table tr:hover {
-background:#63B8FF;
+background:#e4ebf9;
 }
 #Left {
 width:60%;
 }
 #forumDiv a {
 text-decoration:none;
-color:Black;
+color:#3b1e09;
 }
 #forumDiv a:hover {
 text-decoration:underline;
-color:White;
+color:#284681;
 }
 #btnDiv {
-margin:auto;
-width:100px;
+float:left;
+margin-top:20px;
+padding:0px;
+width:1000px;
 height:40px;
-border:thin solid #63B8FF;
 }
 #btn {
-width:98px;
-height:38px;
-margin:1px;;
-background:#63B8FF;
+float:left;
+margin-left:30px;
+text-align:center;
+line-height:35px;
+padding:0px;
+width:100px;
+height:40px;
+background:#284681;
 }
 #btn a {
-color:White;
-font-size:30px;
+color:white;
+font-size:25px;
 }
 #btn a:hover{
 text-decoration:none;
+color:white;
 }
 
 /*三级页面*/
-#titleH1 {
-font-size:30px;
+#forum_header {
+margin-top:20px;
+color:#2454b2;
+width:1000px;
+height:auto;
+float:left;
+padding:0px;
 text-align:center;
-color:#4169E1;
+font-size:22px;
 }
-#titleH2 {
-font-size:15px;
-text-align:center;
-}
-#tableDiv {
-width:1024px;
-margin-left:auto;
-margin-right:auto;
-}
-#contentDiv {
-width:1024px;
-margin-left:auto;
-margin-right:auto;
-background:#D3D3D3;
-padding-top:10px;
-padding-bottom:10px;
-}
-#trContent {
-width:1024px;
-margin:0;
-background:#D3D3D3;
-}
-#authorDiv {
-width:1024px;
-margin:0;
-text-align:center;
-padding:0;
-}
-#pBlue {
-color:#4169E1;
-float:center;
-}
-#pagingDiv
-{
-width:1024px;
-margin-left:auto;
-margin-right:auto;
+#forum_in {
+width:1000px;
+height:auto;
+margin:5px 0px 5px 0px;
+padding:0px;
+float:left;
 text-align:center;
 }
+#forum_box {
+width:1000px;
+height:auto;
+background:rgb(238, 238, 238);
+float:left;
+margin:0px;
+padding:0px;
+}
+#forum_item {
+width:980px;
+margin:10px;
+height:auto;
+float:left;
+padding:0px;
+text-align:left;
+text-indent:1cm;
+}
+#p_author {
+color:red;
+display:inline;
+font-size:12px;
+}
+#p_reader {
+color:rgb(136, 136, 136);
+display:inline;
+font-size:12px;
+}
+#p_name {
+color:blue;
+display:inline;
+font-size:12px;
+}
+#p_normal {
+color:rgb(136, 136, 136);
+display:inline;
+font-size:12px;
+}
+#huifu {
+width:1000px;
+margin-top:10px;
+padding:0px;
+float:left;
+height:40px;
+background:#284681;
+text-indent:1cm;
+line-height:40px;
+color:white;
+}
+#huifu_input {
+width:1000px;
+margin:0px;
+padding:0px;
+float:left;
+height:auto;
+}
+

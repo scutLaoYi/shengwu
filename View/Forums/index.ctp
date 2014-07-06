@@ -1,5 +1,5 @@
 <div id="Title"><?php echo ('论坛首页');?></div>
-
+<div id="Title_bottom"></div>
 <?php $i=0;?>
 	<?php foreach($allDiscussions as $allDiscussion):?>
 		<div id="module">

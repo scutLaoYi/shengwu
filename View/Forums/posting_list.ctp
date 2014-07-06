@@ -1,16 +1,22 @@
 <div id="Title"><?php echo $subtitle;?></div>
-<div id="anotherPageBox">
-<?php echo $this->Html->link('论坛首页',array('action'=>'index'));?>
-<?php echo ('>>'.$title.'>>'.$subtitle);?>
-<div class="paging">
-<?php
-echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-echo $this->Paginator->numbers(array('separator' => ''));
-echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-?>
+<div id="Title_bottom">
+	<?php echo $this->Html->link('论坛首页',array('action'=>'index'));?>
+	<?php echo ('>>'.$title.'>>'.$subtitle);?>
 </div>
+
 <div id="forumDiv">
-<div id="btnDiv"><div id="btn"><?php echo $this->Html->link('发贴',array('controller'=>'Forums','action'=>'posting',$type,$typesub));?></div></div>	
+	<div id="btnDiv">	
+		<div id="btn">	
+		<?php echo $this->html->link('发贴',array('controller'=>'Forums','action'=>'posting',$type,$typesub));?>
+	</div>
+	</div>
+	<div class="paging">
+	<?php
+	echo $this->Paginator->prev('< ' . __('上页'), array(), null, array('class' => 'prev disabled'));
+	echo $this->Paginator->numbers(array('separator' => ''));
+	echo $this->Paginator->next(__('下页') . ' >', array(), null, array('class' => 'next disabled'));
+	?>
+	</div>
 	<table cellpadding="0" cellspacing ="0">
 	<tr>
 	<th id="Left"><?php echo '标题'?></th>
@@ -42,6 +48,8 @@ echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => '
 	<?php endforeach;?>
 </table>
 
+
+<div class="paging">
 <p>
 <?php
 echo $this->Paginator->counter(array(
@@ -49,13 +57,10 @@ echo $this->Paginator->counter(array(
 ));
 ?>	
 </p>
-<div class="paging">
 <?php
 echo $this->Paginator->prev('< ' . __('上页'), array(), null, array('class' => 'prev disabled'));
 echo $this->Paginator->numbers(array('separator' => ''));
 echo $this->Paginator->next(__('下页') . ' >', array(), null, array('class' => 'next disabled'));
 ?>
-</div>
-
 </div>
 </div>
