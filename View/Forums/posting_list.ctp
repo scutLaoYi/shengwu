@@ -7,7 +7,7 @@
 <div id="forumDiv">
 	<div id="btnDiv">	
 		<div id="btn">	
-		<?php echo $this->html->link('发贴',array('controller'=>'Forums','action'=>'posting',$type,$typesub));?>
+		<?php echo $this->html->link('发帖',array('controller'=>'Forums','action'=>'posting',$type,$typesub));?>
 	</div>
 	</div>
 	<div class="paging">

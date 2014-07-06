@@ -232,4 +232,54 @@ padding:0px;
 float:left;
 height:auto;
 }
-
+#huifu_button {
+width:1000px;
+height:auto;
+margin:5px 0px 5px 0px;
+padding:0px;
+float:left;
+text-align:center;
+}
+#huifu_yanzheng {
+width:450px;
+height:auto;
+margin:5px 0px 5px 0px;
+padding:0px;
+float:left;
+text-align:right;
+color:#284681;
+font-size:20px;
+}
+#huifu_yanzheng_input {
+width:550px;
+height:auto;
+margin:5px 0px 5px 0px;
+padding:0px;
+float:left;
+text-align:left;
+font-size:17px;
+}
+#huifu_yanzheng_input input[type=text] {
+width:40px;
+}
+#fatie_title {
+width:1000px;
+height:auto;
+margin:10px 0 10px 0px;
+float:left;
+padding:0px;
+text-align:left;
+color:#284681;
+}
+#fatie_title input[type=text] {
+width:500px;
+}
+#fatie_content {
+width:1000px;
+height:auto;
+margin:0px;
+padding:0px;
+float:left;
+text-align:left;
+color:#284681;
+}

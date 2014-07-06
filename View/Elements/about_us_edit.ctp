@@ -6,7 +6,7 @@
 	<fieldset>
 		<legend><?php echo __($head); ?></legend>
 	<?php
-		echo $this->Form->input('content',array('label'=>'','rows'=>'10'));
+		echo $this->Form->input('content',array('label'=>'','rows'=>'10','cols'=>'65'));
 	?>
 <?php echo $this->Form->end(__('提交')); ?>
 	</fieldset>
