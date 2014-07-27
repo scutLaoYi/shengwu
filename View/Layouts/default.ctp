@@ -144,7 +144,6 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 		</div>
 		<div id="friendLink">
 			<div id="friendLinkHead">
-				<span id="friendLink_span">友情链接</span>
 			</div>
 			<div class="friendLinkContent">
 			<ul>

@@ -47,8 +47,7 @@ for($index = 0; $index < 5; $index++)
 <!-- ------------infomations-------- -->
 <div class="msg_box">
 <div class="msg_box_left">
-	<div id="message_box">
-		<span id="message_b">公司介绍</span>
+	<div id="message_box_company">
 		<span id="message_span">
 			<?php echo $this->Html->link('More',array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list'));?>
 		</span>
@@ -66,8 +65,7 @@ for($index = 0; $index < 5; $index++)
 </div>
 
 <div class="msg_box_right">
-	<div id="message_box">
-		<span id="message_b">招聘信息</span>
+	<div id="message_box_recruitment">
 		<span id="message_span">
 			<?php echo $this->Html->link('More',array('controller'=>'Recruitments','action'=>'recruitment_list'));?>
 		</span>
@@ -83,8 +81,7 @@ for($index = 0; $index < 5; $index++)
 </div>
 
 <div class="msg_box_left">
-	<div id="message_box">
-		<span id="message_b">代理信息</span>
+	<div id="message_box_proxy">
 		<span id="message_span">
 			<?php echo $this->Html->link('More',array('controller'=>'ProxyInfos','action'=>'proxy_search'));?>
 		</span>
@@ -99,8 +96,7 @@ for($index = 0; $index < 5; $index++)
 	</div>
 </div>
 <div class="msg_box_right">
-	<div id="message_box">
-		<span id="message_b">论坛</span>
+	<div id="message_box_forum">
 		<span id="message_span">
 			<?php echo $this->Html->link('More',array('controller'=>'Forums','action'=>'index'));?>
 		</span>
