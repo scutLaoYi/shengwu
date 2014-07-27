@@ -260,6 +260,16 @@ background-size:100% 100%;
 .menubar li:hover li {
 width:110px;
 height:28px;
+background-image:url('../img/mainPage/mainpage/menu_sub_li_light.png');
+background-repeat:no-repeat;
+background-size:110px 29px;
+}
+.menubar li:hover li:hover {
+width:110px;
+height:28px;
+background-image:url('../img/mainPage/mainpage/menu_sub_li.png');
+background-repeat:no-repeat;
+background-size:110px 29px;
 }
 .menubar li ul {
 display:none;
@@ -269,7 +279,7 @@ display:none;
 padding-top:8px;
 width:110px;
 position:absolute;
-height:auto;
+height:29px;
 display:block;
 position:absolute;
 }
@@ -277,10 +287,16 @@ position:absolute;
 .menubar li ul li {
 width:110px;
 list-style:none;
+height:29px;
 float:center;
+background-image:url('../img/mainPage/mainpage/menu_sub_li.png');
+background-repeat:no-repeat;
+background-size:110px 29px;
+/*
 background-image:url('../img/mainPage/mainpage/menu_ul.jpg');
 background-repeat:no-repeat;
 background-size:100% 100%;
+*/
 }
 .menubar li ul li {
 width:110px;
