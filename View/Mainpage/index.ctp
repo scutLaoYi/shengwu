@@ -26,11 +26,11 @@ for($index = 0; $index < 5; $index++)
 		<?php 
 			if($advertise[$id]['AdList']['pic_url'] == 'ad_image/ad.png')
 			{
-				echo $this->Html->image('ad_image/ad'.(($id+7) % 5).'.png',array('width'=>'125','height'=>'100','url'=>array('controller'=>'AboutUs','action'=>'pre_ad_notice_view')));
+				echo $this->Html->image('ad_image/ad'.(($id+7) % 5).'.png',array('width'=>'125','height'=>'83','url'=>array('controller'=>'AboutUs','action'=>'pre_ad_notice_view')));
 			}
 			else
 			{
-				echo $this->Html->image($advertise[$id]['AdList']['pic_url'],array('width'=>'125','height'=>'100','url'=>array('controller'=>'CompanyDescriptions','action'=>'view_info',$advertise[$id]['AdList']['company_user_info_id'])));
+				echo $this->Html->image($advertise[$id]['AdList']['pic_url'],array('width'=>'125','height'=>'83','url'=>array('controller'=>'CompanyDescriptions','action'=>'view_info',$advertise[$id]['AdList']['company_user_info_id'])));
 			}
 		?>
 		</li>
@@ -130,12 +130,12 @@ for($index = 0; $index < 5; $index++)
 		<?php 
 			if($advertise[$id]['AdList']['pic_url'] == 'ad_image/ad.png')
 			{
-				echo $this->Html->image('ad_image/ad'.(($id+11) % 5).'.png',array('width'=>'125','height'=>'100','url'=>array('controller'=>'AboutUs','action'=>'pre_ad_notice_view')));
+				echo $this->Html->image('ad_image/ad'.(($id+11) % 5).'.png',array('width'=>'125','height'=>'83','url'=>array('controller'=>'AboutUs','action'=>'pre_ad_notice_view')));
 				//original:$advertise[$id]['AdList']['pic_url']
 			}
 			else
 			{
-				echo $this->Html->image($advertise[$id]['AdList']['pic_url'],array('width'=>'125','height'=>'100','url'=>array('controller'=>'CompanyDescriptions','action'=>'view_info',$advertise[$id]['AdList']['company_user_info_id'])));
+				echo $this->Html->image($advertise[$id]['AdList']['pic_url'],array('width'=>'125','height'=>'83','url'=>array('controller'=>'CompanyDescriptions','action'=>'view_info',$advertise[$id]['AdList']['company_user_info_id'])));
 			}
 		?>
 		</li>

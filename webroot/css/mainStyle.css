@@ -44,13 +44,13 @@ margin-right:auto;
 
 #header{
 	padding:0;
+	margin:0px;
 	width:1000px;
 	height:auto;
 	text-align:right;
 	margin-left:auto;
 	margin-right:auto;
-	position:relative;
-	top:133px;
+	float:left;
 	color:#3a4566;
 	font-size:11px;
 }
@@ -215,7 +215,7 @@ margin-right:auto;
 background-image:url('../img/mainPage/mainpage/leader_back_new.png');
 background-repeat:no-repeat;
 background-position:center;
-background-size:100% 29px;
+background-size:1404px 29px;
 margin-top:0px;
 }
 .menubar, .menubar ul {
