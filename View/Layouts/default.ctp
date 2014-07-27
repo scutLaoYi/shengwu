@@ -27,7 +27,7 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 	<?php echo $this->Html->charset(); ?>
 	<title>
 		<?php echo $websiteDescription; ?>:
-		<?php echo $title_for_layout; ?>
+		<?php echo $title_for_layout == "main_index" ? "首页":$title_for_layout; ?>
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
@@ -43,8 +43,11 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 <body>
 	<div id="logo">
 	<div id="logo_box">
+
 	<div class="searchDiv">
-	<?php echo $this->Form->create('search'); ?>
+	<?php 
+		if($title_for_layout == "main_index"){
+			echo $this->Form->create('search'); ?>
 		<ul>
 			<li>
 				<label>
@@ -61,7 +64,9 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 				<?php echo $this->Form->end('');?>
 			</li>
 		</ul>
+	<?php } ?>
 	</div>
+
 		<div id="header">
 <!--nocache-->
 <?php 
@@ -128,7 +133,10 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 		<!-- end of menubar -->
 	<div id="container">
 		<!-- start of menubar -->
+<?php if($title_for_layout != "main_index"){
+?>
 		<div id="position_teller">您现在的位置：<?php echo $title_for_layout;?> </div>
+<?php }?>
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>

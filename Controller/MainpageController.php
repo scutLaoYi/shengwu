@@ -17,7 +17,7 @@ class MainpageController extends AppController
 	 */
 	public function index()
 	{
-		$this->set('title_for_layout', '首页');
+		$this->set('title_for_layout', 'main_index');
 		$this->AdList->recursive = 0;
 		$this->set('advertise', $this->AdList->find('all'));
 		$this->set('recruitments',$this->RecruitmentSearcher->search_lastest());
