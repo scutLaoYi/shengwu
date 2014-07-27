@@ -1,24 +1,5 @@
-<div class="searchDiv">
-	<?php echo $this->Form->create('search'); ?>
-		<ul>
-			<li>
-				<label>
-				<?php
-				$options = array('company'=>'公司','proxy'=>'代理');
-				$attributes = array('legend'=>false,'value'=>'company');
-				echo $this->Form->radio('select',$options,$attributes);?>
-				</label>
-			</li>
-			<li>
-				<?php echo $this->Form->input('content',array('label'=>'')) ?>
-			</li>
-			<li>
-				<?php echo $this->Form->end('搜索');?>
-			</li>
-		</ul>
-</div>
-
 <div id="rollDiv">
+<?php ?>
 <img id="rollpic" src="img/mainpage_slider/0.jpg">
 </img>
 </div>
@@ -30,7 +11,7 @@
 				  }
 				  </script>
 <!-- end of js for rollDiv -->
-<div class="ad">
+<div class="div_ad_image">
 <?php
 for($index = 0; $index < 5; $index++)
 {
@@ -134,7 +115,7 @@ for($index = 0; $index < 5; $index++)
 </div>
 </div>
 
-<div class="ad">
+<div class="div_ad_image">
 <?php
 for($index = 0; $index < 5; $index++)
 {

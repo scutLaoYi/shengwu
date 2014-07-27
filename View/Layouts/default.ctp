@@ -42,10 +42,27 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 </head>
 <body>
 	<div id="logo">
+	<div id="logo_box">
+	<div class="searchDiv">
+	<?php echo $this->Form->create('search'); ?>
+		<ul>
+			<li>
+				<label>
+				<?php
+				$options = array('company'=>'公司','proxy'=>'代理');
+				$attributes = array('legend'=>false,'value'=>'company');
+				echo $this->Form->radio('select',$options,$attributes);?>
+				</label>
+			</li>
+			<li>
+				<?php echo $this->Form->input('content',array('label'=>'')) ?>
+			</li>
+			<li>
+				<?php echo $this->Form->end('');?>
+			</li>
+		</ul>
+	</div>
 		<div id="header">
-			<ul>
-			
-				<li>
 <!--nocache-->
 <?php 
 					if($this->Session->check('user')) {
@@ -76,13 +93,10 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 					}
 					?>
 			<!--/nocache-->
-				</li>	
-			</ul>
 		</div>
 	</div>
-		<!-- end of menubar -->
-	<div id="container">
-		<!-- start of menubar -->
+	</div>
+	<div class="menubg">
 		<div class="menubar">
  			<ul>
 				<li><?php echo $this->Html->link('首页', array('controller'=>'Mainpage', 'action'=>'index')); ?></li>
@@ -110,6 +124,10 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 			
 			</ul>
 		</div>
+	</div>
+		<!-- end of menubar -->
+	<div id="container">
+		<!-- start of menubar -->
 		<div id="position_teller">您现在的位置：<?php echo $title_for_layout;?> </div>
 		<div id="content">
 
