@@ -517,7 +517,7 @@ background:url('../img/mainPage/secondPage/ad_invite.png');
 background-repeat:no-repeat;
 background-size:100% 100%;
 }
-#adBox {
+#ad_Box {
 width:760px;
 float:left;
 height:auto;
@@ -527,7 +527,7 @@ background-repeat:no-repeat;
 background-size:195px 166px;
 background-position:top right;
 }
-#ad_content {
+#ad_contents {
 width:442px;
 float:left;
 min-height:180px;
@@ -538,8 +538,9 @@ font-size:15px;
 #adtitle {
 width:760px;
 height:44px;
-margin-left:auto;
-margin-right:auto;
+margin:0px;
+padding:0px;
+float:left;
 background:url('../img/mainPage/secondPage/ad_invite_light.png');
 background-repeat:no-repeat;
 background-size:164px 44px;
