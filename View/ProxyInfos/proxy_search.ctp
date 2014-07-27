@@ -2,8 +2,12 @@
 
 <?php echo $this->Html->script('allSelections'); ?>
 <?php echo $this->Html->script('proxySelection'); ?>
-<script>
+<script charset="utf-8">
 <!--
+function encoding(str)
+{
+	return encodeURI(str);
+}
 //搜索函数，根据条件发送ajax请求并更新结果到div中
 function searching()
 {
@@ -23,7 +27,7 @@ function searching()
 		func.selectedIndex,'/', 
 		depart.selectedIndex, '/', 
 		material.selectedIndex, '/',
-		str.value);
+		encoding(str.value));
 
 	//document.getElementById("debugDiv").innerHTML = ajaxUrl;
 	$.ajax({
