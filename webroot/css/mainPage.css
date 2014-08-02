@@ -245,7 +245,7 @@ margin-right:auto;
 
 .searchDiv ul
 {
-width: 281px; 
+width: 290px; 
 float:right;
 height:auto; 
 margin-top:120px;
@@ -254,6 +254,7 @@ text-align:right;
 position:bottom;
 /*border:1px solid #DCDCDC;*/
 }
+/*
 .searchDiv li
 {
 float:left;
@@ -262,6 +263,31 @@ display:inline;
 margin:0;
 padding:0;
 height:28px;
+width:61px;
+}*/
+#searchSelect {
+float:left;
+margin:0px;
+padding:0px;
+height:28px;
+width:101px;
+list-style:none;
+}
+#searchInput {
+float:left;
+margin:0px;
+padding:0px;
+width:155px;
+height:28px;
+list-style:none;
+}
+#searchBtn {
+float:left;
+margin:0px;
+padding:0px;
+height:28px;
+width:34px;
+list-style:none;
 }
 .searchDiv input[type=text] {
 width:155px;
@@ -315,8 +341,6 @@ width:1000px;
 height:auto;
 }
 #friendLink {
-	position:relative;
-	top:5px;
 	clear: both;
 	text-align: left;
 	height:auto;

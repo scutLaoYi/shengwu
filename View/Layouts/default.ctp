@@ -49,18 +49,16 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 		if($title_for_layout == "main_index"){
 			echo $this->Form->create('search'); ?>
 		<ul>
-			<li>
-				<label>
+			<li id="searchSelect">
 				<?php
 				$options = array('company'=>'公司','proxy'=>'代理');
 				$attributes = array('legend'=>false,'value'=>'company');
 				echo $this->Form->radio('select',$options,$attributes);?>
-				</label>
 			</li>
-			<li>
+			<li id="searchInput">
 				<?php echo $this->Form->input('content',array('label'=>'')) ?>
 			</li>
-			<li>
+			<li id="searchBtn">
 				<?php echo $this->Form->end('');?>
 			</li>
 		</ul>

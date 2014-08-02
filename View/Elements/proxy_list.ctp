@@ -1,5 +1,6 @@
 <div id="dlxc"></div>
-<div>
+<?php ?>
+<div id="contentBox">
 <!-- begin of index -->
 	<?php foreach ($proxyInfos as $proxyInfo): ?>
 	<ul id="proxy_list">
@@ -16,17 +17,22 @@
 	?>&nbsp;
 </li>
 
-		<li id="proxy_list_li_1">【产品名称】<?php echo $this->Html->link($proxyInfo['ProxyInfo']['product_name'], 
+		<li id="proxy_list_li_1">产品名称</li>
+		<li id="proxy_list_li_2"><?php echo $this->Html->link($proxyInfo['ProxyInfo']['product_name'], 
 array('controller'=>'ProxyInfos','action'=>'proxy_view', $proxyInfo['ProxyInfo']['id'])); ?>&nbsp;</li>
 
-		<li id="proxy_list_li_1">【公司名称】<?php echo $this->Html->link($proxyInfo['CompanyUserInfo']['company'], 
+		<li id="proxy_list_li_1">公司名称</li>
+		<li id="proxy_list_li_2"><?php echo $this->Html->link($proxyInfo['CompanyUserInfo']['company'], 
 array('controller'=>'CompanyDescriptions','action'=>'view_proxy', $proxyInfo['CompanyUserInfo']['id'])); ?>&nbsp;</li>
 
-		<li id="proxy_list_li_1">【代理区域】<?php echo h($allCountrys[$proxyInfo['ProxyInfo']['product_area']]); ?>&nbsp;</li>
+		<li id="proxy_list_li_1">代理区域</li>
+		<li id="proxy_list_li_2"><?php echo h($allCountrys[$proxyInfo['ProxyInfo']['product_area']]); ?>&nbsp;</li>
 
-		<li id="proxy_list_li_1">【产品类型】<?php echo h($allProduct[$proxyInfo['ProxyInfo']['product_type']]); ?>&nbsp;</li>
+		<li id="proxy_list_li_1">产品类型</li>
+		<li id="proxy_list_li_3"><?php echo h($allProduct[$proxyInfo['ProxyInfo']['product_type']]); ?>&nbsp;</li>
 
-		<li id="proxy_list_li_1">【发布时间】<?php echo h($proxyInfo['ProxyInfo']['created']); ?>&nbsp;</li>
+		<li id="proxy_list_li_4">发布时间</li>
+		<li id="proxy_list_li_5"><?php echo h($proxyInfo['ProxyInfo']['created']); ?>&nbsp;</li>
 
 		<?php 
 		$str_introduce=$proxyInfo['ProxyInfo']['product_introduce'];
@@ -35,11 +41,13 @@ array('controller'=>'CompanyDescriptions','action'=>'view_proxy', $proxyInfo['Co
 			$str_introduce=mb_substr($str_introduce,0,97).'...';
 		}
 		?>
-		<li id="proxy_list_li_2">【内容简介】<?php echo h($str_introduce); ?>&nbsp;</li>
+		<li id="proxy_list_li_6">内容简介</li>
+		<li id="proxy_list_li_7"><?php echo h($str_introduce); ?></li>
 	</ul>
+	<div id="split_line"></div>
 	<?php endforeach; ?>
+</div>
 
-	
 	<div class="paging">
 <p>
 <?php

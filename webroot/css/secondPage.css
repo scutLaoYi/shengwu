@@ -80,9 +80,10 @@ height:auto;
 text-align:center;
 background:#f7f7f7;
 }
+/*
 #leftBox input[type=text] {
 width:130px;
-}
+}*/
 #actions_lists{
 width:197px;
 height:auto;
@@ -90,10 +91,43 @@ margin:0px;
 padding:0px;
 float:left;
 }
+.company_actions{
+width:197px;
+height:auto;
+margin:0px;
+padding:0px;
+float:left;
+}
+.company_actions li {
+list-style:none;
+margin:0px;
+padding:0px;
+width:197px;
+line-height:30px;
+}
+.company_actions select {
+width:164px;
+margin:0px;
+padding:0px;
+}
+.company_actions input[type=text] {
+width:164px;
+margin:0px;
+padding:0px;
+}
+.company_actions input[type=submit] {
+width:71px;
+height:28px;
+background:url('../img/mainPage/secondPage/search_button.png');
+background-repeat:no-repeat;
+background-size:71px 28px;
+border:none;
+}
 #action_box {
 width:220px;
 height:auto;
 float:left;
+margin-bottom:10px;
 }
 #actions_lists li {
 width:197px;
@@ -124,6 +158,14 @@ width:760px;
 float:right;
 top:70px;
 margin-top:10px;
+margin-bottom:10px;
+}
+#contentBox {
+width:725px;
+height:auto;
+padding:0px;
+margin:0px;
+float:left;
 }
 .loginBox {
 background:url('../img/mainPage/secondPage/single_black_line.png');
@@ -178,27 +220,7 @@ background-repeat:no-repeat;
 background-size:161px 56px;
 background-position:center;
 }
-/*
-#gslb_1 {
-background:url('../img/mainPage/secondPage/company_title.png');
-float:left;
-width:100px;
-height:25px;
-margin-top:15px;
-background-repeat:no-repeat;
-background-size:100% 100%;
-}
-*/
-/*
-#gslb_2 {
-background:url('../img/mainPage/secondPage/gslb-2.jpg');
-float:right;
-width:40px;
-height:50px;
-background-repeat:no-repeat;
-background-size:100% 100%;
-}
-*/
+
 /*内容列表*/
 #content_list {
 width:710px;
@@ -210,22 +232,68 @@ float:left;
 }
 
 #content_list_li_1{
-width:305px;
+width:100px;
 height:auto;
-min-height:25px;
 float:left;
 list-style:none;
+color:#809841;
+font-size:14px;
+margin:0px;
+padding:0px;
+line-height:20px;
 }
 #content_list_li_2 {
-width:710px;
+width:610px;
 height:auto;
-min-height:50px;
 float:left;
 list-style:none;
-background:#eff4fa;
-border-top:1px solid #c9d9e8;
+color:#1d79be;
+font-size:14px;
+margin:0px;
+padding:0px;
+line-height:20px;
 }
-
+#content_list_li_2 a {
+text-decoration:none;
+color:#1d79be;
+margin:0px;
+padding:0px;
+}
+#content_list_li_2 a:hover {
+color:blue;
+}
+#content_list_li_3 {
+width:710px;
+float:left;
+list-style:none;
+color:#545454;
+font-size:15px;
+font-weight:bold;
+margin:0px;
+padding-top:20px;
+}
+#content_list_li_4 {
+width:710px;
+float:left;
+list-style:none;
+color:#545454;
+font-size:11px;
+margin:0px;
+padding:0px;
+line-height:20px;
+min-height:30px;
+}
+#split_line {
+width:760px;
+height:1px;
+background:url('../img/mainPage/secondPage/split_line.png');
+background-repeat:no-repeat;
+background-size:100% 100%;
+margin-top:5px;
+margin-bottom:5px;
+float:left;
+padding:0px;
+}
 /*代理二级页面内容列表*/
 #proxy_list {
 width:710px;
@@ -242,22 +310,80 @@ float:left;
 list-style:none;
 }
 #proxy_list_li_1{
-width:305px;
+width:100px;
 height:auto;
-min-height:33px;
+line-height:25px;
 float:left;
 list-style:none;
+text-align:center;
+font-size:14px;
+color:#4b4b4b;
 }
 #proxy_list_li_2 {
-width:710px;
+width:510px;
 height:auto;
-min-height:50px;
+float:left;
+line-height:25px;
+list-style:none;
+font-size:14px;
+color:#1d79be;
+}
+#proxy_list_li_2 a {
+text-decoration:none;
+color:#1d79be;
+}
+#proxy_list_li_2 a:hover {
+color:blue;
+}
+#proxy_list_li_3 {
+width:205px;
+height:auto;
+float:left;
+line-height:25px;
+list-style:none;
+font-size:14px;
+color:#1d79be;
+}
+#proxy_list_li_4 {
+width:100px;
+height:auto;
+line-height:25px;
 float:left;
 list-style:none;
-background:#eff4fa;
-border-top:1px solid #c9d9e8;
+text-align:center;
+font-size:14px;
+color:#809841;
 }
-
+#proxy_list_li_5 {
+width:205px;
+height:auto;
+float:left;
+line-height:25px;
+list-style:none;
+font-size:14px;
+color:#4b4b4b;
+}
+#proxy_list_li_6 {
+width:710px;
+float:left;
+list-style:none;
+color:#545454;
+font-size:15px;
+font-weight:bold;
+margin:0px;
+padding-top:20px;
+}
+#proxy_list_li_7 {
+width:710px;
+float:left;
+list-style:none;
+color:#545454;
+font-size:11px;
+margin:0px;
+padding:0px;
+line-height:20px;
+min-height:30px;
+}
 /*代理ajax布局*/
  .py_ajax 
 {
@@ -280,14 +406,14 @@ padding:0px;
 .py_ajax ul li
 {
 width:197px;
-padding-top:7px;
+line-height:30px;
 list-style:none;
+text-align:center;
 }
 .py_ajax input[type=submit] {
 width:71px;
 height:28px;
-padding-bottom:5px;
-background-image:url('../img/mainPage/mainpage/button_background.png');
+background-image:url('../img/mainPage/secondPage/search_button.png');
 background-repeat:no-repeat;
 background-size:100% 100%;
 color:white;
@@ -295,10 +421,10 @@ cursor:pointer;
 border:none;
 }
 .py_ajax select {
-width:110px;
+width:105px;
 }
 .py_ajax input {
-width:197px;
+width:164px;
 }
 /*招聘2级页面*/
 #recruitment_div {

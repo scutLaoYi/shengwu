@@ -105,7 +105,7 @@ echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产
 	<?php
 	//	echo $this->Form->end('搜索', array('onclick'=>'searching();'));
 	?>
-		<input type="submit" value="搜索" onclick="searching()" />
+		<input type="submit" value=" " onclick="searching()" />
 	</li>
 </ul>
 </div>
@@ -121,3 +121,5 @@ echo $this->Form->input('product_type',array('id'=>'product_type', 'label'=>'产
 window.onload = setAndSearch(document.getElementById("product_type").selectedIndex);
 </script>
 </div>
+
+

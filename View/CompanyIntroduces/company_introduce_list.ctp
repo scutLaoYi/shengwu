@@ -5,7 +5,7 @@
 <div id="company_title">
 </div>
 
-<ul id="actions_lists">
+<ul class="company_actions">
 <?php echo $this->Form->create('CompanySearch');?>
 	<li>
 	<label>公司地区</label>
@@ -20,7 +20,7 @@
 	<?php echo $this->Form->input('search',array('label'=>''));?>
 	</li>
 	<li>
-	<?php echo $this->Form->end(__('搜索'));?>
+	<?php echo $this->Form->end(__(' '));?>
 	</li>
 </ul>
 </div>
@@ -31,14 +31,17 @@
 	</div>
 	<?php foreach($companys as $company):?>
 	<ul id="content_list">
-		<li id="content_list_li_1">【公司名称】
+		<li id="content_list_li_1">公司名称</li>
+		<li id="content_list_li_2">
 		<?php echo $this->Html->link($company['CompanyUserInfo']['company'],array('controller'=>'CompanyDescriptions','action'=>'view_info',$company['CompanyUserInfo']['id']));?>
 		</li>
-		<li id="content_list_li_1">【公司地址】
+		<li id="content_list_li_1">公司地址</li>
+		<li id="content_list_li_2">
 		<?php echo $allCountrys[$company['CompanyUserInfo']['province']+1];?>
 		</li>
-		<li id="content_list_li_2">【公司简介】
-<?php 
+		<li id="content_list_li_3">内容简介</li>
+		<li id="content_list_li_4">
+		<?php 
 $str_introduce=$company['CompanyIntroduce']['introduce'];
 if(mb_strlen($str_introduce)>100)
 {
@@ -48,6 +51,7 @@ echo $str_introduce;
 ?>
 		</li>
 	</ul>
+	<div id="split_line"></div>
 	<?php endforeach;?>
 
 	<div class="paging">

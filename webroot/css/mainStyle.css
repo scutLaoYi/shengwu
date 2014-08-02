@@ -368,9 +368,18 @@ border:thin solid Black;
 	width:auto;
 	text-align:center;
 	background:#fff;
-	color: #ccc;
-	margin-top: 1em;
+	color:rgb(85, 85, 87);
+	margin-bottom:10px;
+	position:relative;
+	top:10px;
+	overflow:hidden;
 	clear:both;
+	padding:0px;
+	font-size:11px;
+}
+.paging p {
+margin:0px;
+padding:0px;
 }
 .paging .current,
 .paging .disabled,
@@ -399,7 +408,7 @@ border:thin solid Black;
 	border-radius: 0 4px 4px 0;
 }
 .paging .disabled {
-	color: #ddd;
+	color:rgb(85, 85, 87);
 }
 .paging .disabled:hover {
 	background: transparent;
