@@ -339,7 +339,7 @@ font-size:14.67px;
 color:#1d79be;
 }
 #proxy_list_li_4 {
-width:100px;
+width:130px;
 height:auto;
 line-height:24px;
 float:left;
@@ -349,14 +349,14 @@ font-size:14.67px;
 color:#809841;
 }
 #proxy_list_li_5 {
-width:205px;
+width:175px;
 height:auto;
 float:left;
 line-height:24px;
 list-style:none;
 font-size:14.67px;
 color:#4b4b4b;
-text-align:center;
+text-align:right;
 }
 #proxy_list_li_6 {
 width:710px;

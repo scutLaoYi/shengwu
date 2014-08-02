@@ -4,3 +4,17 @@
 2014/08/02 08:15:27pm username:testadmin type:3 status:ok
 2014/08/02 08:16:17pm username:huanqiuyiyao type:1 status:ok
 2014/08/02 09:34:28pm username:qixitebieban type:2 status:ok
+2014/08/02 09:35:24pm username:qixitebieban type:2 status:ok
+2014/08/02 09:36:13pm username:testcompany type:unknow status:failed
+2014/08/02 09:36:17pm username:testcompany type:unknow status:failed
+2014/08/02 09:36:27pm username:testcompany001 type:unknow status:failed
+2014/08/02 09:36:50pm username:huanqiuyiyao type:1 status:ok
+2014/08/02 09:37:17pm username:huanqiuyiyao type:1 status:ok
+2014/08/02 09:38:32pm username:szy001 type:unknow status:failed
+2014/08/02 09:38:41pm username:testuser type:2 status:ok
+2014/08/02 09:38:59pm username:testuser type:2 status:ok
+2014/08/02 09:39:45pm username:testuser type:2 status:ok
+2014/08/02 09:40:05pm username:testuser type:2 status:ok
+2014/08/02 09:41:13pm username:huanqiuyiyao type:1 status:ok
+2014/08/02 09:41:45pm username:huanqiuyiyao type:1 status:ok
+2014/08/02 09:42:14pm username:testadmin type:3 status:ok
