@@ -36,8 +36,9 @@ margin-left:40px;
 text-decoration:none;
 padding-top:5px;
 display:block;
-color:#363636;
+color: rgb(84, 84, 84);
 white-space:nowrap;
+font-family:黑体;
 }
 #listUl li a:hover
 {
@@ -47,6 +48,7 @@ background-image:url('../img/mainPage/thirdPage/list-2.jpg');
 	background-size:117px 27px;
 	width:117px;
 	height:27px;
+	color:#652ec7;
 }
 
 /*三级页面表单*/
@@ -145,6 +147,8 @@ margin:0px;
 float:left;
 padding-left:20px;
 height:auto;
+font-size:14px;
+line-height:24px;
 }
 #company_3_li_0 {
 width:120px;
@@ -153,6 +157,7 @@ min-height:20px;
 height:auto;
 border-bottom:1px dashed #bababa;
 list-style:square inside url('../img/mainPage/thirdPage/dot.png');
+color: rgb(84, 84, 84);
 }
 #company_3_li {
 width:500px;
@@ -163,6 +168,7 @@ padding:0px;
 list-style:none;
 margin-left:80px;
 border-bottom:1px dashed #bababa;
+color: rgb(84, 84, 84);
 }
 #company_img {
 width:700px;
@@ -331,6 +337,7 @@ background-repeat:no-repeat;
 background-size:98px 3px;
 line-height:35px;
 text-align:center;
+color: rgb(84, 84, 84);
 }
 #recuriment_3_li_1 {
 width:200px;
@@ -339,8 +346,9 @@ min-height:27px;
 float:left;
 margin-left:2px;
 padding:0px;
-font-size:13px;
+font-size:14px;
 list-style:none;
+color: rgb(84, 84, 84);
 border-bottom:1px dashed #bababa;
 }
 
@@ -380,11 +388,13 @@ height:auto;
 margin:0px;
 padding:0px;
 float:left;
+font-size:14px;
+color: rgb(84, 84, 84);
 }
 .recuriment_return {
 width: 980px;
 height:auto;
-margin:10px 0px 0px 0px;
+margin:14px 0px 14px 0px;
 padding:0px;
 float:left;
 text-align:center;
@@ -406,7 +416,8 @@ float:left;
 min-height:180px;
 margin-left:20px;
 color:#4c4c4c;
-font-size:12px;
+font-size:14px;
+line-height:24px;
 }
 #ljwm {
 width:760px;

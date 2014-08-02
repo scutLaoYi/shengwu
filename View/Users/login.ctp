@@ -7,9 +7,8 @@
 <div id="moving_ad"></div>
 </div>
 	<div class="loginBox">
-	<?php echo $this->Form->create('User'); ?>
 	<div id="fieldset_box">
-	<fieldset>
+			<?php echo $this->Form->create('User'); ?>
 				<ul id="inputLine">
 					<li id="inputIcon">
 						<div id="username"></div>
@@ -32,14 +31,13 @@
 					<li id="yanzhengma">
 							<?php $this->Captcha->render($captchaSettings);?>
 					</li>
-					<li id="button_li">
-						<?php echo $this->Form->end(__('登录')); ?>
-					</li>
 					<li id="forget_psw">
 						<?php echo $this->Html->link('忘记密码',array('action'=>'forget_password'));?>
 					</li>
+					<li id="loginBtn_li">
+						<?php echo $this->Form->end(__('登录')); ?>
+					</li>
 				</ul>
-	</fieldset>
 	</div>
 	</div>
 </div>

@@ -13,4 +13,3 @@ echo $this->element('company_description_option', array('currentId'=>$company_id
 echo $this->element('proxy_list', array('proxyInfos'=>$proxyInfos));
 ?>
 </div>
-</div>

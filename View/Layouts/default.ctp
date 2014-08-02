@@ -44,27 +44,6 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 	<div id="logo">
 	<div id="logo_box">
 
-	<div class="searchDiv">
-	<?php 
-		if($title_for_layout == "main_index"){
-			echo $this->Form->create('search'); ?>
-		<ul>
-			<li id="searchSelect">
-				<?php
-				$options = array('company'=>'公司','proxy'=>'代理');
-				$attributes = array('legend'=>false,'value'=>'company');
-				echo $this->Form->radio('select',$options,$attributes);?>
-			</li>
-			<li id="searchInput">
-				<?php echo $this->Form->input('content',array('label'=>'')) ?>
-			</li>
-			<li id="searchBtn">
-				<?php echo $this->Form->end('');?>
-			</li>
-		</ul>
-	<?php } ?>
-	</div>
-
 		<div id="header">
 <!--nocache-->
 <?php 
@@ -97,6 +76,26 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 					?>
 			<!--/nocache-->
 		</div>
+		<div class="searchDiv">
+	<?php 
+		if($title_for_layout == "main_index"){
+			echo $this->Form->create('search'); ?>
+		<ul>
+			<li id="searchSelect">
+				<?php
+				$options = array('company'=>'公司','proxy'=>'代理');
+				$attributes = array('legend'=>false,'value'=>'company');
+				echo $this->Form->radio('select',$options,$attributes);?>
+			</li>
+			<li id="searchInput">
+				<?php echo $this->Form->input('content',array('label'=>'')) ?>
+			</li>
+			<li id="searchBtn">
+				<?php echo $this->Form->end('');?>
+			</li>
+		</ul>
+	<?php } ?>
+	</div>
 	</div>
 	</div>
 	<div class="menubg">
@@ -115,7 +114,7 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 			   <li><?php echo $this->Html->link('招聘求职', array('controller'=>'Recruitments', 'action'=>'recruitment_list')); ?></li>
 				<li><?php echo $this->Html->link('招标中标', array('controller'=>'InviteBids', 'action'=>'invite_bid_list')); ?></li> 
 			<li><?php echo $this->Html->link('论坛交流', array('controller'=>'Forums','action'=>'index')); ?></li>
- 				<li><a href="">信息发布</a>
+ 				<li>信息发布
  					<ul> 
 						<li><?php echo $this->Html->link('发布公司信息', array('controller'=>'companyIntroduces', 'action'=>'company_introduce_submit')); ?></li>
 						<li><?php echo $this->Html->link('发布代理信息', array('controller'=>'ProxyInfos', 'action'=>'proxy_submit'));?></li>

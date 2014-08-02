@@ -20,7 +20,7 @@ height:30px;
 background:#284681;
 line-height:30px;
 color:white;
-font-size:11px;
+font-size:14px;
 }
 #Title_bottom a{
 color:white;
@@ -28,13 +28,14 @@ color:white;
 #module {
 width:1000px;
 height:auto;
-margin-top:10px;
+margin-top:14px;
 float:left;
+margin-bottom:14px;
 }
 
 #module ul {
 width:1000px;
-height:55px;
+height:60px;
 text-align:left;
 margin:0;
 padding:0;
@@ -53,16 +54,16 @@ width:170px;
 #module a {
 text-decoration:none;
 color:#4e6799;
-font-size:13px;
+font-size:14.67px;
 }
 #module p {
 color:#696969;
 margin:0px;
 padding:0px;
-font-size:11px;
+font-size:14px;
 }
 #module a:hover {
-text-decoration:underline;
+color:#000081;
 }
 
 #topStyle {
@@ -80,9 +81,12 @@ text-decoration:underline;
 /* 二级页面 */
 #forumDiv {
 width:1000px;
-margin-top:10px;
+margin-top:14px;
 margin-left:auto;
 margin-right:auto;
+margin-bottom:14px;
+height:auto;
+float:left;
 }
 #forumDiv table {
 margin-top:10px;
@@ -127,7 +131,6 @@ text-decoration:none;
 color:#3b1e09;
 }
 #forumDiv a:hover {
-text-decoration:underline;
 color:#284681;
 }
 #btnDiv {

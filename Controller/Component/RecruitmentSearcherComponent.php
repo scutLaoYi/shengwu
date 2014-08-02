@@ -16,12 +16,12 @@ class RecruitmentSearcherComponent extends Component
 		if($company_id)
 			$options['Recruitment.company_user_info_id'] = $company_id;
 
-		$this->Paginator->settings = array('limit'=>10,'order'=>array('Recruitment.created'=>'desc'),'conditions'=>$options);
+		$this->Paginator->settings = array('limit'=>5,'order'=>array('Recruitment.created'=>'desc'),'conditions'=>$options);
 		return $this->Paginator->paginate('Recruitment');
 	}
 	public function search_lastest()
 	{
-		$this->Paginator->settings = array('limit'=>6,'order'=>array('Recruitment.created'=>'desc'),'conditions'=>array('Recruitment.status'=>'2'));
+		$this->Paginator->settings = array('limit'=>5,'order'=>array('Recruitment.created'=>'desc'),'conditions'=>array('Recruitment.status'=>'2'));
 		return $this->Paginator->paginate('Recruitment');
 	}
 }	

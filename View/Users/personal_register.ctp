@@ -6,12 +6,11 @@
 		</div>
 		<div id="moving_ad"></div>
 	</div>
-
-<div id="rightBox">		
+	
 <div class="loginBox">
-<?php echo $this->Form->create('User'); ?>
-<div id="fieldset_box">
-<fieldset>
+
+<div id="p_register_box">
+	<?php echo $this->Form->create('User'); ?>
 		<ul id="inputLine">
 			<li id="inputIcon">
 				<div id="username"></div>
@@ -39,20 +38,18 @@
 			</li>
 			<li id="inputTest_li"><p>电子邮箱</p></li>
 			<li id="inputField_li">
-				<?php echo $this->Form->input('email',array('label'=>''));	?>
+				<?php echo $this->Form->input('email',array('label'=>''));?>
 			</li>
 			<li id="inputIcon">
 				<div id="email"></div>
 			</li>
 			<li id="inputTest_li"><p>验证码</p></li>
-			<li id="inputField_li">
+			<li id="yanzhengma">
 						<?php $this->Captcha->render($captchaSettings);?>
 			</li>
-			<li id="button_li">
+			<li id="loginBtn_li">
 				<?php echo $this->Form->end(__('提交')); ?>
 			</li>
 		</ul>
-</fieldset>
-</div>
 </div>
 </div>

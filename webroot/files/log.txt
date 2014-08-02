@@ -1,0 +1,6 @@
+2014/08/02 04:20:57pm username:asdas type:unknow status:failed
+2014/08/02 04:26:22pm username: type:unknow status:failed
+2014/08/02 04:40:52pm username: type:unknow status:failed
+2014/08/02 08:15:27pm username:testadmin type:3 status:ok
+2014/08/02 08:16:17pm username:huanqiuyiyao type:1 status:ok
+2014/08/02 09:34:28pm username:qixitebieban type:2 status:ok
