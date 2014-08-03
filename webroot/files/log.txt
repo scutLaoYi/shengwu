@@ -30,3 +30,8 @@
 2014/08/03 01:32:49pm username:testuser type:2 status:ok
 2014/08/03 01:32:54pm username:testuser type:2 status:ok
 2014/08/03 02:04:37pm username:testuser type:2 status:ok
+2014/08/03 02:19:43pm username:testuser type:2 status:ok
+2014/08/03 02:20:35pm username:huanqiuyiyao type:1 status:ok
+2014/08/03 02:20:52pm username:testuser type:2 status:ok
+2014/08/03 02:21:22pm username:testuser type:2 status:ok
+2014/08/03 02:21:25pm username:a123456 type:2 status:ok

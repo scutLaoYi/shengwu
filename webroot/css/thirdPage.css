@@ -279,6 +279,7 @@ background-repeat:no-repeat;
 background-size:100% 10%;
 line-height:35px;
 text-align:center;
+color: rgb(85, 85, 87);
 }
 #resume_li {
 width:630px;
@@ -289,6 +290,8 @@ padding:0px;
 list-style:none;
 margin-left:72px;
 border-bottom:1px dashed #bababa;
+color: rgb(85, 85, 87);
+font-size:14px;
 }
 #resume_li_return {
 width:630px;

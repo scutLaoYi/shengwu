@@ -161,10 +161,10 @@ margin:0px;
 /*密码修改*/
 .psw_modify {
 width:536px;
-height:315px;
+height:200px;
 padding:0px;
 margin:14px auto 14px auto;
-background-image:url('../img/mainPage/secondPage/shining_box.png');
+background-image:url('../img/mainPage/secondPage/shining_box_536_200.png');
 background-repeat:no-repeat;
 background-size:100% 100%;
 }
@@ -211,10 +211,10 @@ width:175px;
 }
 .forgetpsw {
 width:536px;
-height:315px;
+height:150px;
 padding:0px;
 margin:14px auto 14px auto;
-background-image:url('../img/mainPage/secondPage/shining_box.png');
+background-image:url('../img/mainPage/secondPage/shining_box_536_150.png');
 background-repeat:no-repeat;
 background-size:100% 100%;
 }
