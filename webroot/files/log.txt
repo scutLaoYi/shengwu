@@ -52,3 +52,9 @@
 2014/08/03 05:10:46pm username:testcompany type:unknow status:failed
 2014/08/03 05:11:19pm username:testadmin type:3 status:ok
 2014/08/03 05:11:44pm username:renhong type:1 status:ok
+2014/08/03 08:59:42pm username:testuser001 type:unknow status:failed
+2014/08/03 09:00:02pm username:testuser type:2 status:ok
+2014/08/03 09:01:36pm username:testadmin type:3 status:ok
+2014/08/03 09:02:02pm username:huanqiuyiyao type:1 status:ok
+2014/08/03 09:04:47pm username:testadmin type:unknow status:failed
+2014/08/03 09:04:50pm username:testadmin type:3 status:ok

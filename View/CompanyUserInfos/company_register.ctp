@@ -18,8 +18,8 @@ function change(obj) {
 	</div>
 	<div id="rightBox">
 	<div class="list_submit">
-	<?php echo $this->Form->create('CompanyUserInfo_for'); ?>
 		<ul>
+				<?php echo $this->Form->create('CompanyUserInfo_for'); ?>
 			<li id="color_title">一：填写用户信息</li>
 			<li id="submit_content">
 				<ul id="submit_ul">

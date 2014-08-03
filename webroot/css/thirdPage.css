@@ -392,6 +392,7 @@ float:left;
 }
 .request_item {
 text-indent: 1cm;
+line-height:24px;
 width:672px;
 height:auto;
 margin:0px;
