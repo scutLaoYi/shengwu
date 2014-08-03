@@ -153,22 +153,24 @@ line-height:24px;
 #company_3_li_0 {
 width:120px;
 float:left;
-min-height:20px;
+min-height:24px;
 height:auto;
 border-bottom:1px dashed #bababa;
 list-style:square inside url('../img/mainPage/thirdPage/dot.png');
 color: rgb(84, 84, 84);
+line-height:24px;
 }
 #company_3_li {
 width:500px;
-min-height:20px;
 height:auto;
 float:left;
 padding:0px;
 list-style:none;
 margin-left:80px;
+min-height:24px;
 border-bottom:1px dashed #bababa;
 color: rgb(84, 84, 84);
+line-height:24px;
 }
 #company_img {
 width:700px;
@@ -218,7 +220,7 @@ background:url('../img/mainPage/thirdPage/proxy_word_line.png');
 background-position:bottom;
 background-repeat:no-repeat;
 background-size:100% 10%;
-line-height:35px;
+line-height:27px;
 text-align:center;
 }
 #proxy_3_li {
@@ -231,6 +233,7 @@ list-style:none;
 margin-left:72px;
 border-bottom:1px dashed #bababa;
 font-size:14px;
+line-height:27px;
 }
 #proxy_3_li_return {
 width:650px;
@@ -277,7 +280,7 @@ background:url('../img/mainPage/thirdPage/proxy_word_line.png');
 background-position:bottom;
 background-repeat:no-repeat;
 background-size:100% 10%;
-line-height:35px;
+line-height:27px;
 text-align:center;
 color: rgb(85, 85, 87);
 }
@@ -292,6 +295,7 @@ margin-left:72px;
 border-bottom:1px dashed #bababa;
 color: rgb(85, 85, 87);
 font-size:14px;
+line-height:27px;
 }
 #resume_li_return {
 width:630px;
@@ -339,7 +343,7 @@ background:url('../img/mainPage/thirdPage/proxy_word_line.png');
 background-position:bottom;
 background-repeat:no-repeat;
 background-size:98px 3px;
-line-height:35px;
+line-height:27px;
 text-align:center;
 color: rgb(84, 84, 84);
 }
@@ -354,6 +358,7 @@ font-size:14px;
 list-style:none;
 color: rgb(84, 84, 84);
 border-bottom:1px dashed #bababa;
+line-height:27px;
 }
 
 .request_content {

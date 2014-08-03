@@ -698,6 +698,13 @@ float: left;
 padding:0px;
 height: auto;
 }
+#list_box input[type=text]{
+width:180px;
+}
+#list_box input[type=textarea] {
+width:180px;
+float:left;
+}
 #company_submit_title
 {
 width:164px;
@@ -941,7 +948,7 @@ height:auto;
 }
 #personal_3_ul {
 width:650px;
-margin:0px;
+margin-left:125px;
 float:left;
 padding:0px;
 height:auto;
@@ -958,7 +965,7 @@ background:url('../img/mainPage/thirdPage/proxy_word_line.png');
 background-position:bottom;
 background-repeat:no-repeat;
 background-size:100% 10%;
-line-height:35px;
+line-height:27px;
 text-align:center;
 }
 #personal_3_li {
@@ -968,6 +975,7 @@ height:auto;
 float:left;
 padding:0px;
 list-style:none;
+line-height:27px;
 margin-left:72px;
 border-bottom:1px dashed #bababa;
 }

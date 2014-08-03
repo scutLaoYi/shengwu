@@ -48,7 +48,7 @@
 			</li>
 			<li id="list_test_li">公司介绍</li>
 			<li id="list_input_li">
-				<?php echo $this->Form->input('introduce',array('label'=>'','rows'=>1));?>
+				<?php echo $this->Form->input('introduce',array('label'=>'','rows'=>5));?>
 			</li>
 			<li id="list_input_button">
 				<?php echo $this->Form->end(__('提交')); ?>

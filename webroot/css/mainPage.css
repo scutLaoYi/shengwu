@@ -378,3 +378,17 @@ color:rgb(85,85,87);
 }
 /*结束 友情连接 */
 
+.changePsw {
+width:1000px;
+height:auto;
+margin:0px;
+padding:0px
+float:left;
+}
+
+.changePsw fieldset {
+width:500px;
+height:auto;
+margin-left:250px;
+padding:0px;
+}
