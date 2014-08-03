@@ -520,7 +520,8 @@ font-size:14px;
 line-height:28px;
 }
 #forget_psw a {
-color:rgb(85,85,87);
+text-decoration:none;
+color:#990000;
 }
 #forget_psw a:hover {
 color:#000066;
