@@ -45,7 +45,7 @@ margin-right:auto;
 #header{
 	padding:0;
 	margin:138px 0px 4px 0px;
-	width:1000px;
+	width:993px;
 	height:auto;
 	text-align:right;
 	margin-left:auto;
@@ -369,7 +369,7 @@ border:thin solid Black;
 	text-align:center;
 	background:#fff;
 	color:rgb(85, 85, 87);
-	margin-bottom:10px;
+	margin-bottom:14px;
 	position:relative;
 	top:10px;
 	overflow:hidden;

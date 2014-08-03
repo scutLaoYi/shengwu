@@ -186,6 +186,7 @@ margin:0px;
 list-style:disc; 
 padding-left:0;
 line-height:24px;
+list-style:url('../img/mainPage/mainpage/mainpage_dot.png');
 }
 .summary_message a{
 text-decoration:none;
@@ -246,7 +247,7 @@ margin-right:auto;
 width: 220px; 
 float:right;
 height:auto; 
-margin:0px;
+margin:0px 7px 0px 0px;
 padding:0px;
 text-align:right;
 position:bottom;
@@ -349,7 +350,7 @@ height:auto;
 .friendLinkContent a {
 color:#555557;
 text-decoration:none;
-font-size:14px;
+font-size:13.3px;
 }
 .friendLinkContent a:hover {
 color:black;
@@ -358,8 +359,8 @@ color:black;
 height:auto;
 float:left;
 width:1000px;
-margin-top:14px;
-margin-bottom:14px;
+margin-top:10.64px;
+margin-bottom:10.64px;
 padding:0px;
 }
 .friendLinkContent li {
