@@ -95,3 +95,126 @@ height:auto;
 border-bottom:1px dashed black;
 min-height:30px;
 }
+
+/*企业基本信息修改*/
+.c_modify {
+width:536px;
+height:450px;
+padding:0px;
+margin:14px auto 14px auto;
+background-image:url('../img/mainPage/secondPage/shining_box_536_450.png');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+.c_modify select {
+width:229px;
+padding:0px;
+margin:0px;
+float:left;
+}
+.c_modify input[type=text] {
+width:225px;
+padding:0px;
+margin:0px;
+}
+#c_modify_li1 {
+width: 185px;
+height: 38px;
+float: left;
+list-style: none outside none;
+padding: 0px;
+margin: 0px;
+text-align: center;
+font-size: 14px;
+line-height: 24px;
+text-align:center;
+color: rgb(85, 85, 87);
+}
+#c_modify_li2 {
+width: 328px;
+height: 38px;
+float: left;
+list-style: none outside none;
+padding: 0px;
+}
+#c_modify_li3 {
+width: 513px;
+height: 24px;
+float: left;
+list-style: none outside none;
+padding: 0px;
+text-align:center;
+font-size:14px;
+color: rgb(85, 85, 87);
+margin:0px;
+}
+#c_modify_li4{
+width: 513px;
+height: 24px;
+float: left;
+list-style: none outside none;
+padding: 0px;
+text-align:center;
+font-size:14px;
+margin:0px;
+}
+/*密码修改*/
+.psw_modify {
+width:536px;
+height:315px;
+padding:0px;
+margin:14px auto 14px auto;
+background-image:url('../img/mainPage/secondPage/shining_box.png');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+#psw_modify_li1 {
+width: 185px;
+height: 38px;
+float: left;
+list-style: none outside none;
+padding: 0px;
+margin: 0px;
+text-align: center;
+font-size: 14px;
+line-height: 24px;
+text-align:center;
+color: rgb(85, 85, 87);
+}
+#psw_modify_li2 {
+width: 328px;
+height: 38px;
+float: left;
+list-style: none outside none;
+padding: 0px;
+}
+#psw_modify_li3 {
+width: 513px;
+height: 24px;
+float: left;
+list-style: none outside none;
+padding: 0px;
+text-align:center;
+font-size:14px;
+color: rgb(85, 85, 87);
+margin:0px;
+}
+#psw_yanzhengma {
+width: 328px;
+height: 38px;
+float: left;
+list-style: none outside none;
+padding: 0px;
+}
+#psw_yanzhengma input[type=text]{
+width:175px;
+}
+.forgetpsw {
+width:536px;
+height:315px;
+padding:0px;
+margin:14px auto 14px auto;
+background-image:url('../img/mainPage/secondPage/shining_box.png');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}

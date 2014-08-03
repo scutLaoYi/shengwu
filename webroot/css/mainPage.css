@@ -234,7 +234,7 @@ margin-right:auto;
 {
 	padding:0;
 	width:1000px;
-	height:28px;
+	height:19px;
 	text-align:right;
 	float:left;
 	color:#3a4566;
@@ -243,7 +243,7 @@ margin-right:auto;
 
 .searchDiv ul
 {
-width: 290px; 
+width: 220px; 
 float:right;
 height:auto; 
 margin:0px;
@@ -267,43 +267,44 @@ width:61px;
 float:left;
 margin:0px;
 padding:0px;
-height:28px;
-width:101px;
+height:19px;
+width:104px;
 list-style:none;
+font-size:12px;
+line-height:24px;
 }
 #searchInput {
 float:left;
 margin:0px;
 padding:0px;
-width:155px;
-height:28px;
+width:97px;
+height:19px;
 list-style:none;
 }
 #searchBtn {
 float:left;
 margin:0px;
 padding:0px;
-height:28px;
-width:34px;
+height:19px;
+width:19px;
 list-style:none;
 }
 .searchDiv input[type=text] {
-width:155px;
-height:28px;
+width:97px;
+height:19px;
 background-image:url('../img/mainPage/mainpage/searching_box.png');
 background-repeat:no-repeat;
-background-size:155px 28px;
-line-height:30px;
+background-size:97px 19px;
 border:none;
 margin:0px;
 padding:0px;
 }
 .searchDiv input[type=submit] {
-width:34px;
-height:28px;
+width:19px;
+height:19px;
 background-image:url('../img/mainPage/mainpage/searching_btn.png');
 background-repeat:no-repeat;
-background-size:34px 28px;
+background-size:19px 19px;
 color:white;
 cursor:pointer;
 border:none;

@@ -9,13 +9,13 @@ margin-right:auto;
 }
 #logo {
 height:180px;
-width:100%;
+width:1000px;
 margin-left:auto;
 margin-right:auto;
-background-image:url('../img/mainPage/mainpage/logo.gif');
+background-image:url('../img/mainPage/mainpage/banner.png');
 background-repeat:no-repeat;
 background-position:center;
-background-size:1404px 100%;
+background-size:1000px 100%;
 margin-top:0px;
 /*
 filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=rgb(30,144,255),endcolorstr=rgb(255,255,255),gradientType=0);
@@ -44,7 +44,7 @@ margin-right:auto;
 
 #header{
 	padding:0;
-	margin:125px 0px 4px 0px;
+	margin:138px 0px 4px 0px;
 	width:1000px;
 	height:auto;
 	text-align:right;
@@ -52,11 +52,11 @@ margin-right:auto;
 	margin-right:auto;
 	float:left;
 	color:#3a4566;
-	font-size:14px;
+	font-size:12px;
 }
 #header a {
 color:#3a4566;
-font-size:14px;
+font-size:12px;
 text-decoration:none;
 }
 #header a:hover {
@@ -209,13 +209,9 @@ background-image:url('../img/mainPage/mainpage/menu_li.jpg');
 /**-----------end of menubar -------------**/
 .menubg {
 height:29px;
-width:100%;
+width:1000px;
 margin-left:auto;
 margin-right:auto;
-background-image:url('../img/mainPage/mainpage/leader_back_new.png');
-background-repeat:no-repeat;
-background-position:center;
-background-size:1404px 29px;
 margin-top:0px;
 }
 .menubar, .menubar ul {
@@ -508,7 +504,19 @@ padding:0px;
 float:left;
 border:none;
 }
-
+#submit_ul input[type=text] {
+width:180px;
+}
+#submit_ul input[type=password] {
+width:180px;
+}
+#submit_ul input[type=email] {
+width:180px;
+}
+#submit_ul select {
+width:184px;
+float:left;
+}
 #submit_li1 {
 width:130px;
 height:auto;

@@ -18,3 +18,15 @@
 2014/08/02 09:41:13pm username:huanqiuyiyao type:1 status:ok
 2014/08/02 09:41:45pm username:huanqiuyiyao type:1 status:ok
 2014/08/02 09:42:14pm username:testadmin type:3 status:ok
+2014/08/03 12:22:59pm username:huanqiuyiyao type:1 status:ok
+2014/08/03 12:39:36pm username:huanqiuyiyao type:1 status:ok
+2014/08/03 12:51:44pm username:huanqiuyiyao type:1 status:ok
+2014/08/03 12:59:02pm username:huanqiuyiyao type:1 status:ok
+2014/08/03 01:05:00pm username:huanqiuyiyao type:unknow status:failed
+2014/08/03 01:05:05pm username:huanqiuyiyao type:1 status:ok
+2014/08/03 01:06:03pm username:huanqiuyiyao type:1 status:ok
+2014/08/03 01:06:46pm username:huanqiuyiyao type:1 status:ok
+2014/08/03 01:32:39pm username:testuser type:unknow status:failed
+2014/08/03 01:32:49pm username:testuser type:2 status:ok
+2014/08/03 01:32:54pm username:testuser type:2 status:ok
+2014/08/03 02:04:37pm username:testuser type:2 status:ok
