@@ -44,7 +44,7 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 	<div id="logo">
 	<div id="logo_box">
 
-		<div id="header">
+	<div id="header" <?php if($title_for_layout != "main_index")echo 'style="margin-top:160px;"' ?>>
 <!--nocache-->
 <?php 
 					if($this->Session->check('user')) {
@@ -76,7 +76,7 @@ $websiteDescription = __d('web_dev','中国生物医学材料');
 					?>
 			<!--/nocache-->
 		</div>
-		<div class="searchDiv">
+		<div class="searchDiv"<?php if($title_for_layout != "main_index")echo 'style="display:none;"' ?>>
 	<?php 
 		if($title_for_layout == "main_index"){
 			echo $this->Form->create('search'); ?>
