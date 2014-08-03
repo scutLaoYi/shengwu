@@ -174,6 +174,7 @@ class ResumesController extends AppController {
  */
 	public function view_resumes() {
 
+		$this->set('title_for_layout', '个人简历');
 		$options = array('conditions'=>array('Resume.user_id'=>$this->Auth->user('id')));
 		$this->set('resume',$resume=$this->Resume->find('first',$options));
 		if(!$resume) {
