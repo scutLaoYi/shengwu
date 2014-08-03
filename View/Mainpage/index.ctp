@@ -1,6 +1,6 @@
 <div id="rollDiv">
 <?php ?>
-<img id="rollpic" src="img/mainpage_slider/0.jpg">
+<img id="rollpic" src="img/mainpage_slider/0.png">
 </img>
 </div>
 <!-- JavaScript for rollDiv -->
