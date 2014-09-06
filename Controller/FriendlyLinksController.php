@@ -51,6 +51,7 @@ class FriendlyLinksController extends AppController {
 			$this->FriendlyLink->create();
 			if ($this->FriendlyLink->save($this->request->data)) {
 				$this->Session->setFlash(__('新建链接成功'));
+				Cache::clear(false, 'mainpage');
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('新建链接失败，请稍后再试'));
@@ -72,6 +73,7 @@ class FriendlyLinksController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->FriendlyLink->save($this->request->data)) {
 				$this->Session->setFlash(__('链接修改成功'));
+				Cache::clear(false, 'mainpage');
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('链接修改失败，请稍后再试'));
@@ -97,6 +99,7 @@ class FriendlyLinksController extends AppController {
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->FriendlyLink->delete()) {
 			$this->Session->setFlash(__('链接删除成功'));
+			Cache::clear(false, 'mainpage');
 		} else {
 			$this->Session->setFlash(__('链接删除失败，请稍后再试'));
 		}
@@ -114,7 +117,13 @@ class FriendlyLinksController extends AppController {
 			//非法url,直接访问该页面，返回异常
 			throw new ForbiddenException();
 		}
-		$linkArray = $this->FriendlyLink->find('all');
+		$linkArray = Cache::read('friendly_link', 'mainpage');
+		if(!$linkArray)
+		{
+			debug('friendly link cache miss!');
+			$linkArray = $this->FriendlyLink->find('all');
+			Cache::write('friendly_link', $linkArray, 'mainpage');
+		}
 		return $linkArray;
 		
 	}
