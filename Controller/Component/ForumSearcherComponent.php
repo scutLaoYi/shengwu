@@ -12,9 +12,17 @@ class ForumSearcherComponent extends Component
 	
 	public function forum_lastest($type, $subtype)
 	{
-		$options = array('Forum.type'=>$type, 'Forum.typesub'=>$subtype);
-		$this->Paginator->settings = array('limit'=>'5', 'conditions'=>$options,'order'=>array('Forum.created'=>'desc'));
-		return $this->Paginator->paginate('Forum');
+		$cache_name = 'forum_'.$type.'_'.$subtype;
+		$cache_config = 'mainpage';
+		$result = Cache::read($cache_name, $cache_config);
+		if(!$result)
+		{
+			$options = array('Forum.type'=>$type, 'Forum.typesub'=>$subtype);
+			$this->Paginator->settings = array('limit'=>'5', 'conditions'=>$options,'order'=>array('Forum.created'=>'desc'));
+			$result = $this->Paginator->paginate('Forum');
+			Cache::write($cache_name, $result, $cache_config);
+		}
+		return $result;
 	}
 }
 

@@ -82,6 +82,7 @@ class ForumsController extends AppController {
 				if($this->Forum->save($this->request->data))
 				{
 					$this->Session->setFlash('发帖成功');
+					$this->clear_forum_cache();
 					$this->redirect(array('action'=>'posting_list',$type,$typesub));
 				}
 				else
@@ -96,6 +97,11 @@ class ForumsController extends AppController {
 		$this->set('subtitle',$second[$typesub]);
 		$this->set('type',$type);
 		$this->set('typesub',$typesub);
+	}
+	public function clear_forum_cache()
+	{
+		Cache::clear(false, 'mainpage');
+		return;
 	}
 	public function view($id=null)
 	{
@@ -147,6 +153,7 @@ class ForumsController extends AppController {
 		}
 		if ($this->Forum->delete()) {
 			$this->Session->setFlash(__('帖子删除成功'));
+			$this->clear_forum_cache();
 		} else {
 			$this->Session->setFlash(__('帖子删除失败，请稍后再试'));
 		}
