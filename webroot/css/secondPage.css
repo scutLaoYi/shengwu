@@ -172,7 +172,7 @@ float:left;
 border-left: 1px solid rgb(238, 229, 222);
 width:760px;
 float:right;
-margin:86px 0px 14px 0px;
+margin:50px 0px 14px 0px;
 height:auto;
 }
 #fieldset_box {
@@ -254,7 +254,7 @@ margin:0px;
 padding:0px;
 }
 #content_list_li_2 a:hover {
-color:blue;
+color:#000066;
 }
 #content_list_li_3 {
 width:710px;
@@ -327,7 +327,7 @@ text-decoration:none;
 color:#1d79be;
 }
 #proxy_list_li_2 a:hover {
-color:blue;
+color:#000066;
 }
 #proxy_list_li_3 {
 width:205px;
@@ -516,10 +516,18 @@ float:left;
 width:513px;
 list-style:none;
 height:auto;
-font-size:11px;
+font-size:14px;
+line-height:28px;
+}
+#forget_psw a {
+text-decoration:none;
+color:#990000;
+}
+#forget_psw a:hover {
+color:#000066;
 }
 #yanzhengma input[type=text] {
-width:200px;
+width:50px;
 }
 #username {
 width:53px;
@@ -659,6 +667,7 @@ width:442px;
 float:left;
 min-height:180px;
 margin-left:20px;
+margin-top:28px;
 color:#4c4c4c;
 font-size:14px;
 line-height:24px;

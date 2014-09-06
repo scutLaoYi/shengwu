@@ -116,7 +116,7 @@ text-decoration:underline;
 #footer {
 	width:1000px;
 	float:left;
-	margin-top:20px;
+	margin-top:7px;
 	text-align: center;
 	height:auto;
 	font-size:11px;
@@ -129,6 +129,10 @@ text-decoration:underline;
 	width:1000px;
 	float:left;
 	margin:0px;
+padding:0px;
+}
+#icp p {
+margin:6px 0px 0px 0px;
 padding:0px;
 }
 #footer a {
@@ -208,7 +212,7 @@ background-image:url('../img/mainPage/mainpage/menu_li.jpg');
 */
 /**-----------end of menubar -------------**/
 .menubg {
-height:29px;
+height:28px;
 width:1000px;
 margin-left:auto;
 margin-right:auto;
@@ -227,6 +231,8 @@ background-position:center;
 background-size:100% 28px;
 margin-left:auto;
 margin-right:auto;
+margin-top:0px;
+margin-bottom:0px;
 }
 .menubar ul {
 float:left;
@@ -459,15 +465,16 @@ dd {
 width:700px;
 height:auto;
 float:left;
-margin-left:30px;
+margin:20px 0px 14px 30px;
 padding:0px;
 }
 .list_submit ul {
 width:700px;
 height:auto;
 float:left;
-margin:0px;
 padding:0px;
+border:none;
+margin:0px;
 }
 
 #color_title {
@@ -491,9 +498,7 @@ margin:0px;
 padding:0px;
 float:left;
 list-style:none;
-border-left:1px solid rgb(238, 229, 222);
-border-right:1px solid rgb(238, 229, 222);
-border-bottom:1px solid rgb(238, 229, 222);
+
 }
 
 #submit_ul {
@@ -541,11 +546,12 @@ border:none;
 #submit_button {
 width:700px;
 height:auto;
-margin-bottom:10px;
+margin:0px;
 padding:0px;
 text-align:center;
 list-style:none;
 border:none;
+float:left;
 }
 div.error-message {
 float:right;
