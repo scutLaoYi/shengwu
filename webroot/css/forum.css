@@ -194,6 +194,7 @@ float:left;
 padding:0px;
 text-align:left;
 text-indent:1cm;
+overflow:hidden;
 }
 #p_author {
 color:red;

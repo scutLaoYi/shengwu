@@ -17,6 +17,7 @@ class ForumSearcherComponent extends Component
 		$result = Cache::read($cache_name, $cache_config);
 		if(!$result)
 		{
+			debug('fuck');
 			$options = array('Forum.type'=>$type, 'Forum.typesub'=>$subtype);
 			$this->Paginator->settings = array('limit'=>'5', 'conditions'=>$options,'order'=>array('Forum.created'=>'desc'));
 			$result = $this->Paginator->paginate('Forum');
