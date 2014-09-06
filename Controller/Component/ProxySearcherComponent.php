@@ -47,9 +47,9 @@ class ProxySearcherComponent extends Component
 
 		return $result;
 	}
-	public function proxy_lastest()
+	public function proxy_lastest($type)
 	{
-		$this->Paginator->settings = array('limit'=>'5','order'=>array('ProxyInfo.created'=>'desc'),'conditions'=>array('ProxyInfo.status'=>'2'));
+		$this->Paginator->settings = array('limit'=>'5','order'=>array('ProxyInfo.created'=>'desc'),'conditions'=>array('ProxyInfo.status'=>'2','ProxyInfo.product_type'=>$type));
 		return $this->Paginator->paginate('ProxyInfo');
 	}
 }

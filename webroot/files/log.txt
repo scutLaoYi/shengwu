@@ -58,3 +58,5 @@
 2014/08/03 09:02:02pm username:huanqiuyiyao type:1 status:ok
 2014/08/03 09:04:47pm username:testadmin type:unknow status:failed
 2014/08/03 09:04:50pm username:testadmin type:3 status:ok
+2014/09/06 01:42:36pm username:aa1234aa type:unknow status:failed
+2014/09/06 01:42:41pm username:aa1234 type:2 status:ok

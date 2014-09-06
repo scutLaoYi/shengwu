@@ -11,6 +11,71 @@
 				  }
 				  </script>
 <!-- end of js for rollDiv -->
+<div class="msg_box">
+<div class="msg_box_left">
+	<div id="message_box_company">
+		<span id="message_span">
+			<?php echo $this->Html->link('More',array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list'));?>
+		</span>
+	</div>
+
+	<div class="summary_message">
+	<ul id="left">
+<?php foreach($company_introduces as $company_introduce):?>
+	<li>
+		<?php echo $this->Html->link($company_introduce['CompanyUserInfo']['company'],array('controller'=>'CompanyDescriptions','action'=>'view_info',$company_introduce['CompanyUserInfo']['id']));?>
+	</li>
+<?php endforeach;?>
+	</ul>
+	</div>
+</div>
+
+<div class="msg_box_right">
+	<div id="message_box_xiuxianhuati">
+		<span id="message_span">
+			<?php echo $this->Html->link('More',array('controller'=>'Forums','action'=>'posting_list',0,0));?>
+		</span>
+	</div>
+	<div class="summary_message">
+	<ul id="right">
+	<?php foreach($forums0 as $forum):?>
+		<li><?php echo $this->Html->link($forum['Forum']['title'],array('controller'=>'Forums','action'=>'view',$forum['Forum']['id']));?></li>
+	<?php endforeach;?>
+	</ul>
+	</div>
+</div>
+
+<div class="msg_box_left">
+	<div id="message_box_yiliaoqixie">
+		<span id="message_span">
+			<?php echo $this->Html->link('More',array('controller'=>'ProxyInfos','action'=>'proxy_search', 1));?>
+		</span>
+	</div>
+
+	<div class="summary_message">
+	<ul id="left">
+	<?php foreach($proxys1 as $proxy):?>
+	<li><?php echo $this->Html->link($proxy['ProxyInfo']['product_name'].' '.$proxy['CompanyUserInfo']['company'],array('controller'=>'ProxyInfos','action'=>'proxy_view',$proxy['ProxyInfo']['id']));?></li>
+	<?php endforeach;?>
+	</ul>
+	</div>
+</div>
+<div class="msg_box_right">
+	<div id="message_box_jiaoliuchangtan">
+		<span id="message_span">
+			<?php echo $this->Html->link('More',array('controller'=>'Forums','action'=>'posting_list',1,0));?>
+		</span>
+	</div>
+	<div class="summary_message">
+	<ul id="right">
+	<?php foreach($forums1 as $forum):?>
+		<li><?php echo $this->Html->link($forum['Forum']['title'],array('controller'=>'Forums','action'=>'view',$forum['Forum']['id']));?></li>
+	<?php endforeach;?>
+	</ul>
+	</div>
+</div>
+</div>
+
 <div class="div_ad_image">
 <?php
 for($index = 0; $index < 5; $index++)
@@ -45,65 +110,63 @@ for($index = 0; $index < 5; $index++)
 </div>
 
 <!-- ------------infomations-------- -->
+
 <div class="msg_box">
 <div class="msg_box_left">
-	<div id="message_box_company">
+	<div id="message_box_shengwuyiyao">
 		<span id="message_span">
-			<?php echo $this->Html->link('More',array('controller'=>'CompanyIntroduces','action'=>'company_introduce_list'));?>
+			<?php echo $this->Html->link('More',array('controller'=>'ProxyInfos','action'=>'proxy_search', 2));?>
 		</span>
 	</div>
 
 	<div class="summary_message">
 	<ul id="left">
-<?php foreach($company_introduces as $company_introduce):?>
-	<li>
-		<?php echo $this->Html->link($company_introduce['CompanyUserInfo']['company'],array('controller'=>'CompanyDescriptions','action'=>'view_info',$company_introduce['CompanyUserInfo']['id']));?>
-	</li>
-<?php endforeach;?>
+	<?php foreach($proxys2 as $proxy):?>
+	<li><?php echo $this->Html->link($proxy['ProxyInfo']['product_name'].' '.$proxy['CompanyUserInfo']['company'],array('controller'=>'ProxyInfos','action'=>'proxy_view',$proxy['ProxyInfo']['id']));?></li>
+	<?php endforeach;?>
 	</ul>
 	</div>
 </div>
 
 <div class="msg_box_right">
-	<div id="message_box_recruitment">
+	<div id="message_box_xueshuhuiyi">
 		<span id="message_span">
-			<?php echo $this->Html->link('More',array('controller'=>'Recruitments','action'=>'recruitment_list'));?>
+			<?php echo $this->Html->link('More',array('controller'=>'Forums','action'=>'posting_list',2,0));?>
 		</span>
 	</div>
 	<div class="summary_message">
 	<ul id="right">
-		<?php foreach($recruitments as $recruitment):?>
-		<li><?php echo $this->Html->link($recruitment['Recruitment']['job_title'].' '.$recruitment['CompanyUserInfo']['company'],array('controller'=>'Recruitments','action'=>'recruitment_view',$recruitment['Recruitment']['id']));?>
-		</li>
-<?php endforeach;?>
+	<?php foreach($forums2 as $forum):?>
+		<li><?php echo $this->Html->link($forum['Forum']['title'],array('controller'=>'Forums','action'=>'view',$forum['Forum']['id']));?></li>
+	<?php endforeach;?>
 	</ul>
 	</div>
 </div>
 
 <div class="msg_box_left">
-	<div id="message_box_proxy">
+	<div id="message_box_yiliaohaocai">
 		<span id="message_span">
-			<?php echo $this->Html->link('More',array('controller'=>'ProxyInfos','action'=>'proxy_search'));?>
+			<?php echo $this->Html->link('More',array('controller'=>'ProxyInfos','action'=>'proxy_search', 3));?>
 		</span>
 	</div>
 
 	<div class="summary_message">
 	<ul id="left">
-	<?php foreach($proxys as $proxy):?>
+	<?php foreach($proxys3 as $proxy):?>
 	<li><?php echo $this->Html->link($proxy['ProxyInfo']['product_name'].' '.$proxy['CompanyUserInfo']['company'],array('controller'=>'ProxyInfos','action'=>'proxy_view',$proxy['ProxyInfo']['id']));?></li>
 	<?php endforeach;?>
 	</ul>
 	</div>
 </div>
 <div class="msg_box_right">
-	<div id="message_box_forum">
+	<div id="message_box_yaowuyanfa">
 		<span id="message_span">
-			<?php echo $this->Html->link('More',array('controller'=>'Forums','action'=>'index'));?>
+			<?php echo $this->Html->link('More',array('controller'=>'Forums','action'=>'posting_list',3,0));?>
 		</span>
 	</div>
 	<div class="summary_message">
 	<ul id="right">
-	<?php foreach($forums as $forum):?>
+	<?php foreach($forums3 as $forum):?>
 		<li><?php echo $this->Html->link($forum['Forum']['title'],array('controller'=>'Forums','action'=>'view',$forum['Forum']['id']));?></li>
 	<?php endforeach;?>
 	</ul>
@@ -143,6 +206,69 @@ for($index = 0; $index < 5; $index++)
 }
 ?>
 </div>
+
+<div class="msg_box">
+<div class="msg_box_left">
+	<div id="message_box_recruitment">
+		<span id="message_span">
+			<?php echo $this->Html->link('More',array('controller'=>'Recruitments','action'=>'recruitment_list'));?>
+		</span>
+	</div>
+	<div class="summary_message">
+	<ul id="right">
+		<?php foreach($recruitments as $recruitment):?>
+		<li><?php echo $this->Html->link($recruitment['Recruitment']['job_title'].' '.$recruitment['CompanyUserInfo']['company'],array('controller'=>'Recruitments','action'=>'recruitment_view',$recruitment['Recruitment']['id']));?>
+		</li>
+<?php endforeach;?>
+	</ul>
+	</div>
+</div>
+
+<div class="msg_box_right">
+	<div id="message_box_linchuangtaolun">
+		<span id="message_span">
+			<?php echo $this->Html->link('More',array('controller'=>'Forums','action'=>'posting_list',4,0));?>
+		</span>
+	</div>
+	<div class="summary_message">
+	<ul id="right">
+	<?php foreach($forums4 as $forum):?>
+		<li><?php echo $this->Html->link($forum['Forum']['title'],array('controller'=>'Forums','action'=>'view',$forum['Forum']['id']));?></li>
+	<?php endforeach;?>
+	</ul>
+	</div>
+</div>
+
+<div class="msg_box_left">
+	<div id="message_box_yaoshizige">
+		<span id="message_span">
+			<?php echo $this->Html->link('More',array('controller'=>'Forums','action'=>'posting_list',5,0));?>
+		</span>
+	</div>
+	<div class="summary_message">
+	<ul id="right">
+	<?php foreach($forums5 as $forum):?>
+		<li><?php echo $this->Html->link($forum['Forum']['title'],array('controller'=>'Forums','action'=>'view',$forum['Forum']['id']));?></li>
+	<?php endforeach;?>
+	</ul>
+	</div>
+</div>
+<div class="msg_box_right">
+	<div id="message_box_keyanqiuzhu">
+		<span id="message_span">
+			<?php echo $this->Html->link('More',array('controller'=>'Forums','action'=>'posting_list',6,0));?>
+		</span>
+	</div>
+	<div class="summary_message">
+	<ul id="right">
+	<?php foreach($forums6 as $forum):?>
+		<li><?php echo $this->Html->link($forum['Forum']['title'],array('controller'=>'Forums','action'=>'view',$forum['Forum']['id']));?></li>
+	<?php endforeach;?>
+	</ul>
+	</div>
+</div>
+</div>
+
 
 
 

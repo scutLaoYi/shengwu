@@ -10,9 +10,10 @@ class ForumSearcherComponent extends Component
 {
 	public $components = array('Paginator');
 	
-	public function forum_lastest()
+	public function forum_lastest($type, $subtype)
 	{
-		$this->Paginator->settings = array('limit'=>'5','order'=>array('Forum.created'=>'desc'));
+		$options = array('Forum.type'=>$type, 'Forum.typesub'=>$subtype);
+		$this->Paginator->settings = array('limit'=>'5', 'conditions'=>$options,'order'=>array('Forum.created'=>'desc'));
 		return $this->Paginator->paginate('Forum');
 	}
 }
